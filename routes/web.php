@@ -77,6 +77,22 @@ Route::group(['middleware' =>'authen', 'prefix' => 'backend'], function(){
 		Route::get('{id}/deleteList',['as'=>'backend.slider.getDeleteList','uses'=>'Admin\SliderController@getDeleteList']);
 	});
 
+	Route::group(['prefix' => 'customers'], function(){
+		Route::get('/',['as'=>'backend.customers.index','uses'=>'Admin\CustomersController@getList']);
+		Route::get('add',['as'=>'backend.customers.getAdd','uses'=>'Admin\CustomersController@getAdd']);
+		Route::post('postAdd',['as'=>'backend.customers.postAdd','uses'=>'Admin\CustomersController@postAdd']);
+		Route::get('edit',['as'=>'backend.customers.getEdit','uses'=>'Admin\CustomersController@getEdit']);
+		Route::post('edit',['as'=>'backend.customers.update','uses'=>'Admin\CustomersController@update']);
+		Route::get('{mskh}/delete',['as'=>'backend.customers.getDelete','uses'=>'Admin\CustomersController@getDelete']);
+		Route::get('{mskh}/deleteList',['as'=>'backend.customers.getDeleteList','uses'=>'Admin\CustomersController@getDeleteList']);
+		Route::get('show/{mskh}',['as'=>'backend.customers.show', 'uses'=>'Admin\CustomersController@show']);
+		Route::get('show/{mskh}/add',['as'=>'backend.customers.getAddHistory', 'uses'=>'Admin\CustomersController@getAddHistory']);
+		Route::post('show/{mskh}/postAdd',['as'=>'backend.customers.postAddHistory', 'uses'=>'Admin\CustomersController@postAddHistory']);
+		Route::get('show/{mskh}/edit',['as'=>'backend.customers.getEditHistory','uses'=>'Admin\CustomersController@getEditHistory']);
+		Route::post('show/{mskh}/edit',['as'=>'backend.customers.updateHistory','uses'=>'Admin\CustomersController@updateHistory']);
+
+	});
+
 	Route::group(['prefix' => 'news'], function(){
 		Route::get('/',['as'=>'backend.news.index','uses'=>'Admin\NewsController@getDanhSach']);
 		Route::get('add',['as'=>'backend.news.getAdd','uses'=>'Admin\NewsController@getAdd']);

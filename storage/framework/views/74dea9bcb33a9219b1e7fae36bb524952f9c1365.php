@@ -2,6 +2,7 @@
     <section class="sidebar">
       <ul class="sidebar-menu">
         <li><a href="backend/users/listuse"><i class="fa fa-users" aria-hidden="true"></i> <span>Quản lý tài khoản</span></a></li>
+        <li><a href="backend/customers"><i class="fa fa-users" aria-hidden="true"></i> <span>Quản lý khách hàng</span></a></li>
         <li class="treeview" >
           <a href="#"> <i class="fa fa-edit"></i> <span>Quản lý bài viết</span> <i class="fa fa-angle-left pull-right"></i></a>
           <ul class="treeview-menu">
