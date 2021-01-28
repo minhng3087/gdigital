@@ -1,0 +1,11838 @@
+
+
+
+
+
+
+
+
+@font-face {
+
+
+
+
+
+
+
+    font-family: 'Roboto', sans-serif;
+
+
+
+
+
+
+
+    src: url('../fonts/Roboto/Bold/Roboto-Bold.eot');
+
+
+
+
+
+
+
+    src: url('../fonts/Roboto/Bold/Roboto-Bold.eot?#iefix') format('embedded-opentype'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Bold/Roboto-Bold.woff2') format('woff2'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Bold/Roboto-Bold.woff') format('woff'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Bold/Roboto-Bold.ttf') format('truetype'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Bold/Roboto-Bold.svg#Roboto-Bold') format('svg');
+
+
+
+
+
+
+
+    font-weight: bold;
+
+
+
+
+
+
+
+    font-style: normal;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+
+
+
+
+
+
+
+    font-family: 'Roboto', sans-serif;
+
+
+
+
+
+
+
+    src: url('../fonts/Roboto/Regular/Roboto-Regular.eot');
+
+
+
+
+
+
+
+    src: url('../fonts/Roboto/Regular/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Regular/Roboto-Regular.woff2') format('woff2'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Regular/Roboto-Regular.woff') format('woff'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Regular/Roboto-Regular.ttf') format('truetype'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Regular/Roboto-Regular.svg#Roboto-Regular') format('svg');
+
+
+
+
+
+
+
+    font-weight: normal;
+
+
+
+
+
+
+
+    font-style: normal;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+
+
+
+
+
+
+
+    font-family: 'Roboto', sans-serif;
+
+
+
+
+
+
+
+    src: url('../fonts/Roboto/Light/Roboto-Light.eot');
+
+
+
+
+
+
+
+    src: url('../fonts/Roboto/Light/Roboto-Light.eot?#iefix') format('embedded-opentype'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Light/Roboto-Light.woff2') format('woff2'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Light/Roboto-Light.woff') format('woff'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Light/Roboto-Light.ttf') format('truetype'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Light/Roboto-Light.svg#Roboto-Light') format('svg');
+
+
+
+
+
+
+
+    font-weight: 300;
+
+
+
+
+
+
+
+    font-style: normal;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+
+
+
+
+
+
+
+    font-family: 'Roboto', sans-serif;
+
+
+
+
+
+
+
+    src: url('../fonts/Roboto/Medium/Roboto-Medium.eot');
+
+
+
+
+
+
+
+    src: url('../fonts/Roboto/Medium/Roboto-Medium.eot?#iefix') format('embedded-opentype'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Medium/Roboto-Medium.woff2') format('woff2'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Medium/Roboto-Medium.woff') format('woff'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Medium/Roboto-Medium.ttf') format('truetype'),
+
+
+
+
+
+
+
+    url('../fonts/Roboto/Medium/Roboto-Medium.svg#Roboto-Medium') format('svg');
+
+
+
+
+
+
+
+    font-weight: 500;
+
+
+
+
+
+
+
+    font-style: normal;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4,
+
+
+
+
+
+
+
+.col-5, .col-6, .col-7, .col-8, .col-9, .col-lg, .col-lg-1, .col-lg-10,
+
+
+
+
+
+
+
+.col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6,
+
+
+
+
+
+
+
+.col-lg-7, .col-lg-8, .col-lg-9, .col-md, .col-md-1, .col-md-10, .col-md-11,
+
+
+
+
+
+
+
+.col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7,
+
+
+
+
+
+
+
+.col-md-8, .col-md-9, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12,
+
+
+
+
+
+
+
+.col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8,
+
+
+
+
+
+
+
+.col-sm-9, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2,
+
+
+
+
+
+
+
+.col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9 {
+
+
+
+
+
+
+
+    padding: 0 10px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.row {
+
+
+
+
+
+
+
+    margin: 0 -10px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html, body, div, dl, dt, dd, ul,  h1, h2, h3,  pre, form, label, fieldset, input, p, blockquote, th, td { margin:0; padding:0 }
+
+
+
+
+
+
+
+table { border-collapse:collapse; border-spacing:0 }
+
+
+
+
+
+
+
+body {
+
+
+
+
+
+
+
+    font-family: 'Roboto', sans-serif;
+
+
+
+
+
+
+
+    font-size: 14px;
+
+
+
+
+
+
+
+    color: #212121;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+ul {
+
+
+
+
+
+
+
+    padding: 0; margin: 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+ul, li {
+
+
+
+
+
+
+
+    list-style: none
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+button:focus , input:focus, textarea:focus  {
+
+
+
+
+
+
+
+    outline: none
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+span {
+
+
+
+
+
+
+
+    display: inline-block
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+a{
+
+
+
+
+
+
+
+    color: #212121;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+a:hover , a:focus{
+
+
+
+
+
+
+
+    text-decoration: none;
+
+
+
+
+
+
+
+    color:  #0047ab;
+
+
+
+
+
+
+
+    transition: all 0.4s ease;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container{
+
+
+
+
+
+
+
+    max-width: 1200px;
+
+
+
+
+
+
+
+    padding: 0 10px;
+
+
+
+
+
+
+
+    width: 100%;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+body img{
+
+
+
+
+
+
+
+    max-width: 100%;
+
+
+
+
+
+
+
+    transition: all ease 0.4s;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+input, select{
+
+
+
+
+
+
+
+    transition: all ease 0.4s;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+textarea{
+
+
+
+
+
+
+
+    border: 1px solid #000;
+
+
+
+
+
+
+
+    min-height: 116px;
+
+
+
+
+
+
+
+    padding: 15px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+button{
+
+
+
+
+
+
+
+    font-family: 'Roboto', sans-serif;
+
+
+
+
+
+
+
+    cursor: pointer;
+
+
+
+
+
+
+
+    transition: 0.3s all ease;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+iframe{
+
+
+
+
+
+
+
+    display: block;
+
+
+
+
+
+
+
+    max-width: 100%;
+
+
+
+
+
+
+
+    margin: 0 auto;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.btn{
+
+
+
+
+
+
+
+    background: #000;
+
+
+
+
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+    border: 1px solid #000;
+
+
+
+
+
+
+
+    padding: 7px 24px;
+
+
+
+
+
+
+
+    border-radius: 12px;
+
+
+
+
+
+
+
+    transition: 0.3s all ease;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.btn:hover{
+
+
+
+
+
+
+
+    background: #fff;
+
+
+
+
+
+
+
+    color: #000;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+h1 {font-size: 34px}
+
+
+
+
+
+
+
+h2 {font-size: 30px}
+
+
+
+
+
+
+
+h3 {font-size: 28px}
+
+
+
+
+
+
+
+h4 {font-size: 24px}
+
+
+
+
+
+
+
+h5 {font-size: 16px}
+
+
+
+
+
+
+
+h6 {font-size: 14px}
+
+
+
+
+
+
+
+.h1, .h2, .h3, .h4, .h5, .h6,
+
+
+
+
+
+
+
+h1, h2, h3, h4, h5, h6 {
+
+
+
+
+
+
+
+    line-height: 1.5;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.flex {
+
+
+
+
+
+
+
+    display: flex;
+
+
+
+
+
+
+
+    display: -webkit-flex;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.flex-center {
+
+
+
+
+
+
+
+    display: flex;
+
+
+
+
+
+
+
+    display: -webkit-flex;
+
+
+
+
+
+
+
+    align-items: center;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.flex-center-center {
+
+
+
+
+
+
+
+    display: flex;
+
+
+
+
+
+
+
+    display: -webkit-flex;
+
+
+
+
+
+
+
+    align-items: center;
+
+
+
+
+
+
+
+    justify-content: center;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.flex-center-end {
+
+
+
+
+
+
+
+    display: flex;
+
+
+
+
+
+
+
+    display: -webkit-flex;
+
+
+
+
+
+
+
+    align-items: center;
+
+
+
+
+
+
+
+    justify-content: flex-end;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.flex-center-start {
+
+
+
+
+
+
+
+    display: flex;
+
+
+
+
+
+
+
+    display: -webkit-flex;
+
+
+
+
+
+
+
+    align-items: center;
+
+
+
+
+
+
+
+    justify-content: flex-start;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.flex-center-between {
+
+
+
+
+
+
+
+    display: flex;
+
+
+
+
+
+
+
+    display: -webkit-flex;
+
+
+
+
+
+
+
+    align-items: center;
+
+
+
+
+
+
+
+    justify-content: space-between;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.inflex-center-center {
+
+
+
+
+
+
+
+    display: inline-flex;
+
+
+
+
+
+
+
+    display: -webkit-inline-flex;
+
+
+
+
+
+
+
+    align-items: center;
+
+
+
+
+
+
+
+    justify-content: center;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.absolute {
+
+
+
+
+
+
+
+    position: absolute;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.relative {
+
+
+
+
+
+
+
+    position: relative;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.pd-60 {
+
+
+
+
+
+
+
+    padding: 60px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+img {
+
+
+
+
+
+
+
+    transition: all ease 0.5s;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+
+
+
+
+
+
+
+    color: #bfbfbf;
+
+
+
+
+
+
+
+    font-size: 14px;
+
+
+
+
+
+
+
+    font-weight: 300;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+::-moz-placeholder { /* Firefox 19+ */
+
+
+
+
+
+
+
+    color: #bfbfbf;
+
+
+
+
+
+
+
+    font-size: 14px;
+
+
+
+
+
+
+
+    font-weight: 300;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+:-ms-input-placeholder { /* IE 10+ */
+
+
+
+
+
+
+
+    color: #bfbfbf;
+
+
+
+
+
+
+
+    font-size: 14px;
+
+
+
+
+
+
+
+    font-weight: 300;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+:-moz-placeholder { /* Firefox 18- */
+
+
+
+
+
+
+
+    color: #bfbfbf;
+
+
+
+
+
+
+
+    font-size: 14px;
+
+
+
+
+
+
+
+    font-weight: 300;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.mg-20 {
+
+
+
+
+
+
+
+    margin: 20px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.mgb-20 {
+
+
+
+
+
+
+
+    margin-bottom: 20px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.mgt-20 {
+
+
+
+
+
+
+
+    margin-top: 20px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.search {
+
+
+
+
+
+
+
+    display: flex;
+
+
+
+
+
+
+
+    display: -webkit-flex;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.search input,
+
+
+
+
+
+
+
+.search button {
+
+
+
+
+
+
+
+    background: #fff;
+
+
+
+
+
+
+
+    border: solid 1px #dddddd;
+
+
+
+
+
+
+
+    height: 40px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.search  input {
+
+
+
+
+
+
+
+    border-right: none;
+
+
+
+
+
+
+
+    border-radius: 0;
+
+
+
+
+
+
+
+    color: #212121;
+
+
+
+
+
+
+
+    padding: 5px 10px;
+
+
+
+
+
+
+
+    transition: all ease 0.5s;
+
+
+
+
+
+
+
+    width: 100%;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.search  button {
+
+
+
+
+
+
+
+    color: #bfbfbf;
+
+
+
+
+
+
+
+    border-left: none;
+
+
+
+
+
+
+
+    border-radius: 0 ;
+
+
+
+
+
+
+
+    font-size: 20px;
+
+
+
+
+
+
+
+    width: 40px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.slider-general.owl-carousel .owl-item img {
+
+
+
+
+
+
+
+    display: inline-block;
+
+
+
+
+
+
+
+    width: auto;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.slider-general.owl-carousel .owl-nav {
+
+
+
+
+
+
+
+    display: block !important;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.slider-general.owl-carousel .owl-nav > div {
+
+
+
+
+
+
+
+    position: absolute;
+
+
+
+
+
+
+
+    top: 45%;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.slider-general.owl-carousel .owl-next {
+
+
+
+
+
+
+
+    right: -30px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.slider-general.owl-carousel .owl-prev {
+
+
+
+
+
+
+
+    left: -30px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.zoom {
+
+
+
+
+
+
+
+    display: block;
+
+
+
+
+
+
+
+    overflow: hidden;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.zoom img {
+
+
+
+
+
+
+
+    width: 100%;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.zoom:hover img {
+
+
+
+
+
+
+
+    transform: scale(1.1);
+
+
+
+
+
+
+
+    -webkit-transform: scale(1.1);
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.effect {
+
+
+
+
+
+
+
+    display: block;
+
+
+
+
+
+
+
+    position: relative;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.effect img {
+
+
+
+
+
+
+
+    width: 100%;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.effect:hover {
+
+
+
+
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.effect::before, .effect::after {
+
+
+
+
+
+
+
+    box-sizing: border-box;
+
+
+
+
+
+
+
+    content: '';
+
+
+
+
+
+
+
+    position: absolute;
+
+
+
+
+
+
+
+    top: 10px;
+
+
+
+
+
+
+
+    left: 10px;
+
+
+
+
+
+
+
+    height: calc( 100% - 18px);
+
+
+
+
+
+
+
+    width: calc( 100% - 18px);
+
+
+
+
+
+
+
+    transform-origin: center;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.effect::before {
+
+
+
+
+
+
+
+    border-top: 1px solid white;
+
+
+
+
+
+
+
+    border-bottom: 1px solid white;
+
+
+
+
+
+
+
+    transform: scale3d(0, 1, 1);
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.effect:hover::before, .effect:hover::after{
+
+
+
+
+
+
+
+    transform: scale3d(1, 1, 1);
+
+
+
+
+
+
+
+    transition: transform 0.5s;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.effect::after {
+
+
+
+
+
+
+
+    border-left: 1px solid white;
+
+
+
+
+
+
+
+    border-right: 1px solid white;
+
+
+
+
+
+
+
+    transform: scale3d(1, 0, 1);
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+/*-----------Style------------*/
+
+
+
+
+
+
+
+header {
+
+
+
+
+
+
+
+    background: url("../images/background/bg-header.png") no-repeat center /cover;
+
+
+
+
+
+
+
+    padding: 10px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.header-nav {
+
+
+
+
+
+
+
+    border-bottom: 1px solid #cccccc;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.header-nav ul {
+
+
+
+
+
+
+
+    margin-bottom: -2px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.header-nav .nav-main > li {
+
+
+
+
+
+
+
+    border-bottom: 4px solid  transparent;
+
+
+
+
+
+
+
+    padding: 15px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.header-nav .nav-main > li:hover {
+
+
+
+
+
+
+
+    border-bottom-color: #0047ab;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.header-nav li a {
+
+
+
+
+
+
+
+    color: #192c46;
+
+
+
+
+
+
+
+    font-size: 14px;
+
+
+
+
+
+
+
+    text-transform: uppercase;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.nav-main > li:hover > a {
+
+
+
+
+
+
+
+    color: #da251d;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.has-submenu {
+
+
+
+
+
+
+
+    position: relative;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.nav-sub {
+
+
+
+
+
+
+
+    position: absolute;
+
+
+
+
+
+
+
+    left: 0;
+
+
+
+
+
+
+
+    top: 120%;
+
+
+
+
+
+
+
+    visibility: hidden;
+
+
+
+
+
+
+
+    min-width: 230px;
+
+
+
+
+
+
+
+    width: 100%;
+
+
+
+
+
+
+
+    z-index: 2;
+
+
+
+
+
+
+
+    transition: all ease-out 0.2s;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.nav-sub li {
+
+
+
+
+
+
+
+    background: #0047ab;
+
+
+
+
+
+
+
+    padding: 10px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.nav-sub li:hover {
+
+
+
+
+
+
+
+    background: #155dc3;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.nav-sub li a {
+
+
+
+
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.has-submenu:hover .nav-sub {
+
+
+
+
+
+
+
+    visibility: visible;
+
+
+
+
+
+
+
+    top: 100%;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.header-form {
+
+
+
+
+
+
+
+    padding-top: 10px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.hotline {
+
+
+
+
+
+
+
+    font-size: 18px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.hotline span {
+
+
+
+
+
+
+
+    color: #da251d;
+
+
+
+
+
+
+
+    font-size: 24px;
+
+
+
+
+
+
+
+    font-weight: bold;
+
+
+
+
+
+
+
+    margin-left: 5px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+#select-langue {
+
+
+
+
+
+
+
+    border: solid 1px #cccccc;
+
+
+
+
+
+
+
+    border-radius: 3px;
+
+
+
+
+
+
+
+    /*padding: 7px 10px;*/
+
+
+
+
+
+
+
+    position: relative;
+
+
+
+
+
+
+
+    width: 146px;
+
+
+
+
+
+
+
+    height: 38px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+#select-langue:after {
+
+
+
+
+
+
+
+    content: url(../images/icon/arrow.png);
+
+
+
+
+
+
+
+    position: absolute;
+
+
+
+
+
+
+
+    top: 12px;
+
+
+
+
+
+
+
+    right: 10px;
+
+
+
+
+
+
+
+    pointer-events: none;
+
+
+
+
+
+
+
+    z-index: 9;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+#select-langue ul {
+
+
+
+
+
+
+
+    background: #f1f1f1;
+
+
+
+
+
+
+
+    position: absolute;
+
+
+
+
+
+
+
+    left: 0;
+
+
+
+
+
+
+
+    width: 100%;
+
+
+
+
+
+
+
+    z-index: 2;
+
+
+
+
+
+
+
+    padding: 2px 10px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+#select-langue li {
+
+
+
+
+
+
+
+    border: none;
+
+
+
+
+
+
+
+    padding: 5px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.option a {
+
+
+
+
+
+
+
+    text-transform: uppercase;
+
+
+
+
+
+
+
+    padding-left: 35px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.vn {
+
+
+
+
+
+
+
+    background: url("../images/icon/icon-vn.png") no-repeat left center;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.eng {
+
+
+
+
+
+
+
+    background: url("../images/icon/icon-eng.png") no-repeat left center;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.uae {
+
+
+
+
+
+
+
+    background: url("../images/icon/icon-uae.png") no-repeat left center;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.tai {
+
+
+
+
+
+
+
+    background: url("../images/icon/icon-tai.png") no-repeat left center;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.banner-slider {
+
+
+
+
+
+
+
+    margin: 20px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.banner-slider.slider-general .owl-prev {
+
+
+
+
+
+
+
+    left: 30px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.banner-slider.slider-general .owl-next {
+
+
+
+
+
+
+
+    right: 30px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.news-abs-txt {
+
+
+
+
+
+
+
+    margin-left: 20px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.news-abs {
+
+
+
+
+
+
+
+    background: rgba(0, 0, 0, 0.4);
+
+
+
+
+
+
+
+    bottom: 0;
+
+
+
+
+
+
+
+    left: 0;
+
+
+
+
+
+
+
+    right: 0;
+
+
+
+
+
+
+
+    padding: 20px;
+
+
+
+
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.news-abs a {
+
+
+
+
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.news-abs p {
+
+
+
+
+
+
+
+    font-size: 13px;
+
+
+
+
+
+
+
+    font-weight: 300;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.desc {
+
+
+
+
+
+
+
+    font-size: 15px;
+
+
+
+
+
+
+
+    line-height: 1.5;
+
+
+
+
+
+
+
+    margin-top: 10px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.news-list-ul h5 {
+
+
+
+
+
+
+
+    background: #f1f1f1;
+
+
+
+
+
+
+
+    padding: 20px 10px;
+
+
+
+
+
+
+
+    font-weight: bold;
+
+
+
+
+
+
+
+    margin-bottom: 0;
+
+
+
+
+
+
+
+    text-align: center;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.news-list-ul ul li {
+
+
+
+
+
+
+
+    border: 1px solid #f1f1f1;
+
+
+
+
+
+
+
+    border-top: none;
+
+
+
+
+
+
+
+    padding: 18px 15px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.strength {
+
+
+
+
+
+
+
+    background: url("../images/background/bg-index.png") no-repeat center /cover;
+
+
+
+
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.strength h1 {
+
+
+
+
+
+
+
+    font-size: 24px;
+
+
+
+
+
+
+
+    font-weight: normal;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.strength h1 span {
+
+
+
+
+
+
+
+    border-bottom: 1px solid #fff;
+
+
+
+
+
+
+
+    padding-bottom: 5px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.strength h4 {
+
+
+
+
+
+
+
+    font-size: 36px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.news-item h5 {
+
+
+
+
+
+
+
+    margin: 10px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.upload {
+
+
+
+
+
+
+
+    font-size: 13px !important;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.partner {
+
+
+
+
+
+
+
+    border-top: 1px solid #ccc;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.partner-slider.slider-general .owl-nav > div {
+
+
+
+
+
+
+
+    top: 25%;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.partner-slider.slider-general .owl-next {
+
+
+
+
+
+
+
+    right: -80px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.partner-slider.slider-general .owl-prev {
+
+
+
+
+
+
+
+    left: -80px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.partner-slider.owl-carousel .owl-stage {
+
+
+
+
+
+
+
+    display: flex;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.partner-slider .owl-item {
+
+
+
+
+
+
+
+    padding: 0 5px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.partner-slider .owl-item a{
+
+
+
+
+
+
+
+    border: 1px solid #ccc;
+
+
+
+
+
+
+
+    display: flex;
+
+
+
+
+
+
+
+    align-items: center;
+
+
+
+
+
+
+
+    justify-content: center;
+
+
+
+
+
+
+
+    padding: 15px;
+
+
+
+
+
+
+
+    height: 100%;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.company {
+
+
+
+
+
+
+
+    background: url("../images/background/bg-footer.png") no-repeat bottom center /cover;
+
+
+
+
+
+
+
+    padding: 40px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.company-info {
+
+
+
+
+
+
+
+    margin-left: 30px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.company-info  h4 {
+
+
+
+
+
+
+
+    font-size: 18px;
+
+
+
+
+
+
+
+    font-weight: bold;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.company-info p {
+
+
+
+
+
+
+
+    margin-top: 7px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.social a {
+
+
+
+
+
+
+
+    border: 1px solid #858585;
+
+
+
+
+
+
+
+    border-radius: 50%;
+
+
+
+
+
+
+
+    color: #858585;
+
+
+
+
+
+
+
+    font-size: 16px;
+
+
+
+
+
+
+
+    margin-left: 10px;
+
+
+
+
+
+
+
+    width: 35px;
+
+
+
+
+
+
+
+    height: 35px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.social a:first-child {
+
+
+
+
+
+
+
+    margin-left: 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.social a:hover {
+
+
+
+
+
+
+
+    background: #858585;
+
+
+
+
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.hotline-footer {
+
+
+
+
+
+
+
+    margin-top: 15px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.hotline-footer a {
+
+
+
+
+
+
+
+    color: #da251d;
+
+
+
+
+
+
+
+    font-size: 36px;
+
+
+
+
+
+
+
+    font-weight: bold;
+
+
+
+
+
+
+
+    margin-left: 10px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.copyright {
+
+
+
+
+
+
+
+    background: #dbdbdb;
+
+
+
+
+
+
+
+    padding: 15px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.copyright img {
+
+
+
+
+
+
+
+    margin-left: 10px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.breadcrumb {
+
+
+
+
+
+
+
+    background: transparent;
+
+
+
+
+
+
+
+    padding: 0;
+
+
+
+
+
+
+
+    margin-bottom: 0;
+
+
+
+
+
+
+
+    border: none !important;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.breadcrumb ul {
+
+
+
+
+
+
+
+    padding: 20px 0 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.breadcrumb li a:after {
+
+
+
+
+
+
+
+    content: '/';
+
+
+
+
+
+
+
+    margin:  0 10px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-------------page thi truong lao dong ---------------*/
+
+
+
+
+
+
+
+.market {
+
+
+
+
+
+
+
+    padding: 30px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.title-market {
+
+
+
+
+
+
+
+    background: #0047ab;
+
+
+
+
+
+
+
+    text-align: center;
+
+
+
+
+
+
+
+    padding: 20px 10px;
+
+
+
+
+
+
+
+    margin: 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.title-market a {
+
+
+
+
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.market-cache {
+
+
+
+
+
+
+
+    background: #f6f6f6;
+
+
+
+
+
+
+
+    padding: 15px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.market-item ul {
+
+
+
+
+
+
+
+    border-top: 1px solid #ccc;
+
+
+
+
+
+
+
+    margin-top: 15px;
+
+
+
+
+
+
+
+    padding: 15px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.market-item ul li {
+
+
+
+
+
+
+
+    padding: 5px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.market-item ul li a {
+
+
+
+
+
+
+
+    line-height: 1.5;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.market-item ul li img {
+
+
+
+
+
+
+
+    margin-right: 5px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.view-link {
+
+
+
+
+
+
+
+    background: #cfcfcf;
+
+
+
+
+
+
+
+    display: block;
+
+
+
+
+
+
+
+    font-size: 15px;
+
+
+
+
+
+
+
+    padding: 20px 10px;
+
+
+
+
+
+
+
+    text-align: center;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+/*-------------page thi truong lao dong chi tiet ---------------*/
+
+
+
+
+
+
+
+.market-detail {
+
+
+
+
+
+
+
+    padding: 30px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.market-detail p {
+
+
+
+
+
+
+
+    font-size: 16px;
+
+
+
+
+
+
+
+    line-height: 1.5;
+
+
+
+
+
+
+
+    margin-top: 15px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.title-cate {
+
+
+
+
+
+
+
+    font-size: 24px;
+
+
+
+
+
+
+
+    font-weight: normal;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.detail-desc {
+
+
+
+
+
+
+
+    font-size: 15px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.box-contact {
+
+
+
+
+
+
+
+    border-radius: 3px;
+
+
+
+
+
+
+
+    background-color: #edfdfe;
+
+
+
+
+
+
+
+    border: solid 1px #0047ab;
+
+
+
+
+
+
+
+    margin-top: 60px;
+
+
+
+
+
+
+
+    padding: 50px 20px 30px 20px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.box-contact p {
+
+
+
+
+
+
+
+    margin-top: 10px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.contact-item .font-weight-bold {
+
+
+
+
+
+
+
+    color: #db2424;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.title-content {
+
+
+
+
+
+
+
+    background: #0047ab;
+
+
+
+
+
+
+
+    border-radius: 22px;
+
+
+
+
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+    font-size: 16px;
+
+
+
+
+
+
+
+    font-weight: bold;
+
+
+
+
+
+
+
+    padding: 10px 40px;
+
+
+
+
+
+
+
+    margin: 30px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.title-abs {
+
+
+
+
+
+
+
+    position: absolute;
+
+
+
+
+
+
+
+    top: -22px;
+
+
+
+
+
+
+
+    left: calc((100% - 226px) / 2);
+
+
+
+
+
+
+
+    left: -webkit-calc((100% - 226px) / 2);
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.box-contact .title-content {
+
+
+
+
+
+
+
+    margin: 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.news-li {
+
+
+
+
+
+
+
+    margin-top: 20px;
+
+
+
+
+
+
+
+    padding-left: 20px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.news-li li {
+
+
+
+
+
+
+
+    list-style-type: disc;
+
+
+
+
+
+
+
+    padding: 5px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.market-cate {
+
+
+
+
+
+
+
+    padding: 30px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.market-cate .container > p {
+
+
+
+
+
+
+
+    margin-top: 15px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.market-link {
+
+
+
+
+
+
+
+    margin: 30px 0 10px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.market-link a{
+
+
+
+
+
+
+
+    display: inline-block;
+
+
+
+
+
+
+
+    margin: 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.market-link a:hover {
+
+
+
+
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.news-page .news-abs-txt {
+
+
+
+
+
+
+
+    margin-left: 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.news-page {
+
+
+
+
+
+
+
+    padding: 30px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.news-page .topnews-index {
+
+
+
+
+
+
+
+    padding: 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.blue-txt {
+
+
+
+
+
+
+
+    color: #0047ab;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.title-cate-child {
+
+
+
+
+
+
+
+    border-left: 5px solid #0047ab;
+
+
+
+
+
+
+
+    font-size: 18px;
+
+
+
+
+
+
+
+    font-weight: bold;
+
+
+
+
+
+
+
+    padding: 5px 0 5px 20px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.news-plus li {
+
+
+
+
+
+
+
+    padding: 5px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.news-plus li a {
+
+
+
+
+
+
+
+    font-weight: 500;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.child-defe ul li {
+
+
+
+
+
+
+
+    border-top: 1px solid #ccc;
+
+
+
+
+
+
+
+    padding: 10px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.child-defe ul li i {
+
+
+
+
+
+
+
+    margin-right: 5px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.pagi {
+
+
+
+
+
+
+
+    margin: 20px 0;
+
+
+
+
+
+
+
+    position: relative;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.pagi ul {
+
+
+
+
+
+
+
+    background: #fff;
+
+
+
+
+
+
+
+    display: inline-flex;
+
+
+
+
+
+
+
+    display: -webkit-inline-flex;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+/*.pagi ul:before, .pagi ul:after {*/
+
+
+
+
+
+
+
+    /*background: #ccc;*/
+
+
+
+
+
+
+
+    /*content: '';*/
+
+
+
+
+
+
+
+    /*width: 100%;*/
+
+
+
+
+
+
+
+    /*height: 1px;*/
+
+
+
+
+
+
+
+    /*position: absolute;*/
+
+
+
+
+
+
+
+    /*left: 0;*/
+
+
+
+
+
+
+
+/*}*/
+
+
+
+
+
+
+
+.pagi li {
+
+
+
+
+
+
+
+    line-height: 36px;
+
+
+
+
+
+
+
+    margin-right: 10px;
+
+
+
+
+
+
+
+    height: 36px;
+
+
+
+
+
+
+
+    text-align: center;
+
+
+
+
+
+
+
+    width: 36px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.pagi li a, .pagi li span {
+
+
+
+
+
+
+
+    display: block;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.pagi li a {
+
+
+
+
+
+
+
+    background: #d9d9d9;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.pagi li a:hover, .pagi li span {
+
+
+
+
+
+
+
+    background: #0047ab;
+
+
+
+
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.news-detail p {
+
+
+
+
+
+
+
+    margin-top: 15px;
+
+
+
+
+
+
+
+    font-size: 15px;
+
+
+
+
+
+
+
+    line-height: 1.5;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.bg-x {
+
+
+
+
+
+
+
+    background: #f6f6f6;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.no-radius a{
+
+
+
+
+
+
+
+    border-radius: 0 !important;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.title-no.title-cate-child {
+
+
+
+
+
+
+
+    padding: 0;
+
+
+
+
+
+
+
+    border: none;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.title-no a {
+
+
+
+
+
+
+
+    color: #212121;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.box-desc {
+
+
+
+
+
+
+
+    background: #eef2f8;
+
+
+
+
+
+
+
+    border: 1px solid #0047ab;
+
+
+
+
+
+
+
+    border-radius: 5px;
+
+
+
+
+
+
+
+    color: #0047ab;
+
+
+
+
+
+
+
+    font-size: 15px;
+
+
+
+
+
+
+
+    line-height: 24px;
+
+
+
+
+
+
+
+    padding: 20px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.video {
+
+
+
+
+
+
+
+    padding: 30px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.video-abs {
+
+
+
+
+
+
+
+    bottom: 15px;
+
+
+
+
+
+
+
+    left: 15px;
+
+
+
+
+
+
+
+    z-index: 3;
+
+
+
+
+
+
+
+    pointer-events: none;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.video-item:before {
+
+
+
+
+
+
+
+    pointer-events: none;
+
+
+
+
+
+
+
+    content: '';
+
+
+
+
+
+
+
+    position: absolute;
+
+
+
+
+
+
+
+    left: 0;
+
+
+
+
+
+
+
+    right: 0;
+
+
+
+
+
+
+
+    top: 0;
+
+
+
+
+
+
+
+    bottom: 0;
+
+
+
+
+
+
+
+    background: rgba(0, 0, 0, 0.3);
+
+
+
+
+
+
+
+    z-index: 2;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.video-detail {
+
+
+
+
+
+
+
+    padding: 30px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.contact {
+
+
+
+
+
+
+
+    padding: 30px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.form-contact textarea, .form-contact input {
+
+
+
+
+
+
+
+    width: 100%;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.form-contact input {
+
+
+
+
+
+
+
+    background: #f3f3f3;
+
+
+
+
+
+
+
+    border: none;
+
+
+
+
+
+
+
+    height: 43px;
+
+
+
+
+
+
+
+    padding: 5px 10px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.form-contact textarea {
+
+
+
+
+
+
+
+    background: #f3f3f3;
+
+
+
+
+
+
+
+    border: none;
+
+
+
+
+
+
+
+    height: 43px;
+
+
+
+
+
+
+
+    padding: 5px 10px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.form-contact textarea {
+
+
+
+
+
+
+
+    height: auto;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.form-contact label {
+
+
+
+
+
+
+
+    margin: 10px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.form-contact label span {
+
+
+
+
+
+
+
+    color: #ff0000;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.form-contact button {
+
+
+
+
+
+
+
+    background: #0047ab;
+
+
+
+
+
+
+
+    border: none;
+
+
+
+
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+    font-size: 16px;
+
+
+
+
+
+
+
+    font-weight: bold;
+
+
+
+
+
+
+
+    margin-top: 20px;
+
+
+
+
+
+
+
+    padding: 10px 25px;
+
+
+
+
+
+
+
+    text-transform: uppercase;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.contact .company {
+
+
+
+
+
+
+
+    background: transparent;
+
+
+
+
+
+
+
+    margin-bottom: 20px;
+
+
+
+
+
+
+
+    padding: 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.contact .company h6 {
+
+
+
+
+
+
+
+    font-size: 24px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.contact .company p {
+
+
+
+
+
+
+
+    margin-top: 15px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.map {
+
+
+
+
+
+
+
+    height: 100%;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.gallery {
+
+
+
+
+
+
+
+    padding: 30px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.gallery .relative a img {
+
+
+
+
+
+
+
+    object-fit: cover;
+
+
+
+
+
+
+
+    width: 100%;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.gallery-abs {
+
+
+
+
+
+
+
+    background: rgba(0, 0, 0, 0.5);
+
+
+
+
+
+
+
+    top: 0;
+
+
+
+
+
+
+
+    left: 0;
+
+
+
+
+
+
+
+    right: 0;
+
+
+
+
+
+
+
+    bottom: 0;
+
+
+
+
+
+
+
+    transition: all ease 0.4s;
+
+
+
+
+
+
+
+    -webkit-transform: scale(0);
+
+
+
+
+
+
+
+    -moz-transform: scale(0);
+
+
+
+
+
+
+
+    -ms-transform: scale(0);
+
+
+
+
+
+
+
+    -o-transform: scale(0);
+
+
+
+
+
+
+
+    transform: scale(0);
+
+
+
+
+
+
+
+    pointer-events: none;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.gallery .relative:hover .gallery-abs {
+
+
+
+
+
+
+
+    -webkit-transform: scale(1);
+
+
+
+
+
+
+
+    -moz-transform: scale(1);
+
+
+
+
+
+
+
+    -ms-transform: scale(1);
+
+
+
+
+
+
+
+    -o-transform: scale(1);
+
+
+
+
+
+
+
+    transform: scale(1);
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.intro {
+
+
+
+
+
+
+
+    padding: 30px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.intro p {
+
+
+
+
+
+
+
+    font-size: 16px;
+
+
+
+
+
+
+
+    line-height: 1.5;
+
+
+
+
+
+
+
+    margin-top: 20px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.intro-main {
+
+
+
+
+
+
+
+    margin-top: 20px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.intro-item {
+
+
+
+
+
+
+
+    margin-top: 20px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.intro-item > span {
+
+
+
+
+
+
+
+    flex: 0 0 89px;
+
+
+
+
+
+
+
+    -webkit-flex: 0 0 89px;
+
+
+
+
+
+
+
+    margin-right: 20px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.intro-txt p {
+
+
+
+
+
+
+
+    margin-top: 10px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.page-404 {
+
+
+
+
+
+
+
+    padding: 30px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.page-404 h1 {
+
+
+
+
+
+
+
+    font-size: 250px;
+
+
+
+
+
+
+
+    font-weight: 500;
+
+
+
+
+
+
+
+    line-height: 0.8;
+
+
+
+
+
+
+
+    color: #0047ab;
+
+
+
+
+
+
+
+    margin: 30px 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.p1 {
+
+
+
+
+
+
+
+    font-size: 24px;
+
+
+
+
+
+
+
+    color: #212121;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.back-link {
+
+
+
+
+
+
+
+    border-radius: 2px;
+
+
+
+
+
+
+
+    background-color: #0047ab;
+
+
+
+
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+    font-size: 20px;
+
+
+
+
+
+
+
+    display: inline-block;
+
+
+
+
+
+
+
+    margin-top: 30px;
+
+
+
+
+
+
+
+    padding: 10px 30px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.back-link:hover {
+
+
+
+
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+#back-to-top {
+
+
+
+
+
+
+
+    font-size: 18px;
+
+
+
+
+
+
+
+    position: fixed;
+
+
+
+
+
+
+
+    right: 20px;
+
+
+
+
+
+
+
+    bottom: 100px;
+
+
+
+
+
+
+
+    width: 38px;
+
+
+
+
+
+
+
+       padding: 5px 0px 8px 0px;
+
+
+
+
+
+    line-height: 40px;
+
+
+
+
+
+
+
+    text-align: center;
+
+
+
+
+
+
+
+    background: #0047ab;
+
+
+
+
+
+
+
+    border-radius: 3px;
+
+
+
+
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+    z-index: 2;
+
+
+
+
+
+
+
+    transition: opacity 0.2s ease-out;
+
+
+
+
+
+
+
+    opacity: 0;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+#back-to-top.show {
+
+
+
+
+
+
+
+    opacity: 1;
+
+
+
+
+
+
+
+    font-size: 24px;
+
+
+
+
+
+
+
+    font-weight: 500;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.mgt-10 {
+
+
+
+
+
+
+
+    margin-top: 10px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.mgt-10 img {
+
+
+
+    width: 100%;
+
+
+
+}
+
+.japan{
+
+        background: url(../images/icon/japan.png) no-repeat left center;
+
+}
+
+div.dataTables_paginate ul.pagination{
+
+    float: right;
+
+}
+
+.pagination li span{
+
+    background: #d9d9d9; padding: 7.5px 17px;
+
+}
+
+.pagination li a{
+
+    background: #d9d9d9;
+
+    padding: 7.5px 15px;
+
+    position: relative;
+
+    display: block;
+
+}
+
+.pagination li.active span{
+
+    background: #0047ab;
+
+    color: #fff;
+
+}
+
+.pagination li:hover span{
+
+    background: #0047ab;
+
+    color: #fff;
+
+}
+
+.pagination li:hover a{
+
+    background: #0047ab;
+
+    color: #fff;
+
+}
+
+.pagination li{
+
+   /* margin-right: 8px; */
+
+}    
+
+.pagination{
+
+    margin-top: 20px;overflow: hidden;
+
+}
+
+
+
+/*-------------style them------------*/
+
+
+
+#login-modal .modal-dialog {
+
+
+
+    max-width: 600px;
+
+
+
+}
+
+
+
+.login {
+
+
+
+
+
+
+
+}
+
+
+
+.login-text p:last-child {
+
+
+
+    font-weight: 300;
+
+
+
+    font-size: 11px;
+
+
+
+}
+
+
+
+.login-text p:first-child {
+
+
+
+    font-size: 15px;
+
+
+
+}
+
+
+
+.login > span {
+
+
+
+    flex: 0 0 26px;
+
+
+
+    -webkit-flex: 0 0 26px;
+
+
+
+    max-width: 26px;
+
+
+
+    margin-right: 5px;
+
+
+
+}
+
+
+
+.login > span img {
+
+
+
+    border-radius: 50%;
+
+
+
+    height: 26px;
+
+
+
+    width: 26px;
+
+
+
+    object-fit: cover;
+
+
+
+}
+
+
+
+#login-modal .modal-content {
+
+
+
+    border: none;
+
+
+
+    border-radius: 0;
+
+
+
+}
+
+
+
+.login-mode {
+
+
+
+    flex: 1;
+
+
+
+    -webkit-flex: 1;
+
+
+
+    padding: 20px 40px;
+
+
+
+}
+
+
+
+.login-mode:first-child {
+
+
+
+    border-right: 1px solid #ccc;
+
+
+
+}
+
+
+
+.login-mode > span {
+
+
+
+    margin-right: 15px;
+
+
+
+}
+
+
+
+.login-mode p:last-child {
+
+
+
+    color: #393939;
+
+
+
+    font-size: 18px;
+
+
+
+    font-weight: 600;
+
+
+
+}
+
+
+
+.login-form {
+
+
+
+    padding: 60px 0;
+
+
+
+}
+
+
+
+.login-form h1 {
+
+
+
+    font-size: 24px;
+
+
+
+    margin-bottom: 20px;
+
+
+
+}
+
+
+
+.login-form form {
+
+
+
+    background: #f1f1f1;
+
+
+
+    padding: 30px 60px;
+
+
+
+}
+
+
+
+.login-form form > input {
+
+
+
+    display: block;
+
+
+
+    margin-bottom: 20px;
+
+
+
+    height: 40px;
+
+
+
+    padding: 5px 10px;
+
+
+
+    width: 100%;
+
+
+
+}
+
+
+
+.login-form p a {
+
+
+
+    color: #3764a2;
+
+
+
+}
+
+
+
+button.btn-bg {
+
+
+
+    background: #192c46;
+
+
+
+    border: none;
+
+
+
+    color: #fff;
+
+
+
+    font-size: 15px;
+
+
+
+    margin-top: 20px;
+
+
+
+    text-transform: uppercase;
+
+
+
+    padding: 10px 25px;
+
+
+
+}
+
+
+
+.group-checkbox {
+
+
+
+    margin-bottom: 20px;
+
+
+
+}
+
+
+
+.group-checkbox label {
+
+
+
+    position: relative;
+
+
+
+}
+
+
+
+.group-checkbox input {
+
+
+
+    visibility: hidden;
+
+
+
+    position: absolute;
+
+
+
+}
+
+
+
+.group-checkbox span {
+
+
+
+    font-size: 15px;
+
+
+
+    padding-left: 30px;
+
+
+
+    position: relative;
+
+
+
+}
+
+
+
+.group-checkbox span:before {
+
+
+
+    background: #fff;
+
+
+
+    border: 1px solid #ccc;
+
+
+
+    content: '';
+
+
+
+    height: 22px;
+
+
+
+    width: 22px;
+
+
+
+    position: absolute;
+
+
+
+    left: 0;
+
+
+
+    top: 0;
+
+
+
+}
+
+
+
+.group-checkbox label input:checked + span:after {
+
+
+
+    content: "\f00c";
+
+
+
+    font-family: 'FontAwesome';
+
+
+
+    position: absolute;
+
+
+
+    left: 3px;
+
+
+
+    top: -2px;
+
+
+
+    font-size: 18px;
+
+
+
+}
+
+
+
+.regis-market {
+
+
+
+    padding: 40px 0 60px;
+
+
+
+}
+
+
+
+.market-tabs {
+
+
+
+    border-bottom: none;
+
+
+
+    margin-bottom: 40px;
+
+
+
+    justify-content: space-between;
+
+
+
+}
+
+
+
+.market-tabs li {
+
+
+
+    margin: 0 !important;
+
+
+
+}
+
+
+
+.market-tabs li:last-child {
+
+
+
+    margin-right: 0;
+
+
+
+}
+
+
+
+.market-tabs .nav-links span:last-child {
+
+
+
+    color: #212121;
+
+
+
+    font-size: 16px;
+
+
+
+    font-weight: 500;
+
+
+
+    margin-top: 15px;
+
+
+
+}
+
+
+
+.market-tabs .nav-links span {
+
+
+
+    display: block;
+
+
+
+    text-align: center;
+
+
+
+}
+
+
+
+.market-tabs.nav-tabs .nav-link {
+
+
+
+    border-radius: 0;
+
+
+
+    border: none;
+
+
+
+}
+
+
+
+
+
+
+
+.market-tabs .nav-links {
+
+
+
+    border-bottom: 4px solid #192c46 !important;
+
+
+
+    padding: 20px 30px;
+
+
+
+    opacity: 0.5;
+
+
+
+}
+
+
+
+.market-tabs input {
+
+
+
+    visibility: hidden;
+
+
+
+    position: absolute;
+
+
+
+}
+
+
+
+.market-tabs label {
+
+
+
+    cursor: pointer;
+
+
+
+    position: relative;
+
+
+
+}
+
+
+
+.market-tabs label input:checked + .nav-links {
+
+
+
+    opacity: 1;
+
+
+
+}
+
+
+
+.style-input {
+
+
+
+    display: block;
+
+
+
+    width: 100%;
+
+
+
+    height: 40px;
+
+
+
+    border-radius: 3px;
+
+
+
+    border: solid 1px #dddddd;
+
+
+
+    padding: 5px 10px;
+
+
+
+}
+
+
+
+.flex-end {
+
+
+
+    display: flex;
+
+
+
+    justify-content: flex-end;
+
+
+
+}
+
+
+
+.block-1 select.style-input {
+
+
+
+    margin-right: 20px;
+
+
+
+    width: 90px;
+
+
+
+}
+
+
+
+.register-form > div {
+
+
+
+    margin-top: 20px;
+
+
+
+}
+
+
+
+.country-code {
+
+
+
+    background: url("../images/plus/i-down.png") no-repeat right 10px center;
+
+
+
+    border: 1px solid #dddddd;
+
+
+
+    border-right-color: #eee;
+
+
+
+    border-radius: 3px 0 0 3px;
+
+
+
+    cursor: pointer;
+
+
+
+    height: 100%;
+
+
+
+    flex: 0 0 116px;
+
+
+
+    -webkit-flex: 0 0 116px;
+
+
+
+    max-width: 116px;
+
+
+
+    padding: 5px 10px;
+
+
+
+    position: relative;
+
+
+
+}
+
+
+
+.country-select {
+
+
+
+    border: 1px;
+
+
+
+    display: inline-flex;
+
+
+
+    align-items: center;
+
+
+
+    width: 100%;
+
+
+
+    height: 100%;
+
+
+
+}
+
+
+
+
+
+
+
+.country-list {
+
+
+
+    background: #fff;
+
+
+
+    box-shadow: 0.9px 5.9px 10px 0 rgba(0, 0, 0, 0.2);
+
+
+
+    position: absolute;
+
+
+
+    left: -2px;
+
+
+
+    top: calc(100% + 7px);
+
+
+
+    width: 180px;
+
+
+
+    z-index: 2;
+
+
+
+    display: none;
+
+
+
+}
+
+
+
+.country-list li {
+
+
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+    justify-content: space-between;
+
+
+
+    padding: 0 10px;
+
+
+
+}
+
+
+
+.country-list li > span {
+
+
+
+    padding: 12px 0;
+
+
+
+}
+
+
+
+.country-list li > span:last-child {
+
+
+
+    color: rgba(92, 92, 92, 0.3);
+
+
+
+    font-size: 12px;
+
+
+
+}
+
+
+
+.country-list li:hover {
+
+
+
+    background: #4174bb;
+
+
+
+    color: #fff;
+
+
+
+}
+
+
+
+.country-list li:hover > span:last-child {
+
+
+
+    color: rgba(214, 231, 255, 0.3);
+
+
+
+}
+
+
+
+.code-span {
+
+
+
+    width: 100%;
+
+
+
+}
+
+
+
+.code-span img, .country-select img  {
+
+
+
+    margin-right: 10px;
+
+
+
+    height: 13px;
+
+
+
+    width: 18px;
+
+
+
+    object-fit: cover;
+
+
+
+}
+
+
+
+.block-2 input {
+
+
+
+    border-left: none;
+
+
+
+    border-radius: 0 3px 3px 0;
+
+
+
+}
+
+
+
+.note {
+
+
+
+    font-size: 12px;
+
+
+
+    font-style: italic;
+
+
+
+    margin-top: 10px;
+
+
+
+    color: #9d9d9d;
+
+
+
+}
+
+
+
+.ss-main .ss-multi-selected {
+
+
+
+    border-radius: 3px;
+
+
+
+    min-height: 56px;
+
+
+
+    padding: 7px 0 7px 5px;
+
+
+
+}
+
+
+
+.ss-main .ss-multi-selected .ss-add .ss-plus {
+
+
+
+    background: url("../images/plus/i-down-bold.png") no-repeat;
+
+
+
+    width: 13px;
+
+
+
+    height: 11px;
+
+
+
+}
+
+
+
+.ss-main .ss-multi-selected .ss-add .ss-plus:after {
+
+
+
+    display: none;
+
+
+
+}
+
+
+
+.ss-main .ss-multi-selected .ss-add .ss-plus.ss-cross {
+
+
+
+    transform: rotate(0);
+
+
+
+}
+
+
+
+.ss-main .ss-multi-selected .ss-add {
+
+
+
+    align-items: center;
+
+
+
+    margin: 5px 10px;
+
+
+
+}
+
+
+
+.ss-main .ss-multi-selected .ss-values .ss-value {
+
+
+
+    background-color: #4174bb;
+
+
+
+}
+
+
+
+.ss-value-text {
+
+
+
+    padding: 0 3px;
+
+
+
+}
+
+
+
+.ss-value-delete {
+
+
+
+    display: inline-flex;
+
+
+
+    align-items: center;
+
+
+
+    justify-content: center;
+
+
+
+    background: #1d3351;
+
+
+
+    width: 15px;
+
+
+
+    height: 15px;
+
+
+
+    border-radius: 50%;
+
+
+
+}
+
+
+
+.regis-success {
+
+
+
+    padding: 60px 0;
+
+
+
+}
+
+
+
+.regis-success h1 {
+
+
+
+    color: #278f6c;
+
+
+
+    margin: 15px 0;
+
+
+
+}
+
+
+
+.regis-success p:nth-child(3) {
+
+
+
+    font-size: 18px;
+
+
+
+    font-weight: 500;
+
+
+
+    color: #4b4b4b;
+
+
+
+    margin-bottom: 20px;
+
+
+
+}
+
+
+
+.civil {
+
+
+
+    padding: 30px 0;
+
+
+
+}
+
+
+
+.cv-list .row > div {
+
+
+
+    margin-top: 20px;
+
+
+
+}
+
+
+
+.cv-inner {
+
+
+
+    border: solid 1px #dddddd;
+
+
+
+}
+
+
+
+.cv-image-thumb {
+
+
+
+    margin: 15px 0 20px;
+
+
+
+}
+
+
+
+.cv-image-thumb img {
+
+
+
+    border-radius: 50%;
+
+
+
+    object-fit: cover;
+
+
+
+    width: 127px;
+
+
+
+    height: 127px;
+
+
+
+}
+
+
+
+.cv-name {
+
+
+
+    font-size: 16px;
+
+
+
+    font-weight: bold;
+
+
+
+    margin-bottom: 10px;
+
+
+
+    color: #333333;
+
+
+
+}
+
+
+
+.cv-action {
+
+
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+    margin-top: 20px;
+
+
+
+}
+
+
+
+.cv-action a {
+
+
+
+    background-color: #f4f4f4;
+
+
+
+    display: inline-flex;
+
+
+
+    justify-content: center;
+
+
+
+    align-items: center;
+
+
+
+    height: 40px;
+
+
+
+    width: calc((100% - 2px)/ 2);
+
+
+
+}
+
+
+
+.cv-action a:first-child {
+
+
+
+    margin-right: 2px;
+
+
+
+}
+
+
+
+.cv-action a:hover {
+
+
+
+    background: #4174bb;
+
+
+
+    color: #fff;
+
+
+
+}
+
+
+
+.cv-filter {
+
+
+
+    background: #f4f4f4;
+
+
+
+    padding: 15px;
+
+
+
+}
+
+
+
+.find-cv select {
+
+
+
+    max-width: 180px;
+
+
+
+}
+
+
+
+.sort-cv .group-checkbox {
+
+
+
+    margin: 0 0 0 30px;
+
+
+
+}
+
+
+
+.sort-cv .group-checkbox label input:checked + span:after {
+
+
+
+    content: '';
+
+
+
+    width: 13px;
+
+
+
+    height: 13px;
+
+
+
+    border-radius: 3px;
+
+
+
+    background-color: #0047ab;
+
+
+
+    top: 4px;
+
+
+
+    left: 4px;
+
+
+
+}
+
+
+
+.mgl-10 {
+
+
+
+    margin-left: 10px;
+
+
+
+}
+
+
+
+.logined {
+
+
+
+    cursor: pointer;
+
+
+
+    position: relative;
+
+
+
+}
+
+
+
+.login-abs {
+
+
+
+    background: #fff;
+
+
+
+    box-shadow: 0.9px 5.9px 9px 0 rgba(0, 0, 0, 0.21);
+
+
+
+    display: none;
+
+
+
+    right: 0;
+
+
+
+    top: calc(100% + 10px);
+
+
+
+    z-index: 2;
+
+
+
+    width: 210px;
+
+
+
+}
+
+
+
+.login-abs.show {
+
+
+
+    display: block;
+
+
+
+}
+
+
+
+.login-abs li a {
+
+
+
+    display: block;
+
+
+
+    padding: 10px 15px;
+
+
+
+}
+
+
+
+.login-abs li button {
+
+
+
+    background-color: #0047ab;
+
+
+
+    border: none;
+
+
+
+    color: #ffffff;
+
+
+
+    font-size: 15px;
+
+
+
+    height: 55px;
+
+
+
+    width: 100%;
+
+
+
+    text-transform: uppercase;
+
+
+
+}
+
+
+
+.txt-red {
+
+
+
+    color: #da251d
+
+
+
+}
+
+
+
+.cv-manage {
+
+
+
+    padding: 30px 0 60px 0;
+
+
+
+}
+
+
+
+.cv-manage .civil {
+
+
+
+    padding: 0;
+
+
+
+}
+
+
+
+.employer-left h5 {
+
+
+
+    font-size: 18px;
+
+
+
+    text-transform: uppercase;
+
+
+
+}
+
+
+
+.employer-left ul li {
+
+
+
+    font-size: 15px;
+
+
+
+    padding: 5px 0;
+
+
+
+}
+
+
+
+.employer-left ul li a {
+
+
+
+    font-size: 15px;
+
+
+
+}
+
+
+
+.employer-left ul li:nth-child(2) {
+
+
+
+    /* border-bottom: 10px solid #f4f4f4;
+
+
+
+    padding-bottom: 20px;
+
+
+
+    margin-bottom: 20px;
+
+ */
+
+}
+
+
+
+.employer-left ul li:nth-child(2) a {
+
+
+
+    color: #0047ab;
+
+
+
+}
+
+
+
+.employer-left ul li:nth-child(2) a i {
+
+
+
+    color: #333;
+
+
+
+}
+
+
+
+.employer-left ul li i {
+
+
+
+    margin-right: 7px;
+
+
+
+    width: 15px;
+
+
+
+}
+
+
+
+#delete-choose .modal-header {
+
+
+
+    border-bottom: none;
+
+
+
+}
+
+
+
+#delete-choose .modal-content {
+
+
+
+    border: none;
+
+
+
+    border-radius: 0;
+
+
+
+}
+
+
+
+
+
+
+
+#delete-choose h5 {
+
+
+
+    border-left: 4px solid #003989;
+
+
+
+    color: #003989;
+
+
+
+    padding-left: 10px;
+
+
+
+}
+
+
+
+#delete-choose textarea {
+
+
+
+    border-radius: 2px;
+
+
+
+    border: solid 1px #cccccc;
+
+
+
+    display: block;
+
+
+
+    margin: 20px 0;
+
+
+
+    width: 100%;
+
+
+
+}
+
+
+
+.cv-of {
+
+
+
+    margin-bottom: 20px;
+
+
+
+}
+
+
+
+.cv-of img {
+
+
+
+    margin-right: 10px;
+
+
+
+}
+
+
+
+.btn-delete {
+
+
+
+    border: none;
+
+
+
+    font-size: 15px;
+
+
+
+    color: #fff;
+
+
+
+    width: 100px;
+
+
+
+    height: 39px;
+
+
+
+    border-radius: 2px;
+
+
+
+    background-color: #0047ab;
+
+
+
+}
+
+
+
+.cv-info ul li {
+
+
+
+    font-size: 15px;
+
+
+
+    padding: 7px 0 7px 20px;
+
+
+
+    position: relative;
+
+
+
+}
+
+
+
+.cv-info ul li:before {
+
+
+
+    content: '';
+
+
+
+    background: #777777;
+
+
+
+    border-radius: 50%;
+
+
+
+    height: 8px;
+
+
+
+    width: 8px;
+
+
+
+    position: absolute;
+
+
+
+    left: 0;
+
+
+
+    top: 13px;
+
+
+
+}
+
+
+
+.title-border {
+
+
+
+    border-left: 4px solid #0047ab;
+
+
+
+    color: #0047ab;
+
+
+
+    font-size: 16px;
+
+
+
+    font-weight: bold;
+
+
+
+    margin-bottom: 20px;
+
+
+
+    padding-left: 10px;
+
+
+
+}
+
+
+
+.cvDetail-action {
+
+
+
+    margin: 20px 0 0 0;
+
+
+
+}
+
+
+
+.cvDetail-action li a {
+
+
+
+    border-radius: 2px;
+
+
+
+    background-color: #ebebeb;
+
+
+
+    display: inline-block;
+
+
+
+    padding: 7px 15px;
+
+
+
+}
+
+
+
+.cvDetail-action li a i {
+
+
+
+    color: #fff;
+
+
+
+    margin-right: 5px;
+
+
+
+}
+
+
+
+.cvDetail-action li {
+
+
+
+    border-right: 1px solid #444;
+
+
+
+    line-height: 1;
+
+
+
+    padding: 0 10px;
+
+
+
+}
+
+
+
+.cvDetail-action li:first-child, .cvDetail-action li:last-child {
+
+
+
+    border: none;
+
+
+
+}
+
+
+
+.cv-desc {
+
+
+
+    font-size: 15px;
+
+
+
+    line-height: 1.6;
+
+
+
+}
+
+
+
+.employer-edit h5 {
+
+
+
+    font-size: 18px;
+
+
+
+    font-weight: bold;
+
+
+
+    margin-bottom: 10px;
+
+
+
+}
+
+
+
+.cache {
+
+
+
+    background: #f4f4f4;
+
+
+
+    margin: 30px 0 !important;
+
+
+
+    height: 9px;
+
+
+
+    width: 100%;
+
+
+
+}
+
+
+
+.upload-image {
+
+
+
+    background: #ebebeb;
+
+
+
+    cursor: pointer;
+
+
+
+    padding: 20px 0;
+
+
+
+    width: 100%;
+
+
+
+}
+
+
+
+.upload-image input {
+
+
+
+    position: absolute;
+
+
+
+    visibility: hidden;
+
+
+
+}
+
+
+
+.upload-image i {
+
+
+
+    color: #C0C0C0;
+
+
+
+    font-size: 50px;
+
+
+
+}
+
+
+
+.upload-image span {
+
+
+
+    font-size: 18px;
+
+
+
+    margin-top: 5px;
+
+
+
+}
+
+
+
+.employer-left.admin-left ul li:first-child,
+
+
+
+.employer-left.admin-left ul li:nth-child(2){
+
+
+
+    padding: 0;
+
+
+
+    height: 10px;
+
+
+
+}
+
+
+
+.cv-action i {
+
+
+
+    margin-right: 10px;
+
+
+
+}
+
+
+
+.admin-index {
+
+
+
+    width: 100%;
+
+
+
+}
+
+
+
+.admin-info p:first-child {
+
+
+
+    margin-bottom: 20px;
+
+
+
+}
+
+
+
+.admin-info a {
+
+
+
+    color: #fff;
+
+
+
+    font-size: 14px;
+
+
+
+    font-weight: 300;
+
+
+
+    display: inline-flex;
+
+
+
+    align-items: center;
+
+
+
+    justify-content: center;
+
+
+
+    width: 89px;
+
+
+
+    height: 34px;
+
+
+
+    border-radius: 5px;
+
+
+
+    background-color: #c0c0c0;
+
+
+
+}
+
+
+
+.admin-info a:hover {
+
+
+
+    background-color: #192c46;
+
+
+
+}
+
+
+
+.creat-cv-button {
+
+
+
+    border: none;
+
+
+
+    font-size: 15px;
+
+
+
+    color: #fff;
+
+
+
+    width: 100px;
+
+
+
+    height: 40px;
+
+
+
+    border-radius: 2px;
+
+
+
+    background-color: #0047ab;
+
+
+
+}
+
+
+
+.creat-cv-button i {
+
+
+
+    margin-right: 5px;
+
+
+
+}
+
+
+
+.creat-cv-button:hover {
+
+
+
+    color: #fff;
+
+
+
+}
+
+
+
+.creat-cv .nav-tabs {
+
+
+
+   border: none;
+
+
+
+}
+
+
+
+.creat-cv .nav-tabs .nav-item.show .nav-link,
+
+
+
+.creat-cv .nav-tabs .nav-link.active {
+
+
+
+    border: none;
+
+
+
+    border-radius: 0;
+
+
+
+    opacity: 1;
+
+
+
+}
+
+
+
+.creat-cv .nav-tabs .nav-link {
+
+
+
+    background: #ececec;
+
+
+
+    border-radius: 0;
+
+
+
+    border: none;
+
+
+
+    display: block;
+
+
+
+    opacity: 0.5;
+
+
+
+    padding: 10px 18px;
+
+
+
+}
+
+
+
+.creat-cv .nav-tabs .nav-item {
+
+
+
+    margin: 0 10px 0 0;
+
+
+
+}
+
+
+
+.import-box label {
+
+
+
+    display: block;
+
+
+
+    background: #f1f1f1;
+
+
+
+    border: 1px dashed #b7b7b7;
+
+
+
+    border-radius: 5px;
+
+
+
+    cursor: pointer;
+
+
+
+    padding: 20px 0;
+
+
+
+    position: relative;
+
+
+
+}
+
+
+
+.import-box input {
+
+
+
+    position: absolute;
+
+
+
+    visibility: hidden;
+
+
+
+}
+
+
+
+.import-label span {
+
+
+
+    flex: 0 0 35px;
+
+
+
+    -webkit-flex: 0 0 35px;
+
+
+
+    max-width: 35px;
+
+
+
+    margin-right: 10px;
+
+
+
+}
+
+
+
+.import-txt h5 {
+
+
+
+    margin-bottom: 5px;
+
+
+
+    line-height: 1;
+
+
+
+}
+
+
+
+.import-txt p {
+
+
+
+    color: #a4a4a4;
+
+
+
+    font-size: 13px;
+
+
+
+}
+
+
+
+.creat-cv .register-form {
+
+
+
+    padding: 15px 0;
+
+    padding-top: 0;
+
+}
+
+
+
+.tk-title > span {
+
+
+
+    flex: 0 0 310px;
+
+
+
+}
+
+
+
+.tk-title input {
+
+
+
+    flex: 0 0 84px !important;
+
+
+
+    max-width: 84px;
+
+
+
+    font-size: 15px;
+
+
+
+    border: none;
+
+
+
+    height: 24px;
+
+
+
+    line-height: 23px;
+
+
+
+    width: auto !important;
+
+
+
+    padding: 0;
+
+
+
+}
+
+.code{
+
+    background: none;
+
+    border: none;
+
+}
+
+.tk-title .input-group-addon {
+
+
+
+    color: #2c52a1;
+
+
+
+    background: transparent;
+
+
+
+    border: none;
+
+
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+    justify-content: flex-start;
+
+
+
+    margin-left: 10px;
+
+
+
+    padding: 0;
+
+
+
+}
+
+
+
+.tk-title .input-group-addon i {
+
+
+
+    margin: 0 10px 0 2px;
+
+
+
+}
+
+
+
+.tk-title .input-group .form-control,
+
+
+
+.tk-title .input-group-addon,
+
+
+
+.tk-title .input-group-btn {
+
+
+
+    -webkit-flex-direction: row;
+
+
+
+    -ms-flex-direction: row;
+
+
+
+    flex-direction: row;
+
+
+
+}
+
+
+
+.form-control:disabled, .form-control[readonly] {
+
+
+
+    background: transparent;
+
+
+
+}
+
+
+
+.datepicker table {
+
+
+
+    width: 365px;
+
+
+
+}
+
+
+
+.input-group-addon {
+
+
+
+    display: inline-flex;
+
+
+
+    align-items: center;
+
+
+
+    cursor: pointer;
+
+
+
+}
+
+
+
+.form-control:focus {
+
+
+
+    box-shadow: none;
+
+
+
+}
+
+
+
+.table-condensed thead tr:nth-child(2), .table-condensed thead tr:nth-child(2) th:hover {
+
+
+
+    background: #466071;
+
+
+
+    color: #fff;
+
+
+
+}
+
+
+
+.table-condensed thead tr:nth-child(2) th {
+
+
+
+    border-radius: 0;
+
+
+
+    padding: 5px 0;
+
+
+
+}
+
+
+
+.table-condensed tbody {
+
+
+
+    border-width: 0 0 1px 1px;
+
+
+
+    border-style: solid;
+
+
+
+    border-color: #eee;
+
+
+
+}
+
+
+
+.table-condensed tbody tr td {
+
+
+
+    border-width: 1px 1px 0 0;
+
+
+
+    border-style: solid;
+
+
+
+    border-color: #eee;
+
+
+
+    border-radius: 0;
+
+
+
+    font-size: 14px;
+
+
+
+    font-weight: 300;
+
+
+
+    padding: 5px;
+
+
+
+}
+
+
+
+.table-condensed tbody tr td:hover {
+
+
+
+    background: #466071 !important;
+
+
+
+    color: #fff;
+
+
+
+}
+
+
+
+.table-condensed tr:last-child th {
+
+
+
+    font-weight: 300;
+
+
+
+    padding: 7px 5px;
+
+
+
+}
+
+
+
+.cv-total {
+
+
+
+    font-size: 18px;
+
+
+
+    font-weight: bold;
+
+
+
+    margin-bottom: 20px;
+
+
+
+}
+
+
+
+.cv-total span {
+
+
+
+    color: #197f3d;
+
+
+
+    font-size: 30px;
+
+
+
+    margin-left: 10px;
+
+
+
+    line-height: 1;
+
+
+
+}
+
+
+
+.cv-total img {
+
+
+
+    margin-right: 15px;
+
+
+
+}
+
+
+
+.tk-time  {
+
+
+
+    margin-bottom: 50px;
+
+
+
+}
+
+
+
+.tk-time li a {
+
+
+
+    background: #192c46;
+
+
+
+    color: #fff;
+
+
+
+    display: inline-flex;
+
+
+
+    align-items: center;
+
+
+
+    justify-content: center;
+
+
+
+    font-size: 15px;
+
+
+
+    width: 50px;
+
+
+
+    height: 26px;
+
+
+
+    border-radius: 3px;
+
+
+
+    margin-left: 10px;
+
+
+
+    visibility: hidden;
+
+
+
+}
+
+
+
+.tk-time li {
+
+    padding: 10px 20px 10px 30px;
+
+    position: relative;
+
+    border-bottom: 1px solid gainsboro;
+
+    background: ghostwhite;
+
+
+
+}
+
+
+
+.tk-time li:before {
+
+
+
+    background: rgba(84, 84, 84, 0.7);
+
+
+
+    border-radius: 50%;
+
+
+
+    content: '';
+
+
+
+    height: 8px;
+
+
+
+    width: 8px;
+
+
+
+    position: absolute;
+
+
+
+    top: 20px;
+
+
+
+    left: 10px;
+
+
+
+}
+
+
+
+/* .tk-time li:nth-child(2n+1) {
+
+
+
+    background-color: #f3f3f3;
+
+
+
+} */
+
+.bg_li {
+
+
+
+    background-color: #f3f3f3;
+
+
+
+}
+
+
+
+.tk-time li:hover {
+
+
+
+    background-color: #cae7fd;
+
+
+
+}
+
+
+
+.tk-time li:hover a {
+
+
+
+    visibility: visible;
+
+
+
+}
+
+
+
+.pdt-44 {
+
+
+
+    padding-top: 44px;
+
+
+
+}
+
+
+
+.tk-time-country li:before {
+
+
+
+    display: none;
+
+
+
+}
+
+
+
+.tk-time-country li {
+
+
+
+    padding-left: 20px;
+
+
+
+}
+
+
+
+.tk-time-country li img {
+
+
+
+    border-radius: 50%;
+
+
+
+    object-fit: cover;
+
+
+
+    width: 21px;
+
+
+
+    height: 21px;
+
+
+
+    margin-right: 10px;
+
+
+
+}
+
+
+
+.cv-delete {
+
+
+
+    border-top: 8px solid #f3f3f3;
+
+
+
+    padding-top: 30px;
+
+
+
+}
+
+
+
+.cv-total .txt-red {
+
+
+
+    color: #ed1919
+
+
+
+}
+
+
+
+.cv-delete table {
+
+
+
+    display: table;
+
+
+
+}
+
+
+
+.cv-delete table td, .cv-delete table th {
+
+
+
+    border: none;
+
+
+
+}
+
+
+
+.cv-delete table thead {
+
+
+
+    background: #e7e7e7;
+
+
+
+}
+
+
+
+.cv-delete table tbody td {
+
+
+
+    border-bottom: 1px solid #eee;
+
+
+
+    font-size: 15px;
+
+
+
+}
+
+
+
+.cv-delete tbody .show-tr td {
+
+
+
+    border-left: 1px solid #eee;
+
+
+
+    border-right: 1px solid #eee;
+
+
+
+}
+
+
+
+/*.cv-delete tbody tr:nth-child(2n+1) {*/
+
+
+
+    /*background-color: #f7f7f7;*/
+
+
+
+/*}*/
+
+
+
+.cv-delete table th span {
+
+
+
+    max-width: 115px;
+
+
+
+}
+
+
+
+.c-image {
+
+
+
+    flex: 0 0 182px;
+
+
+
+    -webkit-flex: 0 0 182px;
+
+
+
+    max-width: 182px;
+
+
+
+    margin-right: 20px;
+
+
+
+}
+
+
+
+.c-text ul li {
+
+
+
+    font-size: 15px;
+
+
+
+    padding: 5px 0 5px 20px;
+
+
+
+    position: relative;
+
+
+
+}
+
+
+
+.c-text ul li:before {
+
+
+
+    background: #777777;
+
+
+
+    border-radius: 50%;
+
+
+
+    content: '';
+
+
+
+    height: 8px;
+
+
+
+    width: 8px;
+
+
+
+    position: absolute;
+
+
+
+    left: 0;
+
+
+
+    top: 13px;
+
+
+
+}
+
+
+
+.c-text ul li span:after {
+
+
+
+    content: "|";
+
+
+
+    margin: 0 15px;
+
+
+
+}
+
+
+
+.c-text ul li span:last-child:after {
+
+
+
+    display: none;
+
+
+
+}
+
+
+
+.show-tr {
+
+
+
+    display: none;
+
+
+
+}
+
+
+
+.table .show-tr.visible {
+
+
+
+    display: table-row;
+
+
+
+}
+
+
+
+.click-tr.bg {
+
+
+
+    background-color: #cae7fd;
+
+
+
+}
+
+
+
+.get-page {
+
+
+
+    background-color: #e5e5e5;
+
+
+
+    padding: 15px 20px;
+
+
+
+}
+
+
+
+.number-page .box-radius {
+
+
+
+    min-width: 120px;
+
+
+
+    margin: 0 20px;
+
+
+
+}
+
+
+
+.box-radius {
+
+
+
+    background: #fff;
+
+
+
+    border: solid 1px #dddddd;
+
+
+
+    height: 40px;
+
+
+
+    padding: 0 10px;
+
+
+
+}
+
+
+
+.paginations li {
+
+
+
+    margin-left: 10px;
+
+
+
+}
+
+
+
+.paginations li a, .paginations li span {
+
+
+
+    display: inline-flex;
+
+
+
+    align-items: center;
+
+
+
+    justify-content: center;
+
+
+
+    width: 40px;
+
+
+
+    height: 40px;
+
+
+
+    border-radius: 50%;
+
+
+
+}
+
+
+
+.paginations li span {
+
+
+
+    background: #278f6e;
+
+
+
+    color: #fff;
+
+
+
+}
+
+
+
+.paginations li a {
+
+
+
+    background: #ebebeb;
+
+
+
+}
+
+
+
+.paginations .no-bg a {
+
+
+
+    background: none;
+
+
+
+}
+
+
+
+.login-text img {
+
+
+
+    height: auto !important;
+
+
+
+}
+
+
+
+@media screen and (min-width: 1024px){
+
+
+
+    .logo .login {
+
+
+
+        display: none;
+
+
+
+    }
+
+
+
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+
+
+    .market-tabs .nav-links {
+
+
+
+        padding: 20px;
+
+
+
+    }
+
+
+
+    .cv-list .col-md-2 {
+
+
+
+        -webkit-flex: 0 0 25%;
+
+
+
+        -ms-flex: 0 0 25%;
+
+
+
+        flex: 0 0 25%;
+
+
+
+        max-width: 25%;
+
+
+
+    }
+
+
+
+    .cv-manage .container > .row > .col-md-2, .register-form .col-md-2 {
+
+
+
+        -webkit-flex: 0 0 33.33%;
+
+
+
+        -ms-flex: 0 0 33.33%;
+
+
+
+        flex: 0 0 33.33%;
+
+
+
+        max-width: 33.33%;
+
+
+
+    }
+
+
+
+    .cv-manage .container > .row > .col-md-10, .register-form .col-md-5, .register-form .col-md-6 {
+
+
+
+        -webkit-flex: 0 0 66.67%;
+
+
+
+        -ms-flex: 0 0 66.67%;
+
+
+
+        flex: 0 0 66.67%;
+
+
+
+        max-width: 66.67%;
+
+
+
+    }
+
+
+
+}
+
+
+
+@media screen and (max-width: 767px) {
+
+
+
+    .register-form .flex-center-end,
+
+
+
+    .register-form .flex-end,
+
+
+
+    .register-form .flex,
+
+
+
+    .register-form .flex-center{
+
+
+
+        justify-content: flex-start;
+
+
+
+        margin-bottom: 10px;
+
+
+
+    }
+
+
+
+    .box-3 .col-md-4 {
+
+
+
+        margin-bottom: 20px;
+
+
+
+    }
+
+
+
+    .box-3 .mgt-20 {
+
+
+
+        margin-top: 0;
+
+
+
+    }
+
+
+
+    .regis-success h1 {
+
+
+
+        font-size: 24px;
+
+
+
+    }
+
+
+
+    .login-form form {
+
+
+
+        padding: 30px 15px;
+
+
+
+    }
+
+
+
+    .login-form, .regis-success {
+
+
+
+        padding: 30px 0;
+
+
+
+    }
+
+
+
+    .find-cv .search {
+
+
+
+        margin: 10px 0;
+
+
+
+    }
+
+
+
+    .cvDetail-action ul {
+
+
+
+        flex-wrap: wrap;
+
+
+
+    }
+
+
+
+    .employer-left {
+
+
+
+        margin-bottom: 15px;
+
+
+
+    }
+
+
+
+}
+
+
+
+@media screen and (min-width: 568px) and (max-width: 767px){
+
+
+
+    .box-3 .col-md-4 {
+
+
+
+        width: calc(100% / 3);
+
+
+
+    }
+
+
+
+    .find-cv > span {
+
+
+
+        margin-right: 10px;
+
+
+
+    }
+
+
+
+    .cv-list .col-md-2 ,.cv-list .col-md-3 {
+
+
+
+        width: 50%;
+
+
+
+    }
+
+
+
+    .admin-index .col-md-4 {
+
+
+
+        width: calc(100% / 3);
+
+
+
+    }
+
+
+
+    .get-page .col-md-6 {
+
+
+
+        width: 50%;
+
+
+
+    }
+
+
+
+}
+
+
+
+@media screen and (max-width: 567px) {
+
+
+
+    .market-tabs {
+
+
+
+        flex-wrap: wrap;
+
+
+
+    }
+
+
+
+    .market-tabs .nav-links {
+
+
+
+        padding: 15px 10px;
+
+
+
+    }
+
+
+
+    .market-tabs li {
+
+
+
+        text-align: center;
+
+
+
+        width: 50%;
+
+
+
+    }
+
+
+
+    .cv-filter > .row > div {
+
+
+
+        flex-wrap: wrap;
+
+
+
+    }
+
+
+
+    .cv-filter > .row > div > span {
+
+
+
+        display: none;
+
+
+
+    }
+
+
+
+    .cv-filter select {
+
+
+
+        max-width: none;
+
+
+
+        width: 100%;
+
+
+
+    }
+
+
+
+    .cv-filter .search {
+
+
+
+        width: 100%;
+
+
+
+    }
+
+
+
+    .cvDetail-action ul li {
+
+
+
+        margin-bottom: 15px;
+
+
+
+    }
+
+
+
+    .employer-left ul li:nth-child(2) {
+
+
+
+        margin-bottom: 10px;
+
+
+
+    }
+
+
+
+    .register-form .flex-end {
+
+
+
+        margin-bottom: 10px;
+
+
+
+    }
+
+
+
+    .admin-index .col-md-4 {
+
+
+
+        margin-bottom: 20px;
+
+
+
+    }
+
+
+
+    .creat-cv .nav-tabs .nav-link {
+
+
+
+        padding: 10px;
+
+
+
+        text-align: center;
+
+
+
+    }
+
+
+
+    .creat-cv .nav-tabs .nav-link .mgl-10 {
+
+
+
+        margin: 5px 0 0 0;
+
+
+
+    }
+
+
+
+    .tk-title {
+
+
+
+        flex-wrap: wrap;
+
+
+
+    }
+
+
+
+    .table-responsive {
+
+
+
+        display: block !important;
+
+
+
+    }
+
+
+
+    .cv-desc .flex-center {
+
+
+
+        flex-wrap: wrap;
+
+
+
+    }
+
+
+
+    .login-mode {
+
+
+
+        justify-content: center;
+
+
+
+        padding: 20px 5px;
+
+
+
+    }
+
+
+
+    .login-mode span {
+
+
+
+        display: none;
+
+
+
+    }
+
+
+
+    .datepicker {
+
+
+
+        left: 0 !important;
+
+
+
+    }
+
+
+
+    .datepicker table {
+
+
+
+        width: 240px;
+
+
+
+    }
+
+
+
+}
+
+.table>thead>tr>th,.table>tbody>tr>th,.table>tfoot>tr>th,.table>thead>tr>td,.table>tbody>tr>td,.table>tfoot>tr>td{border-top:1px solid #f4f4f4}
+
+
+
+
+
+.table>thead>tr>th{border-bottom:2px solid #f4f4f4}
+
+
+
+
+
+.table tr td .progress{margin-top:5px}
+
+
+
+
+
+.table-bordered{border:1px solid #f4f4f4}
+
+
+
+
+
+.table-bordered>thead>tr>th,.table-bordered>tbody>tr>th,.table-bordered>tfoot>tr>th,.table-bordered>thead>tr>td,.table-bordered>tbody>tr>td,.table-bordered>tfoot>tr>td{border:1px solid #f4f4f4}
+
+
+
+
+
+.table-bordered>thead>tr>th,.table-bordered>thead>tr>td{border-bottom-width:2px}
+
+
+
+
+
+.table.no-border,.table.no-border td,.table.no-border th{border:0}
+
+
+
+
+
+table.text-center,table.text-center td,table.text-center th{text-align:center}
+
+
+
+
+
+.table.align th{text-align:left}
+
+
+
+
+
+.table.align td{text-align:right}
+
+/*  .form-inline{
+
+    display:-webkit-box;
+
+     display:-webkit-flex;display:-ms-flexbox;display:flex;
+
+     -webkit-flex-flow:row wrap;-ms-flex-flow:row wrap;
+
+     flex-flow:row wrap;-webkit-box-align:center;-webkit-align-items:center;
+
+     -ms-flex-align:center;align-items:center
+
+ } */
+
+.dataTables_length{
+
+    float: left
+
+}
+
+div.dataTables_filter {
+
+        float: right;
+
+}
+.news-abs.absolute.flex-center span img{
+    max-width: 50px;
+}

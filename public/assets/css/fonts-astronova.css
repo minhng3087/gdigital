@@ -1,0 +1,12 @@
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: Astronova;
+  src: url("../fonts/astronova/astronova.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/astronova/astronova.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/astronova/astronova.otf") format("opentype"), /* Open Type Font */
+    url("../fonts/astronova/astronova.svg") format("svg"), /* Legacy iOS */
+    url("../fonts/astronova/astronova.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("../fonts/astronova/astronova.woff") format("woff"), /* Modern Browsers */
+    url("../fonts/astronova/astronova.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: 400;
+}

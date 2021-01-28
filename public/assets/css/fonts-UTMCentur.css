@@ -1,0 +1,25 @@
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "UTMCentur";
+  src: url("../fonts/UTMCentur/UTMCentur.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/UTMCentur/UTMCentur.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/UTMCentur/UTMCentur.otf") format("opentype"), /* Open Type Font */
+    url("../fonts/UTMCentur/UTMCentur.svg") format("svg"), /* Legacy iOS */
+    url("../fonts/UTMCentur/UTMCentur.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("../fonts/UTMCentur/UTMCentur.woff") format("woff"), /* Modern Browsers */
+    url("../fonts/UTMCentur/UTMCentur.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+}
+
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "UTMCentur";
+  src: url("../fonts/UTMCentur/UTMCenturBold.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/UTMCentur/UTMCenturBold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/UTMCentur/UTMCenturBold.otf") format("opentype"), /* Open Type Font */
+    url("../fonts/UTMCentur/UTMCenturBold.svg") format("svg"), /* Legacy iOS */
+    url("../fonts/UTMCentur/UTMCenturBold.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("../fonts/UTMCentur/UTMCenturBold.woff") format("woff"), /* Modern Browsers */
+    url("../fonts/UTMCentur/UTMCenturBold.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: 700;
+}
