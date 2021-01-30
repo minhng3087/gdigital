@@ -28,4 +28,38 @@
     <?php echo $__env->make('templates.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	<!-- Load Facebook SDK for JavaScript -->
 </body>
+<script type="text/javascript" src="<?php echo e(asset('public/assets/js/jquery.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('public/assets/js/aos.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('public/assets/js/bootstrap.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('public/assets/js/slick.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('public/assets/js/mobilemenu.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('public/assets/js/main.js')); ?>"></script>
+<script src="https://sp.zalo.me/plugins/sdk.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.btn-popup-consultation-scheduling').click(function() {
+		event.preventDefault();
+		//console.log('213');
+		var mskh = $(this).parents('.search-box').find('.mskh').val();
+        $.ajax({
+            url: '<?php echo e(route('getCustomer')); ?>',
+            method: 'GET',
+            data: {
+                mskh: mskh
+            },
+            success: function (data) {
+				 console.log(data);
+				 $('.popups-box').html(data);
+			},
+			error: function (jqXHR, exception) {
+				var msg = '';
+				if (jqXHR.status == 404) {
+					msg = 'Requested page not found. [404]';
+				}
+				$('.popups-box').html('<div class="popups-content"><div class="container"><div class="popup-content"><div class="art-scheduling"><p>Not found</p></div></div></div></div>');
+			}
+        });
+    });
+	});
+</script>
 </html>

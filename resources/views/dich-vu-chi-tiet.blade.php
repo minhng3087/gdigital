@@ -60,7 +60,7 @@
 									<div class="contents posts-content">
 										<?php echo $service['content']?>
 										<div class="button">
-											<a href="#" title="Tư vấn - đặt lịch" class="btn btn-popup btn-popup-consultation-scheduling">Tư vấn - đặt lịch</a>
+											<a href="{{ route('getContact') }}" title="Tư vấn - đặt lịch" class="btn">Tư vấn - đặt lịch</a>
 										</div>
 									</div>
 								</div>

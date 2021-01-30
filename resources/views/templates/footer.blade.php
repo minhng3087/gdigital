@@ -13,18 +13,7 @@
 							</div> <!--megamenu-->
 							<div class="search-box">
 								<div class="search-content">
-									<form class="search-form">
-										<div class="form-content">
-											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Mã số khách hàng">
-											</div>
-											<div class="form-group">
-												<button class="btn btn-popup btn-popup-consultation-scheduling btn-search">
-													<i class="far fa-angle-right icon"></i>
-												</button>
-											</div>
-										</div>
-									</form>
+									
 								</div>
 							</div>
 						</div>				
@@ -146,13 +135,13 @@
 		</div>
 	</footer> <!-- footers -->
 </div> <!-- body-main -->
-@include('templates.popups.consultation-scheduling');
-<script type="text/javascript" src="{{ asset('public/assets/js/jquery.min.js')}}"></script>
-<script type="text/javascript" src="{{ asset('public/assets/js/aos.js')}}"></script>
-<script type="text/javascript" src="{{ asset('public/assets/js/bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{ asset('public/assets/js/slick.min.js')}}"></script>
-<script type="text/javascript" src="{{ asset('public/assets/js/mobilemenu.js')}}"></script>
-<script type="text/javascript" src="{{ asset('public/assets/js/main.js')}}"></script>
+
+<div class="art-popups art-popups-consultation-scheduling">
+	<div class="popups-box">					
+	
+	</div>									
+</div>
+
 
 <div class="back-to-top">
 	<i class="far fa-chevron-up icon" aria-hidden="true"></i>
@@ -176,13 +165,13 @@
 			</li>
 			<li>
 				<a href="#" title="Chat">
-					<img src="{{ asset('public/assets/images/icon-mes.png') }}" alt="Chat"">
+					<img src="{{ asset('public/assets/images/icon-mes.png') }}" alt="Chat">
 				</a>
 		  
 			</li>
 		</ul>
 	</div>
 </div>
-<script src="https://sp.zalo.me/plugins/sdk.js"></script>
+
 
 

@@ -19,7 +19,7 @@
 				<nav class="nav">
 					<ul class="megamenu-content">
 						<li class="item">
-							<a href="{!! url('/') !!}" title="Trang chủ" class="active">Trang chủ</a>
+							<a href="{!! url('/gioi-thieu') !!}" title="Trang chủ" class="active">Trang chủ</a>
 						</li>	
 						<li class="item">
 							<a href="{!! url('/gioi-thieu') !!}" title="Giới thiệu">Giới thiệu</a>

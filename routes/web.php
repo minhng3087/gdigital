@@ -120,6 +120,8 @@ Route::get('/dich-vu',['as'=>'getServices', 'uses'=>'IndexController@getServices
 Route::get('/dich-vu/{alias}',['as'=>'getServiceDetail', 'uses'=>'IndexController@getServiceDetail']);
 Route::get('/lien-he',['as'=>'getContact', 'uses'=>'IndexController@getContact']);
 Route::post('/lien-he',['as'=>'postContact', 'uses'=>'IndexController@postContact']);
+Route::get('/khach-hang',['as'=>'getCustomer', 'uses'=>'IndexController@getCustomer']);
+
 
 
 // View composer

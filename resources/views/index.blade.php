@@ -28,4 +28,34 @@
     @include ('templates.footer')
 	<!-- Load Facebook SDK for JavaScript -->
 </body>
+<script type="text/javascript" src="{{ asset('public/assets/js/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('public/assets/js/aos.js')}}"></script>
+<script type="text/javascript" src="{{ asset('public/assets/js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('public/assets/js/slick.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('public/assets/js/mobilemenu.js')}}"></script>
+<script type="text/javascript" src="{{ asset('public/assets/js/main.js')}}"></script>
+<script src="https://sp.zalo.me/plugins/sdk.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.btn-popup-consultation-scheduling').click(function() {
+		event.preventDefault();
+		//console.log('213');
+		var mskh = $(this).parents('.search-box').find('.mskh').val();
+        $.ajax({
+            url: '{{ route('getCustomer') }}',
+            method: 'GET',
+            data: {
+                mskh: mskh
+            },
+            success: function (data) {
+				 console.log(data);
+				 $('.popups-box').html(data);
+			},
+			error: function (jqXHR, exception) {
+				$('.popups-box').html('<div class="popups-content"><div class="container"><div class="popup-content"><div class="art-scheduling"><p>Not found</p></div></div></div></div>');
+			}
+        });
+    });
+	});
+</script>
 </html>

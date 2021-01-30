@@ -18,20 +18,18 @@
 						</div> <!--megamenu-->
 						<div class="search-box">
 							<div class="search-content">
-								<form class="form">
 									<div class="form-content">
 										<div class="form-group">
-											<input class="form-control" type="text" name="keyword" placeholder="Mã số khách hàng">
+											<input class="form-control mskh" type="text" name="mskh" placeholder="Mã số khách hàng">
 										</div>
 										<div class="form-group">
 											<div class="button">
-												<a href="#" title="Gửi" class="btn">
+												<a title="Gửi" id="view-info-customer" class="btn btn-popup btn-popup-consultation-scheduling">
 													<i class="far fa-angle-right icon"></i>
 												</a>
 											</div>
 										</div>
 									</div>
-								</form>
 							</div>
 						</div>
 						<div class="megamenu megamenu-mobile-title d-lg-none">
@@ -47,3 +45,4 @@
 		</div>
 	</div>
 </div>
+

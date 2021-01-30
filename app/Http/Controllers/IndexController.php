@@ -14,6 +14,8 @@ use App\LienKet;
 use App\News;
 use App\Contact;
 use App\Http\Requests\ContactRequest;
+use App\Customer;
+use App\History;
 class IndexController extends Controller {
     public function index() {
         $slider = Slider::all()->where('status', 1);
@@ -125,6 +127,15 @@ class IndexController extends Controller {
 		echo "<script type='text/javascript'>
 			alert('Cảm ơn quý khách đã gửi thông tin, chúng tôi sẽ liên hệ với quý khách trong thời gian sớm nhất !');
 			window.location = '".url('/')."' </script>";
-	}
+    }
+    
+    public function getCustomer(Request $request) {
+        $customer = Customer::findOrFail($request->mskh);
+        $data = History::where('customer_id',$request->mskh)->get();
+            return view('templates.popups.modal',[
+                'data' => $data,
+                'customer' => $customer
+            ]);
+    }
 	
 }

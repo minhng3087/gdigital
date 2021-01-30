@@ -1,5 +1,3 @@
-<div class="art-popups art-popups-consultation-scheduling">
-	<div class="popups-box">					
 		<div class="popups-content">
 			<div class="container">
 				<div class="row">
@@ -14,19 +12,19 @@
 										<ul>
 											<li>
 												<label>Họ và tên:</label>
-												<span>Nguyễn Diệu Linh</span>
+												<span><?php echo $customer->name ?></span>
 											</li>
 											<li>
 												<label>Mã số khách hàng:</label>
-												<span>MS987654</span>
+												<span>MS<?php echo $customer->mskh ?></span>
 											</li>
 											<li>
 												<label>Điện thoại</label>
-												<span>098.012.345</span>
+												<span><?php echo format_phone_number($customer->phone, '.');?></span>
 											</li>
 											<li>
 												<label>Email:</label>
-												<span class="email">dieulinhabc@gmail.com</span>
+												<span class="email"><?php echo $customer->email ?></span>
 											</li>
 										</ul>
 									</div>
@@ -36,54 +34,33 @@
 										<h3 class="title">Lịch sử khám bệnh</h3>
 									</div>
 									<div class="contents scheduling-content">
+										
+									@foreach($data as $k=>$item)
 										<div class="item">
 											<ul>
 												<li>
 													<label>Loại hình dịch vụ:</label>
-													<span>Loại 1</span>
+													<span><?php echo $item->name ?></span>
 												</li>
 												<li>
 													<label>Số lượng:</label>
-													<span>1</span>
+													<span><?php echo $item->amount ?></span>
 												</li>
 												<li>
 													<label>Vị trí răng:</label>
-													<span>3</span>
+													<span><?php echo $item->position ?></span>
 												</li>
 												<li>
 													<label>Ngày thực hiện:</label>
-													<span>10/12/2020</span>
+													<span><?php echo date('d/m/Y', strtotime($item->day_action)) ?></span>
 												</li>
 												<li>
 													<label>Thời hạn bảo hành:</label>
-													<span>3 ngày</span>
+													<span><?php echo $item->period ?> ngày</span>
 												</li>
 											</ul>
 										</div>
-										<div class="item">
-											<ul>
-												<li>
-													<label>Loại hình dịch vụ:</label>
-													<span>Loại 1</span>
-												</li>
-												<li>
-													<label>Số lượng:</label>
-													<span>1</span>
-												</li>
-												<li>
-													<label>Vị trí răng:</label>
-													<span>3</span>
-												</li>
-												<li>
-													<label>Ngày thực hiện:</label>
-													<span>10/12/2020</span>
-												</li>
-												<li>
-													<label>Thời hạn bảo hành:</label>
-													<span>3 ngày</span>
-												</li>
-											</ul>
-										</div>
+										@endforeach
 									</div>
 								</div>
 							</div>
@@ -92,5 +69,3 @@
 				</div>
 			</div>
 		</div>
-	</div>	
-</div>

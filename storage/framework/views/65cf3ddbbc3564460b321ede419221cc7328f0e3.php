@@ -86,7 +86,7 @@
 										<p><?php echo e($product['mota']); ?></p>
 									</div>
 									<div class="button">
-										<a href="#" title="Tư vấn - đặt lịch" class="btn btn-popup btn-popup-consultation-scheduling">Tư vấn - đặt lịch</a>
+										<a href="<?php echo e(route('getContact')); ?>" title="Tư vấn - đặt lịch" class="btn ">Tư vấn - đặt lịch</a>
 									</div>
 								</div>
 							</div>

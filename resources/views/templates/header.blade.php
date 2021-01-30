@@ -1,10 +1,5 @@
 
-<?php
-	function format_phone_number($number, $kitu) {
-		$result = preg_replace('~.*(\d{4})[^\d]{0,7}(\d{3})[^\d]{0,7}(\d{3}).*~', "$1$kitu$2$kitu$3", $number);
-		return $result;
-	}
-?>
+
 <div class="body-main">		
 	<header class="headers">
 		@include ('templates.headers.megamenu-mobile')
@@ -89,6 +84,6 @@
 				</div>
 			</div>
 		</div>
-			@include ('templates.headers.header-main')
+		@include ('templates.headers.header-main')
 	</header> <!--headers-->
 	

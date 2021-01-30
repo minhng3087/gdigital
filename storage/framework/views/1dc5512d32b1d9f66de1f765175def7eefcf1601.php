@@ -55,7 +55,7 @@
 			    	<div class="row">
 						<div class="col-md-6">
 					    	<button type="submit" class="btn btn-primary">Cập nhật</button>
-					    	<button type="button" class="btn btn-danger" onclick="javascript:window.location='backend/customers'">Thoát</button>
+					    	<button type="button" class="btn btn-danger" onclick="javascript:window.location='backend/customers'">Quay lại</button>
 				    	</div>
 			    	</div>
 			  	</div>
