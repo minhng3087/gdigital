@@ -52,10 +52,6 @@
 				 $('.popups-box').html(data);
 			},
 			error: function (jqXHR, exception) {
-				var msg = '';
-				if (jqXHR.status == 404) {
-					msg = 'Requested page not found. [404]';
-				}
 				$('.popups-box').html('<div class="popups-content"><div class="container"><div class="popup-content"><div class="art-scheduling"><p>Not found</p></div></div></div></div>');
 			}
         });
