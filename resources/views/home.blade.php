@@ -85,7 +85,7 @@
 								<div class="banners-box">
 									<div class="title-box">
 										<h3 class="title">{{ __('Về chúng tôi') }}</h3>
-										<p>{{ Session::get('lang') == 'vn' : $about->mota : $about->mota_eg }}<a href="#" title="{{ __('Xem thêm') }}">{{ __('Xem thêm') }} >></a> </p>
+										<p>{{ Session::get('lang') == 'vn' ? $about->mota : $about->mota_eg }}<a href="#" title="{{ __('Xem thêm') }}">{{ __('Xem thêm') }} >></a> </p>
 									</div>
 									<div class="contents banners-content">
 										<div class="banner-box">
