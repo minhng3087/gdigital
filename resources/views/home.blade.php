@@ -84,8 +84,8 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="banners-box">
 									<div class="title-box">
-										<h3 class="title">{{ @$about->name }}</h3>
-										<p>{{ @$about->mota }}<a href="#" title="{{ __('Xem thêm') }}">{{ __('Xem thêm') }} >></a> </p>
+										<h3 class="title">{{ __('Về chúng tôi') }}</h3>
+										<p>{{ Session::get('lang') == 'vn' : $about->mota : $about->mota_eg }}<a href="#" title="{{ __('Xem thêm') }}">{{ __('Xem thêm') }} >></a> </p>
 									</div>
 									<div class="contents banners-content">
 										<div class="banner-box">
@@ -127,10 +127,10 @@
 													</div>
 													<div class="product-content">
 														<h4 class="product-name">
-															<a href="{{ route('getProductDetail', ['alias'=>$item->alias]) }}" title="Product">{{ $item->name}}</a>
+															<a href="{{ route('getProductDetail', ['alias'=>$item->alias]) }}" title="Product">{{ Session::get('lang') == 'vn' ? $item->name : $item->name_eg }}</a>
 														</h4>
 														<div class="product-excerpt">
-															<p>{{ $item->mota }}</p>
+															<p>{{ Session::get('lang') == 'vn' ? $item->mota : $item->mota_eg }}</p>
 														</div>
 														<div class="product-button">
 															<a href="{{ route('getProductDetail', ['alias'=>$item->alias]) }}" title="{{ __('Xem thêm') }}" class="btn">{{ __('Xem thêm') }}</a>
@@ -165,15 +165,15 @@
 															</a>
 														</div>
 														<h4 class="service-name">
-															<a href="{{ route('getServiceDetail', ['alias'=>$services[0]['alias']]) }}" title="service">{{ $services[0]['name']}}</a>
+															<a href="{{ route('getServiceDetail', ['alias'=>$services[0]['alias']]) }}" title="service">{{ Session::get('lang') == 'vn' ? $services[0]['name'] : $services[0]['name_eg']}}</a>
 														</h4>
 													</div>
 													<div class="service-content">
 														<h4 class="service-name">
-															<a href="{{ route('getServiceDetail', ['alias'=>$services[0]['alias']]) }}" title="service">{{ $services[0]['name']}}</a>
+															<a href="{{ route('getServiceDetail', ['alias'=>$services[0]['alias']]) }}" title="service">{{ Session::get('lang') == 'vn' ? $services[0]['name'] : $services[0]['name_eg']}}</a>
 														</h4>
 														<div class="service-excerpt">
-															<p>{{ $services[0]['mota']}}</p>
+															<p>{{ Session::get('lang') == 'vn' ? $services[0]['mota'] : $services[0]['mota_eg']}}</p>
 														</div>
 														<div class="service-button">
 															<a href="{{ route('getServiceDetail', ['alias'=>$services[0]['alias']]) }}" title="{{ __('Xem thêm') }}" class="btn">{{ __('Xem thêm') }}</a>
@@ -193,15 +193,15 @@
 																	</a>
 																</div>
 																<h4 class="service-name">
-																	<a href="{{ route('getServiceDetail', ['alias'=>$services[$i]['alias']]) }}" title="service">{{ @$services[$i]['name'] }}</a>
+																	<a href="{{ route('getServiceDetail', ['alias'=>$services[$i]['alias']]) }}" title="service">{{ Session::get('lang') == 'vn' ? $services[$i]['name'] : $services[$i]['name_eg'] }}</a>
 																</h4>
 															</div>
 															<div class="service-content">
 																<h4 class="service-name">
-																	<a href="{{ route('getServiceDetail', ['alias'=>$services[$i]['alias']]) }}" title="service">{{ @$services[$i]['name'] }}</a>
+																	<a href="{{ route('getServiceDetail', ['alias'=>$services[$i]['alias']]) }}" title="service">{{ Session::get('lang') == 'vn' ? $services[$i]['name'] : $services[$i]['name_eg']}}</a>
 																</h4>
 																<div class="service-excerpt">
-																	<p>{{ @$services[$i]['mota']}}</p>
+																	<p>{{ Session::get('lang') == 'vn' ? $services[$i]['mota'] : $services[$i]['mota_eg']}}</p>
 																</div>
 																<div class="service-button">
 																	<a href="{{ route('getServiceDetail', ['alias'=>$services[$i]['alias']]) }}" title="{{ __('Xem thêm') }}" class="btn">{{ __('Xem thêm') }}</a>
