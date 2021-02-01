@@ -17,6 +17,11 @@ use App\Http\Requests\ContactRequest;
 use App\Customer;
 use App\History;
 class IndexController extends Controller {
+    public function changeLanguage($language){
+        \Session::put('lang', $language);
+        
+        return redirect()->back();
+    }
     public function index() {
         $slider = Slider::all()->where('status', 1);
         $products = Products::where([
@@ -69,7 +74,7 @@ class IndexController extends Controller {
         $products = Products::select()->where([
             'status' => 1,
             'cate_id' => 0
-        ])->orderBy('stt', 'asc')->paginate(1);
+        ])->orderBy('stt', 'asc')->paginate(10);
         return view('san-pham', compact('products'));
     }
 
@@ -87,7 +92,7 @@ class IndexController extends Controller {
         $services = Products::select()->where([
             'status' => 1,
             'cate_id' => 1
-        ])->orderBy('stt', 'asc')->paginate(1);
+        ])->orderBy('stt', 'asc')->paginate(10);
         return view('dich-vu',compact('services'));
     }
 
@@ -138,11 +143,5 @@ class IndexController extends Controller {
             ]);
     }
 
-    public function changeLanguage($language)
-{
-    \Session::put('lang', $language);
-
-    return redirect()->back();
-}
 	
 }

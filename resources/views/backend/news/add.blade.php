@@ -37,9 +37,9 @@
 								      	<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('txtName'); !!}</label>
 								      	@endif
 									</div>
-                                    <div class="form-group hidden">
+                                    <div class="form-group">
 								      	<label for="ten">Tiêu đề(English)</label>
-								      	<input type="text" name="name_eg" value=""  class="form-control" />
+								      	<input type="text" name="txtNameEng" value=""  class="form-control" />
 									</div>
 									<div class="form-group @if ($errors->first('txtAlias')!='') has-error @endif">
 								      	<label for="alias">Đường dẫn tĩnh</label>
@@ -61,25 +61,44 @@
                     </div>
 
                   @endif
-                                    <div class="form-group">
+                    <div class="form-group">
 							      	  <label for="desc">Mô tả</label>
 							      	  <textarea  name="txtDesc" rows="5" class="form-control"></textarea>
 									</div>
-                                    <div class="clearfix"></div>
-                                        <div class="box box-info">
-            				                <div class="box-header">
-            				                  	<h3 class="box-title">Nội dung</h3>
-            				                  	<div class="pull-right box-tools">
-            					                    <button class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
-            					                    <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
-            					                </div>
-            				                </div>
-            				                <div class="box-body pad">
-            				        			<textarea name="txtContent" id="txtContent" cols="50" rows="5"></textarea>
-            				        		</div>
-            				        	</div>
-            	                    <div class="clearfix"></div>
+                    <div class="form-group">
+							      	  <label for="desc">Mô tả(English)</label>
+							      	  <textarea  name="txtDescEng" rows="5" class="form-control"></textarea>
+									</div>
+                    <div class="clearfix"></div>
+                    <div class="box box-info">
+                      <div class="box-header">
+                          <h3 class="box-title">Nội dung</h3>
+                          <div class="pull-right box-tools">
+                            <button class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                            <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+                        </div>
+                      </div>
+                      <div class="box-body pad">
+                          <textarea name="txtContent" id="txtContent" cols="50" rows="5"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="box box-info">
+                      <div class="box-header">
+                          <h3 class="box-title">Nội dung (English)</h3>
+                          <div class="pull-right box-tools">
+                            <button class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                            <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+                        </div>
+                      </div>
+                      <div class="box-body pad">
+                          <textarea name="txtContentEng" id="txtContent" cols="50" rows="5"></textarea>
+                      </div>
+                    </div>
+                  <div class="clearfix"></div>
 								</div>
+                
                                <div class="col-md-3">
 					                <input type="hidden" name="txtCom" value="{{ @$_GET['type'] }}"/>
                                  	<button type="submit" class="btn btn-primary btn-block margin-bottom">Lưu</button>
@@ -104,17 +123,6 @@
                                     <!-- /.box-body -->
                                   </div>
                                   <!-- /. box -->
-                                  <div class="box box-solid">
-                                    <!-- <div class="box-header with-border">
-                                      <h3 class="box-title">Danh mục</h3>                      
-                                      <div class="box-tools">
-                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i> </button>
-                                      </div>
-                                    </div> -->
-                                    <!-- /.box-header -->
-                                  
-                                    <!-- /.box-body -->
-                                  </div>
                                   <!-- /.box -->
                                    <div class="box box-solid">
                                         <div class="box-header with-border">

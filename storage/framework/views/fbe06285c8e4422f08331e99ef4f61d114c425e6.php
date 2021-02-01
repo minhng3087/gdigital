@@ -238,10 +238,10 @@
 													</div>
 													<div class="post-content">
 														<h4 class="post-name">
-															<a href="<?php echo e(route('getNewsDetail', ['alias'=>$news[0]['alias']])); ?>" title="post"><?php echo e(@$news[0]['name']); ?></a>
+															<a href="<?php echo e(route('getNewsDetail', ['alias'=>$news[0]['alias']])); ?>" title="post"><?php echo e(Session::get('lang') == 'vn' ? $news[0]['name'] : $news[0]['name_eg']); ?></a>
 														</h4>
 														<div class="post-excerpt">
-															<p><?php echo e(@$news[0]['mota']); ?></p>
+															<p><?php echo e(Session::get('lang') == 'vn' ? $news[0]['mota'] : $news[0]['mota_eg']); ?></p>
 														</div>
 													</div>
 												</div>
@@ -260,13 +260,13 @@
 															</div>
 															<div class="post-content">
 																<h4 class="post-name">
-																	<a href="<?php echo e(route('getNewsDetail', ['alias'=>$news[$i]['alias']])); ?>" title="post"><?php echo e($news[$i]['mota']); ?></a>
+																	<a href="<?php echo e(route('getNewsDetail', ['alias'=>$news[$i]['alias']])); ?>" title="post"><?php echo e(Session::get('lang') == 'vn' ? $news[$i]['name'] : $news[$i]['name_eg']); ?></a>
 																</h4>
 																<div class="post-date">
 																	<span><?php echo e(date('H:i d/m/Y', strtotime($news[$i]['updated_at']))); ?></span>
 																</div>
 																<div class="post-excerpt">
-																	<p><?php echo e(@$news[$i]['mota']); ?></p>
+																	<p><?php echo e(Session::get('lang') == 'vn' ? $news[$i]['mota'] : $news[$i]['mota_eg']); ?></p>
 																</div>
 															</div>
 														</div>

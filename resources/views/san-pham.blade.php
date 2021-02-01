@@ -59,10 +59,10 @@
 													</div>
 													<div class="product-content">
 														<h4 class="product-name">
-															<a href="san-pham-chi-tiet.php" title="Product">{{@$item->name }}</a>
+															<a href="san-pham-chi-tiet.php" title="Product">{{Session::get('lang') == 'vn' ? $item->name : $item->name_eg}}</a>
 														</h4>
 														<div class="product-excerpt">
-															<p>{{@$item->mota }}</p>
+															<p>{{ Session::get('lang') == 'vn' ? $item->mota : $item->mota_eg }}</p>
 														</div>
 														<div class="product-button">
 															<a href="{{ route('getProductDetail', ['alias'=>$item->alias]) }}" title="{{ __('Xem thêm') }}" class="btn">{{ __('Xem thêm') }}</a>

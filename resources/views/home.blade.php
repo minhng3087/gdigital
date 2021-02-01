@@ -240,10 +240,10 @@
 													</div>
 													<div class="post-content">
 														<h4 class="post-name">
-															<a href="{{ route('getNewsDetail', ['alias'=>$news[0]['alias']]) }}" title="post">{{ @$news[0]['name'] }}</a>
+															<a href="{{ route('getNewsDetail', ['alias'=>$news[0]['alias']]) }}" title="post">{{ Session::get('lang') == 'vn' ? $news[0]['name'] : $news[0]['name_eg']}}</a>
 														</h4>
 														<div class="post-excerpt">
-															<p>{{ @$news[0]['mota'] }}</p>
+															<p>{{ Session::get('lang') == 'vn' ? $news[0]['mota'] : $news[0]['mota_eg'] }}</p>
 														</div>
 													</div>
 												</div>
@@ -262,13 +262,13 @@
 															</div>
 															<div class="post-content">
 																<h4 class="post-name">
-																	<a href="{{ route('getNewsDetail', ['alias'=>$news[$i]['alias']]) }}" title="post">{{ $news[$i]['mota'] }}</a>
+																	<a href="{{ route('getNewsDetail', ['alias'=>$news[$i]['alias']]) }}" title="post">{{ Session::get('lang') == 'vn' ? $news[$i]['name'] : $news[$i]['name_eg'] }}</a>
 																</h4>
 																<div class="post-date">
 																	<span>{{ date('H:i d/m/Y', strtotime($news[$i]['updated_at'])) }}</span>
 																</div>
 																<div class="post-excerpt">
-																	<p>{{ @$news[$i]['mota']}}</p>
+																	<p>{{ Session::get('lang') == 'vn' ? $news[$i]['mota'] : $news[$i]['mota_eg']}}</p>
 																</div>
 															</div>
 														</div>

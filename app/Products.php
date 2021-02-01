@@ -2,7 +2,7 @@
 use Illuminate\Database\Eloquent\Model;
 class Products extends Model {
 	protected $table='products';
-	protected $fillable = ['id', 'cate_id', 'name', 'name_eg', 'alias', 'photo', 'photo1','photo2','photo3','photo4','user_id', 'mota', 'link','content',  'updated_at', 'created_at', 'status', 'title', 'keyword', 'description', 'hot', 'tinhtrang', 'stt', 'noibat'];
+	protected $fillable = ['id', 'cate_id', 'name', 'name_eg', 'content_eg', 'mota_eg','alias', 'photo', 'photo1','photo2','photo3','photo4','user_id', 'mota', 'link','content',  'updated_at', 'created_at', 'status', 'title', 'keyword', 'description', 'hot', 'tinhtrang', 'stt', 'noibat'];
 	public $timestamps = true;
     public function pimg()
 	{

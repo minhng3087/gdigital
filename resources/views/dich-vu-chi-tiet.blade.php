@@ -24,13 +24,13 @@
 						<div class="content-box breadcrumb-content">
 							<ul class="breadcrumb-box">
 								<li>
-									<a href="{{ url('/')}}" title="Trang chủ">Trang chủ</a>
+									<a href="{{ url('/')}}" title="{{ __('Trang chủ') }}">{{ __('Trang chủ') }}</a>
 								</li>
 								<li>
-									<a href="{{ url('/dich-vu')}}" title="Dịch vụ">Dịch vụ</a>
+									<a href="{{ url('/dich-vu')}}" title="{{ __('Dịch vụ') }}">{{ __('Dịch vụ') }}</a>
 								</li>
 								<li>
-									<span>Chi tiết dịch vụ</span>
+									<span>{{ __('Chi tiết dịch vụ') }}</span>
 								</li>
 							</ul>
 						</div>
@@ -49,18 +49,22 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="posts-box">
 									<div class="title-box">
-										<h1 class="title">{{ @$service['name']}}</h1>
+										<h1 class="title">{{ Session::get('lang') == 'vn' ? $service['name'] : $service['name_eg']  }}</h1>
 										<div class="post-date">
 											<span><i class="far fa-calendar-alt icon"></i> {{ date('d/m/Y', strtotime($service['created_at'])) }}</span>
 										</div>
 										<div class="post-excerpt">
-											<p>{{ @$service['mota']}} </p>
+											<p>{{ Session::get('lang') == 'vn' ? $service['mota'] : $service['mota_eg'] }} </p>
 										</div>
 									</div>
 									<div class="contents posts-content">
+										@if (Session::get('lang') == 'vn')
 										<?php echo $service['content']?>
+										@else
+										<?php echo $service['content_eg'] ?>
+										@endif
 										<div class="button">
-											<a href="{{ route('getContact') }}" title="Tư vấn - đặt lịch" class="btn">Tư vấn - đặt lịch</a>
+											<a href="{{ route('getContact') }}" title="{{ __('Tư vấn - đặt lịch') }}" class="btn">{{ __('Tư vấn - đặt lịch') }}</a>
 										</div>
 									</div>
 								</div>
@@ -75,7 +79,7 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="products-box">
 									<div class="title-box">
-										<h3 class="title">Dịch vụ liên quan</h3>
+										<h3 class="title">{{ __('Dịch vụ liên quan') }}</h3>
 									</div>
 									<div class="contents products-content">
 										<div class="slick-slider slick-services-related">
@@ -91,13 +95,13 @@
 													</div>
 													<div class="product-content">
 														<h4 class="product-name">
-															<a href="{{ route('getServiceDetail', ['alias'=>$item->alias]) }}" title="Product">{{ @$item->name }}</a>
+															<a href="{{ route('getServiceDetail', ['alias'=>$item->alias]) }}" title="Product">{{ Session::get('lang') == 'vn' ? $item->name : $item->name_eg }}</a>
 														</h4>
 														<div class="product-excerpt">
-															<p>{{ @$item->mota}}</p>
+															<p>{{ Session::get('lang') =='vn' ? $item->mota : $item->mota_eg }}</p>
 														</div>
 														<div class="product-button">
-															<a href="{{ route('getServiceDetail', ['alias'=>$item->alias]) }}" title="Xem thêm" class="btn">Xem thêm</a>
+															<a href="{{ route('getServiceDetail', ['alias'=>$item->alias]) }}" title="{{ __('Xem thêm') }}" class="btn">{{ __('Xem thêm') }}</a>
 														</div>
 													</div>
 												</div>

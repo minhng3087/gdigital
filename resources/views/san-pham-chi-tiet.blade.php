@@ -23,13 +23,13 @@
 						<div class="content-box breadcrumb-content">
 							<ul class="breadcrumb-box">
 								<li>
-									<a href=" {{ url('/') }}" title="Trang chủ">Trang chủ</a>
+									<a href=" {{ url('/') }}" title="Trang chủ">{{ __('Trang chủ') }}</a>
 								</li>
 								<li>
-									<a href="{{ url('/san-pham') }}" title="Sản phẩm">Sản phẩm</a>
+									<a href="{{ url('/san-pham') }}" title="Sản phẩm">{{ __('Sản phẩm') }}</a>
 								</li>
 								<li>
-									<span>Chi tiết sản phẩm</span>
+									<span>{{ __('Chi tiết sản phẩm') }}</span>
 								</li>
 							</ul>
 						</div>
@@ -81,13 +81,13 @@
 							</div>
 							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
 								<div class="product-detail-content">
-									<h1 class="title">{{ @$product['name'] }}</h1>
+									<h1 class="title">{{ Session::get('lang') == 'vn' ? $product['name'] : $product['name_eg']  }}</h1>
 									<div class="product-excerpt">
-										<label>Mô tả ngắn:</label>
-										<p>{{ $product['mota']}}</p>
+										<label>{{ __('Mô tả ngắn') }}:</label>
+										<p>{{ Session::get('lang') == 'vn' ? $product['mota'] : $product['mota_eg'] }}</p>
 									</div>
 									<div class="button">
-										<a href="{{ route('getContact') }}" title="Tư vấn - đặt lịch" class="btn ">Tư vấn - đặt lịch</a>
+										<a href="{{ route('getContact') }}" title="{{ __('Tư vấn - đặt lịch') }}" class="btn ">{{ __('Tư vấn - đặt lịch') }}</a>
 									</div>
 								</div>
 							</div>
@@ -100,10 +100,14 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="posts-box">
 									<div class="title-box">
-										<h3 class="title">Chi tiết sản phẩm</h3>
+										<h3 class="title">{{ __('Chi tiết sản phẩm') }}</h3>
 									</div>
 									<div class="contents posts-content">
+										@if (Session::get('lang') == 'vn')
 										<?php echo $product['content'] ?>
+										@else
+										<?php echo $product['content_eg'] ?>
+										@endif
 									</div>
 								</div>
 							</div>
@@ -117,7 +121,7 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="products-box">
 									<div class="title-box">
-										<h3 class="title">Sản phẩm liên quan</h3>
+										<h3 class="title">{{ __('Sản phẩm liên quan') }}</h3>
 									</div>
 									<div class="contents products-content">
 										<div class="slick-slider slick-products-related">
@@ -133,13 +137,13 @@
 													</div>
 													<div class="product-content">
 														<h4 class="product-name">
-															<a href="{{ route('getProductDetail', ['alias'=>$item->alias]) }}" title="Product">{{ @$item->name }}</a>
+															<a href="{{ route('getProductDetail', ['alias'=>$item->alias]) }}" title="Product">{{ Session::get('lang') == 'vn' ? $item->name : $item->name_eg }}</a>
 														</h4>
 														<div class="product-excerpt">
-															<p>{{ @$item->mota }}</p>
+															<p>{{ Session::get('lang') == 'vn' ? $item->mota : $item->mota_eg }}</p>
 														</div>
 														<div class="product-button">
-															<a href="{{ route('getProductDetail', ['alias'=>$item->alias]) }}" title="Xem thêm" class="btn">Xem thêm</a>
+															<a href="{{ route('getProductDetail', ['alias'=>$item->alias]) }}" title="{{ __('Xem thêm') }}" class="btn">{{ __('Xem thêm') }}</a>
 														</div>
 													</div>
 												</div>

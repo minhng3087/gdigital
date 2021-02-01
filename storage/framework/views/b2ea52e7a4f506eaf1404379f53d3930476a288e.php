@@ -38,13 +38,13 @@
 					<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
 						<div class="footer-box footer-address">
 							<div class="title-box">
-								<h3 class="title"><?php echo e(@$setting->name); ?></h3>
+								<h3 class="title"><?php echo e(Session::get('lang') == 'vn'? $setting->name : $setting->name_eg); ?></h3>
 							</div>
 							<div class="content-box">
 								<ul>
 									<li>
 										<i class="fas fa-map-marker-alt icon"></i>
-										<p><?php echo e(@$setting->address); ?></p>
+										<p><?php echo e(Session::get('lang') == 'vn' ? $setting->address : $setting->address_eg); ?></p>
 									</li>
 									<li>
 										<i class="fas fa-phone-alt icon"></i>

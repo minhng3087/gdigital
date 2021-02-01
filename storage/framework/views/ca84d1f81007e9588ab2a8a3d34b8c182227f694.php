@@ -35,6 +35,10 @@
 								      	<input type="text" name="txtName" id="txtName" value="<?php echo old('txtName', isset($data) ? $data->name : null); ?>"  class="form-control" />
 									</div>
 									<div class="form-group">
+								      	<label for="ten">Tiêu đề(English)</label>
+								      	<input type="text" name="txtNameEng" id="txtNameEng" value="<?php echo old('txtNameEng', isset($data) ? $data->name_eg : null); ?>"  class="form-control" />
+									</div>
+									<div class="form-group">
 								      	<label for="ten">Điện thoại</label>
 								      	<input type="text" name="txtPhone" value="<?php echo old('txtPhone', isset($data) ? $data->phone : null); ?>"  class="form-control" />
 									</div>
@@ -45,6 +49,14 @@
 								    <div class="form-group">
 								      	<label for="ten">Email</label>
 								      	<input type="text" name="txtEmail" value="<?php echo old('txtEmail', isset($data) ? $data->email : null); ?>"  class="form-control" />
+									</div>
+									<div class="form-group">
+								      	<label for="ten">Address</label>
+								      	<input type="text" name="txtAddress" value="<?php echo old('txtAddress', isset($data) ? $data->address : null); ?>"  class="form-control" />
+									</div>
+									<div class="form-group">
+								      	<label for="ten">Address(English)</label>
+								      	<input type="text" name="txtAddressEng" value="<?php echo old('txtAddressEng', isset($data) ? $data->address_eg : null); ?>"  class="form-control" />
 									</div>
 									<div class="form-group">
 								      	<label for="codechat">Codechat</label>

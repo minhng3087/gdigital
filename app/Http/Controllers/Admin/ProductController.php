@@ -91,12 +91,14 @@ class ProductController extends Controller
         }
         $product = new Products;
         $product->name = $request->txtName;
+        $product->name_eg = $request->txtNameEng;
         if(!empty($request->txtAlias)){
             $product->alias = $request->txtAlias;
         }else{
             $product->alias = changeTitle($request->txtName);
         }
         $product->mota = $request->txtDesc;
+        $product->mota_eg = $request->txtDescEng;
         $product->photo = $img_name;
         $product->photo1 = $img_name1;
         $product->photo2 = $img_name2;
@@ -104,11 +106,9 @@ class ProductController extends Controller
         $product->photo4 = $img_name4;
         $product->com = $com;
         $product->cate_id = $com == 'san-pham' ? 0 : 1;
-        // $product->text1 =  $request->text1;
-        // $product->text2 =  $request->text2;
-        // $product->text3 =  $request->text3;
         $product->title = $request->txtTitle;
         $product->content = $request->txtContent;
+        $product->content_eg = $request->txtContentEng;
         $product->keyword = $request->txtKeyword;
         $product->description = $request->txtDescription;
         $product->stt = intval($request->stt);
@@ -259,6 +259,7 @@ class ProductController extends Controller
                 }
             }
             $product->name = $request->txtName;
+            $product->name_eg = $request->txtNameEng;
             if($request->txtAlias){
                 $product->alias = $request->txtAlias;
             }else{
@@ -266,13 +267,11 @@ class ProductController extends Controller
             }
             $product->title = $request->txtTitle;
             $product->mota = $request->txtDesc;
-            // $product->text1 =  $request->text1;
-            // $product->text2 =  $request->text2;
-            // $product->text3 =  $request->text3;
-            // $product->link =  $request->link;
-        $product->stt = intval($request->stt);
+            $product->mota_eg = $request->txtDescEng;
+            $product->stt = intval($request->stt);
             $product->cate_id = $com == 'san-pham' ? 0 : 1;
             $product->content = $request->txtContent;
+            $product->content_eg = $request->txtContentEng;
             $product->keyword = $request->txtKeyword;
             $product->description = $request->txtDescription;
             /***********************/

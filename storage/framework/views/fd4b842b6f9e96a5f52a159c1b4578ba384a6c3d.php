@@ -22,13 +22,13 @@
 						<div class="content-box breadcrumb-content">
 							<ul class="breadcrumb-box">
 								<li>
-									<a href="<?php echo e(url('/')); ?>" title="Trang chủ">Trang chủ</a>
+									<a href="<?php echo e(url('/')); ?>" title="<?php echo e(__('Trang chủ')); ?>"><?php echo e(__('Trang chủ')); ?></a>
 								</li>
 								<li>
-									<a href="<?php echo e(url('/dich-vu')); ?>" title="Dịch vụ">Dịch vụ</a>
+									<a href="<?php echo e(url('/dich-vu')); ?>" title="<?php echo e(__('Dịch vụ')); ?>"><?php echo e(__('Dịch vụ')); ?></a>
 								</li>
 								<li>
-									<span>Chi tiết dịch vụ</span>
+									<span><?php echo e(__('Chi tiết dịch vụ')); ?></span>
 								</li>
 							</ul>
 						</div>
@@ -47,18 +47,22 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="posts-box">
 									<div class="title-box">
-										<h1 class="title"><?php echo e(@$service['name']); ?></h1>
+										<h1 class="title"><?php echo e(Session::get('lang') == 'vn' ? $service['name'] : $service['name_eg']); ?></h1>
 										<div class="post-date">
 											<span><i class="far fa-calendar-alt icon"></i> <?php echo e(date('d/m/Y', strtotime($service['created_at']))); ?></span>
 										</div>
 										<div class="post-excerpt">
-											<p><?php echo e(@$service['mota']); ?> </p>
+											<p><?php echo e(Session::get('lang') == 'vn' ? $service['mota'] : $service['mota_eg']); ?> </p>
 										</div>
 									</div>
 									<div class="contents posts-content">
+										<?php if(Session::get('lang') == 'vn'): ?>
 										<?php echo $service['content']?>
+										<?php else: ?>
+										<?php echo $service['content_eg'] ?>
+										<?php endif; ?>
 										<div class="button">
-											<a href="#" title="Tư vấn - đặt lịch" class="btn btn-popup btn-popup-consultation-scheduling">Tư vấn - đặt lịch</a>
+											<a href="<?php echo e(route('getContact')); ?>" title="<?php echo e(__('Tư vấn - đặt lịch')); ?>" class="btn"><?php echo e(__('Tư vấn - đặt lịch')); ?></a>
 										</div>
 									</div>
 								</div>
@@ -73,7 +77,7 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="products-box">
 									<div class="title-box">
-										<h3 class="title">Dịch vụ liên quan</h3>
+										<h3 class="title"><?php echo e(__('Dịch vụ liên quan')); ?></h3>
 									</div>
 									<div class="contents products-content">
 										<div class="slick-slider slick-services-related">
@@ -89,13 +93,13 @@
 													</div>
 													<div class="product-content">
 														<h4 class="product-name">
-															<a href="<?php echo e(route('getServiceDetail', ['alias'=>$item->alias])); ?>" title="Product"><?php echo e(@$item->name); ?></a>
+															<a href="<?php echo e(route('getServiceDetail', ['alias'=>$item->alias])); ?>" title="Product"><?php echo e(Session::get('lang') == 'vn' ? $item->name : $item->name_eg); ?></a>
 														</h4>
 														<div class="product-excerpt">
-															<p><?php echo e(@$item->mota); ?></p>
+															<p><?php echo e(Session::get('lang') =='vn' ? $item->mota : $item->mota_eg); ?></p>
 														</div>
 														<div class="product-button">
-															<a href="<?php echo e(route('getServiceDetail', ['alias'=>$item->alias])); ?>" title="Xem thêm" class="btn">Xem thêm</a>
+															<a href="<?php echo e(route('getServiceDetail', ['alias'=>$item->alias])); ?>" title="<?php echo e(__('Xem thêm')); ?>" class="btn"><?php echo e(__('Xem thêm')); ?></a>
 														</div>
 													</div>
 												</div>

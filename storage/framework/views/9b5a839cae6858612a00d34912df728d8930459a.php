@@ -22,13 +22,13 @@
 						<div class="content-box breadcrumb-content">
 							<ul class="breadcrumb-box">
 								<li>
-									<a href="<?php echo e(url('/')); ?>" title="Trang chủ">Trang chủ</a>
+									<a href="<?php echo e(url('/')); ?>" title="Trang chủ"><?php echo e(__('Trang chủ')); ?></a>
 								</li>
 								<li>
-									<span>Tin tức</span>
+									<span><?php echo e(__('Tin tức')); ?></span>
 								</li>
 								<li>
-									<span>Chi tiết tin tức</span>
+									<span><?php echo e(__('Chi tiết tin tức')); ?></span>
 								</li>
 							</ul>
 						</div>
@@ -47,16 +47,18 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="posts-box">
 									<div class="title-box">
-										<h1 class="title"><?php echo e($news['name']); ?></h1>
+										<h1 class="title"><?php echo e(Session::get('lang') == 'vn' ? $news['name'] : $news['name_eg']); ?></h1>
 										<div class="post-date">
 											<span><i class="far fa-calendar-alt icon"></i>  <?php echo e(date('d/m/Y', strtotime($news['created_at']))); ?></span>
 										</div>
 										<div class="post-excerpt">
-											<p><?php echo e($news['mota']); ?> </p>
+											<p><?php echo e(Session::get('lang') == 'vn' ? $news['mota'] : $news['mota_eg']); ?> </p>
 										</div>
 									</div>
 									<div class="contents posts-content">
-										<?php echo $news['content'] ?>
+										<?php if(Session::get('lang') == 'vn'): ?> <?php echo $news['content'] ?> 
+										<?php else: ?> <?php echo $news['content_eg'] ?>
+										<?php endif; ?>
 									</div>
 								</div>
 							</div>
@@ -70,7 +72,7 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="posts-box">
 									<div class="title-box">
-										<h3 class="title">Tin khác</h3>
+										<h3 class="title"><?php echo e(__('Tin khác')); ?></h3>
 									</div>
 									<div class="contents posts-content">
 										<div class="groups-box">
@@ -88,13 +90,13 @@
 															</div>
 															<div class="post-content">
 																<h4 class="post-name">
-																	<a href="<?php echo e(route('getNewsDetail', ['alias'=>$item->alias])); ?>" title="post"><?php echo e($item->name); ?></a>
+																	<a href="<?php echo e(route('getNewsDetail', ['alias'=>$item->alias])); ?>" title="post"><?php echo e(Session::get('lang') == 'vn' ? $item->name : $item->name_eg); ?></a>
 																</h4>
 																<div class="post-date">
 																	<span> <?php echo e(date('H:i d/m/Y', strtotime($item->created_at))); ?></span>
 																</div>
 																<div class="post-excerpt">
-																	<p><?php echo e($item->mota); ?></p>
+																	<p><?php echo e(Session::get('lang') == 'vn' ? $item->mota : $item->mota_eg); ?></p>
 																</div>
 															</div>
 														</div>

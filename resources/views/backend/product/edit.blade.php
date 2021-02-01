@@ -35,6 +35,14 @@
 								      	<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('txtName'); !!}</label>
                         		      	@endif
 									</div>
+
+                  <div class="form-group @if ($errors->first('txtName')!='') has-error @endif">
+								      	<label for="ten">Tiêu đề (English)</label>
+								      	<input type="text" name="txtNameEng" id="txtName" value="{{ $data->name_eg }}"  class="form-control" />
+								      	@if ($errors->first('txtNameEng')!='')
+								      	<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('txtNameEng'); !!}</label>
+                        		      	@endif
+									</div>
 									<div class="form-group @if ($errors->first('txtAlias')!='') has-error @endif">
 								      	<label for="alias">Đường dẫn tĩnh</label>
 								      	<input type="text" name="txtAlias" id="txtAlias" value="{{ $data->alias }}"  class="form-control" />
@@ -47,6 +55,11 @@
 								      	<label for="desc">Mô tả</label>
 								      	<textarea name="txtDesc" rows="5" class="form-control">{{ $data->mota }}</textarea>
 									</div>
+
+                  <div class="form-group">
+								      	<label for="desc">Mô tả (English)</label>
+								      	<textarea name="txtDescEng" rows="5" class="form-control">{{ $data->mota_eg }}</textarea>
+									</div>
                                     <div class="box box-info">
         				                <div class="box-header">
         				                  	<h3 class="box-title">Thông tin chi tiết</h3>
@@ -57,6 +70,20 @@
         				                </div>
         				                <div class="box-body pad">
         				        			<textarea name="txtContent" id="txtContent" cols="50" rows="5">{{ $data->content }}</textarea>
+        				        		</div>
+        				        	</div>
+
+
+                          <div class="box box-info">
+        				                <div class="box-header">
+        				                  	<h3 class="box-title">Thông tin chi tiết (English)</h3>
+        				                  	<div class="pull-right box-tools">
+        					                    <button class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+        					                    <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+        					                </div>
+        				                </div>
+        				                <div class="box-body pad">
+        				        			<textarea name="txtContentEng" id="txtContent" cols="50" rows="5">{{ $data->content_eg }}</textarea>
         				        		</div>
         				        	</div>
                                     <div class="clearfix"></div>

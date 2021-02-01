@@ -22,13 +22,13 @@
 						<div class="content-box breadcrumb-content">
 							<ul class="breadcrumb-box">
 								<li>
-									<a href=" <?php echo e(url('/')); ?>" title="Trang chủ">Trang chủ</a>
+									<a href=" <?php echo e(url('/')); ?>" title="Trang chủ"><?php echo e(__('Trang chủ')); ?></a>
 								</li>
 								<li>
-									<a href="<?php echo e(url('/san-pham')); ?>" title="Sản phẩm">Sản phẩm</a>
+									<a href="<?php echo e(url('/san-pham')); ?>" title="Sản phẩm"><?php echo e(__('Sản phẩm')); ?></a>
 								</li>
 								<li>
-									<span>Chi tiết sản phẩm</span>
+									<span><?php echo e(__('Chi tiết sản phẩm')); ?></span>
 								</li>
 							</ul>
 						</div>
@@ -80,13 +80,13 @@
 							</div>
 							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
 								<div class="product-detail-content">
-									<h1 class="title"><?php echo e(@$product['name']); ?></h1>
+									<h1 class="title"><?php echo e(Session::get('lang') == 'vn' ? $product['name'] : $product['name_eg']); ?></h1>
 									<div class="product-excerpt">
-										<label>Mô tả ngắn:</label>
-										<p><?php echo e($product['mota']); ?></p>
+										<label><?php echo e(__('Mô tả ngắn')); ?>:</label>
+										<p><?php echo e(Session::get('lang') == 'vn' ? $product['mota'] : $product['mota_eg']); ?></p>
 									</div>
 									<div class="button">
-										<a href="<?php echo e(route('getContact')); ?>" title="Tư vấn - đặt lịch" class="btn ">Tư vấn - đặt lịch</a>
+										<a href="<?php echo e(route('getContact')); ?>" title="<?php echo e(__('Tư vấn - đặt lịch')); ?>" class="btn "><?php echo e(__('Tư vấn - đặt lịch')); ?></a>
 									</div>
 								</div>
 							</div>
@@ -99,10 +99,14 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="posts-box">
 									<div class="title-box">
-										<h3 class="title">Chi tiết sản phẩm</h3>
+										<h3 class="title"><?php echo e(__('Chi tiết sản phẩm')); ?></h3>
 									</div>
 									<div class="contents posts-content">
+										<?php if(Session::get('lang') == 'vn'): ?>
 										<?php echo $product['content'] ?>
+										<?php else: ?>
+										<?php echo $product['content_eg'] ?>
+										<?php endif; ?>
 									</div>
 								</div>
 							</div>
@@ -116,7 +120,7 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="products-box">
 									<div class="title-box">
-										<h3 class="title">Sản phẩm liên quan</h3>
+										<h3 class="title"><?php echo e(__('Sản phẩm liên quan')); ?></h3>
 									</div>
 									<div class="contents products-content">
 										<div class="slick-slider slick-products-related">
@@ -132,13 +136,13 @@
 													</div>
 													<div class="product-content">
 														<h4 class="product-name">
-															<a href="<?php echo e(route('getProductDetail', ['alias'=>$item->alias])); ?>" title="Product"><?php echo e(@$item->name); ?></a>
+															<a href="<?php echo e(route('getProductDetail', ['alias'=>$item->alias])); ?>" title="Product"><?php echo e(Session::get('lang') == 'vn' ? $item->name : $item->name_eg); ?></a>
 														</h4>
 														<div class="product-excerpt">
-															<p><?php echo e(@$item->mota); ?></p>
+															<p><?php echo e(Session::get('lang') == 'vn' ? $item->mota : $item->mota_eg); ?></p>
 														</div>
 														<div class="product-button">
-															<a href="<?php echo e(route('getProductDetail', ['alias'=>$item->alias])); ?>" title="Xem thêm" class="btn">Xem thêm</a>
+															<a href="<?php echo e(route('getProductDetail', ['alias'=>$item->alias])); ?>" title="<?php echo e(__('Xem thêm')); ?>" class="btn"><?php echo e(__('Xem thêm')); ?></a>
 														</div>
 													</div>
 												</div>

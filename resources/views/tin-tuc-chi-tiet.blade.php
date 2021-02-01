@@ -23,13 +23,13 @@
 						<div class="content-box breadcrumb-content">
 							<ul class="breadcrumb-box">
 								<li>
-									<a href="{{ url('/') }}" title="Trang chủ">Trang chủ</a>
+									<a href="{{ url('/') }}" title="Trang chủ">{{ __('Trang chủ') }}</a>
 								</li>
 								<li>
-									<span>Tin tức</span>
+									<span>{{ __('Tin tức') }}</span>
 								</li>
 								<li>
-									<span>Chi tiết tin tức</span>
+									<span>{{ __('Chi tiết tin tức') }}</span>
 								</li>
 							</ul>
 						</div>
@@ -48,16 +48,18 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="posts-box">
 									<div class="title-box">
-										<h1 class="title">{{ $news['name']}}</h1>
+										<h1 class="title">{{ Session::get('lang') == 'vn' ? $news['name'] : $news['name_eg']}}</h1>
 										<div class="post-date">
 											<span><i class="far fa-calendar-alt icon"></i>  {{ date('d/m/Y', strtotime($news['created_at'])) }}</span>
 										</div>
 										<div class="post-excerpt">
-											<p>{{ $news['mota']}} </p>
+											<p>{{ Session::get('lang') == 'vn' ? $news['mota'] : $news['mota_eg']}} </p>
 										</div>
 									</div>
 									<div class="contents posts-content">
-										<?php echo $news['content'] ?>
+										@if (Session::get('lang') == 'vn') <?php echo $news['content'] ?> 
+										@else <?php echo $news['content_eg'] ?>
+										@endif
 									</div>
 								</div>
 							</div>
@@ -71,7 +73,7 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="posts-box">
 									<div class="title-box">
-										<h3 class="title">Tin khác</h3>
+										<h3 class="title">{{ __('Tin khác') }}</h3>
 									</div>
 									<div class="contents posts-content">
 										<div class="groups-box">
@@ -89,13 +91,13 @@
 															</div>
 															<div class="post-content">
 																<h4 class="post-name">
-																	<a href="{{ route('getNewsDetail', ['alias'=>$item->alias]) }}" title="post">{{ $item->name}}</a>
+																	<a href="{{ route('getNewsDetail', ['alias'=>$item->alias]) }}" title="post">{{ Session::get('lang') == 'vn' ? $item->name : $item->name_eg }}</a>
 																</h4>
 																<div class="post-date">
 																	<span> {{ date('H:i d/m/Y', strtotime($item->created_at)) }}</span>
 																</div>
 																<div class="post-excerpt">
-																	<p>{{ $item->mota}}</p>
+																	<p>{{ Session::get('lang') == 'vn' ? $item->mota : $item->mota_eg}}</p>
 																</div>
 															</div>
 														</div>

@@ -75,7 +75,7 @@
 												<a href="<?php echo route('user.change-language', ['vn']); ?>" title="VN">VN</a>
 											</li>
 											<li>
-												<a href="<?php echo route('user.change-language', ['en']); ?>" title="EN">EN</a>s
+												<a href="<?php echo route('user.change-language', ['en']); ?>" title="EN">EN</a>
 											</li>
 										</ul>
 									</div>

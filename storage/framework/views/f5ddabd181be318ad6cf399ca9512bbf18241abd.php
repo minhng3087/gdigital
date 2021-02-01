@@ -57,10 +57,10 @@
 													</div>
 													<div class="product-content">
 														<h4 class="product-name">
-															<a href="san-pham-chi-tiet.php" title="Product"><?php echo e(@$item->name); ?></a>
+															<a href="san-pham-chi-tiet.php" title="Product"><?php echo e(Session::get('lang') == 'vn' ? $item->name : $item->name_eg); ?></a>
 														</h4>
 														<div class="product-excerpt">
-															<p><?php echo e(@$item->mota); ?></p>
+															<p><?php echo e(Session::get('lang') == 'vn' ? $item->mota : $item->mota_eg); ?></p>
 														</div>
 														<div class="product-button">
 															<a href="<?php echo e(route('getProductDetail', ['alias'=>$item->alias])); ?>" title="<?php echo e(__('Xem thêm')); ?>" class="btn"><?php echo e(__('Xem thêm')); ?></a>

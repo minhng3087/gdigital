@@ -51,11 +51,6 @@ class NewsController extends Controller {
             $product->relationship = implode(',',$request->relationship);
         }
         $product->cate_id = $com == 'tin-tuc' ? 0 : 1;
-        // $product->mota_eg = $request->mota_eg;
-        // $product->content_eg = $request->content_eg;
-        //  if(@!empty($_REQUEST['txtProductCate'])){
-            // $product->cate_id = implode(',',$request->txtProductCate);
-            // }
             if($request->txtAlias){
                 $product->alias = $request->txtAlias;
             }else{
@@ -66,9 +61,9 @@ class NewsController extends Controller {
             $product->title = $request->txtTitle;
             $product->content = $request->txtContent;
             $product->description = $request->txtDescription;
-            // $product->title_eg = $request->title_eg;
-            // $product->keyword_eg = $request->keyword_eg;
-            // $product->description_eg = $request->description_eg;
+            $product->mota_eg = $request->txtDescEng;
+            $product->name_eg = $request->txtNameEng;
+            $product->content_eg = $request->txtContentEng;
             $product->stt = intval($request->stt);
             if($request->status=='on'){
                 $product->status = 1;
@@ -138,6 +133,7 @@ class NewsController extends Controller {
             $product->photo = $img_name;
         }
         $product->name = $request->txtName;
+        $product->name_eg = $request->txtNameEng;
         if(!empty($request->relationship)){
             $product->relationship = implode(',',$request->relationship);
         }
@@ -149,7 +145,9 @@ class NewsController extends Controller {
         }
         $product->title = $request->txtTitle;
         $product->mota = $request->txtDesc;
+        $product->mota_eg = $request->txtDescEng;
         $product->content = $request->txtContent;
+        $product->content_eg = $request->txtContentEng;
         $product->description = $request->txtDescription;
         if($request->status=='on'){
             $product->status = 1;

@@ -55,7 +55,7 @@
 									</div>
 									<div class="title-box">
 										<h3 class="title"><?php echo e(__('Về chúng tôi')); ?></h3>
-										<p><?php echo e($gioithieu->mota); ?></p>
+										<p><?php echo e(Session::get('lang') == 'vn' ? $gioithieu->mota : $gioithieu->mota_eg); ?></p>
 									</div>
 								</div>
 							</div>
@@ -69,7 +69,7 @@
 								<div class="banners-box">
 									<div class="title-box">
 										<h3 class="title"><?php echo e(__('Tầm nhìn')); ?></h3>
-										<p><?php echo e(@$tamnhin->mota); ?></p>
+										<p><?php echo e(Session::get('lang') == 'vn' ? $tamnhin->mota : $tamnhin->mota_eg); ?></p>
 									</div>
 									<div class="contents banners-content">
 										<div class="banner-box">
@@ -93,9 +93,9 @@
 									<div class="title-box">
 										<div class="content">
 											<h3 class="title"><?php echo e(__('Sứ mệnh')); ?></h3>
-											<p><?php echo e(@$sumenh->mota); ?></p>
+											<p><?php echo e(Session::get('lang') == 'vn' ? $sumenh->mota : $sumenh->mota_eg); ?></p>
 											<h3 class="title title-2"><?php echo e(__('Giá trị cốt lõi')); ?></h3>
-											<p><?php echo e(@$giatri->mota); ?></p>
+											<p><?php echo e(Session::get('lang') == 'vn' ? $giatri->mota : $giatri->mota_eg); ?></p>
 										</div>
 									</div>
 								</div>
