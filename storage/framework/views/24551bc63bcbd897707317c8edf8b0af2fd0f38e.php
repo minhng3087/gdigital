@@ -15,14 +15,15 @@
 <nav class="nav">
 	<ul class="megamenu-content">
 		<li class="item">
-			<a href="<?php echo url('/'); ?>" title="Trang chủ" class="active">Trang chủ</a>
+			<a href="<?php echo url('/'); ?>" title="Trang chủ" class="active"><?php echo e(__('Trang chủ')); ?></a>
 		</li>	
 		<li class="item">
-			<a href="<?php echo url('/gioi-thieu'); ?>" title="Giới thiệu">Giới thiệu</a>
+			<a href="<?php echo url('/gioi-thieu'); ?>" title="Giới thiệu"><?php echo e(__('Giới thiệu')); ?></a>
 		</li>	
 		<li class="item item-sub">
 			<a href="<?php echo url('/san-pham'); ?>" title="Sản phẩm">
-				Sản phẩm
+				<?php echo e(__('Sản phẩm')); ?>
+
 				<span>
 					<i class="fal fa-plus icon"></i>
 					<i class="fal fa-minus icon icon-minus"></i>
@@ -45,7 +46,8 @@
 		</li>
 		<li class="item item-sub">
 			<a href="<?php echo url('/dich-vu'); ?>" title="Dịch vụ">
-				Dịch vụ
+				<?php echo e(__('Dịch vụ')); ?>
+
 				<span>
 					<i class="fal fa-plus icon"></i>
 					<i class="fal fa-minus icon icon-minus"></i>
@@ -67,7 +69,7 @@
 			</div>
 		</li>	
 		<li class="item">
-			<a href="<?php echo url('/lien-he'); ?>" title="Liên hệ">Liên hệ</a>
+			<a href="<?php echo url('/lien-he'); ?>" title="Liên hệ"><?php echo e(__('Liên hệ')); ?></a>
 		</li>			                         
 	</ul>
 </nav>

@@ -62,7 +62,9 @@
 							<div class="languages-box">
 								<div class="title-box">
 									<h3 class="title">
-										Language
+										<?php if(Session::get('lang') == 'en'): ?> EN 
+										<?php else: ?> VN
+										<?php endif; ?>
 										<i class="far fa-angle-down icon"></i>
 									</h3>
 								</div>
@@ -70,10 +72,10 @@
 									<div class="contents">
 										<ul>
 											<li>
-												<a href="#" title="EN">EN</a>
+												<a href="<?php echo route('user.change-language', ['vn']); ?>" title="VN">VN</a>
 											</li>
 											<li>
-												<a href="#" title="VN">VN</a>
+												<a href="<?php echo route('user.change-language', ['en']); ?>" title="EN">EN</a>s
 											</li>
 										</ul>
 									</div>

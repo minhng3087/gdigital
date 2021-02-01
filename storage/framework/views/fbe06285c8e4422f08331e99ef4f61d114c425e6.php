@@ -16,15 +16,15 @@
 				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 					<div class="breadcrumbs-content">
 						<div class="title-box breadcrumb-title">
-							<h1 class="title">Trang chủ</h1>
+							<h1 class="title"><?php echo e(__('Trang chủ')); ?></h1>
 						</div>
 						<div class="content-box breadcrumb-content">
 							<ul class="breadcrumb-box">
 								<li>
-									<a href="index.php" title="Trang chủ">Trang chủ</a>
+									<a href="<?php echo e(url('/')); ?>" title="Trang chủ"><?php echo e(__('Trang chủ')); ?></a>
 								</li>
 								<li>
-									<span>Trang chủ</span>
+									<span><?php echo e(__('Trang chủ')); ?></span>
 								</li>
 							</ul>
 						</div>
@@ -60,7 +60,7 @@
 																<!-- <p>Giải pháp trồng răng được các nha sĩ tin dùng nhất!</p> -->
 																<p><?php echo e($item->mota); ?></p>
 																<div class="button">
-																	<a href="<?php echo e($item->link); ?>" title="Xem thêm" class="btn">Xem thêm</a>
+																	<a href="<?php echo e($item->link); ?>" title="<?php echo e(__('Xem thêm')); ?>" class="btn"><?php echo e(__('Xem thêm')); ?></a>
 																</div>			
 															</div>											
 														</div>
@@ -83,7 +83,7 @@
 								<div class="banners-box">
 									<div class="title-box">
 										<h3 class="title"><?php echo e(@$about->name); ?></h3>
-										<p><?php echo e(@$about->mota); ?><a href="#" title="Xem thêm">Xem thêm >></a> </p>
+										<p><?php echo e(@$about->mota); ?><a href="#" title="<?php echo e(__('Xem thêm')); ?>"><?php echo e(__('Xem thêm')); ?> >></a> </p>
 									</div>
 									<div class="contents banners-content">
 										<div class="banner-box">
@@ -109,7 +109,7 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="products-box">
 									<div class="title-box">
-										<h3 class="title">Sản phẩm nổi bật</h3>
+										<h3 class="title"><?php echo e(__('Sản phẩm nổi bật')); ?></h3>
 									</div>
 									<div class="contents products-content">
 										<div class="slick-slider slick-products">
@@ -131,7 +131,7 @@
 															<p><?php echo e($item->mota); ?></p>
 														</div>
 														<div class="product-button">
-															<a href="<?php echo e(route('getProductDetail', ['alias'=>$item->alias])); ?>" title="Xem thêm" class="btn">Xem thêm</a>
+															<a href="<?php echo e(route('getProductDetail', ['alias'=>$item->alias])); ?>" title="<?php echo e(__('Xem thêm')); ?>" class="btn"><?php echo e(__('Xem thêm')); ?></a>
 														</div>
 													</div>
 												</div>
@@ -150,7 +150,7 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="services-box">
 									<div class="title-box">
-										<h3 class="title">Dịch vụ</h3>
+										<h3 class="title"><?php echo e(__('Dịch vụ')); ?></h3>
 									</div>
 									<div class="contents services-content">
 										<div class="groups-box">
@@ -174,7 +174,7 @@
 															<p><?php echo e($services[0]['mota']); ?></p>
 														</div>
 														<div class="service-button">
-															<a href="<?php echo e(route('getServiceDetail', ['alias'=>$services[0]['alias']])); ?>" title="Xem thêm" class="btn">Xem thêm</a>
+															<a href="<?php echo e(route('getServiceDetail', ['alias'=>$services[0]['alias']])); ?>" title="<?php echo e(__('Xem thêm')); ?>" class="btn"><?php echo e(__('Xem thêm')); ?></a>
 														</div>
 													</div>
 												</div>
@@ -202,7 +202,7 @@
 																	<p><?php echo e(@$services[$i]['mota']); ?></p>
 																</div>
 																<div class="service-button">
-																	<a href="<?php echo e(route('getServiceDetail', ['alias'=>$services[$i]['alias']])); ?>" title="Xem thêm" class="btn">Xem thêm</a>
+																	<a href="<?php echo e(route('getServiceDetail', ['alias'=>$services[$i]['alias']])); ?>" title="<?php echo e(__('Xem thêm')); ?>" class="btn"><?php echo e(__('Xem thêm')); ?></a>
 																</div>
 															</div>
 														</div>
@@ -223,7 +223,7 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="posts-box">
 									<div class="title-box">
-										<h3 class="title">Tin tức</h3>
+										<h3 class="title"><?php echo e(__('Tin tức')); ?></h3>
 									</div>
 									<div class="contents posts-content">
 										<div class="groups-box">
@@ -260,7 +260,7 @@
 															</div>
 															<div class="post-content">
 																<h4 class="post-name">
-																	<a href="<?php echo e(route('getNewsDetail', ['alias'=>$news[$i]['alias']])); ?>" title="post">Niềng răng cho trẻ giá bao nhiêu? Phương pháp niềng răng tiết ...</a>
+																	<a href="<?php echo e(route('getNewsDetail', ['alias'=>$news[$i]['alias']])); ?>" title="post"><?php echo e($news[$i]['mota']); ?></a>
 																</h4>
 																<div class="post-date">
 																	<span><?php echo e(date('H:i d/m/Y', strtotime($news[$i]['updated_at']))); ?></span>
@@ -287,7 +287,7 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="testimonials-box">
 									<div class="title-box">
-										<h3 class="title">Ý kiến khách hàng</h3>
+										<h3 class="title"><?php echo e(__('Ý kiến khách hàng')); ?></h3>
 									</div>
 									<div class="contents testimonials-content">
 										<div class="slick-slider slick-testimonials">
@@ -340,7 +340,7 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="brands-box">
 									<div class="title-box">
-										<h3 class="title">Đối tác</h3>
+										<h3 class="title"><?php echo e(__('Đối tác')); ?></h3>
 									</div>
 									<div class="contents brands-contents">
 										<div class="slick-slider slick-brands">

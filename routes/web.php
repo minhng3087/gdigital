@@ -109,18 +109,20 @@ Route::group(['middleware' =>'authen', 'prefix' => 'backend'], function(){
 });
 
 // Frontend
-
-Route::get('/', ['as'=>'index', 'uses'=>'IndexController@index']);
-Route::get('/tin-tuc',['as'=>'getNews', 'uses'=>'IndexController@getNews']);
-Route::get('/tin-tuc/{alias}',['as'=>'getNewsDetail', 'uses'=>'IndexController@getNewsDetail']);
-Route::get('/gioi-thieu', ['as'=>'getAbout', 'uses'=>'IndexController@getAbout']);
-Route::get('/san-pham',['as'=>'getProducts', 'uses'=>'IndexController@getProducts']);
-Route::get('/san-pham/{alias}',['as'=>'getProductDetail', 'uses'=>'IndexController@getProductDetail']);
-Route::get('/dich-vu',['as'=>'getServices', 'uses'=>'IndexController@getServices']);
-Route::get('/dich-vu/{alias}',['as'=>'getServiceDetail', 'uses'=>'IndexController@getServiceDetail']);
-Route::get('/lien-he',['as'=>'getContact', 'uses'=>'IndexController@getContact']);
-Route::post('/lien-he',['as'=>'postContact', 'uses'=>'IndexController@postContact']);
-Route::get('/khach-hang',['as'=>'getCustomer', 'uses'=>'IndexController@getCustomer']);
+Route::group(['middleware' => 'lang'], function() {
+	Route::get('change-language/{language}', 'IndexController@changeLanguage')->name('user.change-language');
+	Route::get('/', ['as'=>'index', 'uses'=>'IndexController@index']);
+	Route::get('/tin-tuc',['as'=>'getNews', 'uses'=>'IndexController@getNews']);
+	Route::get('/tin-tuc/{alias}',['as'=>'getNewsDetail', 'uses'=>'IndexController@getNewsDetail']);
+	Route::get('/gioi-thieu', ['as'=>'getAbout', 'uses'=>'IndexController@getAbout']);
+	Route::get('/san-pham',['as'=>'getProducts', 'uses'=>'IndexController@getProducts']);
+	Route::get('/san-pham/{alias}',['as'=>'getProductDetail', 'uses'=>'IndexController@getProductDetail']);
+	Route::get('/dich-vu',['as'=>'getServices', 'uses'=>'IndexController@getServices']);
+	Route::get('/dich-vu/{alias}',['as'=>'getServiceDetail', 'uses'=>'IndexController@getServiceDetail']);
+	Route::get('/lien-he',['as'=>'getContact', 'uses'=>'IndexController@getContact']);
+	Route::post('/lien-he',['as'=>'postContact', 'uses'=>'IndexController@postContact']);
+	Route::get('/khach-hang',['as'=>'getCustomer', 'uses'=>'IndexController@getCustomer']);
+});
 
 
 

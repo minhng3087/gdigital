@@ -137,5 +137,12 @@ class IndexController extends Controller {
                 'customer' => $customer
             ]);
     }
+
+    public function changeLanguage($language)
+{
+    \Session::put('lang', $language);
+
+    return redirect()->back();
+}
 	
 }

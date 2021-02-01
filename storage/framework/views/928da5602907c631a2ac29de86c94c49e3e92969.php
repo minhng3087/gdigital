@@ -19,10 +19,10 @@
 						<div class="content-box breadcrumb-content">
 							<ul class="breadcrumb-box">
 								<li>
-									<a href="<?php echo e(url('/')); ?>" title="Trang chủ">Trang chủ</a>
+									<a href="<?php echo e(url('/')); ?>" title="<?php echo e(__('Trang chủ')); ?>"><?php echo e(__('Trang chủ')); ?></a>
 								</li>
 								<li>
-									<span>Liên hệ</span>
+									<span><?php echo e(__('Liên hệ')); ?></span>
 								</li>
 							</ul>
 						</div>
@@ -41,7 +41,7 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="address-box">
 									<div class="title-box title-contacts">
-										<h3 class="title">Liên hệ với chúng tôi</h3>
+										<h3 class="title"><?php echo e(__('Liên hệ với chúng tôi')); ?></h3>
 									</div>
 									<div class="content-box address-content">
 										<div class="groups-box">
@@ -54,7 +54,7 @@
 														<ul>
 															<li>
 																<i class="fas fa-map-marker-alt icon"></i>
-																<p>Địa chỉ: <?php echo e(@$setting->address); ?></p>
+																<p><?php echo e(@$setting->address); ?></p>
 															</li>
 															<li>
 																<i class="fas fa-phone-alt icon"></i>
@@ -68,7 +68,7 @@
 														<div class="button">
 															<label>Hotline</label>
 															<a href="#" title="hotline" class="btn">
-																<span>Tư vấn đặt hàng (8h00 - 20h00)</span> <?php echo e(@$setting->hotline); ?>
+																<span><?php echo e(__('Tư vấn đặt hàng')); ?> (8h00 - 20h00)</span> <?php echo e(@$setting->hotline); ?>
 
 															</a>
 														</div>
@@ -101,8 +101,8 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="contacts-box">
 									<div class="title-box title-contacts">
-										<h3 class="title">Liên hệ với chúng tôi</h3>
-										<p><?php echo e(@$setting->content); ?></p>
+										<h3 class="title"><?php echo e(__('Liên hệ với chúng tôi')); ?></h3>
+										<p><?php echo @$setting->content ?></p>
 									</div>
 									<div class="content-box contacts-content">
 										<div class="contact-box">
@@ -111,14 +111,14 @@
 													<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"/>
 													<div class="form-content">
 														<div class="form-group <?php if($errors->first('name')!=''): ?> has-error <?php endif; ?>">
-															<input class="form-control" required="" type="text" name="name" placeholder="Họ và tên">
+															<input class="form-control" required="" type="text" name="name" placeholder="<?php echo e(__('Họ và tên')); ?>">
 															<?php if($errors->first('name')!=''): ?>
 															<span class="fr-error"><?php echo $errors->first('name');; ?></span>
 															<?php endif; ?>
 														</div>
 														<div class="groups-box">
 															<div class="form-group  <?php if($errors->first('phone')!=''): ?> has-error <?php endif; ?>">
-																<input class="form-control" required="" type="text" name="phone" placeholder="Số điện thoại">
+																<input class="form-control" required="" type="text" name="phone" placeholder="<?php echo e(__('Số điện thoại')); ?>">
 																<?php if($errors->first('phone')!=''): ?>
 																	<span class="fr-error"><?php echo $errors->first('phone');; ?></span>
 																<?php endif; ?>
@@ -131,7 +131,7 @@
 															</div>
 														</div>	
 														<div class="form-group  <?php if($errors->first('content')!=''): ?> has-error <?php endif; ?>">
-															<textarea class="form-control" required="" type="text" name="content" placeholder="Nội dung"></textarea>
+															<textarea class="form-control" required="" type="text" name="content" placeholder="<?php echo e(__('Nội dung')); ?>"></textarea>
 															<?php if($errors->first('content')!=''): ?>
 																<span class="fr-error"><?php echo $errors->first('content');; ?></span>
 															<?php endif; ?>

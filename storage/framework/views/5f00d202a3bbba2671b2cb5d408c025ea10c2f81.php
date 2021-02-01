@@ -19,10 +19,10 @@
 						<div class="content-box breadcrumb-content">
 							<ul class="breadcrumb-box">
 								<li>
-									<a href="<?php echo e(url('/')); ?>" title="Trang chủ">Trang chủ</a>
+									<a href="<?php echo e(url('/')); ?>" title="<?php echo e(__('Trang chủ')); ?>"><?php echo e(__('Trang chủ')); ?></a>
 								</li>
 								<li>
-									<span>Giới thiệu</span>
+									<span><?php echo e(__('Giới thiệu')); ?></span>
 								</li>
 							</ul>
 						</div>
@@ -54,7 +54,7 @@
 										</div>
 									</div>
 									<div class="title-box">
-										<h3 class="title"><?php echo e($gioithieu->name); ?></h3>
+										<h3 class="title"><?php echo e(__('Về chúng tôi')); ?></h3>
 										<p><?php echo e($gioithieu->mota); ?></p>
 									</div>
 								</div>
@@ -68,8 +68,8 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="banners-box">
 									<div class="title-box">
-										<h3 class="title">Tầm nhìn</h3>
-										<p><?php echo e(@$tamnhin->name); ?></p>
+										<h3 class="title"><?php echo e(__('Tầm nhìn')); ?></h3>
+										<p><?php echo e(@$tamnhin->mota); ?></p>
 									</div>
 									<div class="contents banners-content">
 										<div class="banner-box">
@@ -92,10 +92,10 @@
 								<div class="banners-box">
 									<div class="title-box">
 										<div class="content">
-											<h3 class="title">Sứ mệnh</h3>
-											<p><?php echo e(@$sumenh->name); ?></p>
-											<h3 class="title title-2">Giá trị cốt lõi</h3>
-											<p><?php echo e(@$giatri->name); ?></p>
+											<h3 class="title"><?php echo e(__('Sứ mệnh')); ?></h3>
+											<p><?php echo e(@$sumenh->mota); ?></p>
+											<h3 class="title title-2"><?php echo e(__('Giá trị cốt lõi')); ?></h3>
+											<p><?php echo e(@$giatri->mota); ?></p>
 										</div>
 									</div>
 								</div>

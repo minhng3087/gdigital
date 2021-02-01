@@ -61,21 +61,21 @@
 					<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
 						<div class="footer-box">
 							<div class="title-box">
-								<h3 class="title">Chính sách</h3>
+								<h3 class="title"><?php echo e(__('Chính sách')); ?></h3>
 							</div>
 							<div class="content-box">
 								<ul>
 									<li>
-										<a href="#" title="Chính sách bảo mật">Chính sách bảo mật</a>
+										<a href="#" title="<?php echo e(__('Chính sách bảo mật')); ?>"><?php echo e(__('Chính sách bảo mật')); ?></a>
 									</li>
 									<li>
-										<a href="#" title="Chính sách vận chuyển">Chính sách vận chuyển</a>
+										<a href="#" title="<?php echo e(__('Chính sách vận chuyển')); ?>"><?php echo e(__('Chính sách vận chuyển')); ?></a>
 									</li>
 									<li>
-										<a href="#" title="Chính sách đổi trả">Chính sách đổi trả</a>
+										<a href="#" title="<?php echo e(__('Chính sách đổi trả')); ?>"><?php echo e(__('Chính sách đổi trả')); ?></a>
 									</li>
 									<li>
-										<a href="#" title="Điều khoản dịch vụ">Điều khoản dịch vụ</a>
+										<a href="#" title="<?php echo e(__('Điều khoản dịch vụ')); ?>"><?php echo e(__('Điều khoản dịch vụ')); ?></a>
 									</li>
 								</ul>
 							</div>
@@ -84,7 +84,7 @@
 					<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
 						<div class="footer-box footer-fanpage">
 							<div class="title-box">
-								<h3 class="title">Kết nối trên MXH</h3>
+								<h3 class="title"><?php echo e(__('Kết nối trên MXH')); ?></h3>
 							</div>
 							<div class="content-box">
 								<div class="facebook-fanpage">

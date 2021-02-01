@@ -19,10 +19,10 @@
 						<div class="content-box breadcrumb-content">
 							<ul class="breadcrumb-box">
 								<li>
-									<a href="<?php echo e(url('/')); ?>" title="Trang chủ">Trang chủ</a>
+									<a href="<?php echo e(url('/')); ?>" title="<?php echo e(__('Trang chủ')); ?>"><?php echo e(__('Trang chủ')); ?></a>
 								</li>
 								<li>
-									<span>Sản phẩm</span>
+									<span><?php echo e(__('Sản phẩm')); ?></span>
 								</li>
 							</ul>
 						</div>
@@ -41,7 +41,7 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="products-box">
 									<div class="title-box">
-										<h3 class="title">Sản phẩm</h3>
+										<h3 class="title"><?php echo e(__('Sản phẩm')); ?></h3>
 									</div>
 									<div class="contents products-content">
 										<div class="groups-box">
@@ -63,7 +63,7 @@
 															<p><?php echo e(@$item->mota); ?></p>
 														</div>
 														<div class="product-button">
-															<a href="<?php echo e(route('getProductDetail', ['alias'=>$item->alias])); ?>" title="Xem thêm" class="btn">Xem thêm</a>
+															<a href="<?php echo e(route('getProductDetail', ['alias'=>$item->alias])); ?>" title="<?php echo e(__('Xem thêm')); ?>" class="btn"><?php echo e(__('Xem thêm')); ?></a>
 														</div>
 													</div>
 												</div>

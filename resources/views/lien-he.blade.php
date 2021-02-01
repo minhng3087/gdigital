@@ -20,10 +20,10 @@
 						<div class="content-box breadcrumb-content">
 							<ul class="breadcrumb-box">
 								<li>
-									<a href="{{ url('/') }}" title="Trang chủ">Trang chủ</a>
+									<a href="{{ url('/') }}" title="{{ __('Trang chủ') }}">{{ __('Trang chủ') }}</a>
 								</li>
 								<li>
-									<span>Liên hệ</span>
+									<span>{{ __('Liên hệ') }}</span>
 								</li>
 							</ul>
 						</div>
@@ -42,7 +42,7 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="address-box">
 									<div class="title-box title-contacts">
-										<h3 class="title">Liên hệ với chúng tôi</h3>
+										<h3 class="title">{{ __('Liên hệ với chúng tôi') }}</h3>
 									</div>
 									<div class="content-box address-content">
 										<div class="groups-box">
@@ -55,7 +55,7 @@
 														<ul>
 															<li>
 																<i class="fas fa-map-marker-alt icon"></i>
-																<p>Địa chỉ: {{ @$setting->address}}</p>
+																<p>{{ @$setting->address}}</p>
 															</li>
 															<li>
 																<i class="fas fa-phone-alt icon"></i>
@@ -69,7 +69,7 @@
 														<div class="button">
 															<label>Hotline</label>
 															<a href="#" title="hotline" class="btn">
-																<span>Tư vấn đặt hàng (8h00 - 20h00)</span> {{@$setting->hotline}}
+																<span>{{ __('Tư vấn đặt hàng') }} (8h00 - 20h00)</span> {{@$setting->hotline}}
 															</a>
 														</div>
 													</div>
@@ -101,8 +101,8 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="contacts-box">
 									<div class="title-box title-contacts">
-										<h3 class="title">Liên hệ với chúng tôi</h3>
-										<p>{{ @$setting->content}}</p>
+										<h3 class="title">{{ __('Liên hệ với chúng tôi') }}</h3>
+										<p><?php echo @$setting->content ?></p>
 									</div>
 									<div class="content-box contacts-content">
 										<div class="contact-box">
@@ -111,14 +111,14 @@
 													<input type="hidden" name="_token" value="{!! csrf_token() !!}"/>
 													<div class="form-content">
 														<div class="form-group @if ($errors->first('name')!='') has-error @endif">
-															<input class="form-control" required="" type="text" name="name" placeholder="Họ và tên">
+															<input class="form-control" required="" type="text" name="name" placeholder="{{ __('Họ và tên') }}">
 															@if ($errors->first('name')!='')
 															<span class="fr-error">{!! $errors->first('name'); !!}</span>
 															@endif
 														</div>
 														<div class="groups-box">
 															<div class="form-group  @if ($errors->first('phone')!='') has-error @endif">
-																<input class="form-control" required="" type="text" name="phone" placeholder="Số điện thoại">
+																<input class="form-control" required="" type="text" name="phone" placeholder="{{ __('Số điện thoại') }}">
 																@if ($errors->first('phone')!='')
 																	<span class="fr-error">{!! $errors->first('phone'); !!}</span>
 																@endif
@@ -131,7 +131,7 @@
 															</div>
 														</div>	
 														<div class="form-group  @if ($errors->first('content')!='') has-error @endif">
-															<textarea class="form-control" required="" type="text" name="content" placeholder="Nội dung"></textarea>
+															<textarea class="form-control" required="" type="text" name="content" placeholder="{{ __('Nội dung') }}"></textarea>
 															@if ($errors->first('content')!='')
 																<span class="fr-error">{!! $errors->first('content'); !!}</span>
 															@endif

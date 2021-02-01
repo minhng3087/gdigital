@@ -20,10 +20,10 @@
 						<div class="content-box breadcrumb-content">
 							<ul class="breadcrumb-box">
 								<li>
-									<a href="{{ url('/') }}" title="Trang chủ">Trang chủ</a>
+									<a href="{{ url('/') }}" title="{{ __('Trang chủ') }}">{{ __('Trang chủ') }}</a>
 								</li>
 								<li>
-									<span>Giới thiệu</span>
+									<span>{{ __('Giới thiệu') }}</span>
 								</li>
 							</ul>
 						</div>
@@ -55,7 +55,7 @@
 										</div>
 									</div>
 									<div class="title-box">
-										<h3 class="title">{{ $gioithieu->name }}</h3>
+										<h3 class="title">{{ __('Về chúng tôi') }}</h3>
 										<p>{{ $gioithieu->mota }}</p>
 									</div>
 								</div>
@@ -69,8 +69,8 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="banners-box">
 									<div class="title-box">
-										<h3 class="title">Tầm nhìn</h3>
-										<p>{{ @$tamnhin->name }}</p>
+										<h3 class="title">{{ __('Tầm nhìn') }}</h3>
+										<p>{{ @$tamnhin->mota }}</p>
 									</div>
 									<div class="contents banners-content">
 										<div class="banner-box">
@@ -93,10 +93,10 @@
 								<div class="banners-box">
 									<div class="title-box">
 										<div class="content">
-											<h3 class="title">Sứ mệnh</h3>
-											<p>{{ @$sumenh->name}}</p>
-											<h3 class="title title-2">Giá trị cốt lõi</h3>
-											<p>{{ @$giatri->name }}</p>
+											<h3 class="title">{{ __('Sứ mệnh') }}</h3>
+											<p>{{ @$sumenh->mota}}</p>
+											<h3 class="title title-2">{{ __('Giá trị cốt lõi') }}</h3>
+											<p>{{ @$giatri->mota }}</p>
 										</div>
 									</div>
 								</div>

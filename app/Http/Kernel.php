@@ -53,5 +53,6 @@ class Kernel extends HttpKernel
         'authen'        => \App\Http\Middleware\Authenticate::class,
         'customer'        => \App\Http\Middleware\CustomerMiddleware::class,
         'administrator'        => \App\Http\Middleware\AdministratorMiddleware::class,
+        'lang' => \App\Http\Middleware\LangMiddleware::class,
     ];
 }

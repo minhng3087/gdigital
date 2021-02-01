@@ -10,6 +10,7 @@ return [
     | any other location as required by the application or its packages.
     */
     'name' => env('APP_NAME', 'Laravel'),
+    
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -64,7 +65,8 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-    'locale' => 'en',
+    'locale' => 'vn', //ngôn ngữ mặc định
+    'fallback_locale' => 'vn', // được sử dụng khi không tìm thấy config locale.
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale

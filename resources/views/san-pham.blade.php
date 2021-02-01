@@ -21,10 +21,10 @@
 						<div class="content-box breadcrumb-content">
 							<ul class="breadcrumb-box">
 								<li>
-									<a href="{{ url('/') }}" title="Trang chủ">Trang chủ</a>
+									<a href="{{ url('/') }}" title="{{ __('Trang chủ') }}">{{ __('Trang chủ') }}</a>
 								</li>
 								<li>
-									<span>Sản phẩm</span>
+									<span>{{ __('Sản phẩm') }}</span>
 								</li>
 							</ul>
 						</div>
@@ -43,7 +43,7 @@
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="products-box">
 									<div class="title-box">
-										<h3 class="title">Sản phẩm</h3>
+										<h3 class="title">{{ __('Sản phẩm') }}</h3>
 									</div>
 									<div class="contents products-content">
 										<div class="groups-box">
@@ -65,7 +65,7 @@
 															<p>{{@$item->mota }}</p>
 														</div>
 														<div class="product-button">
-															<a href="{{ route('getProductDetail', ['alias'=>$item->alias]) }}" title="Xem thêm" class="btn">Xem thêm</a>
+															<a href="{{ route('getProductDetail', ['alias'=>$item->alias]) }}" title="{{ __('Xem thêm') }}" class="btn">{{ __('Xem thêm') }}</a>
 														</div>
 													</div>
 												</div>

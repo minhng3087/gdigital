@@ -15,14 +15,14 @@
 <nav class="nav">
 	<ul class="megamenu-content">
 		<li class="item">
-			<a href="{!! url('/') !!}" title="Trang chủ" class="active">Trang chủ</a>
+			<a href="{!! url('/') !!}" title="Trang chủ" class="active">{{ __('Trang chủ') }}</a>
 		</li>	
 		<li class="item">
-			<a href="{!! url('/gioi-thieu') !!}" title="Giới thiệu">Giới thiệu</a>
+			<a href="{!! url('/gioi-thieu') !!}" title="Giới thiệu">{{ __('Giới thiệu') }}</a>
 		</li>	
 		<li class="item item-sub">
 			<a href="{!! url('/san-pham') !!}" title="Sản phẩm">
-				Sản phẩm
+				{{ __('Sản phẩm') }}
 				<span>
 					<i class="fal fa-plus icon"></i>
 					<i class="fal fa-minus icon icon-minus"></i>
@@ -45,7 +45,7 @@
 		</li>
 		<li class="item item-sub">
 			<a href="{!! url('/dich-vu') !!}" title="Dịch vụ">
-				Dịch vụ
+				{{ __('Dịch vụ') }}
 				<span>
 					<i class="fal fa-plus icon"></i>
 					<i class="fal fa-minus icon icon-minus"></i>
@@ -67,7 +67,7 @@
 			</div>
 		</li>	
 		<li class="item">
-			<a href="{!! url('/lien-he') !!}" title="Liên hệ">Liên hệ</a>
+			<a href="{!! url('/lien-he') !!}" title="Liên hệ">{{ __('Liên hệ') }}</a>
 		</li>			                         
 	</ul>
 </nav>

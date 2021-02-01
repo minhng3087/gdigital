@@ -20,7 +20,7 @@
 							<div class="search-content">
 									<div class="form-content">
 										<div class="form-group">
-											<input class="form-control mskh" type="text" name="mskh" placeholder="Mã số khách hàng">
+											<input class="form-control mskh" type="text" name="mskh" placeholder="{{ __('Mã số khách hàng') }}">
 										</div>
 										<div class="form-group">
 											<div class="button">
