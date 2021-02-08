@@ -1,12 +1,12 @@
-@extends('backend.master')
+@extends('backend.layouts.master')
 @section('controller', renderLinkAddPostType()['title'])
 @section('controller_route', renderLinkAddPostType()['linkList'] )
 @section('action','Thêm mới')
 @section('content')
 	<section class="content">
+		@include('backend.components.messages-error')
 		<div class="clearfix"></div>
-		@include('backend.messages_error')
-		<form action="{{ route('posts.store') }}" method="POST">
+		<form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
 			@csrf
 			<input type="hidden" value="blog" name="type">
 			<div class="row">
@@ -159,19 +159,12 @@
 		                </div>
 		                <div class="box-body">
 		                    <div class="form-group" style="text-align: center;">
-		                        <div class="image">
-		                            <div class="image__thumbnail">
-		                                <img src="{{ old('image') ?  old('image') : __IMAGE_DEFAULT__ }}"
-		                                     data-init="{{ __IMAGE_DEFAULT__ }}">
-		                                <a href="javascript:void(0)" class="image__delete" onclick="urlFileDelete(this)">
-		                                    <i class="fa fa-times"></i></a>
-		                                <input type="hidden" value="{{ old('image') }}" name="image"/>
-		                                <div class="image__button" onclick="fileSelect(this)">
-		                                	<i class="fa fa-upload"></i>
-		                                    Upload
-		                                </div>
-		                            </div>
-		                        </div>
+								<div class="image">
+									<div class="image__thumbnail">
+										<img src="{{ __IMAGE_DEFAULT__ }}" id="output" />
+										<input class="max-with" name="fImages" type="file"  onchange="loadFile(event)"/>
+									</div>
+								</div>
 		                    </div>
 		                </div>
 		            </div>
@@ -181,11 +174,11 @@
 	</section>
 @stop
 @section('css')
-	<link rel="stylesheet" href="{{ url('public/backend/plugins/taginput/bootstrap-tagsinput.css') }}">
+	<link rel="stylesheet" href="{{ url('public/admin_assets/plugins/taginput/bootstrap-tagsinput.css') }}">
 @endsection
 @section('scripts')
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-	<script src="{{ url('public/backend/plugins/taginput/bootstrap-tagsinput.min.js') }}"></script>
+	<script src="{{ url('public/admin_assets/plugins/taginput/bootstrap-tagsinput.min.js') }}"></script>
 	<script>
 		jQuery(document).ready(function($) {
 			$('input[name="time_published"]').click(function(){

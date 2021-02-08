@@ -5,7 +5,6 @@
 		<div class="clearfix"></div>
 		<div class="box box-primary">
             <div class="box-body">
-                <?php echo $__env->make('backend.messages_error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 				<form action="<?php echo route('posts.postMultiDel'); ?>" method="POST">
 			        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 			        <div class="box-header">
@@ -92,4 +91,4 @@
 
 
 
-<?php echo $__env->make('backend.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/posts/list.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/posts/list.blade.php ENDPATH**/ ?>

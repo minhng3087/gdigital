@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\PostCategory;
 use Carbon\Carbon;
+use File;
 
 class PostController extends Controller
 {
@@ -30,7 +31,7 @@ class PostController extends Controller
             ->addColumn('checkbox', function ($data) {
                 return '<input type="checkbox" name="chkItem[]" value="' . $data->id . '">';
             })->addColumn('image', function ($data) {
-            return '<img src="' . $data->image . '" class="img-thumbnail" width="50px" height="50px">';
+            return '<img src="' . asset('upload/posts/'.$data->image) . '" class="img-thumbnail" width="50px" height="50px">';
         })->addColumn('name', function ($data) {
             if ($data->type == 'blog') {
                 return $data->name . ' <br><a href="' . asset('tin-tuc/' . $data->slug) . '" target="_black">
@@ -87,17 +88,18 @@ class PostController extends Controller
         $this->validate($request,
             [
                 'name'  => 'required',
-                'image' => 'required',
+                'fImages' => 'required',
                 'type'  => 'required',
                 'category' => 'required',
             ],
             [
                 'name'           => 'Bạn chưa nhập tên bài viết',
-                'image.required' => 'Bạn chưa chọn ảnh',
+                'fImages.required' => 'Bạn chưa chọn ảnh',
                 'type'           => 'Sai định dạng.',
                 'category.required' => 'Bạn chưa chọn danh mục',
             ]
         );
+        if(!empty($request->file('fImages'))) $image = uploadFile($request->file('fImages'),'posts');
         if($request->time_published == 2){
             $input = @$request['time']['month'].'/'.@$request['time']['date'].'/'.@$request['time']['year'];
             $date = Carbon::createFromFormat('m/d/Y',$input)->format('Y-m-d');
@@ -109,7 +111,7 @@ class PostController extends Controller
             'name'             => $request->name,
             'slug'             => $this->createSlug(str_slug($request->name)),
             'desc'             => $request->desc,
-            'image'            => $request->image,
+            'image'            => $image,
             'type'             => $request->type,
             'content'          => $request->content,
             'status'           => $request->status,
@@ -129,9 +131,8 @@ class PostController extends Controller
                 PostCategory::create(['id_category'=> $item, 'id_post'=> $post->id]);
             }
         }
-
-
-        return redirect()->route('posts.index', ['type' => $request->type])->with('status','Thêm mới thành công.');
+        toastr()->success('Thêm mới thành công.');
+        return redirect()->route('posts.index', ['type' => $request->type]);
     }
 
     /**
@@ -159,13 +160,11 @@ class PostController extends Controller
         $this->validate($request,
             [
                 'name'  => 'required',
-                'image' => 'required',
                 'type'  => 'required',
 
             ],
             [
                 'name.required'  => 'Bạn chưa nhập tên bài viết',
-                'image.required' => 'Bạn chưa chọn ảnh',
                 'type'           => 'Sai định dạng.',
             ]
         );
@@ -180,7 +179,6 @@ class PostController extends Controller
         $data = [
             'name'             => $request->name,
             'desc'             => $request->desc,
-            'image'            => $request->image,
             'content'          => $request->content,
             'status'           => $request->status,
             'hot'              => $request->hot == 1 ? 1 : null,
@@ -189,6 +187,13 @@ class PostController extends Controller
             'published_at'  => $date,
             'meta_keyword'     => $request->meta_keyword,
         ];
+        if(!empty($request->file('fImages'))) {
+            File::delete('upload/posts/'.$request->image_current);
+            $image = uploadFile($request->file('fImages'), 'posts');
+            $data = array_merge($data,[
+                'image' => $image
+            ]);
+        }
         if(!empty($request->tags)){
             $post->retag(explode(',', $request->tags));
         }
@@ -202,7 +207,7 @@ class PostController extends Controller
                 PostCategory::create(['id_category'=> $item, 'id_post'=> $id ]);
             }
         }
-        flash('Cập nhật thành công.')->success();
+        toastr()->success('Cập nhật thành công.');
         return redirect()->back();
     }
 
@@ -214,19 +219,26 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
+        $item = Posts::findOrFail($id);
+        File::delete('upload/posts/'.$item->image);
         Posts::destroy($id);
-        return redirect()->back()->with('status','Xóa thành công');;
+        toastr()->success('Xóa thành công.');
+        return redirect()->back();
     }
 
     public function deleteMuti(Request $request)
     {
         if ($request->has('chkItem')) {
             foreach ($request->chkItem as $id) {
+                $item = Posts::findOrFail($id);
+                File::delete('upload/posts/'.$item->image);
                 Posts::destroy($id);
             }
-            return redirect()->back()->with('status', 'Xóa thành công.');
+            toastr()->success('Xóa thành công.');
+            return redirect()->back();
         } else {
-            return redirect()->back()->with('status', 'Bạn chưa chọn dữ liệu để xóa.');
+            toastr()->error('Bạn chưa chọn dữ liệu để xóa.');
+            return redirect()->back();
         }
     }
 

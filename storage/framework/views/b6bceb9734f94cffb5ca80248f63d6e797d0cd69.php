@@ -3,9 +3,9 @@
 <?php $__env->startSection('action','Chỉnh sửa'); ?>
 <?php $__env->startSection('content'); ?>
 	<div class="content">
+		<?php echo $__env->make('backend.components.messages-error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 		<div class="clearfix"></div>
-		<?php echo $__env->make('backend.messages_error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-		<form action="<?php echo e(route('posts.update', $data->id)); ?>" method="POST">
+		<form action="<?php echo e(route('posts.update', $data->id)); ?>" method="POST" enctype="multipart/form-data">
 			<?php echo csrf_field(); ?>
 			<?php echo method_field('PUT'); ?>
 			<input type="hidden" value="blog" name="type">
@@ -191,14 +191,9 @@
 		                    <div class="form-group" style="text-align: center;">
 		                        <div class="image">
 		                            <div class="image__thumbnail">
-										<div class="box-body no-padding">
-											<ul class="nav nav-pills nav-stacked">
-											<li id="right-col-li" >
-											<img src="<?php echo e(asset('upload/product/'.$data->photo1)); ?>" id="output" />
-												<input class="max-with" name="fImages1" type="file"  />
-											</li>
-											</ul>
-										</div>
+										<img src="<?php echo e(asset('upload/posts/'.$data->image)); ?>" id="output" />
+										<input class="max-with" name="fImages" type="file" onchange="loadFile(event)"/>
+										<input type="hidden" value="<?php echo e($data->image); ?>" name="image_current"/>
 		                            </div>
 		                        </div>
 		                    </div>
@@ -269,4 +264,4 @@
 <?php $__env->stopSection(); ?>
 
 
-<?php echo $__env->make('backend.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/posts/edit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/posts/edit.blade.php ENDPATH**/ ?>

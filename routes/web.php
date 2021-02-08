@@ -33,6 +33,16 @@ Route::group(['namespace' => 'Admin'], function () {
 			Route::post('updateinfo','UsersController@updateinfo')->name('backend.users.updateinfo');
 			// Post
 		});
+
+		$routes = config('admin.route');
+		
+        foreach ($routes as $key => $route) {
+            Route::resource($key, ucfirst($key).'Controller', ['except' => ['show']] );
+            if($route['multi_del'] == true){
+                Route::post( $key.'/postMultiDel', ['as' => $key.'.postMultiDel', 'uses' => ucfirst($key).'Controller@deleteMuti']);
+            }
+        }
+
 		Route::resource('posts', 'PostController', ['except' => ['show']]);
 		Route::post('posts/postMultiDel', ['as' => 'posts.postMultiDel', 'uses' => 'PostController@deleteMuti']);
 		Route::get('posts/get-slug', 'PostController@getAjaxSlug')->name('posts.get-slug');

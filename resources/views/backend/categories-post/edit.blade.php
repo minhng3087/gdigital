@@ -1,12 +1,10 @@
-@extends('backend.master')
+@extends('backend.layouts.master')
 @section('controller', 'Danh mục tin tức' )
 @section('controller_route', route('categories-post.index'))
 @section('action', 'Danh sách')
 @section('content')
     <div class="content">
         <div class="clearfix"></div>
-		@include('backend.messages_error')
-
         <div class="row">
         	<div class="col-sm-5">
 	        	<form action="{!! updateOrStoreRouteRender( @$module['action'], $module['module'], @$data) !!}" enctype="multipart/form-data" method="POST">

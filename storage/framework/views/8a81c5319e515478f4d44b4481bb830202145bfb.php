@@ -9,7 +9,6 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="<?php echo e(url('public/admin_assets/bootstrap/css/bootstrap.min.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('public/bower_components/select2/dist/css/select2.min.css')); ?>">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -32,14 +31,6 @@
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
 
-      <!---- thông báo------->
-      
-      <!------------ scrip o day ----------->
-        <?php if(Session::has('toastr_msg')): ?>
-            <script type='text/javascript'>
-                toastr["<?php echo Session::get('toastr_lvl'); ?>"]("<?php echo Session::get('toastr_msg'); ?>")
-            </script>
-        <?php endif; ?>
     <div class="wrapper">
       <?php echo $__env->make('backend.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
       <!-- Left side column. contains the logo and sidebar -->

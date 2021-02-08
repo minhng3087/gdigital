@@ -8,11 +8,9 @@ use App\Models\ProductQuestions;
 
 
 function uploadFile($img, $folder) {
-    if(!empty($img)){
-        $path_img='upload/'.$folder;
-        $img_name=time().'_'.$img->getClientOriginalName();
-        $img->move($path_img,$img_name);
-    }
+    $path_img='upload/'.$folder;
+    $img_name=time().'_'.$img->getClientOriginalName();
+    $img->move($path_img,$img_name);
     return $img_name;
 }
 

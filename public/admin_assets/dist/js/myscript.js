@@ -62,7 +62,6 @@ $(document).ready( function ( e ){
         $('input#slug').val(slug);
 	});
 });
-$('.alert_thongbao').delay(3000).slideUp();
 $(document).ready(function(){
     $(function () {
         $("#example1,#example2").DataTable({
@@ -339,11 +338,6 @@ jQuery(document).ready(function($) {
         var countMeta = this.value.length;
         $('#countMeta').text(countMeta+'/320');
         $(".google__description").text(this.value);
-    });
-});
-$(document).on('ready', function() {
-    $('.multislt').select2({
-        placeholder: "Chọn danh mục",
     });
 });
 

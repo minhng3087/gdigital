@@ -1,4 +1,4 @@
-@extends('backend.master')
+@extends('backend.layouts.master')
 @section('controller', renderLinkAddPostType()['title'])
 @section('action','Danh sách')
 @section('content')
@@ -6,7 +6,6 @@
 		<div class="clearfix"></div>
 		<div class="box box-primary">
             <div class="box-body">
-                @include('backend.messages_error')
 				<form action="{!! route('posts.postMultiDel') !!}" method="POST">
 			        <input type="hidden" name="_token" value="{!! csrf_token() !!}">
 			        <div class="box-header">

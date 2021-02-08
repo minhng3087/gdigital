@@ -106,4 +106,4 @@
   </div>
 </section><!-- /.content -->
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('backend.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/index.blade.php ENDPATH**/ ?>

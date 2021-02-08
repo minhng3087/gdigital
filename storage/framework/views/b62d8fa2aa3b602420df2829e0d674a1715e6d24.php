@@ -38,14 +38,15 @@
     		      	  <td><?php echo $item->phone; ?></td>
     		      		<td><?php echo $item->email; ?></td>
     		      	    <td>
-                           <?php if($item->status>0): ?>
-                               <a href="backend/users/edituse?id=<?php echo e($item->id); ?>&hienthi=<?php echo e(time()); ?>" class="label label-success"><i class="fa fa-eye"></i> Tài khoản đang hoạt động</a>
-                            <?php else: ?>
-                              <a href="backend/users/edituse?id=<?php echo e($item->id); ?>&hienthi=<?php echo e(time()); ?>" class="label label-danger"><i class="fa fa-eye"></i> Đã Khóa tài khoản</a>
-                            <?php endif; ?>
-                         </td>
-    		      		<td><a href="backend/users/edituse?id=<?php echo e($item->id); ?>" class="btn btn_edit">Chi tiết</a>
-                           <a onClick="if(!confirm('Xác nhận xóa')) return false;" href="backend/users/<?php echo e($item->id); ?>/deleteuse" class="btn btn_del">Xóa</button></td>
+                    <?php if($item->status>0): ?>
+                        <a href="backend/users/edituse?id=<?php echo e($item->id); ?>&hienthi=<?php echo e(time()); ?>" class="label label-success"><i class="fa fa-eye"></i> Tài khoản đang hoạt động</a>
+                    <?php else: ?>
+                      <a href="backend/users/edituse?id=<?php echo e($item->id); ?>&hienthi=<?php echo e(time()); ?>" class="label label-danger"><i class="fa fa-eye"></i> Đã Khóa tài khoản</a>
+                    <?php endif; ?>
+                  </td>
+    		      		<td>
+                    <a href="backend/users/edituse?id=<?php echo e($item->id); ?>" class="btn btn_edit">Chi tiết</a>
+                    <a onClick="if(!confirm('Xác nhận xóa')) return false;" href="backend/users/<?php echo e($item->id); ?>/deleteuse" class="btn btn_del">Xóa</button></td>
     		      	</tr>
     		        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>

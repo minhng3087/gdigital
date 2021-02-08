@@ -3,9 +3,9 @@
 <?php $__env->startSection('action','Thêm mới'); ?>
 <?php $__env->startSection('content'); ?>
 	<section class="content">
+		<?php echo $__env->make('backend.components.messages-error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 		<div class="clearfix"></div>
-		<?php echo $__env->make('backend.messages_error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-		<form action="<?php echo e(route('posts.store')); ?>" method="POST">
+		<form action="<?php echo e(route('posts.store')); ?>" method="POST" enctype="multipart/form-data">
 			<?php echo csrf_field(); ?>
 			<input type="hidden" value="blog" name="type">
 			<div class="row">
@@ -159,19 +159,12 @@
 		                </div>
 		                <div class="box-body">
 		                    <div class="form-group" style="text-align: center;">
-		                        <div class="image">
-		                            <div class="image__thumbnail">
-		                                <img src="<?php echo e(old('image') ?  old('image') : __IMAGE_DEFAULT__); ?>"
-		                                     data-init="<?php echo e(__IMAGE_DEFAULT__); ?>">
-		                                <a href="javascript:void(0)" class="image__delete" onclick="urlFileDelete(this)">
-		                                    <i class="fa fa-times"></i></a>
-		                                <input type="hidden" value="<?php echo e(old('image')); ?>" name="image"/>
-		                                <div class="image__button" onclick="fileSelect(this)">
-		                                	<i class="fa fa-upload"></i>
-		                                    Upload
-		                                </div>
-		                            </div>
-		                        </div>
+								<div class="image">
+									<div class="image__thumbnail">
+										<img src="<?php echo e(__IMAGE_DEFAULT__); ?>" id="output" />
+										<input class="max-with" name="fImages" type="file"  onchange="loadFile(event)"/>
+									</div>
+								</div>
 		                    </div>
 		                </div>
 		            </div>
@@ -181,11 +174,11 @@
 	</section>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('css'); ?>
-	<link rel="stylesheet" href="<?php echo e(url('public/backend/plugins/taginput/bootstrap-tagsinput.css')); ?>">
+	<link rel="stylesheet" href="<?php echo e(url('public/admin_assets/plugins/taginput/bootstrap-tagsinput.css')); ?>">
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('scripts'); ?>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-	<script src="<?php echo e(url('public/backend/plugins/taginput/bootstrap-tagsinput.min.js')); ?>"></script>
+	<script src="<?php echo e(url('public/admin_assets/plugins/taginput/bootstrap-tagsinput.min.js')); ?>"></script>
 	<script>
 		jQuery(document).ready(function($) {
 			$('input[name="time_published"]').click(function(){
@@ -201,4 +194,4 @@
 		});
 	</script>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('backend.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/posts/add.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/posts/add.blade.php ENDPATH**/ ?>

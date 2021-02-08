@@ -1,4 +1,19 @@
 <?php return array (
+  'admin' => 
+  array (
+    'route' => 
+    array (
+      'brand' => 
+      array (
+        'name' => 'brand',
+        'except' => 
+        array (
+          0 => 'show',
+        ),
+        'multi_del' => false,
+      ),
+    ),
+  ),
   'app' => 
   array (
     'name' => 'Laravel',
@@ -586,6 +601,52 @@
     'tagged_model' => '\\Conner\\Tagging\\Model\\Tagged',
     'tag_group_model' => '\\Conner\\Tagging\\Model\\TagGroup',
   ),
+  'toastr' => 
+  array (
+    'maxItems' => NULL,
+    'options' => 
+    array (
+      'closeButton' => true,
+      'closeClass' => 'toast-close-button',
+      'closeDuration' => 300,
+      'closeEasing' => 'swing',
+      'closeHtml' => '<button><i class="icon-off"></i></button>',
+      'closeMethod' => 'fadeOut',
+      'closeOnHover' => true,
+      'containerId' => 'toast-container',
+      'debug' => false,
+      'escapeHtml' => false,
+      'extendedTimeOut' => 10000,
+      'hideDuration' => 1000,
+      'hideEasing' => 'linear',
+      'hideMethod' => 'fadeOut',
+      'iconClass' => 'toast-info',
+      'iconClasses' => 
+      array (
+        'error' => 'toast-error',
+        'info' => 'toast-info',
+        'success' => 'toast-success',
+        'warning' => 'toast-warning',
+      ),
+      'messageClass' => 'toast-message',
+      'newestOnTop' => false,
+      'onHidden' => NULL,
+      'onShown' => NULL,
+      'positionClass' => 'toast-top-right',
+      'preventDuplicates' => true,
+      'progressBar' => true,
+      'progressClass' => 'toast-progress',
+      'rtl' => false,
+      'showDuration' => 300,
+      'showEasing' => 'swing',
+      'showMethod' => 'fadeIn',
+      'tapToDismiss' => true,
+      'target' => 'body',
+      'timeOut' => 5000,
+      'titleClass' => 'toast-title',
+      'toastClass' => 'toast',
+    ),
+  ),
   'view' => 
   array (
     'paths' => 
@@ -698,52 +759,6 @@
       'remote_disk' => NULL,
       'remote_prefix' => NULL,
       'force_resync_remote' => NULL,
-    ),
-  ),
-  'toastr' => 
-  array (
-    'maxItems' => NULL,
-    'options' => 
-    array (
-      'closeButton' => true,
-      'closeClass' => 'toast-close-button',
-      'closeDuration' => 300,
-      'closeEasing' => 'swing',
-      'closeHtml' => '<button><i class="icon-off"></i></button>',
-      'closeMethod' => 'fadeOut',
-      'closeOnHover' => true,
-      'containerId' => 'toast-container',
-      'debug' => false,
-      'escapeHtml' => false,
-      'extendedTimeOut' => 10000,
-      'hideDuration' => 1000,
-      'hideEasing' => 'linear',
-      'hideMethod' => 'fadeOut',
-      'iconClass' => 'toast-info',
-      'iconClasses' => 
-      array (
-        'error' => 'toast-error',
-        'info' => 'toast-info',
-        'success' => 'toast-success',
-        'warning' => 'toast-warning',
-      ),
-      'messageClass' => 'toast-message',
-      'newestOnTop' => false,
-      'onHidden' => NULL,
-      'onShown' => NULL,
-      'positionClass' => 'toast-top-right',
-      'preventDuplicates' => true,
-      'progressBar' => true,
-      'progressClass' => 'toast-progress',
-      'rtl' => false,
-      'showDuration' => 300,
-      'showEasing' => 'swing',
-      'showMethod' => 'fadeIn',
-      'tapToDismiss' => true,
-      'target' => 'body',
-      'timeOut' => 5000,
-      'titleClass' => 'toast-title',
-      'toastClass' => 'toast',
     ),
   ),
   'tinker' => 

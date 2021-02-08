@@ -84,7 +84,7 @@ class CategoriesPostController extends Controller
         $input['type'] = 'post_category';
         $data = Categories::create($input);
         toastr()->success('Thêm mới thành công.');
-        return redirect()->back()->with('status','Thêm mới thành công.');
+        return redirect()->back();
     }
 
     /**
@@ -124,7 +124,6 @@ class CategoriesPostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request->all());
         $this->validate($request, $this->fields(), $this->messages());
         $post_check_sulg = Categories::where('slug', $request->slug)->where('id', '!=', $id)->where('type', 'post_category')->first();
         if (!empty($post_check_sulg)) {
@@ -137,7 +136,8 @@ class CategoriesPostController extends Controller
         }
         $input['type'] = 'post_category';
         $data = Categories::findOrFail($id)->update($input);
-        return redirect()->back()->with('status', 'Sửa thành công.');
+        toastr()->success('Sửa thành công.');
+        return redirect()->back();
     }
 
     /**
@@ -151,6 +151,7 @@ class CategoriesPostController extends Controller
         $item = Categories::findOrFail($id);
         File::delete('upload/post_category/'.$item->image);
         Categories::destroy($id);
-        return redirect()->back()->with('status','Xóa thành công.');
+        toastr()->success('Xóa thành công.');
+        return redirect()->back();
     }
 }

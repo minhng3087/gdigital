@@ -1,11 +1,11 @@
-@extends('backend.master')
+@extends('backend.layouts.master')
 @section('controller', renderLinkAddPostType()['title'])
 @section('controller_route', renderLinkAddPostType()['linkList'] )
 @section('action','Chỉnh sửa')
 @section('content')
 	<div class="content">
+		@include('backend.components.messages-error')
 		<div class="clearfix"></div>
-		@include('backend.messages_error')
 		<form action="{{ route('posts.update', $data->id) }}" method="POST" enctype="multipart/form-data">
 			@csrf
 			@method('PUT')
@@ -190,14 +190,9 @@
 		                    <div class="form-group" style="text-align: center;">
 		                        <div class="image">
 		                            <div class="image__thumbnail">
-										<div class="box-body no-padding">
-											<ul class="nav nav-pills nav-stacked">
-											<li id="right-col-li" >
-											<img src="{{ asset('upload/product/'.$data->photo1) }}" id="output" />
-												<input class="max-with" name="fImages" type="file"  />
-											</li>
-											</ul>
-										</div>
+										<img src="{{ asset('upload/posts/'.$data->image) }}" id="output" />
+										<input class="max-with" name="fImages" type="file" onchange="loadFile(event)"/>
+										<input type="hidden" value="{{ $data->image }}" name="image_current"/>
 		                            </div>
 		                        </div>
 		                    </div>
