@@ -1,8 +1,8 @@
-<?php
-
-namespace Illuminate\Redis\Connections;
-
-class PredisClusterConnection extends PredisConnection
-{
-    //
-}
+<?php
+
+namespace Illuminate\Redis\Connections;
+
+class PredisClusterConnection extends PredisConnection
+{
+    //
+}

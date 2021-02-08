@@ -20,143 +20,20 @@
     <link rel="stylesheet" href="{{ url('public/admin_assets/dist/css/styles.css') }}"/>
     <link rel="stylesheet" href="{{ url('public/admin_assets/dist/css/AdminLTE.min.css') }}"/>
     <link rel="stylesheet" href="{{ url('public/admin_assets/dist/css/nhan.css') }}"/>
+    <link rel="stylesheet" href="{{ url('public/admin_assets/dist/css/mycss.css') }}"/>
+
+    @toastr_css
+    @yield('css')
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ url('public/admin_assets/dist/css/skins/_all-skins.min.css') }}">
-    <script type="text/javascript">
-      function homeUrl(){
-          return '{!! url('/') !!}'
-      }
-    </script>
-    <!-- jQuery 2.1.4 -->
-    <script src="{{ url('public/admin_assets/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    <!-- CK Editor -->
-    <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
-    <script src="{{ asset('public/admin_assets/plugins/ckeditor/ckeditor.js') }}"></script>
-    <script src="{!! asset('public/admin_assets/plugins/tinymce/tinymce.min.js') !!}"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <!--<script>
-      $.widget.bridge('uibutton', $.ui.button);
-    </script>-->
-    <script src="{{ url('public/admin_assets/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ url('public/admin_assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ url('public/admin_assets/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
-    <!-- Morris.js charts -->
-    <!--
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="{{ url('public/admin_assets/plugins/morris/morris.min.js') }}"></script>
-    <script src="{{ url('public/admin_assets/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
-    <script src="{{ url('public/admin_assets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
-    <script src="{{ url('public/admin_assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-    <script src="{{ url('public/admin_assets/plugins/knob/jquery.knob.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-    <script src="{{ url('public/admin_assets/plugins/daterangepicker/daterangepicker.js') }}"></script>
-    <script src="{{ url('public/admin_assets/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
-    -->
-    <script src="{{ url('public/admin_assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
-    <!-- SlimScroll -->
-    <script src="{{ url('public/admin_assets/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
-    <!-- FastClick -->
-    <script src="{{ url('public/admin_assets/plugins/fastclick/fastclick.min.js') }}"></script>
-    <!-- AdminLTE App -->
-    <script src="{{ url('public/admin_assets/dist/js/app.min.js') }}"></script>
-    <link href="{{ url('public/admin_assets/plugins/multiupload/assets/css/style.css') }}" rel="stylesheet" />
-    <script src="{{ url('public/admin_assets/plugins/multiupload/assets/js/jquery.knob.js') }}"></script>
-    <script src="{{ url('public/admin_assets/plugins/multiupload/assets/js/jquery.ui.widget.js') }}"></script>
-    <script src="{{ url('public/admin_assets/plugins/multiupload/assets/js/jquery.iframe-transport.js') }}"></script>
-    <script src="{{ url('public/admin_assets/plugins/multiupload/assets/js/jquery.fileupload.js') }}"></script>
-    <script src="{{ url('public/admin_assets/plugins/multiupload/assets/js/script.js') }}"></script>
-    <!-- <link rel="stylesheet" href="{{ asset('public/admin_assets/dropzone/dropzone.css') }}">
-    <script src="{{ asset('public/admin_assets/dropzone/dropzone.min.js') }}"></script>
-    <script type="text/javascript">
-       Dropzone.options.myDropzone= {
-           url: '{{ url('admin/uploadImg') }}',
-           headers: {
-               'X-CSRF-TOKEN': '{!! csrf_token() !!}'
-           },
-           autoProcessQueue: true,
-           uploadMultiple: true,
-           parallelUploads: 5,
-           maxFiles: 10,
-           maxFilesize: 5,
-           acceptedFiles: ".jpeg,.jpg,.png,.gif",
-           dictFileTooBig: 'Image is bigger than 5MB',
-           addRemoveLinks: true,
-           removedfile: function(file) {
-           var name = file.name;    
-           name =name.replace(/\s+/g, '-').toLowerCase();    /*only spaces*/
-            $.ajax({
-                type: 'POST',
-                url: '{{ url('admin/deleteImg') }}',
-                headers: {
-                     'X-CSRF-TOKEN': '{!! csrf_token() !!}'
-                 },
-                data: "id="+name,
-                dataType: 'html',
-                success: function(data) {
-                    $("#msg").html(data);
-                }
-            });
-          var _ref;
-          if (file.previewElement) {
-            if ((_ref = file.previewElement) != null) {
-              _ref.parentNode.removeChild(file.previewElement);
-            }
-          }
-          return this._updateMaxFilesReachedClass();
-        },
-        previewsContainer: null,
-        hiddenInputContainer: "body",
-       }
-    </script>
-    <style>
-        .dropzone {
-            border: 2px dashed #0087F7;
-            border-radius: 5px;
-            background: white;
-        }
-    </style> -->
-    <!--<script src="{{ url('public/admin_assets/dist/js/pages/dashboard.js') }}"></script>-->
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{ url('public/admin_assets/dist/js/demo.js') }}"></script>
-    <script src="{{ url('public/admin_assets/dist/js/myscript.js') }}"></script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  <!-- the main fileinput plugin file -->
-  <link href="{{ url('public/admin_assets/dist/js/fileinput.min.css') }}" media="all" rel="stylesheet" type="text/css" />
-  <script src="{{ url('public/admin_assets/dist/js/fileinput.min.js') }}" type="text/javascript"></script>
-  <script src="{{ asset('public/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
+    <link href="{{ url('public/admin_assets/dist/js/fileinput.min.css') }}" media="all" rel="stylesheet" type="text/css" />
+    
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
+
       <!---- thông báo------->
-        <link href="{{ url('public/admin_assets/thongbao/toastr.min.css') }}" rel="stylesheet" />
-        <script src="{{ url('public/admin_assets/thongbao/toastr.min.js') }}"></script>
-       <script type="text/javascript">
-            $(document).ready(function(){
-                toastr.options = {
-                    "closeButton": true,
-                    "debug": false,
-                    "newestOnTop": false,
-                    "progressBar": false,
-                    "positionClass": "toast-top-right",
-                    "preventDuplicates": false,
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "5000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                }
-            });
-        </script>
+      
       <!------------ scrip o day ----------->
         @if(Session::has('toastr_msg'))
             <script type='text/javascript'>
@@ -167,14 +44,72 @@
       @include('backend.header')
       <!-- Left side column. contains the logo and sidebar -->
       @include('backend.menu')
-      <!-- Content Wrapper. Contains page content -->
+
       <div class="content-wrapper">
+            @if(URL::current() != url('backend/home'))
+                <section class="content-header">
+                    <h1>
+                        <a href="@yield('controller_route')">@yield('controller')</a>
+                        <small>@yield('action')</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="{!! url('backend') !!}"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li><a href="@yield('controller_route')">@yield('controller')</a></li>
+                        <li class="active">@yield('action')</li>
+                    </ol>
+                </section>
+            @endif
+            @yield('content')
+        </div>
+     
         <!-- Main content -->
-        @yield('content')
-        <!-- /.content -->
-      </div><!-- /.content-wrapper -->
       @include('backend.footer')
+
+      @include('backend.modal-confim-delete')
+
+      
+
       <!-- Control Sidebar -->
     </div><!-- ./wrapper -->
   </body>
+    <script type="text/javascript">
+        function homeUrl(){
+            return '{!! url('/') !!}'
+      }
+    </script>
+       
+      <!-- jQuery 2.1.4 -->
+      <script src="{{ url('public/admin_assets/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
+      <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+      <!-- CK Editor -->
+      <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+      <script src="{{ asset('public/admin_assets/plugins/ckeditor/ckeditor.js') }}"></script>
+      <script src="{!! asset('public/admin_assets/plugins/tinymce/tinymce.min.js') !!}"></script>
+      <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+      
+      <script src="{{ url('public/admin_assets/bootstrap/js/bootstrap.min.js') }}"></script>
+      <script src="{{ url('public/admin_assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+      <script src="{{ url('public/admin_assets/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+  
+  
+      <script src="{{ url('public/admin_assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
+      <!-- SlimScroll -->
+      <script src="{{ url('public/admin_assets/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
+      <!-- FastClick -->
+      <script src="{{ url('public/admin_assets/plugins/fastclick/fastclick.min.js') }}"></script>
+      <!-- AdminLTE App -->
+      <script src="{{ url('public/admin_assets/dist/js/app.min.js') }}"></script>
+      <link href="{{ url('public/admin_assets/plugins/multiupload/assets/css/style.css') }}" rel="stylesheet" />
+      <script src="{{ url('public/admin_assets/plugins/multiupload/assets/js/jquery.knob.js') }}"></script>
+      <script src="{{ url('public/admin_assets/plugins/multiupload/assets/js/jquery.ui.widget.js') }}"></script>
+      <script src="{{ url('public/admin_assets/plugins/multiupload/assets/js/jquery.iframe-transport.js') }}"></script>
+      <script src="{{ url('public/admin_assets/plugins/multiupload/assets/js/jquery.fileupload.js') }}"></script>
+      <script src="{{ url('public/admin_assets/plugins/multiupload/assets/js/script.js') }}"></script>
+      <!-- AdminLTE for demo purposes -->
+      <script src="{{ url('public/admin_assets/dist/js/demo.js') }}"></script>
+      <script src="{{ url('public/admin_assets/dist/js/myscript.js') }}"></script>
+      <script src="{{ url('public/admin_assets/dist/js/fileinput.min.js') }}" type="text/javascript"></script>
+      @toastr_js
+      @toastr_render
+      @yield('scripts')
 </html>

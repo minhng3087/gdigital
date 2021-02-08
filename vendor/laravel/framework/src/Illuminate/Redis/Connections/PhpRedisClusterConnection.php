@@ -1,8 +1,8 @@
-<?php
-
-namespace Illuminate\Redis\Connections;
-
-class PhpRedisClusterConnection extends PhpRedisConnection
-{
-    //
-}
+<?php
+
+namespace Illuminate\Redis\Connections;
+
+class PhpRedisClusterConnection extends PhpRedisConnection
+{
+    //
+}

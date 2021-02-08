@@ -1,8 +1,8 @@
-<?php
-
-namespace Illuminate\Cache\Events;
-
-class KeyForgotten extends CacheEvent
-{
-    //
-}
+<?php
+
+namespace Illuminate\Cache\Events;
+
+class KeyForgotten extends CacheEvent
+{
+    //
+}

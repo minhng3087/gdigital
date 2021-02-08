@@ -40,7 +40,7 @@ function isNumberKey(evt)
    return true;
 }
 $(document).ready( function ( e ){
-    $('input#txtName').keyup(function(event) {
+    $('input#name').keyup(function(event) {
 		var title, slug;
         title = $(this).val();
         slug = title.toLowerCase();
@@ -59,25 +59,33 @@ $(document).ready( function ( e ){
         slug = slug.replace(/\-\-/gi, '-');
         slug = '@' + slug + '@';
         slug = slug.replace(/\@\-|\-\@|\@/gi, '');
-        $('input#txtAlias').val(slug);
+        $('input#slug').val(slug);
 	});
 });
-$(document).ready(function(){
-    $('#addImages').click(function(){
-        $('#insert').append('<div class="form-group"><input type="file" name="fEditDetail[]"></div>');
-    });
-});
 $('.alert_thongbao').delay(3000).slideUp();
-$(function () {
-  $("#example1").DataTable();
-  $('#example2').DataTable({
-    "paging": true,
-    "lengthChange": false,
-    "searching": false,
-    "ordering": true,
-    "info": true,
-    "autoWidth": false
-  });
+$(document).ready(function(){
+    $(function () {
+        $("#example1,#example2").DataTable({
+            language:{
+                "sProcessing":   "Đang xử lý...",
+                "sLengthMenu":   "Xem _MENU_ mục",
+                "sZeroRecords":  "Không tìm thấy dòng nào phù hợp",
+                "sInfo":         "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                "sInfoEmpty":    "Đang xem 0 đến 0 trong tổng số 0 mục",
+                "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+                "sInfoPostFix":  "",
+                "sSearch":       "Tìm:",
+                "sUrl":          "",
+                "oPaginate": {
+                    "sFirst":    "Đầu",
+                    "sPrevious": "Trước",
+                    "sNext":     "Tiếp",
+                    "sLast":     "Cuối"
+                }
+            }
+
+        });
+    });
 });
 // send email
 $(document).ready(function(){
@@ -89,10 +97,26 @@ $(document).ready(function(){
     $('#chkAll').change(function(event){
         var checkAll = $('#chkAll:checked').length > 0;
         if (checkAll) {
-            $('input[name="chkEmail[]"]').prop('checked', true);
+            $('input[name="chkItem[]"]').prop('checked', true);
         }else{
-            $('input[name="chkEmail[]"]').prop('checked', false);
+            $('input[name="chkItem[]"]').prop('checked', false);
         }
+    });
+});
+
+jQuery(document).ready(function($) {
+    $('#change_slug').click(function(event) {
+        $('#change_slug').hide();
+        $('#btn-ok').show();
+        $('.cancel.button-link').show();
+        changeInput();
+    });
+
+    $('.cancel.button-link').click(function(event) {
+        $('#change_slug').show();
+        $('#btn-ok').hide();
+        $('.cancel.button-link').hide();
+        cancelInput();
     });
 });
 $(document).ready(function(){
@@ -145,3 +169,254 @@ tinymce.init({
     external_filemanager_path: homeUrl() + "/file/",
     external_plugins: { "filemanager" : homeUrl() + "/file/plugin.min.js"},
 });
+
+
+
+
+
+
+
+$(document).ready(function(){
+    $('a#del_img').on('click', function(){
+        var url =  homeUrl() + "/backend/product/delimg/";
+        var _token = $("form[name='frmEditProduct']").find("input[name='_token']").val();
+        var idImg = $(this).parent().find("img").attr("idImg");
+        var img = $(this).parent().find("img").attr("src");
+        var rid = $(this).parent().find("img").attr("id");
+        
+        $.ajax({
+            url: url + idImg,
+            type: 'GET',
+            cache: false,
+            data: {"_token":_token,"idImg":idImg,"urlImg":img},
+            success: function(data){
+                if (data == 'OK') {
+                    $('#'+rid).remove();
+                }else{
+                    alert('Error ! Please contact admin !');
+                }
+            }
+        });
+    });
+});
+
+$(document).ready(function(){
+    $('a#del_gallery').on('click', function(){
+        var url =  homeUrl() + "/backend/inf/delimg/";
+        var _token = $("form[name='frmEditImg']").find("input[name='_token']").val();
+        var idImg = $(this).parent().find("img").attr("idImg");
+        var img = $(this).parent().find("img").attr("src");
+        var rid = $(this).parent().find("img").attr("id");
+        
+        $.ajax({
+            url: url + idImg,
+            type: 'GET',
+            cache: false,
+            data: {"_token":_token,"idImg":idImg,"urlImg":img},
+            success: function(data){
+                if (data == 'OK') {
+                    $('#'+rid).remove();
+                }else{
+                    alert('Error ! Please contact admin !');
+                }
+            }
+        });
+    });
+});
+
+$(document).ready(function(){
+    $('#chkAll').change(function(event){
+        var checkAll = $('#chkAll:checked').length > 0;
+
+        if (checkAll) {
+            $('input[name="chkItem[]"]').prop('checked', true);
+        }else{
+            $('input[name="chkItem[]"]').prop('checked', false);
+        }
+    });
+});
+
+
+$(document).ready(function(){
+    var id = $('.liColor').attr('id');
+    $("#iphiColor").val(id);
+
+    $('.liColor').on('click', function(ev){
+        ev.preventDefault();
+        $('.liColor').removeClass('active');
+        $(this).addClass('active');
+
+        var id = $(this).attr('id');
+        $("#iphiColor").val(id);
+    });
+});
+
+$(function() {
+    $('body').on('click', '.btn-destroy', function(event) {
+        var action = $(this).attr('data-href');
+        $('#form-destroy').attr('action', action);
+    });
+    $('body').on('click', '.kv-error-close', function(event) {
+        event.preventDefault();
+    });
+    $('#frm_product').on('submit', function() {
+        price = parseInt($("input[name='price']").val());
+        price_promotion = parseInt($("input[name='price_promotion']").val());
+        if(price <= price_promotion ){
+            alert('Giá khuyến mại phải nhỏ hơn giá bán !');
+            return false;
+        }
+    });
+    $('#form_post').on('submit', function() {
+        img = $("input[name='image']").val();
+        if(img == ''){
+            alert('Bạn chưa chọn hình ảnh cho bài viết.');
+            $(".image__thumbnail img").css({"border": "2px", "border-style": "solid", "border-color": "red"});
+            return false;
+        }
+        var listArr = [];
+        $("input[name='category[]']:checked").each(function() {
+           listArr.push($(this).val());
+        });
+        if (listArr.length == 0) {
+            $('.category-box').css({
+                'border': '2px',
+                'border-style': 'solid',
+                'border-color' : 'red'
+            });
+            alert('Bạn chưa chọn danh mục bài viết.');
+            var $container = $("html,body");
+            var $scrollTo = $('.category-box');
+            $container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 200, scrollLeft: 0},300);
+            return false;
+        }
+    });
+    
+});
+
+function urlFileDelete(el) {
+    var parent = $(el).closest('.image');
+    var img = parent.find('img').first();
+    var input = parent.find('input').first();
+
+    img.attr('src', img.data('init'));
+    input.val('');
+}
+
+
+function urlFileMultiDelete(el) {
+    $(el).closest('.image__thumbnail').remove();
+}
+function repeater(event, el, url, indexClass, type, table = null) {
+    /*event.preventDefault();
+    var target = $(el).closest('.repeater').find('table tbody');
+    var indexs = $(indexClass).closest('table').find(indexClass);
+    var index = indexs.length;
+    $.get(url, {index: index + 1, type: type}, function (data) {
+        target.append(data)
+    });*/
+
+    event.preventDefault();
+    var target = $(el).closest('.repeater').find('table tbody');
+    if (table != null) {
+        var indexs = $(table).find(indexClass);
+    }else{
+        var indexs = $(indexClass).closest('table').find(indexClass);
+    }
+    var index = indexs.length;
+    $.get(url, {index: index + 1, type: type}, function (data) {
+        target.append(data)
+    });
+}
+
+jQuery(document).ready(function($) {
+    $("#meta_title").keyup(function(){
+        var countTitle =  this.value.length;
+        $('#countTitle').text(countTitle+'/70');
+        $(".google__title span").text(this.value);
+    });
+    $("#meta_description").keyup(function(){
+        var countMeta = this.value.length;
+        $('#countMeta').text(countMeta+'/320');
+        $(".google__description").text(this.value);
+    });
+});
+$(document).on('ready', function() {
+    $('.multislt').select2({
+        placeholder: "Chọn danh mục",
+    });
+});
+
+var regExp = /[0-9\.\,]/;
+$('.number').on('keydown keyup', function(e) {
+
+    var value = String.fromCharCode(e.which) || e.key;
+    // Only numbers, dots and commas
+    if (!regExp.test(value)
+        && e.which != 188 // ,
+        && e.which != 190 // .
+        && e.which != 8   // backspace
+        && e.which != 46  // delete
+        && (e.which < 37  // arrow keys
+            || e.which > 40)) {
+        e.preventDefault();
+        return false;
+    }
+    if ( event.which >= 37 && event.which <= 40 ) return;
+    this.value = this.value.replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+});// khong cho nhap chu vao text box
+
+$('body').on('keydown keyup', '.number', function(e) {
+    var value = String.fromCharCode(e.which) || e.key;
+    // Only numbers, dots and commas
+    if (!regExp.test(value)
+        && e.which != 188 // ,
+        && e.which != 190 // .
+        && e.which != 8   // backspace
+        && e.which != 46  // delete
+        && (e.which < 37  // arrow keys
+            || e.which > 40)) {
+        e.preventDefault();
+        return false;
+    }
+    if (event.which >= 37 && event.which <= 40) return;
+    this.value = this.value.replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+});
+
+
+jQuery(document).ready(function($) {
+    $('#change_slug').click(function(event) {
+        $('#change_slug').hide();
+        $('#btn-ok').show();
+        $('.cancel.button-link').show();
+        changeInput();
+    });
+
+    $('.cancel.button-link').click(function(event) {
+        $('#change_slug').show();
+        $('#btn-ok').hide();
+        $('.cancel.button-link').hide();
+        cancelInput();
+    });
+});
+
+function changeInput(){
+    var content = $('#current-slug').val();
+    var base = $('#baseUrl').val();
+    var html = '<span class="default-slug">'+base+'/<span id="editable-post-name"><input type="text" id="new-post-slug" value="'+content+'"></span></span>';
+    $('#sample-permalink').html(html);
+}
+
+function cancelInput(slug = null){
+
+    var current_slug;
+    if(slug == null){
+       current_slug = $('#current-slug').val();
+    }else{
+        current_slug = slug;
+    }
+    var base = $('#baseUrl').val();
+    var html = '<a class="permalink" target="_blank" href="'+base+'/'+current_slug+'"><span class="default-slug">'+base+'/<span id="editable-post-name">'+current_slug+'</span></span></a>';
+    $('#sample-permalink').html(html);
+}
+

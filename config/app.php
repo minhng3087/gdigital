@@ -10,7 +10,6 @@ return [
     | any other location as required by the application or its packages.
     */
     'name' => env('APP_NAME', 'Laravel'),
-    
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -143,7 +142,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         /*
          * Package Service Providers...
@@ -157,6 +155,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        Conner\Tagging\Providers\TaggingServiceProvider::class,
+        Yajra\DataTables\HtmlServiceProvider::class,
+        Yoeunes\Toastr\ToastrServiceProvider::class
+
     ],
     /*
     |--------------------------------------------------------------------------
@@ -206,7 +209,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Form'      => Illuminate\Html\FormFacade::class,
         'Html'      => Illuminate\Html\HtmlFacade::class,
-        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
     ],
 ];

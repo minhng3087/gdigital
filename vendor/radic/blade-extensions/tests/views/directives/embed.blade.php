@@ -1,2 +1,2 @@
-1:@yield('one')
-2:@yield('two')
+1:@yield('one')
+2:@yield('two')

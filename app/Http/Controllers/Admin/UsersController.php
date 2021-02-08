@@ -3,8 +3,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Users;
-use App\Images;
+use App\Models\Users;
 use Input, File;
 use Validator;
 use Auth;
@@ -97,7 +96,7 @@ class UsersController extends Controller
         if($data->level == 1 || $data->level == 3){
         	$thanhvien = new Users;
             $thanhvien->name = $request->name;
-         	$thanhvien->username = $request->username;
+         	$thanhvien->user_name = $request->username;
         	$thanhvien->email = $request->email;
             $thanhvien->phone = $request->phone;
             $thanhvien->level = $request->level;
@@ -135,7 +134,6 @@ class UsersController extends Controller
             ["txtPassword.required" => "Bạn chưa nhập lại mật khẩu"]
         );
         $id_user = Auth::user()->id;
-        //$user = DB::table('users')->select('id',$id_user)->first();
         $data = Users::find($id_user);
         if(!empty($data)){
             $img = $request->file('fImages');
@@ -162,5 +160,8 @@ class UsersController extends Controller
         }else{
             return redirect('backend')->with('status','Cập nhật dữ liệu lỗi');
         }
+    }
+    public function AuthRouteAPI(Request $request){
+        return $request->user();
     }
 }

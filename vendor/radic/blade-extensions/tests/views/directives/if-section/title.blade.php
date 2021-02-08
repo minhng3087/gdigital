@@ -1,2 +1,2 @@
-@extends('directives.if-section.layout')
-@section('title', 'title')
+@extends('directives.if-section.layout')
+@section('title', 'title')

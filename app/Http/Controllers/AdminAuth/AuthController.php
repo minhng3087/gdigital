@@ -35,7 +35,7 @@ class AuthController extends Controller {
     public function postRegister(RegisterAdminRequest $request)
     {
     	$thanhvien = new User;
-    	$thanhvien->username = $request->username;
+    	$thanhvien->user_name = $request->username;
     	$thanhvien->name = $request->name;
     	$thanhvien->email = $request->email;
     	$thanhvien->password = Hash::make($request->password);
@@ -50,7 +50,7 @@ class AuthController extends Controller {
     public function postLogin(UserAdminRequest $request)
     {
         $auth = array(
-        	'username' => $request->username,
+        	'user_name' => $request->username,
         	'password' => $request->password,
         	'level' => 1,
             'status' => 1
