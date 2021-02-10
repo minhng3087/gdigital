@@ -1,18 +1,3 @@
-  /*****************Upload images*************************/ 
-  var loadFile = function(event) {
-    var reader = new FileReader();
-    reader.onload = function(){
-      var output = document.getElementById('output');
-      output.src = reader.result
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  };
- /** end upload images **/ 
-$(document).ready(function(){
-    $(function () {
-	    $(".textarea").wysihtml5();
-	});
-});
 function FormatNumber(obj) {
     var strvalue;
     if (eval(obj))

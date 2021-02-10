@@ -74,7 +74,6 @@
       <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
       <!-- CK Editor -->
       <script src="<?php echo e(asset('public/admin_assets/plugins/ckeditor/ckeditor.js')); ?>"></script>
-      <script src="<?php echo asset('public/admin_assets/plugins/tinymce/tinymce.min.js'); ?>"></script>
       <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
       
       <script src="<?php echo e(url('public/admin_assets/bootstrap/js/bootstrap.min.js')); ?>"></script>
@@ -82,19 +81,8 @@
       <script src="<?php echo e(url('public/admin_assets/plugins/datatables/dataTables.bootstrap.min.js')); ?>"></script>
   
   
-      <script src="<?php echo e(url('public/admin_assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')); ?>"></script>
-      <!-- SlimScroll -->
-      <script src="<?php echo e(url('public/admin_assets/plugins/slimScroll/jquery.slimscroll.min.js')); ?>"></script>
-      <!-- FastClick -->
-      <script src="<?php echo e(url('public/admin_assets/plugins/fastclick/fastclick.min.js')); ?>"></script>
       <!-- AdminLTE App -->
       <script src="<?php echo e(url('public/admin_assets/dist/js/app.min.js')); ?>"></script>
-      <link href="<?php echo e(url('public/admin_assets/plugins/multiupload/assets/css/style.css')); ?>" rel="stylesheet" />
-      <script src="<?php echo e(url('public/admin_assets/plugins/multiupload/assets/js/jquery.knob.js')); ?>"></script>
-      <script src="<?php echo e(url('public/admin_assets/plugins/multiupload/assets/js/jquery.ui.widget.js')); ?>"></script>
-      <script src="<?php echo e(url('public/admin_assets/plugins/multiupload/assets/js/jquery.iframe-transport.js')); ?>"></script>
-      <script src="<?php echo e(url('public/admin_assets/plugins/multiupload/assets/js/jquery.fileupload.js')); ?>"></script>
-      <script src="<?php echo e(url('public/admin_assets/plugins/multiupload/assets/js/script.js')); ?>"></script>
       <!-- AdminLTE for demo purposes -->
       <script src="<?php echo e(url('public/admin_assets/dist/js/demo.js')); ?>"></script>
       <script src="<?php echo e(url('public/admin_assets/dist/js/myscript.js')); ?>"></script>
