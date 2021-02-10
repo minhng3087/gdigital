@@ -42,7 +42,7 @@
 		                                
 		                                <div class="form-group">
 		                                    <label>Nội dung</label>
-		                                    <textarea class="content" id="txtContent" name="content">{!! old('content', @$data->content) !!}</textarea>
+		                                    <textarea class="content" name="content">{!! old('content', @$data->content) !!}</textarea>
 		                                </div>
 		                            </div>
 		                        </div>

@@ -73,7 +73,6 @@
       <script src="<?php echo e(url('public/admin_assets/plugins/jQuery/jQuery-2.1.4.min.js')); ?>"></script>
       <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
       <!-- CK Editor -->
-      <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
       <script src="<?php echo e(asset('public/admin_assets/plugins/ckeditor/ckeditor.js')); ?>"></script>
       <script src="<?php echo asset('public/admin_assets/plugins/tinymce/tinymce.min.js'); ?>"></script>
       <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

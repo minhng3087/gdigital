@@ -476,31 +476,23 @@ function fileSelect(el) {
     });
 }
 
-tinymce.init({
-    selector: 'textarea#txtContent',
-    height: 350,
-    width:"",
-    content_style: ".mce-content-body {font-size:14pt;font-family:Times New Roman;}",
-    plugins: [
-        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
-        "searchreplace wordcount visualblocks visualchars fullscreen",
-        "insertdatetime media nonbreaking save table contextmenu directionality",
-        "emoticons template paste textcolor colorpicker textpattern imagetools code fullscreen"
-    ],
-    toolbar1: "undo redo bold italic underline strikethrough cut copy paste| alignleft aligncenter alignright alignjustify bullist numlist outdent indent blockquote searchreplace | styleselect formatselect fontselect fontsizeselect ",
-    toolbar2: "table | hr removeformat | subscript superscript | charmap emoticons ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft | link unlink anchor image media | insertdatetime preview | forecolor backcolor print fullscreen code ",
-    font_formats: 'Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;'
-        + 'Dancing Script=cursive;' 
-    + 'Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;'
-        + 'Oswald=sans-serif;'
-    + 'Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats',
-    image_advtab: true,
-    menubar: false,
-    toolbar_items_size: 'small',
-    relative_urls: false, 
-    remove_script_host : false,
-    // forced_root_block: false,
-    filemanager_title:"Media Manager",  
-    external_filemanager_path: homeUrl() + "/file/",
-    external_plugins: { "filemanager" : homeUrl() + "/file/plugin.min.js"},
+$(function () {
+    var ckeditor = $('textarea.content');
+    if (ckeditor.length) {
+        ckeditor.each(function () {
+            var editor = CKEDITOR.replace($(this).attr('name'));
+            CKFinder.setupCKEditor(editor);
+        });
+    }
+    window.init = function() {
+        var imgDefer = document.querySelectorAll('img.lazy');
+        for (var i=0; i<imgDefer.length; i++) {
+            var url = imgDefer[i].getAttribute('data-src');
+            if(url) {
+                imgDefer[i].setAttribute('src',url);
+                imgDefer[i].setAttribute('srcset',url );
+            }
+        }
+    }
+    window.onload = init;
 });

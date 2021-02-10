@@ -16,7 +16,7 @@
                     <li class="active">
                         <a href="#activity" data-toggle="tab" aria-expanded="true">Danh mục sản phẩm</a>
                     </li>
-                    <li class="" style="display: none;">
+                    <li class="" style="display: none">
                     	<a href="#setting" data-toggle="tab" aria-expanded="true">Cấu hình seo</a>
                     </li>
                     <li class="">
@@ -182,7 +182,7 @@
 						                    	<th style="width: 40px"></th>
 						                    </tr>
 					                	</thead>
-					                    <tbody id="">
+					                    <tbody id="sortable">
 					                    	<?php if(!empty($data->meta_banner)){
 					                    		$meta_banner = json_decode( $data->meta_banner );
 					                    	} ?>

@@ -55,6 +55,48 @@
               </li>
           </ul>
       </li>
+
+
+      <!-- Setting -->
+
+      <li class="header">Cấu hình hệ thống</li>
+      <li class="treeview {{ Request::segment(2) === 'options' || Request::segment(2) === 'branchs' || Request::segment(2) === 'menu-category' ||  Request::segment(2) === 'menu' || Request::segment(2) === 'banks' ? 'active' : null }}">
+          <a href="#">
+              <i class="fa fa-cog" aria-hidden="true"></i> <span>Cấu hình</span>
+              <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+
+              <li class="{{ Request::segment(3) === 'general' ? 'active' : null }}">
+                  <a href="{{ route('backend.options.general') }}"><i class="fa fa-circle-o"></i> Cấu hình chung</a>
+              </li>
+
+              <li class="{{ Request::segment(3) === 'smtp' ? 'active' : null }}" style="display: none">
+                  <a href="{{ route('backend.options.smtp-config') }}"><i class="fa fa-circle-o"></i>  Cấu hình Email</a>
+              </li>
+              
+          </ul>
+      </li>
+      <div style="display: none;">
+        <li class="header">Cấu hình hệ thống</li>
+        <li class="treeview {{ Request::segment(2) == 'options' ? 'active' : null  }}">
+          <a href="#">
+            <i class="fa fa-folder"></i> <span>Setting (Developer)</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="{{ Request::segment(3) == 'developer-config' ? 'active' : null  }}">
+              <a href="{{ route('backend.options.developer-config') }}"><i class="fa fa-circle-o"></i> Developer - Config</a>
+            </li>
+          </ul>
+        </li>
+      </div>
     </ul>
+
+  
   </section>
 </aside>
