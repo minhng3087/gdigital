@@ -1,13 +1,14 @@
 @extends('backend.layouts.master')
-@section('controller', 'Danh mục tin tức' )
+@section('controller', @$module['name'] )
 @section('controller_route', route('categories-post.index'))
 @section('action', 'Danh sách')
 @section('content')
     <div class="content">
         <div class="clearfix"></div>
+		@include('backend.components.messages-error')
         <div class="row">
         	<div class="col-sm-5">
-	        	<form action="{!! updateOrStoreRouteRender( @$module['action'], $module['module'], @$data) !!}" method="POST" enctype="multipart/form-data">
+	        	<form action="{!! updateOrStoreRouteRender( @$module['action'], $module['module'], @$data) !!}" method="POST">
 	        		@csrf
 					@if(isUpdate(@$module['action']))
 				        {{ method_field('put') }}
@@ -38,10 +39,17 @@
 		                    			<div class="form-group">
 		                    				<label for="">Hình ảnh</label>
 		                    				 <div class="image">
-											 	<div class="image__thumbnail">
-													<img id="output" src="{{ __IMAGE_DEFAULT__ }}"/>
-													<input class="max-with" name="fImages" type="file"  onchange="loadFile(event)"/>
-												</div>
+					                            <div class="image__thumbnail">
+					                                <img src="{{ __IMAGE_DEFAULT__ }}"
+					                                     data-init="{{ __IMAGE_DEFAULT__ }}">
+					                                <a href="javascript:void(0)" class="image__delete" onclick="urlFileDelete(this)">
+					                                    <i class="fa fa-times"></i></a>
+					                                <input type="hidden" value="{{ old('image') }}" name="image"/>
+					                                <div class="image__button" onclick="fileSelect(this)">
+					                                	<i class="fa fa-upload"></i>
+					                                    Upload
+					                                </div>
+					                            </div>
 					                        </div>
 		                    			</div>
 		                    		</div>
@@ -106,4 +114,3 @@
         </div>
     </div>
 @stop
-

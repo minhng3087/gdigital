@@ -23,8 +23,16 @@
         </a>
         <ul class="treeview-menu">
            
+            <li class="{{ Request::segment(2) === 'category' ? 'active' : null }}">
+              <a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> Danh mục sản phẩm</a>
+            </li>
+
             <li class="{{ Request::segment(2) === 'brand' ? 'active' : null }}">
                 <a href="{{ route('brand.index') }}"><i class="fa fa-circle-o"></i> Thương hiệu sản phẩm</a>
+            </li>
+
+            <li class="{{ Request::segment(2) === 'product-attributes' ? 'active' : null }}">
+                <a href="{{ route('product-attributes.index') }}"><i class="fa fa-circle-o"></i> Thuộc tính sản phẩm</a>
             </li>
             
          </ul>

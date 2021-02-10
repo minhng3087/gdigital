@@ -4,8 +4,6 @@
 <?php $__env->startSection('content'); ?>
     <div class="content">
         <div class="clearfix"></div>
-		<?php echo $__env->make('backend.messages_error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
         <div class="row">
         	<div class="col-sm-5">
 	        	<form action="<?php echo updateOrStoreRouteRender( @$module['action'], $module['module'], @$data); ?>" enctype="multipart/form-data" method="POST">
@@ -38,15 +36,18 @@
 		                    	<div class="row">
 		                    		<div class="col-sm-12">
 		                    			<div class="form-group">
-		                    				<label for="">Hình ảnh</label>
+											<label for="">Hình ảnh</label>
 											<div class="image">
 												<div class="image__thumbnail">
-													<?php if($data['image']): ?>
-													<img src="<?php echo e(asset('upload/post_category/'.$data['image'])); ?>" id="output" />
-													<?php else: ?>
-													<img src="<?php echo e(__IMAGE_DEFAULT__); ?>" id="output" />
-													<?php endif; ?>
-													<input class="max-with" name="fImages" type="file"  onchange="loadFile(event)"/>
+													<img src="<?php echo e(!empty(@$data->image) ? @$data->image : __IMAGE_DEFAULT__); ?>"
+														data-init="<?php echo e(__IMAGE_DEFAULT__); ?>">
+													<a href="javascript:void(0)" class="image__delete" onclick="urlFileDelete(this)">
+														<i class="fa fa-times"></i></a>
+													<input type="hidden" value="<?php echo e(old('image', @$data->image)); ?>" name="image"/>
+													<div class="image__button" onclick="fileSelect(this)">
+														<i class="fa fa-upload"></i>
+														Upload
+													</div>
 												</div>
 											</div>
 										</div>
@@ -77,4 +78,4 @@
 	    </div>
 	</div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('backend.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/categories-post/edit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/categories-post/edit.blade.php ENDPATH**/ ?>

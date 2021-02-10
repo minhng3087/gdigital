@@ -100,6 +100,9 @@
       <script src="<?php echo e(url('public/admin_assets/dist/js/demo.js')); ?>"></script>
       <script src="<?php echo e(url('public/admin_assets/dist/js/myscript.js')); ?>"></script>
       <script src="<?php echo e(url('public/admin_assets/dist/js/fileinput.min.js')); ?>" type="text/javascript"></script>
+
+    <script src="<?php echo e(asset('public/admin_assets/plugins/ckfinder/ckfinder.js')); ?>"></script>
+
       <?php echo toastr_js(); ?>
       <?php echo app('toastr')->render(); ?>
       <?php echo $__env->yieldContent('scripts'); ?>

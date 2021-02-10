@@ -6,7 +6,7 @@
 	<section class="content">
 		@include('backend.components.messages-error')
 		<div class="clearfix"></div>
-		<form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
+		<form action="{{ route('posts.store') }}" method="POST">
 			@csrf
 			<input type="hidden" value="blog" name="type">
 			<div class="row">
@@ -161,8 +161,15 @@
 		                    <div class="form-group" style="text-align: center;">
 								<div class="image">
 									<div class="image__thumbnail">
-										<img src="{{ __IMAGE_DEFAULT__ }}" id="output" />
-										<input class="max-with" name="fImages" type="file"  onchange="loadFile(event)"/>
+										<img src="{{ __IMAGE_DEFAULT__ }}"
+												data-init="{{ __IMAGE_DEFAULT__ }}">
+										<a href="javascript:void(0)" class="image__delete" onclick="urlFileDelete(this)">
+											<i class="fa fa-times"></i></a>
+										<input type="hidden" value="{{ old('image') }}" name="image"/>
+										<div class="image__button" onclick="fileSelect(this)">
+											<i class="fa fa-upload"></i>
+											Upload
+										</div>
 									</div>
 								</div>
 		                    </div>

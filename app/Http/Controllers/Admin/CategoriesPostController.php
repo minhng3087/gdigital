@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
-use File;
+
 
 class CategoriesPostController extends Controller
 {
@@ -80,7 +80,6 @@ class CategoriesPostController extends Controller
             return redirect()->back()->withInput()->withErrors(['Đường đẫn tĩnh này đã tồn tại.']);
         }
         $input = $request->all();
-        if(!empty($request->file('fImages'))) $input['image'] = uploadFile($request->file('fImages'),'post_category');
         $input['type'] = 'post_category';
         $data = Categories::create($input);
         toastr()->success('Thêm mới thành công.');
@@ -107,7 +106,6 @@ class CategoriesPostController extends Controller
      */
     public function edit($id)
     {
-
         $data['module'] = array_merge($this->module(),[
             'action' => 'update'
         ]);
@@ -130,10 +128,6 @@ class CategoriesPostController extends Controller
             return redirect()->back()->withInput()->withErrors(['Đường đẫn tĩnh này đã tồn tại.']);
         }
         $input = $request->all();
-        if(!empty($request->file('fImages'))) {
-            File::delete('upload/post_category/'.$request->file('fImages'));
-            $input['image'] = uploadFile($request->file('fImages'), 'post_category');
-        }
         $input['type'] = 'post_category';
         $data = Categories::findOrFail($id)->update($input);
         toastr()->success('Sửa thành công.');
@@ -148,8 +142,6 @@ class CategoriesPostController extends Controller
      */
     public function destroy($id)
     {
-        $item = Categories::findOrFail($id);
-        File::delete('upload/post_category/'.$item->image);
         Categories::destroy($id);
         toastr()->success('Xóa thành công.');
         return redirect()->back();

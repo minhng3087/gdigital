@@ -37,7 +37,9 @@ Route::group(['namespace' => 'Admin'], function () {
 		$routes = config('admin.route');
 		
         foreach ($routes as $key => $route) {
-            Route::resource($key, ucfirst($key).'Controller', ['except' => ['show']] );
+            Route::resource($route['name'], ucfirst($key).'Controller', [
+				'except' => ['show'], 
+			]);
             if($route['multi_del'] == true){
                 Route::post( $key.'/postMultiDel', ['as' => $key.'.postMultiDel', 'uses' => ucfirst($key).'Controller@deleteMuti']);
             }
@@ -50,6 +52,10 @@ Route::group(['namespace' => 'Admin'], function () {
 		Route::resource('categories-post', 'CategoriesPostController', ['except' => [
 			'show','create'
 		]]);
+
+        Route::resource('category', 'CategoryController', ['except' => ['show']]);
+        Route::get('/get-layout', 'IndexController@getLayOut')->name('get.layout');
+		
 	});
 });
 

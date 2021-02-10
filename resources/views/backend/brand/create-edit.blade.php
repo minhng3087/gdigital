@@ -1,12 +1,16 @@
 @extends('backend.layouts.master')
-@section('controller', 'Thương hiệu' )
+@section('controller', @$module['name'] )
 @section('controller_route', route('brand.index'))
 @section('action', renderAction(@$module['action']))
 @section('content')
 	<div class="content">
 		<div class="clearfix"></div>
-       	<form action="" method="POST">
+		@include('backend.components.messages-error')
+       	<form action="{!! updateOrStoreRouteRender(@$module['action'], @$module['module'], @$data) !!}" method="POST">
 			@csrf
+			@if(isUpdate(@$module['action']))
+				{{ method_field('put') }}
+			@endif
 		    <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                     <li class="active">
@@ -15,7 +19,7 @@
                     <li class="">
                     	<a href="#category" data-toggle="tab" aria-expanded="true">Danh mục</a>
                     </li>
-                    <li class="">
+                    <li class="" style="display: none;">
                     	<a href="#setting" data-toggle="tab" aria-expanded="true">Cấu hình seo</a>
                     </li>
                 </ul>
@@ -27,9 +31,16 @@
 	                				<label for="">Hình ảnh</label>
 									<div class="image">
 										<div class="image__thumbnail">
-											<img id="output" src="{{ !empty(@$data['image']) ? asset('upload/brands/'.@$data['image']) : __IMAGE_DEFAULT__ }}" data-init="{{ __IMAGE_DEFAULT__ }}"/>
-											<input class="max-with" name="fImages" type="file"  onchange="loadFile(event)"/>
-										</div>
+			                                <img src="{{ !empty(@$data['image']) ? @$data['image'] : __IMAGE_DEFAULT__ }}"
+			                                     data-init="{{ __IMAGE_DEFAULT__ }}">
+			                                <a href="javascript:void(0)" class="image__delete" onclick="urlFileDelete(this)">
+			                                    <i class="fa fa-times"></i></a>
+			                                <input type="hidden" value="{{ old('image', @$data['image']) }}" name="image"/>
+			                                <div class="image__button" onclick="fileSelect(this)">
+			                                	<i class="fa fa-upload"></i>
+			                                    Upload
+			                                </div>
+			                            </div>
 					                </div>
 	                			</div>
                     		</div>
@@ -38,9 +49,16 @@
 	                				<label for="">Banner</label>
 									<div class="image">
 										<div class="image__thumbnail">
-											<img id="output" src="{{ !empty(@$data['banner']) ? asset('upload/brands/'.@$data['banner']) : __IMAGE_DEFAULT__ }}" data-init="{{ __IMAGE_DEFAULT__ }}"/>
-											<input class="max-with" name="banner" type="file"  onchange="loadFile(event)"/>
-										</div>
+			                                <img src="{{ !empty(@$data['banner']) ? @$data['banner'] : __IMAGE_DEFAULT__ }}"
+			                                     data-init="{{ __IMAGE_DEFAULT__ }}">
+			                                <a href="javascript:void(0)" class="image__delete" onclick="urlFileDelete(this)">
+			                                    <i class="fa fa-times"></i></a>
+			                                <input type="hidden" value="{{ old('banner', @$data['banner']) }}" name="banner"/>
+			                                <div class="image__button" onclick="fileSelect(this)">
+			                                	<i class="fa fa-upload"></i>
+			                                    Upload
+			                                </div>
+			                            </div>
 					                </div>
 	                			</div>
                     		</div>

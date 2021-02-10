@@ -15,4 +15,14 @@ class IndexController extends Controller
     {
         return view('backend.index');
     }
+
+    public function getLayOut(Request $request) {
+        $index = $request->index;
+    	$type = $request->type;
+    	if(view()->exists('backend.repeater.row-'.$type)){
+		    return view('backend.repeater.row-'.$type, compact('index'))->render();
+		}
+		return '404';
+
+    }
 }

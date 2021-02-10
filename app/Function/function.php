@@ -7,19 +7,12 @@ use App\Models\Comments;
 use App\Models\ProductQuestions;
 
 
-function uploadFile($img, $folder) {
-    $path_img='upload/'.$folder;
-    $img_name=time().'_'.$img->getClientOriginalName();
-    $img->move($path_img,$img_name);
-    return $img_name;
-}
-
 function renderImage($link)
 {
     if (!empty($link)) {
         return $link;
     }
-    return asset('public/backend/img/no-image.png');
+    return asset('public/admin_assets/images/no-image.jpg');
 }
 
 function text_limit($str, $limit = 10)

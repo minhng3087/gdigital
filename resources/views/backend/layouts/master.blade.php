@@ -100,6 +100,9 @@
       <script src="{{ url('public/admin_assets/dist/js/demo.js') }}"></script>
       <script src="{{ url('public/admin_assets/dist/js/myscript.js') }}"></script>
       <script src="{{ url('public/admin_assets/dist/js/fileinput.min.js') }}" type="text/javascript"></script>
+
+    <script src="{{ asset('public/admin_assets/plugins/ckfinder/ckfinder.js') }}"></script>
+
       @toastr_js
       @toastr_render
       @yield('scripts')

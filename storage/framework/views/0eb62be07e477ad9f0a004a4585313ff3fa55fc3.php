@@ -1,11 +1,16 @@
-<?php $__env->startSection('controller', 'Thương hiệu' ); ?>
+<?php $__env->startSection('controller', @$module['name'] ); ?>
 <?php $__env->startSection('controller_route', route('brand.index')); ?>
 <?php $__env->startSection('action', renderAction(@$module['action'])); ?>
 <?php $__env->startSection('content'); ?>
 	<div class="content">
 		<div class="clearfix"></div>
-       	<form action="" method="POST">
+		<?php echo $__env->make('backend.components.messages-error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+       	<form action="<?php echo updateOrStoreRouteRender(@$module['action'], @$module['module'], @$data); ?>" method="POST">
 			<?php echo csrf_field(); ?>
+			<?php if(isUpdate(@$module['action'])): ?>
+				<?php echo e(method_field('put')); ?>
+
+			<?php endif; ?>
 		    <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                     <li class="active">
@@ -14,7 +19,7 @@
                     <li class="">
                     	<a href="#category" data-toggle="tab" aria-expanded="true">Danh mục</a>
                     </li>
-                    <li class="">
+                    <li class="" style="display: none;">
                     	<a href="#setting" data-toggle="tab" aria-expanded="true">Cấu hình seo</a>
                     </li>
                 </ul>
@@ -26,9 +31,16 @@
 	                				<label for="">Hình ảnh</label>
 									<div class="image">
 										<div class="image__thumbnail">
-											<img id="output" src="<?php echo e(!empty(@$data['image']) ? asset('upload/brands/'.@$data['image']) : __IMAGE_DEFAULT__); ?>" data-init="<?php echo e(__IMAGE_DEFAULT__); ?>"/>
-											<input class="max-with" name="fImages" type="file"  onchange="loadFile(event)"/>
-										</div>
+			                                <img src="<?php echo e(!empty(@$data['image']) ? @$data['image'] : __IMAGE_DEFAULT__); ?>"
+			                                     data-init="<?php echo e(__IMAGE_DEFAULT__); ?>">
+			                                <a href="javascript:void(0)" class="image__delete" onclick="urlFileDelete(this)">
+			                                    <i class="fa fa-times"></i></a>
+			                                <input type="hidden" value="<?php echo e(old('image', @$data['image'])); ?>" name="image"/>
+			                                <div class="image__button" onclick="fileSelect(this)">
+			                                	<i class="fa fa-upload"></i>
+			                                    Upload
+			                                </div>
+			                            </div>
 					                </div>
 	                			</div>
                     		</div>
@@ -37,9 +49,16 @@
 	                				<label for="">Banner</label>
 									<div class="image">
 										<div class="image__thumbnail">
-											<img id="output" src="<?php echo e(!empty(@$data['banner']) ? asset('upload/brands/'.@$data['banner']) : __IMAGE_DEFAULT__); ?>" data-init="<?php echo e(__IMAGE_DEFAULT__); ?>"/>
-											<input class="max-with" name="banner" type="file"  onchange="loadFile(event)"/>
-										</div>
+			                                <img src="<?php echo e(!empty(@$data['banner']) ? @$data['banner'] : __IMAGE_DEFAULT__); ?>"
+			                                     data-init="<?php echo e(__IMAGE_DEFAULT__); ?>">
+			                                <a href="javascript:void(0)" class="image__delete" onclick="urlFileDelete(this)">
+			                                    <i class="fa fa-times"></i></a>
+			                                <input type="hidden" value="<?php echo e(old('banner', @$data['banner'])); ?>" name="banner"/>
+			                                <div class="image__button" onclick="fileSelect(this)">
+			                                	<i class="fa fa-upload"></i>
+			                                    Upload
+			                                </div>
+			                            </div>
 					                </div>
 	                			</div>
                     		</div>

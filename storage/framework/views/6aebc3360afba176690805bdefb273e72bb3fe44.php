@@ -1,13 +1,13 @@
-<?php $__env->startSection('controller', 'Danh mục tin tức' ); ?>
+<?php $__env->startSection('controller', @$module['name'] ); ?>
 <?php $__env->startSection('controller_route', route('categories-post.index')); ?>
 <?php $__env->startSection('action', 'Danh sách'); ?>
 <?php $__env->startSection('content'); ?>
     <div class="content">
         <div class="clearfix"></div>
-		<?php echo $__env->make('backend.messages_error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+		<?php echo $__env->make('backend.components.messages-error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="row">
         	<div class="col-sm-5">
-	        	<form action="<?php echo updateOrStoreRouteRender( @$module['action'], $module['module'], @$data); ?>" method="POST" enctype="multipart/form-data">
+	        	<form action="<?php echo updateOrStoreRouteRender( @$module['action'], $module['module'], @$data); ?>" method="POST">
 	        		<?php echo csrf_field(); ?>
 					<?php if(isUpdate(@$module['action'])): ?>
 				        <?php echo e(method_field('put')); ?>
@@ -39,10 +39,17 @@
 		                    			<div class="form-group">
 		                    				<label for="">Hình ảnh</label>
 		                    				 <div class="image">
-											 	<div class="image__thumbnail">
-													<img id="output" src="<?php echo e(__IMAGE_DEFAULT__); ?>"/>
-													<input class="max-with" name="fImages" type="file"  onchange="loadFile(event)"/>
-												</div>
+					                            <div class="image__thumbnail">
+					                                <img src="<?php echo e(__IMAGE_DEFAULT__); ?>"
+					                                     data-init="<?php echo e(__IMAGE_DEFAULT__); ?>">
+					                                <a href="javascript:void(0)" class="image__delete" onclick="urlFileDelete(this)">
+					                                    <i class="fa fa-times"></i></a>
+					                                <input type="hidden" value="<?php echo e(old('image')); ?>" name="image"/>
+					                                <div class="image__button" onclick="fileSelect(this)">
+					                                	<i class="fa fa-upload"></i>
+					                                    Upload
+					                                </div>
+					                            </div>
 					                        </div>
 		                    			</div>
 		                    		</div>
@@ -107,6 +114,4 @@
         </div>
     </div>
 <?php $__env->stopSection(); ?>
-
-
-<?php echo $__env->make('backend.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/categories-post/create-list.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/categories-post/create-list.blade.php ENDPATH**/ ?>

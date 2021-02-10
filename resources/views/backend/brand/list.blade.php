@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('controller', 'Thương hiệu' )
+@section('controller', @$data['name'])
 @section('controller_route', route('brand.index') )
 @section('action', 'Danh sách')
 @section('content')

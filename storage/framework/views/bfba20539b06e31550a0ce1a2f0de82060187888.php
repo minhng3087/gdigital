@@ -5,7 +5,7 @@
 	<section class="content">
 		<?php echo $__env->make('backend.components.messages-error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 		<div class="clearfix"></div>
-		<form action="<?php echo e(route('posts.store')); ?>" method="POST" enctype="multipart/form-data">
+		<form action="<?php echo e(route('posts.store')); ?>" method="POST">
 			<?php echo csrf_field(); ?>
 			<input type="hidden" value="blog" name="type">
 			<div class="row">
@@ -161,8 +161,15 @@
 		                    <div class="form-group" style="text-align: center;">
 								<div class="image">
 									<div class="image__thumbnail">
-										<img src="<?php echo e(__IMAGE_DEFAULT__); ?>" id="output" />
-										<input class="max-with" name="fImages" type="file"  onchange="loadFile(event)"/>
+										<img src="<?php echo e(__IMAGE_DEFAULT__); ?>"
+												data-init="<?php echo e(__IMAGE_DEFAULT__); ?>">
+										<a href="javascript:void(0)" class="image__delete" onclick="urlFileDelete(this)">
+											<i class="fa fa-times"></i></a>
+										<input type="hidden" value="<?php echo e(old('image')); ?>" name="image"/>
+										<div class="image__button" onclick="fileSelect(this)">
+											<i class="fa fa-upload"></i>
+											Upload
+										</div>
 									</div>
 								</div>
 		                    </div>

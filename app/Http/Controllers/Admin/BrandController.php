@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
-use File;
 
 class BrandController extends Controller
 {
@@ -63,6 +62,7 @@ class BrandController extends Controller
      */
     public function create()
     {
+        
         $data['module'] = $this->module();
         $data['data'] = Categories::where('type', 'brand_category')->get();
         return view("backend.{$this->module()['module']}.create-edit", $data);
@@ -76,7 +76,21 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-       
+        
+        $this->validate($request, $this->fields(), $this->messages());
+        $post_check_slug = Categories::where('slug', $request->slug)->where('type', 'brand_category')->first();
+        if (!empty($post_check_slug)) {
+            return redirect()->back()->withInput()->withErrors(['Đường đẫn tĩnh này đã tồn tại.']);
+        }
+
+        $input = $request->all();
+        $input['meta_orthers'] = !empty($request->meta_orthers) ? json_encode( $request->meta_orthers ) : null;
+        $input['type'] = 'brand_category';
+
+        $data = Categories::create($input);
+
+        toastr()->success('Thêm mới thành công.');
+        return redirect()->route("{$this->module()['module']}.index");
     }
 
     /**
@@ -99,7 +113,15 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
+        $data['module'] = array_merge($this->module(),[
+            'action' => 'update'
+        ]);
 
+        $data['categories'] = Categories::where('id', '!=', $id)->where('type', 'brand_category')->get();
+
+        $data['data'] = Categories::findOrFail($id);
+
+        return view("backend.{$this->module()['module']}.create-edit", $data);
       
     }
 
@@ -112,7 +134,24 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+       $this->validate($request, $this->fields(), $this->messages());
+
+       $post_check_slug = Categories::where('slug', $request->slug)->where('id', '!=', $id)->where('type', 'brand_category')->first();
+       if(!empty($post_check_slug)) {
+           return redirect()->back()->withInput()->withErrors(['Đường dẫn tĩnh này đã tồn tại. ']);
+       }
+
+       $input = $request->all();
+       $input['meta_orthers'] = json_encode( $request->meta_orthers )? json_encode( $request->meta_orthers) : null;
+
+       Categories::findOrFail($id)->update($input);
+
+       $this->updateOrder();
+       toastr()->success('Cập nhật thành công.');
+
+       return redirect()->back();
+
+
     }
 
     /**
@@ -123,6 +162,27 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        
+        $category = Categories::find($id)->get_child_cate();
+        if(count($category)){
+
+            toastr()->error('Xóa thành công.');
+            return redirect()->route("{$this->module()['module']}.index");
+        }else {
+            Categories::destroy($id);
+            toastr()->success('Xóa thành công.');
+            return redirect()->route("{$this->module()['module']}.index");
+        }
+    }
+
+    public function updateOrder()
+    {
+        $data = Categories::where('type', 'brand_category')->orderBy('order', 'ASC')->orderBy('updated_at', 'DESC')->get();
+        $index = 0;
+        foreach ($data as $cate) {
+            $index = $index + 1;
+            $update = Categories::find($cate->id);
+            $update->order = $index;
+            $update->save();
+        }
     }
 }

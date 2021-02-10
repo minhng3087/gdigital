@@ -7,7 +7,7 @@
         <div class="clearfix"></div>
         <div class="row">
         	<div class="col-sm-5">
-	        	<form action="{!! updateOrStoreRouteRender( @$module['action'], $module['module'], @$data) !!}" enctype="multipart/form-data" method="POST">
+	        	<form action="{!! updateOrStoreRouteRender( @$module['action'], $module['module'], @$data) !!}" method="POST">
 	        		@csrf
 					@if(isUpdate(@$module['action']))
 				        {{ method_field('put') }}
@@ -36,15 +36,18 @@
 		                    	<div class="row">
 		                    		<div class="col-sm-12">
 		                    			<div class="form-group">
-		                    				<label for="">Hình ảnh</label>
+											<label for="">Hình ảnh</label>
 											<div class="image">
 												<div class="image__thumbnail">
-													@if ($data['image'])
-													<img src="{{ asset('upload/post_category/'.$data['image']) }}" id="output" />
-													@else
-													<img src="{{ __IMAGE_DEFAULT__ }}" id="output" />
-													@endif
-													<input class="max-with" name="fImages" type="file"  onchange="loadFile(event)"/>
+													<img src="{{ !empty(@$data->image) ? @$data->image : __IMAGE_DEFAULT__ }}"
+														data-init="{{ __IMAGE_DEFAULT__ }}">
+													<a href="javascript:void(0)" class="image__delete" onclick="urlFileDelete(this)">
+														<i class="fa fa-times"></i></a>
+													<input type="hidden" value="{{ old('image', @$data->image) }}" name="image"/>
+													<div class="image__button" onclick="fileSelect(this)">
+														<i class="fa fa-upload"></i>
+														Upload
+													</div>
 												</div>
 											</div>
 										</div>

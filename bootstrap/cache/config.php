@@ -12,6 +12,15 @@
         ),
         'multi_del' => false,
       ),
+      'productAttributeTypes' => 
+      array (
+        'name' => 'product-attributes',
+        'except' => 
+        array (
+          0 => 'show',
+        ),
+        'multi_del' => true,
+      ),
     ),
   ),
   'app' => 

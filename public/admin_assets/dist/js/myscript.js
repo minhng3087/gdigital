@@ -140,39 +140,6 @@ $(document).ready(function(){
         });
     });
 });
-tinymce.init({
-    selector: 'textarea#txtContent',
-    height: 350,
-    width:"",
-    content_style: ".mce-content-body {font-size:14pt;font-family:Times New Roman;}",
-    plugins: [
-        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
-        "searchreplace wordcount visualblocks visualchars fullscreen",
-        "insertdatetime media nonbreaking save table contextmenu directionality",
-        "emoticons template paste textcolor colorpicker textpattern imagetools code fullscreen"
-    ],
-    toolbar1: "undo redo bold italic underline strikethrough cut copy paste| alignleft aligncenter alignright alignjustify bullist numlist outdent indent blockquote searchreplace | styleselect formatselect fontselect fontsizeselect ",
-    toolbar2: "table | hr removeformat | subscript superscript | charmap emoticons ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft | link unlink anchor image media | insertdatetime preview | forecolor backcolor print fullscreen code ",
-    font_formats: 'Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;'
-        + 'Dancing Script=cursive;' 
-    + 'Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;'
-        + 'Oswald=sans-serif;'
-    + 'Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats',
-    image_advtab: true,
-    menubar: false,
-    toolbar_items_size: 'small',
-    relative_urls: false, 
-    remove_script_host : false,
-    // forced_root_block: false,
-    filemanager_title:"Media Manager",  
-    external_filemanager_path: homeUrl() + "/file/",
-    external_plugins: { "filemanager" : homeUrl() + "/file/plugin.min.js"},
-});
-
-
-
-
-
 
 
 $(document).ready(function(){
@@ -307,14 +274,7 @@ function urlFileMultiDelete(el) {
     $(el).closest('.image__thumbnail').remove();
 }
 function repeater(event, el, url, indexClass, type, table = null) {
-    /*event.preventDefault();
-    var target = $(el).closest('.repeater').find('table tbody');
-    var indexs = $(indexClass).closest('table').find(indexClass);
-    var index = indexs.length;
-    $.get(url, {index: index + 1, type: type}, function (data) {
-        target.append(data)
-    });*/
-
+    
     event.preventDefault();
     var target = $(el).closest('.repeater').find('table tbody');
     if (table != null) {
@@ -414,3 +374,133 @@ function cancelInput(slug = null){
     $('#sample-permalink').html(html);
 }
 
+function fileMultiSelectCustom(el, name = 'gallery' ) {
+    CKFinder.modal({
+        chooseFiles: true,
+        width: 1000,
+        height: 500,
+        language: 'vi',
+        onInit: function (finder) {
+            finder.on('files:choose', function (evt) {
+                var parent = $(el).closest('.image');
+                var gallery = parent.find('.image__gallery');
+                var files = evt.data.files;
+                files.forEach(function (file) {
+                    var url = file.getUrl();
+                    var result = '<div class="image__thumbnail image__thumbnail--style-1">' +
+                        '<img src="' + url + '" >' +
+                        '<a href="javascript:void(0)" class="image__delete" onclick="urlFileMultiDelete(this)"><i class="fa fa-times"></i></a>' +
+                        '<input type="hidden" name="'+name+'[]" value="' + url + '">' +
+                        '</div>';
+                    gallery.append(result)
+                })
+            });
+            finder.on('file:choose:resizedImage', function (evt) {
+                var parent = $(el).closest('.image');
+                var gallery = parent.find('.image__gallery');
+                var url = evt.data.resizedUrl;
+                var result = '<div class="image__thumbnail image__thumbnail--style-1">' +
+                    '<img src="' + url + '" >' +
+                    '<a href="javascript:void(0)" class="image__delete" onclick="urlFileMultiDelete(this)"><i class="fa fa-times"></i></a>' +
+                    '<input type="hidden" name="'+name+'[]" value="' + url    + '">' +
+                    '</div>';
+                gallery.append(result)
+            });
+        }
+    });
+}
+
+function fileMultiSelect(el) {
+    CKFinder.modal({
+        chooseFiles: true,
+        width: 1000,
+        height: 500,
+        language: 'vi',
+        onInit: function (finder) {
+            finder.on('files:choose', function (evt) {
+                var parent = $(el).closest('.image');
+                var gallery = parent.find('.image__gallery');
+                var files = evt.data.files;
+                files.forEach(function (file) {
+                    var url = file.getUrl();
+                    var result = '<div class="image__thumbnail image__thumbnail--style-1">' +
+                        '<img src="' + url + '" >' +
+                        '<a href="javascript:void(0)" class="image__delete" onclick="urlFileMultiDelete(this)"><i class="fa fa-times"></i></a>' +
+                        '<input type="hidden" name="gallery[]" value="' + url + '">' +
+                        '</div>';
+                    gallery.append(result)
+                })
+            });
+            finder.on('file:choose:resizedImage', function (evt) {
+                var parent = $(el).closest('.image');
+                var gallery = parent.find('.image__gallery');
+                var url = evt.data.resizedUrl;
+                var result = '<div class="image__thumbnail image__thumbnail--style-1">' +
+                    '<img src="' + url + '" >' +
+                    '<a href="javascript:void(0)" class="image__delete" onclick="urlFileMultiDelete(this)"><i class="fa fa-times"></i></a>' +
+                    '<input type="hidden" name="gallery[]" value="' + url    + '">' +
+                    '</div>';
+                gallery.append(result)
+            });
+        }
+    });
+}
+
+
+function fileSelect(el) {
+    CKFinder.modal({
+        chooseFiles: true,
+        width: 1200,
+        height: 600,
+        language: 'vi',
+        onInit: function (finder) {
+            finder.on('files:choose', function (evt) {
+                var parent = $(el).closest('.image');
+                var img = parent.find('img').first();
+                var input = parent.find('input').first();
+                var file = evt.data.files.first();
+                var url = file.getUrl();
+                img.attr('src', url);
+                input.val(url);
+            });
+            finder.on('file:choose:resizedImage', function (evt) {
+                var parent = $(el).closest('.image');
+                var img = parent.find('img').first();
+                var input = parent.find('input').first();
+                var url = evt.data.resizedUrl;
+                img.attr('src', url);
+                var result = url.substr(url);
+                input.val(result);
+            });
+        }
+    });
+}
+
+tinymce.init({
+    selector: 'textarea#txtContent',
+    height: 350,
+    width:"",
+    content_style: ".mce-content-body {font-size:14pt;font-family:Times New Roman;}",
+    plugins: [
+        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+        "searchreplace wordcount visualblocks visualchars fullscreen",
+        "insertdatetime media nonbreaking save table contextmenu directionality",
+        "emoticons template paste textcolor colorpicker textpattern imagetools code fullscreen"
+    ],
+    toolbar1: "undo redo bold italic underline strikethrough cut copy paste| alignleft aligncenter alignright alignjustify bullist numlist outdent indent blockquote searchreplace | styleselect formatselect fontselect fontsizeselect ",
+    toolbar2: "table | hr removeformat | subscript superscript | charmap emoticons ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft | link unlink anchor image media | insertdatetime preview | forecolor backcolor print fullscreen code ",
+    font_formats: 'Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;'
+        + 'Dancing Script=cursive;' 
+    + 'Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;'
+        + 'Oswald=sans-serif;'
+    + 'Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats',
+    image_advtab: true,
+    menubar: false,
+    toolbar_items_size: 'small',
+    relative_urls: false, 
+    remove_script_host : false,
+    // forced_root_block: false,
+    filemanager_title:"Media Manager",  
+    external_filemanager_path: homeUrl() + "/file/",
+    external_plugins: { "filemanager" : homeUrl() + "/file/plugin.min.js"},
+});
