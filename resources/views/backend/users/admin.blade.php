@@ -1,4 +1,4 @@
-@extends('backend.master')
+@extends('backend.layouts.master')
 @section('content')
 @section('controller','Cập nhật tài khoản')
 @section('action','Edit')
@@ -6,7 +6,7 @@
 <!-- Main content -->
 <section class="content">
     <div class="box">
-    	@include('backend.messages_error')
+		@include('backend.components.messages-error')
         <div class="box-body">
         	<form method="post" action="backend/users/updateinfo" enctype="multipart/form-data">
         		<input type="hidden" name="_token" value="{!! csrf_token() !!}" />

@@ -1,4 +1,4 @@
-@extends('backend.master')
+@extends('backend.layouts.master')
 @section('content')
 @section('controller','Thêm mới tài khoản ')
 <!-- Content Header (Page header) -->
@@ -10,7 +10,7 @@
 <!-- Main content -->
 <section class="content">
     <div class="box">
-    	@include('backend.messages_error')
+    	@include('backend.components.messages-error')
         <div class="box-body">
                <div class="col-md-6 col-xs-12" id="mginb">
                 	<form  action="{!! url('backend/users/posuse') !!}" name="frmRegister" method="post" class="form-group modal_frm">

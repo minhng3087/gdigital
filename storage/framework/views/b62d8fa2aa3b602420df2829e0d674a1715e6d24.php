@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
-        <?php echo $__env->make('backend.messages_error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('backend.components.messages-error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="box-body">
           <div class="box-header">
             <a href="<?php echo e(route('backend.users.adduse')); ?>">
@@ -61,4 +61,4 @@
 </section><!-- /.content -->
 <!------------------------------------------------------------------------->  
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('backend.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/users/listuse.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/users/listuse.blade.php ENDPATH**/ ?>

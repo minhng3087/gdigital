@@ -1,4 +1,4 @@
-@extends('backend.master')
+@extends('backend.layouts.master')
 @section('content')
 @section('controller','Không đủ thẩm quyền')
 @section('action','Về')

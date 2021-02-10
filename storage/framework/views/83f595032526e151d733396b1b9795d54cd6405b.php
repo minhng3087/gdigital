@@ -9,7 +9,7 @@
 <!-- Main content -->
 <section class="content">
     <div class="box">
-    	<?php echo $__env->make('backend.messages_error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    	<?php echo $__env->make('backend.components.messages-error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="box-body">
                <div class="col-md-6 col-xs-12" id="mginb">
                 	<form  action="<?php echo url('backend/users/posuse'); ?>" name="frmRegister" method="post" class="form-group modal_frm">
@@ -33,4 +33,4 @@
 </section><!-- /.content -->
 <!-- Modal -->
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('backend.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/users/adduse.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/users/adduse.blade.php ENDPATH**/ ?>

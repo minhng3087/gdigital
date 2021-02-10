@@ -1,4 +1,4 @@
-@extends('backend.master')
+@extends('backend.layouts.master')
 @section('controller','Users')
 @section('action','Danh sách')
 @section('content')
@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
-        @include('backend.messages_error')
+        @include('backend.components.messages-error')
         <div class="box-body">
           <div class="box-header">
             <a href="{{ route('backend.users.adduse') }}">

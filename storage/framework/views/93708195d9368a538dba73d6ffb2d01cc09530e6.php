@@ -5,7 +5,7 @@
 <!-- Main content -->
 <section class="content">
     <div class="box">
-    	<?php echo $__env->make('backend.messages_error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+		<?php echo $__env->make('backend.components.messages-error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="box-body">
         	<form method="post" action="backend/users/postedituse?id=<?php echo e($data->id); ?>" enctype="multipart/form-data">
         		<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>" />
@@ -65,4 +65,4 @@
 </section><!-- /.content -->
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('backend.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/users/edituse.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\m\resources\views/backend/users/edituse.blade.php ENDPATH**/ ?>
