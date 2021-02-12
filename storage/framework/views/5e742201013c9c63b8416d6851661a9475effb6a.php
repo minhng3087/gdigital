@@ -20,7 +20,10 @@
     <link rel="stylesheet" href="<?php echo e(url('public/admin_assets/dist/css/AdminLTE.min.css')); ?>"/>
     <link rel="stylesheet" href="<?php echo e(url('public/admin_assets/dist/css/mycss.css')); ?>"/>
     <link rel="stylesheet" href="<?php echo e(url('public/admin_assets/dist/css/jquery.toast.min.css')); ?>">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+    
+    <link rel="stylesheet" href="<?php echo e(url('public/admin_assets/plugins/datepicker/daterangepicker.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(url('public/admin_assets/plugins/iconpicker/fontawesome-iconpicker.min.css')); ?>">
     <?php echo toastr_css(); ?>
     <?php echo $__env->yieldContent('css'); ?>
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -79,7 +82,8 @@
       <script src="<?php echo e(url('public/admin_assets/bootstrap/js/bootstrap.min.js')); ?>"></script>
       <script src="<?php echo e(url('public/admin_assets/plugins/datatables/jquery.dataTables.min.js')); ?>"></script>
       <script src="<?php echo e(url('public/admin_assets/plugins/datatables/dataTables.bootstrap.min.js')); ?>"></script>
-  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
   
       <!-- AdminLTE App -->
       <script src="<?php echo e(url('public/admin_assets/dist/js/app.min.js')); ?>"></script>
@@ -88,8 +92,11 @@
       <script src="<?php echo e(url('public/admin_assets/dist/js/myscript.js')); ?>"></script>
       <script src="<?php echo e(url('public/admin_assets/dist/js/fileinput.min.js')); ?>" type="text/javascript"></script>
       <script src="<?php echo e(url('public/admin_assets/dist/js/jquery.nestable.js')); ?>" type="text/javascript"></script>
+      <script src="<?php echo e(url('public/admin_assets/plugins/datepicker/moment.min.js')); ?>"></script>
+      <script src="<?php echo e(url('public/admin_assets/plugins/datepicker/daterangepicker.js')); ?>"></script>
       <script src="<?php echo e(url('public/admin_assets/dist/js/jquery.toast.min.js')); ?>"></script>
-    <script src="<?php echo e(asset('public/admin_assets/plugins/ckfinder/ckfinder.js')); ?>"></script>
+      <script src="<?php echo e(url('public/admin_assets/plugins/iconpicker/fontawesome-iconpicker.min.js')); ?>"></script>
+      <script src="<?php echo e(asset('public/admin_assets/plugins/ckfinder/ckfinder.js')); ?>"></script>
 
       <?php echo toastr_js(); ?>
       <?php echo app('toastr')->render(); ?>

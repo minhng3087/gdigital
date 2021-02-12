@@ -23,6 +23,10 @@
         </a>
         <ul class="treeview-menu">
            
+            <li class="{{ Request::segment(2) === 'products' ? 'active' : null }}">
+              <a href="{{ route('products.index') }}"><i class="fa fa-circle-o"></i> Danh sách sản phẩm</a>
+            </li>
+
             <li class="{{ Request::segment(2) === 'category' ? 'active' : null }}">
               <a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> Danh mục sản phẩm</a>
             </li>

@@ -30,6 +30,15 @@
         ),
         'multi_del' => true,
       ),
+      'products' => 
+      array (
+        'name' => 'products',
+        'except' => 
+        array (
+          0 => 'show',
+        ),
+        'multi_del' => true,
+      ),
     ),
   ),
   'app' => 

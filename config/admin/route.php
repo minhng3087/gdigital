@@ -16,4 +16,9 @@
             'except' => $except,
             'multi_del' => true,
         ],
+        'products' => [
+            'name' => 'products',
+            'except' => $except,
+            'multi_del' => true,
+        ],
 	];

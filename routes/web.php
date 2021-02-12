@@ -71,6 +71,12 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::get('sort-filter', 'FilterController@getSort')->name('sort-category-filter');
         Route::post('sort-filter-update', 'FilterController@postSort')->name('sort.filter.update');
 
+		// Products
+
+        Route::get('products/get-slug', 'ProductsController@getAjaxSlug')->name('products.get-slug');
+        Route::resource('product-gift', 'ProductGiftController', ['except' => ['show']]);
+        Route::get('products/get-slug', 'ProductsController@getAjaxSlug')->name('products.get-slug');
+		
 
         Route::resource('category', 'CategoryController', ['except' => ['show']]);
         Route::get('/get-layout', 'IndexController@getLayOut')->name('get.layout');

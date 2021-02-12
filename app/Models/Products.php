@@ -13,7 +13,7 @@ class Products extends Model
 
     protected $dates = ['deleted_at'];
 
-    protected $fillable = ['sku', 'name', 'slug', 'image', 'sort_desc', 'content', 'specifications', 'title_attributes' , 'products_version', 'title_desc_gift', 'end_date_apply_gift', 'content_gift','regular_price','sale_price','sale', 'is_hot','is_flash_sale', 'is_apply_gift', 'status', 'brand_id', 'meta_title', 'is_price_shock', 'is_selling',
+    protected $fillable = ['name', 'slug', 'image', 'sort_desc', 'content', 'evaluate', 'specifications', 'title_attributes' , 'products_version', 'title_desc_gift', 'end_date_apply_gift', 'content_gift','regular_price','sale_price','sale', 'is_hot','is_flash_sale', 'is_apply_gift', 'status', 'brand_id', 'meta_title', 'is_price_shock', 'is_selling',
     	'meta_description', 'meta_keyword', 'order_sale_page', 'time_priority','price_priority', 'content_services_warranty', 'warranty_parameter'
     ];
 
