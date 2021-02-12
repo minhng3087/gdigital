@@ -18,8 +18,8 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo e(url('public/admin_assets/dist/css/styles.css')); ?>"/>
     <link rel="stylesheet" href="<?php echo e(url('public/admin_assets/dist/css/AdminLTE.min.css')); ?>"/>
-    <link rel="stylesheet" href="<?php echo e(url('public/admin_assets/dist/css/nhan.css')); ?>"/>
     <link rel="stylesheet" href="<?php echo e(url('public/admin_assets/dist/css/mycss.css')); ?>"/>
+    <link rel="stylesheet" href="<?php echo e(url('public/admin_assets/dist/css/jquery.toast.min.css')); ?>">
 
     <?php echo toastr_css(); ?>
     <?php echo $__env->yieldContent('css'); ?>
@@ -70,7 +70,7 @@
     </script>
        
       <!-- jQuery 2.1.4 -->
-      <script src="<?php echo e(url('public/admin_assets/plugins/jQuery/jQuery-2.1.4.min.js')); ?>"></script>
+      <script src="<?php echo e(asset('public/admin_assets/plugins/jQuery/jQuery-2.1.4.min.js')); ?>"></script>
       <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
       <!-- CK Editor -->
       <script src="<?php echo e(asset('public/admin_assets/plugins/ckeditor/ckeditor.js')); ?>"></script>
@@ -87,7 +87,8 @@
       <script src="<?php echo e(url('public/admin_assets/dist/js/demo.js')); ?>"></script>
       <script src="<?php echo e(url('public/admin_assets/dist/js/myscript.js')); ?>"></script>
       <script src="<?php echo e(url('public/admin_assets/dist/js/fileinput.min.js')); ?>" type="text/javascript"></script>
-
+      <script src="<?php echo e(url('public/admin_assets/dist/js/jquery.nestable.js')); ?>" type="text/javascript"></script>
+      <script src="<?php echo e(url('public/admin_assets/dist/js/jquery.toast.min.js')); ?>"></script>
     <script src="<?php echo e(asset('public/admin_assets/plugins/ckfinder/ckfinder.js')); ?>"></script>
 
       <?php echo toastr_js(); ?>

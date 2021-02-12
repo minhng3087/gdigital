@@ -21,6 +21,15 @@
         ),
         'multi_del' => true,
       ),
+      'filter' => 
+      array (
+        'name' => 'filter',
+        'except' => 
+        array (
+          0 => 'show',
+        ),
+        'multi_del' => true,
+      ),
     ),
   ),
   'app' => 

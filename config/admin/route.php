@@ -6,9 +6,14 @@
             'except' => $except,
             'multi_del' => false,
         ],
-        'product-attributes' => [
-            'name' => 'productAttributeTypes',
+        'productAttributeTypes' => [
+            'name' => 'product-attributes',
             'except' => $except,
             'multi_del' => true,
-        ]
+        ],
+        'filter' => [
+            'name' => 'filter',
+            'except' => $except,
+            'multi_del' => true,
+        ],
 	];

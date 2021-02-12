@@ -1,4 +1,4 @@
-<?php $__env->startSection('controller', @$data['name']); ?>
+<?php $__env->startSection('controller', @$module['name']); ?>
 <?php $__env->startSection('controller_route', route('brand.index') ); ?>
 <?php $__env->startSection('action', 'Danh sách'); ?>
 <?php $__env->startSection('content'); ?>

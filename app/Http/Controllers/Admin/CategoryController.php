@@ -75,7 +75,6 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         $this->validate($request, $this->fields(), $this->messages());
         $post_check_slug = Categories::where('slug', $request->slug)->where('type', 'product_category')->first();
         if(!empty($post_check_slug)) {
@@ -148,7 +147,7 @@ class CategoryController extends Controller
     {
         $category = Categories::find($id)->get_child_cate();
         if(count($category)){
-
+            Categories::destroy($id);
             toastr()->error('Xóa thành công.');
             return redirect()->route("{$this->module()['module']}.index");
         }else {

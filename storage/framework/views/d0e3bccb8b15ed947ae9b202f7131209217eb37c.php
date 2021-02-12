@@ -34,6 +34,10 @@
             <li class="<?php echo e(Request::segment(2) === 'product-attributes' ? 'active' : null); ?>">
                 <a href="<?php echo e(route('product-attributes.index')); ?>"><i class="fa fa-circle-o"></i> Thuộc tính sản phẩm</a>
             </li>
+
+            <li class="<?php echo e(Request::segment(2) === 'category-filter' ? 'active' : null); ?>">
+                <a href="<?php echo e(route('list-category-filter')); ?>"><i class="fa fa-circle-o"></i> Bộ lọc</a>
+            </li>
             
          </ul>
       </li>

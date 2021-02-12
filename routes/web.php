@@ -44,7 +44,7 @@ Route::group(['namespace' => 'Admin'], function () {
                 Route::post( $key.'/postMultiDel', ['as' => $key.'.postMultiDel', 'uses' => ucfirst($key).'Controller@deleteMuti']);
             }
         }
-
+		// Setting
 		Route::group(['prefix' => 'options'], function() {
             Route::get('/general', 'SettingController@getGeneralConfig')->name('backend.options.general');
             Route::post('/general', 'SettingController@postGeneralConfig')->name('backend.options.general.post');
@@ -57,7 +57,7 @@ Route::group(['namespace' => 'Admin'], function () {
             Route::post('/send-mail-test', 'SettingController@postSendTestEmail')->name('backend.options.send-mail.post');
 
         });
-
+		// Bài viết
 		Route::resource('posts', 'PostController', ['except' => ['show']]);
 		Route::post('posts/postMultiDel', ['as' => 'posts.postMultiDel', 'uses' => 'PostController@deleteMuti']);
 		Route::get('posts/get-slug', 'PostController@getAjaxSlug')->name('posts.get-slug');
@@ -65,6 +65,12 @@ Route::group(['namespace' => 'Admin'], function () {
 		Route::resource('categories-post', 'CategoriesPostController', ['except' => [
 			'show','create'
 		]]);
+
+		// Filter
+        Route::get('category-filter', 'FilterController@getListCategory')->name('list-category-filter');
+        Route::get('sort-filter', 'FilterController@getSort')->name('sort-category-filter');
+        Route::post('sort-filter-update', 'FilterController@postSort')->name('sort.filter.update');
+
 
         Route::resource('category', 'CategoryController', ['except' => ['show']]);
         Route::get('/get-layout', 'IndexController@getLayOut')->name('get.layout');
