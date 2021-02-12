@@ -11,7 +11,8 @@ class MenuController extends Controller
 {
     public function getListMenu()
     {
-       
+       $data = MenuGroup::all();
+       return view('backend.menu.list-group', compact('data'));
     }
 
     public function getEditMenu($id)

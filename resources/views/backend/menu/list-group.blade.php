@@ -1,4 +1,4 @@
-@extends('backend.layouts.app') 
+@extends('backend.layouts.master') 
 @section('controller','Menu')
 @section('controller_route', route('setting.menu'))
 @section('action','Danh sách')
@@ -7,7 +7,7 @@
 		<div class="clearfix"></div>
         <div class="box box-primary">
             <div class="box-body">
-               	@include('flash::message')
+               	@include('backend.components.messages-error')
 				<table id="example1" class="table table-bordered table-striped table-hover">
 	            <thead>
 		            <tr>

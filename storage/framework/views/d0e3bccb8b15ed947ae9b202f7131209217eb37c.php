@@ -81,6 +81,14 @@
                   <a href="<?php echo e(route('backend.options.general')); ?>"><i class="fa fa-circle-o"></i> Cấu hình chung</a>
               </li>
 
+              <li class="<?php echo e(Request::segment(2) === 'menu' ? 'active' : null); ?>">
+                  <a href="<?php echo e(route('setting.menu')); ?>"><i class="fa fa-circle-o"></i> Menu</a>
+              </li>
+
+              <li class="<?php echo e(Request::segment(2) === 'menu-category' ? 'active' : null); ?>">
+                  <a href="<?php echo e(route('setting.menu-category')); ?>"><i class="fa fa-circle-o"></i> Menu Danh mục</a>
+              </li>
+
               <li class="<?php echo e(Request::segment(3) === 'smtp' ? 'active' : null); ?>" style="display: none">
                   <a href="<?php echo e(route('backend.options.smtp-config')); ?>"><i class="fa fa-circle-o"></i>  Cấu hình Email</a>
               </li>

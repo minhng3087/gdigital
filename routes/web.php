@@ -72,11 +72,26 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::post('sort-filter-update', 'FilterController@postSort')->name('sort.filter.update');
 
 		// Products
-
         Route::get('products/get-slug', 'ProductsController@getAjaxSlug')->name('products.get-slug');
         Route::resource('product-gift', 'ProductGiftController', ['except' => ['show']]);
         Route::get('products/get-slug', 'ProductsController@getAjaxSlug')->name('products.get-slug');
 		
+		// Menu
+		Route::group(['prefix' => 'menu'], function () {
+            Route::get('/','MenuController@getListMenu')->name('setting.menu');
+			Route::get('/edit/{$id}', 'MenuController@getEditMenu')->name('backend.config.menu.edit');
+           
+        });
+
+		// Menu Category
+		Route::group(['prefix' => 'menu-category'], function () {
+            Route::get('/','CategoryMenuController@getList')->name('setting.menu-category');
+            Route::get('edit/{id}','CategoryMenuController@getEditMenu')->name('setting.menu-category.edit');
+            Route::post('update','CategoryMenuController@postUpdateMenu')->name('setting.menu-category.update');
+
+           
+
+        });
 
         Route::resource('category', 'CategoryController', ['except' => ['show']]);
         Route::get('/get-layout', 'IndexController@getLayOut')->name('get.layout');

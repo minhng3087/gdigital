@@ -1,4 +1,4 @@
-@extends('backend.layouts.app') 
+@extends('backend.layouts.master') 
 @section('controller','Menu danh mục')
 @section('controller_route', route('setting.menu-category'))
 @section('action','Chỉnh sửa')
@@ -6,7 +6,7 @@
 	<div class="content">
 		<div class="box box-primary">
             <div class="box-body">
-               	@include('flash::message')
+				@include('backend.components.messages-error')
 				<div class="row">
 					<div class="col-sm-6">
 						<form action="{{ route('setting.menu-category.move.post') }}" method="POST">

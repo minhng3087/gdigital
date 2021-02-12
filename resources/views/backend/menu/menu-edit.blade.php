@@ -1,4 +1,4 @@
-@extends('backend.layouts.app') 
+@extends('backend.layouts.master') 
 @section('controller','Menu')
 @section('controller_route', route('setting.menu'))
 @section('action','Chỉnh sửa')
@@ -7,7 +7,7 @@
 		<div class="clearfix"></div>
         <div class="box box-primary">
             <div class="box-body">
-               	@include('flash::message')
+               	@include ('backend.components.messages-error')
 				<div class="row">
 			        <div class="col-sm-12" style="padding-bottom: 30px; padding-top: 10px;">
 			            <form action="{{ route('setting.menu.update') }}" method="POST">
