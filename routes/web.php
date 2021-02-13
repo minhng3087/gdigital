@@ -9,6 +9,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Backend
 Route::get('backend/login', 'AdminAuth\AuthController@getLogin')->name('backend.auth.getLogin');
 Route::post('backend/postlogin', 'AdminAuth\AuthController@postLogin')->name('backend.auth.postLogin');
 Route::group(['middleware' =>'authen', 'prefix' => 'backend'], function(){
@@ -106,4 +108,9 @@ Route::group(['namespace' => 'Admin'], function () {
 		
 	});
 });
+
+// Frontend
+
+Route::get('/', 'IndexController@getHome')->name('home.index');
+
 
