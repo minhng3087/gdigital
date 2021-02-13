@@ -12,7 +12,7 @@
 			        <div class="col-sm-12" style="padding-bottom: 30px; padding-top: 10px;">
 			            <form action="{{ route('setting.menu.update') }}" method="POST">
 			                <input type="hidden" id="nestable-output" name="jsonMenu">
-			                <input type="hidden" name="_token" value="{!! csrf_token() !!}" id="token">
+			                @csrf
 			                <button class="btn btn-success" type="submit" style="">Cập nhật menu</button>
 			                <button class="btn btn-info" data-toggle="modal" data-target="#addMenu" type="button">Thêm mới</button>
 			                <button class="btn btn-primary" data-toggle="modal" data-target="#createSlugBrand" type="button">Tạo liên kết thương hiệu</button>
@@ -50,7 +50,7 @@
 			                </div>
 			                <form action="{{ route('setting.menu.addItem', $id ) }}" method="POST" class="frm_add">
 			                    <div class="modal-body">
-			                        <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+			                        @csrf
 			                        <fieldset class="form-group">
 			                            <label>Tiêu đề</label>
 			                            <input type="text" class="form-control" placeholder="Nhập tiêu đề" name="title" required>
@@ -107,7 +107,7 @@
 			                </div>
 			                <form action="{{ route('setting.menu.editItem' ) }}" method="POST" class="frm_add">
 			                    <div class="modal-body">
-			                        <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+			                        @csrf
 			                        <fieldset class="form-group">
 			                            <label>Tiêu đề</label>
 			                            <input type="text" class="form-control" id="editTitle" name="title" required >
@@ -193,28 +193,6 @@
                 if (window.JSON) {
                     output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
                     var param = window.JSON.stringify(list.nestable('serialize'));
-                    {{--$.ajax({--}}
-                    {{--    url: '{{ route('setting.menu.update') }}',--}}
-                    {{--    type: 'POST',--}}
-                    {{--    data: {--}}
-                    {{--        _token : $('#token').val(),--}}
-                    {{--        jsonMenu: param--}}
-                    {{--    },--}}
-                    {{--}).done(function() {--}}
-                    {{--        $.toast({--}}
-                    {{--        text: "Cập nhật thành công !",--}}
-                    {{--        heading: 'Thông báo',--}}
-                    {{--        icon: 'success',--}}
-                    {{--        showHideTransition: 'fade',--}}
-                    {{--        allowToastClose: true, // Boolean value true or false--}}
-                    {{--        hideAfter: 1000, --}}
-                    {{--        stack: 5, --}}
-                    {{--        position: 'top-right', --}}
-                    {{--        textAlign: 'left',--}}
-                    {{--        loader: true,--}}
-                    {{--        loaderBg: '#9ec600',--}}
-                    {{--    });--}}
-                    {{--})--}}
                 } else {
                     output.val('JSON browser support required for this demo.');
                 }
@@ -226,9 +204,9 @@
             updateOutput($('#nestable').data('output', $('#nestable-output')));
         });
         $('.modalEditMenu').click(function(event) {
-            var id = $(this).attr("data-id");
+			var id = $(this).attr("data-id");
             $.get('{{ asset('/backend/menu/edit-item/') }}/'+id, function(data) {
-                if(data.status == "success"){
+				if(data.status == "success"){
                 	if(data.data.icon !=  null){
                 		$('#iconEdit img').attr("src", data.data.icon);
                 		$('#iconEdit input').val(data.data.icon);

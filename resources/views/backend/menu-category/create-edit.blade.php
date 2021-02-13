@@ -138,7 +138,7 @@
 				                </div>
 				                <form action="{{ route('setting.menu-category.editItem' ) }}" method="POST" class="frm_add">
 				                    <div class="modal-body">
-				                        <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+				                        @csrf
 				                        <fieldset class="form-group">
 				                            <label>Tiêu đề</label>
 				                            <input type="text" class="form-control" id="editTitle" name="title" required >
@@ -274,13 +274,5 @@
     			}
     		});
     	});
-    </script>
-    <script>
-    	$(document).on('ready', function() {
-		    $('.select2-app').select2({
-		        placeholder: "Chọn",
-		       	width: '100%',
-		    });
-		});
     </script>
 @endsection

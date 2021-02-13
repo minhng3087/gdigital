@@ -79,8 +79,12 @@ Route::group(['namespace' => 'Admin'], function () {
 		// Menu
 		Route::group(['prefix' => 'menu'], function () {
             Route::get('/','MenuController@getListMenu')->name('setting.menu');
-			Route::get('/edit/{$id}', 'MenuController@getEditMenu')->name('backend.config.menu.edit');
-           
+			Route::get('/edit/{id}', 'MenuController@getEditMenu')->name('backend.config.menu.edit');
+			Route::post('update', 'MenuController@postUpdateMenu')->name('setting.menu.update');
+			Route::post('add-item/{id}', 'MenuController@postAddItem')->name('setting.menu.addItem');
+			Route::get('edit-item/{id}', 'MenuController@getEditItem')->name('setting.menu.geteditItem');
+			Route::post('edit', 'MenuController@postEditItem')->name('setting.menu.editItem');
+            Route::get('delete/{id}','MenuController@getDelete')->name('setting.menu.delete');
         });
 
 		// Menu Category
@@ -88,7 +92,11 @@ Route::group(['namespace' => 'Admin'], function () {
             Route::get('/','CategoryMenuController@getList')->name('setting.menu-category');
             Route::get('edit/{id}','CategoryMenuController@getEditMenu')->name('setting.menu-category.edit');
             Route::post('update','CategoryMenuController@postUpdateMenu')->name('setting.menu-category.update');
-
+			Route::post('add-item','CategoryMenuController@postAddItem')->name('setting.menu-category.addItem');
+			Route::post('edit', 'CategoryMenuController@postEditItem')->name('setting.menu-category.editItem');
+			Route::get('delete/{id}', 'CategoryMenuController@getDelete')->name('setting.menu-category.delete');
+			Route::get('edit-item/{id}', 'CategoryMenuController@getEditItem')->name('setting.menu-category.geteditItem');
+			Route::post('edit', 'CategoryMenuController@postEditItem')->name('setting.menu-category.editItem');
            
 
         });
