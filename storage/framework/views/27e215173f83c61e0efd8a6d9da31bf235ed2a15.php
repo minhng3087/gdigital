@@ -6,19 +6,19 @@
                     <div class="col-md-7 col-sm-8">
                         <div class="left">
                             <ul class="list-inline">
-                                <li class="list-inline-item"><a href="javascript:0"><i class="fa fa-phone"></i><span>Hỗ trợ 24/7: 02432012355</span></a></li>
-                                <li class="list-inline-item"><a href="javascript:0"><i class="fa fa-envelope"></i><span>Email: sportshop@gmail.com</span></a></li>
+                                <li class="list-inline-item"><a href="javascript:0"><i class="fa fa-phone"></i><span>Hỗ trợ 24/7: <?php echo e(@$site_info->hotline); ?></span></a></li>
+                                <li class="list-inline-item"><a href="javascript:0"><i class="fa fa-envelope"></i><span>Email: <?php echo e(@$site_info->email_admin); ?></span></a></li>
                             </ul>
                         </div> 
                     </div>
                     <div class="col-md-5 col-sm-4">
                         <div class="social">
                             <ul class="list-inline text-right">
-                                <li class="list-inline-item"><a href=""><i class="fa fa-facebook"></i></a></li>
-                                <li class="list-inline-item"><a href=""><i class="fa fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href=""><i class="fa fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href=""><i class="fa fa-youtube-play"></i></a></li>
-                                <li class="list-inline-item"><a href=""><i class="fa fa-pinterest-p"></i></a></li>
+                                <?php if(!empty(@$site_info->social)): ?>
+                                    <?php $__currentLoopData = @$site_info->social; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $id => $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <li class="list-inline-item"><a title="<?php echo e(@$val->name); ?>" href="<?php echo e(@$val->link); ?>" target="_blank"><i class="<?php echo e(@$val->icon); ?>"></i></a></li>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
                             </ul>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
             <div class="content">
                 <div class="row">
                     <div class="col-md-3">
-                        <div class="logo"><a href="index.php"><img src="<?php echo e(__BASE_URL__); ?>/images/logo.png" class="img-fluid" alt=""></a></div>
+                        <div class="logo"><a title="<?php echo e(@$site_info->site_title); ?>" href="<?php echo e(url('/')); ?>"><img src="<?php echo e(@$site_info->logo); ?>" class="img-fluid" alt="<?php echo e(@$site_info->site_title); ?>"></a></div>
                     </div>
                     <div class="col-md-6">
                         <div class="search">
@@ -61,12 +61,9 @@
                             <div class="title-all"><a href="javascript:0"><i class="fa fa-list-ul"></i><span>TẤT CẢ DANH MỤC</span></a></div>
                             <div class="submenu">
                                 <ul>
-                                    <li><a href="product.php"><span><img src="<?php echo e(__BASE_URL__); ?>/images/menu1.png" class="img-fluid" alt=""></span>Điện thoại</a></li>
-                                    <li><a href="product.php"><span><img src="<?php echo e(__BASE_URL__); ?>/images/menu2.png" class="img-fluid" alt=""></span>Laptop</a></li>
-                                    <li><a href="product.php"><span><img src="<?php echo e(__BASE_URL__); ?>/images/menu3.png" class="img-fluid" alt=""></span>Tablet</a></li>
-                                    <li><a href="product.php"><span><img src="<?php echo e(__BASE_URL__); ?>/images/menu4.png" class="img-fluid" alt=""></span>Phụ kiện</a></li>
-                                    <li><a href="product.php"><span><img src="<?php echo e(__BASE_URL__); ?>/images/menu5.png" class="img-fluid" alt=""></span>Đồng hồ</a></li>
-                                    <li><a href="product.php"><span><img src="<?php echo e(__BASE_URL__); ?>/images/menu6.png" class="img-fluid" alt=""></span>Camera</a></li>
+                                    <?php $__currentLoopData = $menuCategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <li><a href="<?php echo e(url($item->url)); ?>"><span><img src="<?php echo e(@$item->icon); ?>" class="img-fluid" alt=""></span><?php echo e(@$item->title); ?></a></li>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </ul>
                             </div>
                         </div>
@@ -74,11 +71,9 @@
                     <div class="col-md-9">
                         <div class="right text-uppercase">
                             <ul>
-                                <li><a href="index.php">Trang chủ</a></li>
-                                <li><a href="product.php">Sản phẩm mới</a></li>
-                                <li><a href="product.php">Khuyến mãi</a></li>
-                                <li><a href="blog.php">Blog</a></li>
-                                <li><a href="contact.php"> Liên hệ</a></li>
+                                <?php $__currentLoopData = $menuMain; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <li><a href="<?php echo e(url($item->url)); ?>"><?php echo e(@$item->title); ?></a></li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                         </div>
                     </div>
@@ -109,11 +104,9 @@
         </div>
         <nav id="menu">
             <ul>
-                <li><a href="index.php">Trang chủ</a></li>
-                <li><a href="product.php">Sản phẩm mới</a></li>
-                <li><a href="product.php">Khuyến mãi</a></li>
-                <li><a href="blog.php">Blog</a></li>
-                <li><a href="contact.php"> Liên hệ</a></li>
+                <?php $__currentLoopData = $menuMainMobile; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><a href="<?php echo e(url($item->url)); ?>"><?php echo e(@$item->title); ?></a></li>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>;
             </ul>
         </nav>
     </div>

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="http://localhost/anhquyen/css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" title="" href="{{__BASE_URL__}}/css/style.css">
     <link rel="stylesheet" type="text/css" title="" href="{{__BASE_URL__}}/css/responsive.css">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{__BASE_URL__}}/js/jquery.min.js"></script>
 </head>
 <body> 
     @include('frontend.layouts.header')
@@ -27,5 +27,6 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script type="text/javascript" src="{{__BASE_URL__}}/js/jquery.mmenu.all.js"></script>
     <script type="text/javascript" src="{{__BASE_URL__}}/js/private.js"></script>
+    @yield('script')
 </body>
 </html>

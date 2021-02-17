@@ -99,9 +99,18 @@ Route::group(['namespace' => 'Admin'], function () {
 			Route::get('delete/{id}', 'CategoryMenuController@getDelete')->name('setting.menu-category.delete');
 			Route::get('edit-item/{id}', 'CategoryMenuController@getEditItem')->name('setting.menu-category.geteditItem');
 			Route::post('edit', 'CategoryMenuController@postEditItem')->name('setting.menu-category.editItem');
-           
 
         });
+
+		// Pages
+
+		Route::group(['prefix' => 'pages'], function () {
+            Route::get('/','PagesController@getListPages')->name('pages.list');
+			Route::get('build', 'PagesController@getBuildPages')->name('pages.build');
+			Route::post('build', 'PagesController@postBuildPages')->name('pages.build.post');
+			Route::post('/create', 'PagesController@postCreatePages')->name('pages.create');
+        });
+
 
         Route::resource('category', 'CategoryController', ['except' => ['show']]);
         Route::get('/get-layout', 'IndexController@getLayOut')->name('get.layout');
@@ -112,5 +121,12 @@ Route::group(['namespace' => 'Admin'], function () {
 // Frontend
 
 Route::get('/', 'IndexController@getHome')->name('home.index');
+
+
+Route::get('tin-tuc/{slug}', 'IndexController@getSingleNews')->name('home.post.single');
+
+Route::get('load-products', 'IndexController@getProductsByAjax')->name('home.load.products.ajax');
+
+
 
 

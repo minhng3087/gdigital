@@ -6,19 +6,19 @@
                     <div class="col-md-7 col-sm-8">
                         <div class="left">
                             <ul class="list-inline">
-                                <li class="list-inline-item"><a href="javascript:0"><i class="fa fa-phone"></i><span>Hỗ trợ 24/7: 02432012355</span></a></li>
-                                <li class="list-inline-item"><a href="javascript:0"><i class="fa fa-envelope"></i><span>Email: sportshop@gmail.com</span></a></li>
+                                <li class="list-inline-item"><a href="javascript:0"><i class="fa fa-phone"></i><span>Hỗ trợ 24/7: {{ @$site_info->hotline}}</span></a></li>
+                                <li class="list-inline-item"><a href="javascript:0"><i class="fa fa-envelope"></i><span>Email: {{ @$site_info->email_admin }}</span></a></li>
                             </ul>
                         </div> 
                     </div>
                     <div class="col-md-5 col-sm-4">
                         <div class="social">
                             <ul class="list-inline text-right">
-                                <li class="list-inline-item"><a href=""><i class="fa fa-facebook"></i></a></li>
-                                <li class="list-inline-item"><a href=""><i class="fa fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href=""><i class="fa fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href=""><i class="fa fa-youtube-play"></i></a></li>
-                                <li class="list-inline-item"><a href=""><i class="fa fa-pinterest-p"></i></a></li>
+                                @if (!empty(@$site_info->social))
+                                    @foreach (@$site_info->social as $id => $val)
+                                        <li class="list-inline-item"><a title="{{ @$val->name }}" href="{{ @$val->link }}" target="_blank"><i class="{{ @$val->icon }}"></i></a></li>
+                                    @endforeach
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
             <div class="content">
                 <div class="row">
                     <div class="col-md-3">
-                        <div class="logo"><a href="index.php"><img src="{{__BASE_URL__}}/images/logo.png" class="img-fluid" alt=""></a></div>
+                        <div class="logo"><a title="{{ @$site_info->site_title }}" href="{{ url('/') }}"><img src="{{ @$site_info->logo }}" class="img-fluid" alt="{{ @$site_info->site_title }}"></a></div>
                     </div>
                     <div class="col-md-6">
                         <div class="search">
@@ -61,12 +61,9 @@
                             <div class="title-all"><a href="javascript:0"><i class="fa fa-list-ul"></i><span>TẤT CẢ DANH MỤC</span></a></div>
                             <div class="submenu">
                                 <ul>
-                                    <li><a href="product.php"><span><img src="{{__BASE_URL__}}/images/menu1.png" class="img-fluid" alt=""></span>Điện thoại</a></li>
-                                    <li><a href="product.php"><span><img src="{{__BASE_URL__}}/images/menu2.png" class="img-fluid" alt=""></span>Laptop</a></li>
-                                    <li><a href="product.php"><span><img src="{{__BASE_URL__}}/images/menu3.png" class="img-fluid" alt=""></span>Tablet</a></li>
-                                    <li><a href="product.php"><span><img src="{{__BASE_URL__}}/images/menu4.png" class="img-fluid" alt=""></span>Phụ kiện</a></li>
-                                    <li><a href="product.php"><span><img src="{{__BASE_URL__}}/images/menu5.png" class="img-fluid" alt=""></span>Đồng hồ</a></li>
-                                    <li><a href="product.php"><span><img src="{{__BASE_URL__}}/images/menu6.png" class="img-fluid" alt=""></span>Camera</a></li>
+                                    @foreach ($menuCategory as $item)
+                                    <li><a href="{{ url($item->url) }}"><span><img src="{{ @$item->icon }}" class="img-fluid" alt=""></span>{{ @$item->title }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -74,11 +71,9 @@
                     <div class="col-md-9">
                         <div class="right text-uppercase">
                             <ul>
-                                <li><a href="index.php">Trang chủ</a></li>
-                                <li><a href="product.php">Sản phẩm mới</a></li>
-                                <li><a href="product.php">Khuyến mãi</a></li>
-                                <li><a href="blog.php">Blog</a></li>
-                                <li><a href="contact.php"> Liên hệ</a></li>
+                                @foreach($menuMain as $item)
+                                <li><a href="{{ url($item->url) }}">{{ @$item->title }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -109,11 +104,9 @@
         </div>
         <nav id="menu">
             <ul>
-                <li><a href="index.php">Trang chủ</a></li>
-                <li><a href="product.php">Sản phẩm mới</a></li>
-                <li><a href="product.php">Khuyến mãi</a></li>
-                <li><a href="blog.php">Blog</a></li>
-                <li><a href="contact.php"> Liên hệ</a></li>
+                @foreach($menuMainMobile as $item)
+                <li><a href="{{ url($item->url) }}">{{ @$item->title }}</a></li>
+                @endforeach;
             </ul>
         </nav>
     </div>

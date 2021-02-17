@@ -13,7 +13,7 @@
 						<a href="#activity" data-toggle="tab" aria-expanded="true">Thông tin chung</a>
 					</li>
 					
-					<li class="">
+					<li class="" style="display: none;">
 						<a href="#activity2" data-toggle="tab" aria-expanded="true">Cấu hình seo</a>
 					</li>
 					<li class="">
@@ -59,21 +59,6 @@
 								</div>
 							</div>
 
-							<div class="col-lg-2">
-								<div class="form-group">
-									<label>Hình ảnh đại diện khi chia sẻ</label>
-									<div class="image">
-										<div class="image__thumbnail">
-											<img src="<?php echo e(!empty($content->logo_share) ? $content->logo_share :  __IMAGE_DEFAULT__); ?>"  data-init="<?php echo e(__IMAGE_DEFAULT__); ?>">
-											<a href="javascript:void(0)" class="image__delete" 
-											onclick="urlFileDelete(this)">
-											<i class="fa fa-times"></i></a>
-											<input type="hidden" value="<?php echo e(@$content->logo_share); ?>" name="content[logo_share]"  />
-											<div class="image__button" onclick="fileSelect(this)"><i class="fa fa-upload"></i> Upload</div>
-										</div>
-									</div>
-								</div>
-							</div>
 						</div>
 
 						<div class="row">
@@ -109,7 +94,7 @@
 									<input type="email" class="form-control" name="content[email_admin]" value="<?php echo e(@$content->email_admin); ?>">
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" style="display: none;">
 									<label class="custom-checkbox">
 										<input type="checkbox" name="content[index_google]" value="1" <?php echo e(@$content->index_google == 1 ? 'checked' : null); ?>> 
 										Cho phép google tìm kiếm
@@ -178,7 +163,7 @@
 							</div>
 							<div class="col-sm-12">
 								<div class="row">
-									<div class="col-sm-6">
+									<div class="col-sm-4">
 										<label for="" style="text-align: center;display: block;">Cột 1 Footer</label>
 										<div class="form-group">
 											<label for="">Tiêu đề cột</label>
@@ -189,7 +174,7 @@
 											<textarea class="content" name="content[col_footer_1][value]"><?php echo @$content->col_footer_1->value; ?></textarea>
 										</div>
 									</div>
-									<div class="col-sm-6">
+									<div class="col-sm-4">
 										<label for="" style="text-align: center;display: block;">Cột 2 Footer</label>
 										<div class="form-group">
 											<label for="">Tiêu đề cột</label>
@@ -198,6 +183,17 @@
 										<div class="form-group">
 											<label for="">Nội dung</label>
 											<textarea class="content" name="content[col_footer_2][value]"><?php echo @$content->col_footer_2->value; ?></textarea>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<label for="" style="text-align: center;display: block;">Cột 3 Footer</label>
+										<div class="form-group">
+											<label for="">Tiêu đề cột</label>
+											<input type="text" class="form-control" value="<?php echo e(@$content->col_footer_3->title); ?>" name="content[col_footer_3][title]">
+										</div>
+										<div class="form-group">
+											<label for="">Nội dung</label>
+											<textarea class="content" name="content[col_footer_3][value]"><?php echo @$content->col_footer_3->value; ?></textarea>
 										</div>
 									</div>
 								</div>

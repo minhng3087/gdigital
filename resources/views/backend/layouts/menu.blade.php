@@ -64,6 +64,12 @@
           </ul>
       </li>
 
+      <li class="{{ Request::segment(2) == 'pages' ? 'active' : null  }}">
+        <a href="{{ route('pages.list') }}">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i> <span>Cài đặt trang</span>
+        </a>
+      </li>
+
 
       <!-- Setting -->
 

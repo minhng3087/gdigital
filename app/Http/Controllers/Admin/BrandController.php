@@ -76,7 +76,6 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         $this->validate($request, $this->fields(), $this->messages());
         $post_check_slug = Categories::where('slug', $request->slug)->where('type', 'brand_category')->first();
         if (!empty($post_check_slug)) {

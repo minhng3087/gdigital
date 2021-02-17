@@ -414,16 +414,23 @@
 		                        </label>
 		                        <label class="custom-checkbox">
 									@if(isUpdate(@$module['action']))
-										<input type="checkbox" name="is_price_shock" value="1" {{ @$data->is_price_shock == 1 ? 'checked' : null }}> Sản phẩm giá sốc
+										<input type="checkbox" name="is_price_shock" value="1" {{ @$data->is_price_shock == 1 ? 'checked' : null }}> Sản phẩm mới
 									@else
-		                            	<input type="checkbox" name="is_price_shock" value="1" checked> Sản phẩm giá sốc
+		                            	<input type="checkbox" name="is_price_shock" value="1" checked> Sản phẩm mới
 		                            @endif
 		                        </label>
 								<label class="custom-checkbox">
 									@if(isUpdate(@$module['action']))
-										<input type="checkbox" name="is_selling" value="1" {{ @$data->is_selling == 1 ? 'checked' : null }}> Sản phẩm bán chạy
+										<input type="checkbox" name="is_selling" value="1" {{ @$data->is_selling == 1 ? 'checked' : null }}> Sản phẩm trả góp 0%
 									@else
-		                            	<input type="checkbox" name="is_selling" value="1" checked> Sản phẩm bán chạy
+		                            	<input type="checkbox" name="is_selling" value="1" checked> Sản phẩm trả góp 0%
+		                            @endif
+		                        </label>
+								<label class="custom-checkbox">
+									@if(isUpdate(@$module['action']))
+										<input type="checkbox" name="is_online" value="1" {{ @$data->is_online == 1 ? 'checked' : null }}> Sản phẩm chỉ bán online
+									@else
+		                            	<input type="checkbox" name="is_online" value="1" checked> Sản phẩm chỉ bán online
 		                            @endif
 		                        </label>
 		                        <label class="custom-checkbox">

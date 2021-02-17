@@ -111,7 +111,7 @@ class ProductsController extends Controller
                         $status = $status . ' <span class="label label-primary">Flash Sale</span>';
                     }
                     if($data->is_price_shock == 1){
-                        $status = $status . ' <span class="label label-primary">Sản phẩm giá sốc</span>';
+                        $status = $status . ' <span class="label label-primary">Sản phẩm mới</span>';
                     }
 
                     if($data->CheckApplyGift()){
@@ -277,6 +277,9 @@ class ProductsController extends Controller
         $input['is_price_shock'] = $request->is_price_shock == 1 ? 1 : null;
 
         $input['is_selling'] = $request->is_selling == 1 ? 1 : null;
+
+        $input['is_online'] = $request->is_online == 1 ? 1 : null;
+
 
         $input['content_services_warranty'] = !empty($request->content_services_warranty) ? json_encode( $request->content_services_warranty ) : null;
 

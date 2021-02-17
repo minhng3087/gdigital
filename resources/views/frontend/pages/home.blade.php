@@ -1,37 +1,26 @@
 @extends('frontend.layouts.master')
 @section('content')
+	<?php if(!empty($dataContent->content)){
+		$content = json_decode( $dataContent->content );
+	} ?>
 	<section id="banner">
 		<div class="slide-banner">
-			<div class="item">
-				<div class="avarta"><img src="{{__BASE_URL__}}/images/banner.png" class="img-fluid" width="100%" alt=""></div>
-				<div class="caption">
-					<div class="container">
-						<div class="content">
-							<div class="info">
-								<h3><a href="" class="robo-bold">Săn hàng cực sốc</a></h3>
-								<h2><a href="" class="robo-bold">Tai nghe black A786</a></h2>
-								<div class="desc robo-med">Giảm ngay 3 triệu qua quà tặng galaxy </div>
-								<div class="readmore"><a href="" class="robo-bold">Xem ngay</a></div>
+			@if (!empty($content->banner))
+				@foreach ($content->banner as $id => $value)
+					<div class="item">
+						<div class="avarta"><img src="{{ $value->image}}" class="img-fluid" width="100%" alt=""></div>
+						<div class="caption">
+							<div class="container">
+								<div class="content">
+									<div class="info">
+										{{ $value->desc }}
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="avarta"><img src="{{__BASE_URL__}}/images/banner.png" class="img-fluid" width="100%" alt=""></div>
-				<div class="caption">
-					<div class="container">
-						<div class="content">
-							<div class="info">
-								<h3><a href="" class="robo-bold">Săn hàng cực sốc</a></h3>
-								<h2><a href="" class="robo-bold">Tai nghe black A786</a></h2>
-								<div class="desc robo-med">Giảm ngay 3 triệu qua quà tặng galaxy </div>
-								<div class="readmore"><a href="" class="robo-bold">Xem ngay</a></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+				@endforeach
+			@endif
 		</div>
 	</section>
 	<section id="banner-top">
@@ -39,33 +28,18 @@
 			<div class="content">
 				<div class="list-banner-top">
 					<div class="row"> 
-						<div class="col-md-4 col-sm-4">
-							<div class="item">
-								<div class="avata"><a href=""><img src="{{__BASE_URL__}}/images/bn-top1.png" class="img-fluid" width="100%" alt=""></a></div>
-								<div class="info">
-									<h2><a href="" class="robo-light">Mozard R558A</a></h2>
-									<p>Tai nghe cho game thủ</p>
+						@if (!empty($content->banner_head))
+							@foreach ($content->banner_head as $id => $value)
+							<div class="col-md-4 col-sm-4">
+								<div class="item">
+									<div class="avata"><a href="{{ $value->link }}"><img src="{{ $value->image }}" class="img-fluid" width="100%" alt="{{ $value->image }}"></a></div>
+									<div class="info">
+										{{ $value->desc }}
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-							<div class="item">
-								<div class="avata"><a href=""><img src="{{__BASE_URL__}}/images/bn-top2.png" class="img-fluid" width="100%" alt=""></a></div>
-								<div class="info">
-									<h2><a href="" class="robo-light">Mozard R558A</a></h2>
-									<p>Trả góp 0%</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-							<div class="item">
-								<div class="avata"><a href=""><img src="{{__BASE_URL__}}/images/bn-top3.png" class="img-fluid" width="100%" alt=""></a></div>
-								<div class="info">
-									<h2><a href="" class="robo-light">Mozard R558A</a></h2>
-									<p>Trả góp 0%</p>
-								</div>
-							</div>
-						</div>
+							@endforeach
+						@endif
 					</div>
 				</div>
 			</div>
@@ -82,128 +56,28 @@
 						<div class="col-md-9">
 							<div class="right text-right">
 								<ul class="list-inline">
-									<li class="list-inline-item"><a href="product.php" class="active">Apple</a></li>
-									<li class="list-inline-item"><a href="product.php">Samsung </a></li>
-									<li class="list-inline-item"><a href="product.php">LG</a></li>
-									<li class="list-inline-item"><a href="product.php">Samsung </a></li>
-									<li class="list-inline-item"><a href="product.php">Samsung </a></li>
-									<li class="list-inline-item"><a href="product.php">BlackBerry</a></li>
-									<li class="list-inline-item"><a href="product.php">Oppo</a></li>
-									<li class="list-inline-item"><a href="product.php">Vivo</a></li>
+									@if (!empty($content->category_moblie))
+										@foreach($content->category_moblie as $key => $value)
+											<?php $cate = \App\Models\Categories::find($value->category_id) ?>
+											@if (!empty($cate))
+												<li class="list-inline-item">
+													<a class="category-moblie" href="javascript:0" data-tab="tab-cate-{{ $cate->id }}" data-id="{{ $cate->id }}">{{ $cate->name }}</a>
+												</li>
+											@endif
+										@endforeach
+									@endif
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
+				
 				<div class="list-product">
-					<div class="row">
-						<div class="col-md-2">
-							<div class="item item-left">
-								<div class="avarta"><a href=""><img src="{{__BASE_URL__}}/images/left1.png" class="img-fluid" alt=""></a></div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="item">
-								<div class="avarta">
-									<a href="product-detail.php"><img src="{{__BASE_URL__}}/images/pr1.png" class="img-fluid" alt=""></a>
-									<div class="abs">
-										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="info">
-									<h3><a href="product-detail.php">Iphone XS 64G</a></h3>
-									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-									<div class="price"><span>22.225.000đ</span></div>
-									<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="item">
-								<div class="avarta">
-									<a href="product-detail.php"><img src="{{__BASE_URL__}}/images/pr2.png" class="img-fluid" alt=""></a>
-									<div class="abs">
-										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="info">
-									<h3><a href="product-detail.php">Iphone XS 64G</a></h3>
-									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-									<div class="price"><span>22.225.000đ</span></div>
-									<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="item">
-								<div class="avarta">
-									<a href="product-detail.php"><img src="{{__BASE_URL__}}/images/pr1.png" class="img-fluid" alt=""></a>
-									<div class="abs">
-										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="info">
-									<h3><a href="product-detail.php">Iphone XS 64G</a></h3>
-									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-									<div class="price"><span>22.225.000đ</span></div>
-									<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="item">
-								<div class="avarta">
-									<a href="product-detail.php"><img src="{{__BASE_URL__}}/images/pr2.png" class="img-fluid" alt=""></a>
-									<div class="abs">
-										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="info">
-									<h3><a href="product-detail.php">Iphone XS 64G</a></h3>
-									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-									<div class="price"><span>22.225.000đ</span></div>
-									<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
-								</div>
-							</div>
-						</div>
+					<div class="row list-append-products-category">
+						
 					</div>
 				</div>
+							
 			</div>
 		</div>
 	</section>
@@ -237,105 +111,9 @@
 							</div>
 						</div>
 						<div class="col-md-2">
-							<div class="item">
-								<div class="avarta">
-									<a href="product-detail.php"><img src="{{__BASE_URL__}}/images/pr4.png" class="img-fluid" alt=""></a>
-									<div class="abs">
-										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="info">
-									<h3><a href="product-detail.php">Iphone XS 64G</a></h3>
-									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-									<div class="price"><span>22.225.000đ</span></div>
-									<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
-								</div>
-							</div>
+							
 						</div>
-						<div class="col-md-2">
-							<div class="item">
-								<div class="avarta">
-									<a href="product-detail.php"><img src="{{__BASE_URL__}}/images/pr5.png" class="img-fluid" alt=""></a>
-									<div class="abs">
-										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="info">
-									<h3><a href="product-detail.php">Iphone XS 64G</a></h3>
-									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-									<div class="price"><span>22.225.000đ</span></div>
-									<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="item">
-								<div class="avarta">
-									<a href="product-detail.php"><img src="{{__BASE_URL__}}/images/pr4.png" class="img-fluid" alt=""></a>
-									<div class="abs">
-										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="info">
-									<h3><a href="product-detail.php">Iphone XS 64G</a></h3>
-									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-									<div class="price"><span>22.225.000đ</span></div>
-									<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="item">
-								<div class="avarta">
-									<a href="product-detail.php"><img src="{{__BASE_URL__}}/images/pr5.png" class="img-fluid" alt=""></a>
-									<div class="abs">
-										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="info">
-									<h3><a href="product-detail.php">Iphone XS 64G</a></h3>
-									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-									<div class="price"><span>22.225.000đ</span></div>
-									<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
-								</div>
-							</div>
-						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -343,9 +121,13 @@
 	</section>
 	<section id="banner-hot" class="pt-50">
 		<div class="container">
-			<div class="item">
-				<a href=""><img src="{{__BASE_URL__}}/images/bn-sale.png" class="img-fluid" width="100%" alt=""></a>
-			</div>
+			@if (!empty($content->banner_mid))
+				@foreach ($content->banner_mid as $id => $value)
+					<div class="item">
+						<a href="{{ $value->link }}"><img src="{{ $value->image }}" class="img-fluid" width="100%" alt="{{ $value->image }}"></a>
+					</div>
+				@endforeach
+			@endif
 		</div>
 	</section>
 	<section class="box-product pt-50">
@@ -396,57 +178,7 @@
 						<div class="col-md-2">
 							<div class="item">
 								<div class="avarta">
-									<a href="product.php"><img src="{{__BASE_URL__}}/images/tb2.png" class="img-fluid" alt=""></a>
-									<div class="abs">
-										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="info">
-									<h3><a href="product-detail.php">Iphone XS 64G</a></h3>
-									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-									<div class="price"><span>22.225.000đ</span></div>
-									<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="item">
-								<div class="avarta">
 									<a href="product.php"><img src="{{__BASE_URL__}}/images/tb1.png" class="img-fluid" alt=""></a>
-									<div class="abs">
-										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="info">
-									<h3><a href="product-detail.php">Iphone XS 64G</a></h3>
-									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-									<div class="price"><span>22.225.000đ</span></div>
-									<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="item">
-								<div class="avarta">
-									<a href="product.php"><img src="{{__BASE_URL__}}/images/tb2.png" class="img-fluid" alt=""></a>
 									<div class="abs">
 										<ul class="list-inline text-center">
 											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
@@ -574,81 +306,6 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-2">
-							<div class="item">
-								<div class="avarta">
-									<a href="product-detail.php"><img src="{{__BASE_URL__}}/images/pr2.png" class="img-fluid" alt=""></a>
-									<div class="abs">
-										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="info">
-									<h3><a href="product-detail.php">Iphone XS 64G</a></h3>
-									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-									<div class="price"><span>22.225.000đ</span></div>
-									<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="item">
-								<div class="avarta">
-									<a href="product-detail.php"><img src="{{__BASE_URL__}}/images/pr1.png" class="img-fluid" alt=""></a>
-									<div class="abs">
-										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="info">
-									<h3><a href="product-detail.php">Iphone XS 64G</a></h3>
-									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-									<div class="price"><span>22.225.000đ</span></div>
-									<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="item">
-								<div class="avarta">
-									<a href="product-detail.php"><img src="{{__BASE_URL__}}/images/pr2.png" class="img-fluid" alt=""></a>
-									<div class="abs">
-										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="info">
-									<h3><a href="product-detail.php">Iphone XS 64G</a></h3>
-									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-									<div class="price"><span>22.225.000đ</span></div>
-									<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -686,45 +343,23 @@
 				</div>
 				<div class="list-news">
 					<div class="row">
-						<div class="col-md-4 col-sm-4">
-							<div class="item">
-								<div class="avarta"><a href="blog-detail.php">	<img src="{{__BASE_URL__}}/images/new1.png" class="img-fluid" width="100%" alt=""></a></div>
-								<div class="info">
-									<div class="date robo-light"><i class="fa fa-clock-o"></i> 2 day ago</div>
-									<h3><a href="blog-detail.php" class="robo-bold">UNDERCOVER x Nike Air Max 720 Đậm màu không khí Giáng Sinh</a></h3>
-									<div class="desc">
-										Collaboration – Sự kết hợp giữa hai thương hiệu để mang đến những siêu phẩm dành ...
+						@if (count($posts_hot))
+							@foreach ($posts_hot as $item)
+							<div class="col-md-4 col-sm-4">
+								<div class="item">
+									<div class="avarta"><a href="{{ route('home.post.single', $item->slug) }}">	<img src="{{ $item->image }}" class="img-fluid" width="100%" alt="{{ $item->name }}"></a></div>
+									<div class="info">
+										<div class="date robo-light"><i class="fa fa-clock-o"></i> 2 day ago</div>
+										<h3><a href="{{ route('home.post.single', $item->slug) }}" class="robo-bold">{{ $item->name }}</a></h3>
+										<div class="desc">
+											{{ $item->desc }}
+										</div>
+										<div class="view-now robo-light"><a href="{{ route('home.post.single', $item->slug) }}">Đọc thêm</a></div>
 									</div>
-									<div class="view-now robo-light"><a href="blog-detail.php">Đọc thêm</a></div>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-							<div class="item">
-								<div class="avarta"><a href="blog-detail.php">	<img src="{{__BASE_URL__}}/images/new2.png" class="img-fluid" width="100%" alt=""></a></div>
-								<div class="info">
-									<div class="date robo-light"><i class="fa fa-clock-o"></i> 2 day ago</div>
-									<h3><a href="blog-detail.php" class="robo-bold">UNDERCOVER x Nike Air Max 720 Đậm màu không khí Giáng Sinh</a></h3>
-									<div class="desc">
-										Collaboration – Sự kết hợp giữa hai thương hiệu để mang đến những siêu phẩm dành ...
-									</div>
-									<div class="view-now robo-light"><a href="blog-detail.php">Đọc thêm</a></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-							<div class="item">
-								<div class="avarta"><a href="blog-detail.php">	<img src="{{__BASE_URL__}}/images/new3.png" class="img-fluid" width="100%" alt=""></a></div>
-								<div class="info">
-									<div class="date robo-light"><i class="fa fa-clock-o"></i> 2 day ago</div>
-									<h3><a href="blog-detail.php" class="robo-bold">UNDERCOVER x Nike Air Max 720 Đậm màu không khí Giáng Sinh</a></h3>
-									<div class="desc">
-										Collaboration – Sự kết hợp giữa hai thương hiệu để mang đến những siêu phẩm dành ...
-									</div>
-									<div class="view-now robo-light"><a href="blog-detail.php">Đọc thêm</a></div>
-								</div>
-							</div>
-						</div>
+							@endforeach
+						@endif
 					</div>
 				</div>
 			</div>
@@ -735,14 +370,11 @@
 			<div class="content">
 				<div class="slide-part">
 					<div class="row">
-						<div class="col-md-2"><div class="item"><a href=""><img src="{{__BASE_URL__}}/images/part1.png" class="img-fluid" alt=""></a></div></div>
-						<div class="col-md-2"><div class="item"><a href=""><img src="{{__BASE_URL__}}/images/part2.png" class="img-fluid" alt=""></a></div></div>
-						<div class="col-md-2"><div class="item"><a href=""><img src="{{__BASE_URL__}}/images/part3.png" class="img-fluid" alt=""></a></div></div>
-						<div class="col-md-2"><div class="item"><a href=""><img src="{{__BASE_URL__}}/images/part4.png" class="img-fluid" alt=""></a></div></div>
-						<div class="col-md-2"><div class="item"><a href=""><img src="{{__BASE_URL__}}/images/part5.png" class="img-fluid" alt=""></a></div></div>
-						<div class="col-md-2"><div class="item"><a href=""><img src="{{__BASE_URL__}}/images/part4.png" class="img-fluid" alt=""></a></div></div>
-						<div class="col-md-2"><div class="item"><a href=""><img src="{{__BASE_URL__}}/images/part5.png" class="img-fluid" alt=""></a></div></div>
-						<div class="col-md-2"><div class="item"><a href=""><img src="{{__BASE_URL__}}/images/part6.png" class="img-fluid" alt=""></a></div></div>
+						@if (!empty($content->partner))
+							@foreach ($content->partner as $key => $value)
+								<div class="col-md-2"><div class="item"><a href="{{ $value->link }}"><img src="{{ $value->image}}" class="img-fluid" alt="{{ $value->desc }}"></a></div></div>
+							@endforeach
+						@endif
 					</div>
 				</div>
 			</div>
@@ -807,4 +439,36 @@
 		  </div>
 		</div>
 	</section>
+@endsection
+
+
+@section('script')
+	<script>
+		jQuery(document).ready(function($) {
+			$('.category-moblie').click(function(event) {
+				var id_tab = $(this).data('id');
+				console.log(id_tab);
+				if(isEmpty($('.list-append-products-category-'+id_tab))){
+					$('.loadingcover').show();
+					$.get('{{ route('home.load.products.ajax') }}', { id_category : id_tab, type : 'home-mobile'  } , function(data) {
+						$('.loadingcover').hide();
+						if(data.trim() != ''){
+							console.log(data);
+							$('.list-append-products-category').html(data);
+						}else{
+							$('.list-append-products-category').html('<div class="col-sm-12"><div class="alert alert-success" role="alert">Không có sản phẩm nào phù hợp.</div></div>');
+						}
+					});
+				}
+			});
+			
+
+
+		});
+		function isEmpty( el ){
+		    return !$.trim(el.html())
+		}
+
+
+	</script>
 @endsection

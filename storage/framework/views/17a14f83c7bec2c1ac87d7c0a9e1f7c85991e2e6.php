@@ -418,16 +418,23 @@
 		                        </label>
 		                        <label class="custom-checkbox">
 									<?php if(isUpdate(@$module['action'])): ?>
-										<input type="checkbox" name="is_price_shock" value="1" <?php echo e(@$data->is_price_shock == 1 ? 'checked' : null); ?>> Sản phẩm giá sốc
+										<input type="checkbox" name="is_price_shock" value="1" <?php echo e(@$data->is_price_shock == 1 ? 'checked' : null); ?>> Sản phẩm mới
 									<?php else: ?>
-		                            	<input type="checkbox" name="is_price_shock" value="1" checked> Sản phẩm giá sốc
+		                            	<input type="checkbox" name="is_price_shock" value="1" checked> Sản phẩm mới
 		                            <?php endif; ?>
 		                        </label>
 								<label class="custom-checkbox">
 									<?php if(isUpdate(@$module['action'])): ?>
-										<input type="checkbox" name="is_selling" value="1" <?php echo e(@$data->is_selling == 1 ? 'checked' : null); ?>> Sản phẩm bán chạy
+										<input type="checkbox" name="is_selling" value="1" <?php echo e(@$data->is_selling == 1 ? 'checked' : null); ?>> Sản phẩm trả góp 0%
 									<?php else: ?>
-		                            	<input type="checkbox" name="is_selling" value="1" checked> Sản phẩm bán chạy
+		                            	<input type="checkbox" name="is_selling" value="1" checked> Sản phẩm trả góp 0%
+		                            <?php endif; ?>
+		                        </label>
+								<label class="custom-checkbox">
+									<?php if(isUpdate(@$module['action'])): ?>
+										<input type="checkbox" name="is_online" value="1" <?php echo e(@$data->is_online == 1 ? 'checked' : null); ?>> Sản phẩm chỉ bán online
+									<?php else: ?>
+		                            	<input type="checkbox" name="is_online" value="1" checked> Sản phẩm chỉ bán online
 		                            <?php endif; ?>
 		                        </label>
 		                        <label class="custom-checkbox">

@@ -5,39 +5,30 @@
 					<div class="row">
 						<div class="col-md-4">
 							<div class="item">
-								<div class="logo"><a href=""><img src="{{__BASE_URL__}}/images/logo-ft.png" class="img-fluid" alt=""></a></div>
+								<div class="logo"><a title="{{ @$site_info->site_title }}" href="{{ url('/') }}"><img src="{{ @$site_info->logo }}" class="img-fluid" alt="{{ @$site_info->site_title }}"></a></div>
 								<div class="info">
 									<div class="list-place">
-										<p>Địa chỉ: Phòng 1002, tầng 10, Tòa nhà TOYOTA, <br>số 545 đường Nguyễn Văn Cừ, P. Gia Thụy, <br>Q. Long Biên, Hà Nội</p>
-										<p>Hotline: <a href="">0243 9388 512</a></p>
-										<p>Email: sannecskh@gmail.com</p>
+										{!! @$site_info->col_footer_1->value !!}
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="item">
-								<div class="title-ft">Doanh nghiệp</div>
+								<div class="title-ft">{!! @$site_info->col_footer_2->title !!}</div>
 								<div class="info">
 									<ul>
-										<li><a href="">Giới thiệu công ty </a></li>
-										<li><a href="">Tuyển dụng</a></li>
-										<li><a href="">Gửi góp ý, khiếu nại</a></li>
-										<li><a href="">Tìm siêu thị (251 shop)</a></li>
-										<li><a href="">Xem bản mobile</a></li>
+										{!! @$site_info->col_footer_2->value !!}
 									</ul>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-3">
 							<div class="item">
-								<div class="title-ft">Chăm sóc khách hàng</div>
+								<div class="title-ft">{!! @$site_info->col_footer_3->title !!}</div>
 								<div class="info">
 									<ul> 
-										<li><a href="">Tìm hiểu về mua trả góp</a></li>
-										<li><a href="">Tìm trung tâm bảo hành hãng</a></li>
-										<li><a href="">Chính sách đổi trả </a></li>
-										<li><a href="">Giao hàng & Thanh toán</a></li>
+										{!! @$site_info->col_footer_3->value !!}
 									</ul>
 								</div>
 							</div>

@@ -34,7 +34,6 @@ class MenuController extends Controller
 
     public function postUpdateMenu(Request $request)
     {
-        dd($request);
         $jsonMenu = json_decode($request->jsonMenu);
         $this->saveMenu($jsonMenu);
         if (!$request->ajax()) {
