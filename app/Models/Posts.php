@@ -4,11 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Trails\ModelScopes;
-use Conner\Tagging\Taggable;
 
 class Posts extends Model
 {
-	use ModelScopes, Taggable; 
+	use ModelScopes; 
 
     protected $table = 'posts';
 
@@ -25,6 +24,11 @@ class Posts extends Model
     {
         return $query->where('published_at', '<=', \Carbon\Carbon::now()->format('Y-m-d'));
     } 
+
+    public function Comments()
+    {
+        return $this->hasMany('App\Models\Comments', 'id_post', 'id')->where('status', 1);
+    }
 
     protected $dates = [
         'published_at',

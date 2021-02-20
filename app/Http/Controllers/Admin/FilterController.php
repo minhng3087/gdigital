@@ -12,7 +12,7 @@ class FilterController extends Controller
 
     public function getListCategory()
     {
-        $data = Categories::where('type', 'product_category')->where('parent_id', 0)->get();
+        $data = Categories::where('type', 'product_category')->orWhere('type', 'brand_category')->where('parent_id', 0)->orWhere('parent_id', null)->get();
         return view('backend.filter.list-category', compact('data'));
     }
 

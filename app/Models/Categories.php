@@ -25,4 +25,9 @@ class Categories extends Model
     {
         return $this->belongsToMany('App\Models\Posts', 'post_category', 'id_category', 'id_post');
     }
+
+    public function Products()
+    {
+        return $this->belongsToMany('App\Models\Products', 'product_category', 'id_category', 'id_product');
+    }
 }

@@ -19,7 +19,7 @@
 		                    <li class="">
 		                    	<a href="#setting" data-toggle="tab" aria-expanded="true">Cấu hình seo</a>
 		                    </li>
-		                    <li class="">
+		                    <li class="" style="display: none;">
 		                    	<a href="#tags" data-toggle="tab" aria-expanded="true">Tags</a>
 		                    </li>
 		                </ul>
@@ -41,7 +41,7 @@
 		                                
 		                                <div class="form-group">
 		                                    <label>Nội dung</label>
-		                                    <textarea class="content" id="txtContent" name="content"><?php echo old('content', @$data->content); ?></textarea>
+		                                    <textarea class="content" name="content"><?php echo old('content', @$data->content); ?></textarea>
 		                                </div>
 		                            </div>
 		                        </div>
@@ -78,19 +78,7 @@
 		                            <div class="google__description"><?php echo old('meta_description', isset($data->meta_description) ? $data->meta_description : ''); ?></div>
 		                        </div>
 		                    </div>
-		                     <div class="tab-pane" id="tags">
-		                    	<div class="row">
-		                    		<?php if(!empty($data->tagNames())){
-		                    			$tags = implode(',', $data->tagNames());
-		                    		} ?>
-		                    		<div class="col-sm-12">
-		                    			<div class="form-group">
-		                    				<label for="">Tags</label>
-		                    				<input type="text" class="demo-default" id="tags-input" name="tags" data-role="tagsinput" value="<?php echo e(@$tags); ?>">
-		                    			</div>
-		                    		</div>
-		                    	</div>
-		                    </div>
+		                    
 		                </div>
 		            </div>
 				</div>
@@ -190,11 +178,17 @@
 		                <div class="box-body">
 		                    <div class="form-group" style="text-align: center;">
 		                        <div class="image">
-		                            <div class="image__thumbnail">
-										<img src="<?php echo e(asset('upload/posts/'.$data->image)); ?>" id="output" />
-										<input class="max-with" name="fImages" type="file" onchange="loadFile(event)"/>
-										<input type="hidden" value="<?php echo e($data->image); ?>" name="image_current"/>
-		                            </div>
+									<div class="image__thumbnail">
+										<img src="<?php echo e(__IMAGE_DEFAULT__); ?>"
+												data-init="<?php echo e(__IMAGE_DEFAULT__); ?>">
+										<a href="javascript:void(0)" class="image__delete" onclick="urlFileDelete(this)">
+											<i class="fa fa-times"></i></a>
+										<input type="hidden" value="<?php echo e(old('image')); ?>" name="image"/>
+										<div class="image__button" onclick="fileSelect(this)">
+											<i class="fa fa-upload"></i>
+											Upload
+										</div>
+									</div>
 		                        </div>
 		                    </div>
 		                </div>

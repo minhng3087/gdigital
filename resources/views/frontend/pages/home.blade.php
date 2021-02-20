@@ -1,8 +1,11 @@
 @extends('frontend.layouts.master')
 @section('content')
-	<?php if(!empty($dataContent->content)){
-		$content = json_decode( $dataContent->content );
-	} ?>
+	<?php 
+		if(!empty($dataContent->content)){
+			$content = json_decode( $dataContent->content );
+		}
+		
+	?>
 	<section id="banner">
 		<div class="slide-banner">
 			@if (!empty($content->banner))
@@ -61,7 +64,7 @@
 											<?php $cate = \App\Models\Categories::find($value->category_id) ?>
 											@if (!empty($cate))
 												<li class="list-inline-item">
-													<a class="category-moblie" href="javascript:0" data-tab="tab-cate-{{ $cate->id }}" data-id="{{ $cate->id }}">{{ $cate->name }}</a>
+													<a class="category-moblie" href="{{ route('home.archive.product', $cate->slug) }}" >{{ $cate->name }}</a>
 												</li>
 											@endif
 										@endforeach
@@ -73,8 +76,20 @@
 				</div>
 				
 				<div class="list-product">
-					<div class="row list-append-products-category">
-						
+					<div class="row">
+						<?php 
+							$category = reset($content->category_moblie);
+							$products = \App\Models\Products::where('brand_id', $category->category_id)->where('status', 1)->where('is_hot', 1)->take(4)->get();
+							$brand = \App\Models\Categories::where('type', 'brand_category')->where('id', $category->category_id)->get();
+						?>
+						<div class="col-md-2">
+							<div class="item item-left">
+								<div class="avarta"><a href=""><img src="{{ $brand[0]->banner }}" class="img-fluid" alt=""></a></div>
+							</div>
+						</div>
+						@foreach($products as $item)
+							@include('frontend.components.product', ['item' => $item])
+						@endforeach
 					</div>
 				</div>
 							
@@ -92,12 +107,16 @@
 						<div class="col-md-9">
 							<div class="right text-right">
 								<ul class="list-inline">
-									<li class="list-inline-item"><a href="product.php" class="active">Macbook</a></li>
-									<li class="list-inline-item"><a href="product.php">Hp </a></li>
-									<li class="list-inline-item"><a href="product.php">Dell</a></li>
-									<li class="list-inline-item"><a href="product.php">Asus </a></li>
-									<li class="list-inline-item"><a href="product.php">Lenovo </a></li>
-									<li class="list-inline-item"><a href="product.php">Acer</a></li>
+									@if (!empty($content->category_laptop))
+										@foreach($content->category_laptop as $key => $value)
+											<?php $cate = \App\Models\Categories::find($value->category_id) ?>
+											@if (!empty($cate))
+												<li class="list-inline-item">
+													<a class="category-moblie" href="{{ route('home.archive.product', $cate->slug) }}">{{ $cate->name }}</a>
+												</li>
+											@endif
+										@endforeach
+									@endif
 								</ul>
 							</div>
 						</div>
@@ -105,14 +124,19 @@
 				</div>
 				<div class="list-product">
 					<div class="row">
+					<?php 
+							$category = reset($content->category_laptop);
+							$products = \App\Models\Products::where('brand_id', $category->category_id)->where('status', 1)->where('is_hot', 1)->take(4)->get();
+							$brand = \App\Models\Categories::where('type', 'brand_category')->where('id', $category->category_id)->get();
+						?>
 						<div class="col-md-2">
 							<div class="item item-left">
-								<div class="avarta"><a href=""><img src="{{__BASE_URL__}}/images/left2.png" class="img-fluid" alt=""></a></div>
+								<div class="avarta"><a href=""><img src="{{ $brand[0]->banner }}" class="img-fluid" alt=""></a></div>
 							</div>
 						</div>
-						<div class="col-md-2">
-							
-						</div>
+						@foreach($products as $item)
+							@include('frontend.components.product', ['item' => $item])
+						@endforeach
 						
 					</div>
 				</div>
@@ -140,66 +164,28 @@
 								<div class="cate-left text-left">
 									<h3>TABLET</h3>
 									<ul>
-										<li><a href="product.php">Ipad</a></li>
-										<li><a href="product.php">Samsung</a></li>
-										<li><a href="product.php">huawei</a></li>
-										<li><a href="product.php">Lenovo</a></li>
-										<li><a href="product.php">Masstel</a></li>
-										<li><a href="product.php">Mobel</a></li>
+										@if (!empty($content->category_tablet))
+										@foreach($content->category_tablet as $key => $value)
+											<?php $cate = \App\Models\Categories::find($value->category_id) ?>
+											@if (!empty($cate))
+												<li class="list-inline-item">
+													<a class="category-moblie" href="{{ route('home.archive.product', $cate->slug) }}">{{ $cate->name }}</a>
+												</li>
+											@endif
+										@endforeach
+									@endif
 									</ul>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-2">
-							<div class="item">
-								<div class="avarta">
-									<a href="product.php"><img src="{{__BASE_URL__}}/images/tb1.png" class="img-fluid" alt=""></a>
-									<div class="abs">
-										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="info">
-									<h3><a href="product-detail.php">Iphone XS 64G</a></h3>
-									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-									<div class="price"><span>22.225.000đ</span></div>
-									<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="item">
-								<div class="avarta">
-									<a href="product.php"><img src="{{__BASE_URL__}}/images/tb1.png" class="img-fluid" alt=""></a>
-									<div class="abs">
-										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="info">
-									<h3><a href="product-detail.php">Iphone XS 64G</a></h3>
-									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-									<div class="price"><span>22.225.000đ</span></div>
-									<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
-								</div>
-							</div>
-						</div>
+						<?php 
+							$category = reset($content->category_tablet);
+							$products = \App\Models\Products::where('brand_id', $category->category_id)->where('status', 1)->where('is_hot', 1)->take(4)->get();
+							$brand = \App\Models\Categories::where('type', 'brand_category')->where('id', $category->category_id)->get();
+						?>
+						@foreach($products as $item)
+							@include('frontend.components.product', ['item' => $item])
+						@endforeach
 					</div>
 				</div>
 			</div>
@@ -349,7 +335,7 @@
 								<div class="item">
 									<div class="avarta"><a href="{{ route('home.post.single', $item->slug) }}">	<img src="{{ $item->image }}" class="img-fluid" width="100%" alt="{{ $item->name }}"></a></div>
 									<div class="info">
-										<div class="date robo-light"><i class="fa fa-clock-o"></i> 2 day ago</div>
+										<div class="date robo-light"><i class="fa fa-clock-o"></i> {{ $date->diffForHumans($item->published_at) }}</div>
 										<h3><a href="{{ route('home.post.single', $item->slug) }}" class="robo-bold">{{ $item->name }}</a></h3>
 										<div class="desc">
 											{{ $item->desc }}
@@ -381,94 +367,14 @@
 		</div>
 	</section>
 	<section id="popup">
-		<div class="modal fade" id="myModal">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		    	<div class="modal-body">
-			      	<button type="button" class="close" data-dismiss="modal">&times;</button>
-			        <div class="preview">
-						<div class="row">
-							<div class="col-md-6 col-sm-6">
-								<div class="slide-thumbs">
-									<div class="avarta" style="border: 1px solid #ddd;"><img class="" src="{{__BASE_URL__}}/images/thumb1.png" class="img-fluid" width="100%" alt="Third slide"></div>
-								</div>
-							</div>
-							<div class="col-md-6 col-sm-6">
-								<div class="info-prev">
-									<div class="cate">
-										<h1>iPhone 11 Pro Max 512GB </h1>
-										<div class="vote">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o"></i>
-										</div>	
-										<div class="price">3.567.000 đ</div>
-										<div class="desc">
-											Để tìm kiếm một chiếc smartphone có hiệu năng mạnh mẽ và có thể sử dụng mượt mà trong 2-3 năm tới thì không có chiếc máy nào xứng đang hơn chiếc iPhone 11 Pro Max 512GB mới ra mắt trong năm 2019 của Apple.
-											<ul>
-												<li>Trong hộp có: Sạc,Tai nghe,Cây lấy sim,Cáp,Sách hướng dẫn,Hộp</li>
-												<li>Bảo hành chính hãng 12 tháng.</li>
-												<li>Lỗi là đổi mới trong 1 tháng tại hơn 2005 siêu thị toàn quốc Xem chi tiết</li>
-												<li>Phiếu mua hàng trị giá 1 triệu <span>(được quy đổi thành tiền mặt) *</span></li>
-											</ul>
-										</div>
-										<div class="quantity-add">
-											<ul class="list-inline">
-												<li class="list-inline-item">
-													<div class="quantity">
-					                                    <span class="mont">Số lượng:</span>
-					                                    <div class="number-spinner">
-					                                      <input type="text" class="pl-ns-value" value="10" maxlength="5">
-					                                    </div>
-					                                </div>
-												</li>
-												<li class="list-inline-item">
-													<div class="add-cart"><a href="">Thêm vào giỏ hàng</a></div>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-			    </div>
-		    </div>
-		  </div>
+    	<div class="modal fade" id="myModal">
+			<div class="modal-dialog">
+        		<div class="modal-content">
+				</div>
+			</div>
 		</div>
 	</section>
+
 @endsection
 
 
-@section('script')
-	<script>
-		jQuery(document).ready(function($) {
-			$('.category-moblie').click(function(event) {
-				var id_tab = $(this).data('id');
-				console.log(id_tab);
-				if(isEmpty($('.list-append-products-category-'+id_tab))){
-					$('.loadingcover').show();
-					$.get('{{ route('home.load.products.ajax') }}', { id_category : id_tab, type : 'home-mobile'  } , function(data) {
-						$('.loadingcover').hide();
-						if(data.trim() != ''){
-							console.log(data);
-							$('.list-append-products-category').html(data);
-						}else{
-							$('.list-append-products-category').html('<div class="col-sm-12"><div class="alert alert-success" role="alert">Không có sản phẩm nào phù hợp.</div></div>');
-						}
-					});
-				}
-			});
-			
-
-
-		});
-		function isEmpty( el ){
-		    return !$.trim(el.html())
-		}
-
-
-	</script>
-@endsection

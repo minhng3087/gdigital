@@ -1,4 +1,3 @@
-<?php $content = json_decode($data); ?>
 <?php if(count($data)): ?>
 	<?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $id => $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 		<div class="<?php echo e(!empty($class) ? $class : 'col-md-4'); ?>">

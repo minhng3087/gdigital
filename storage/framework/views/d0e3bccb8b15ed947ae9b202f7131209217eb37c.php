@@ -39,6 +39,12 @@
                 <a href="<?php echo e(route('product-attributes.index')); ?>"><i class="fa fa-circle-o"></i> Thuộc tính sản phẩm</a>
             </li>
 
+            <li class="<?php echo e(Request::segment(2) == 'comments' ? 'active' : null); ?>">
+                  <a href="<?php echo e(route('comments.index', ['cate' => 'product'])); ?>">
+                      <i class="fa fa-comments" aria-hidden="true"></i> <span>Bình luận sản phẩm</span>
+                  </a>
+              </li>
+
             <li class="<?php echo e(Request::segment(2) === 'category-filter' ? 'active' : null); ?>">
                 <a href="<?php echo e(route('list-category-filter')); ?>"><i class="fa fa-circle-o"></i> Bộ lọc</a>
             </li>
@@ -60,6 +66,12 @@
               </li>
               <li class="<?php echo e(Request::segment(2) === 'categories-post' ? 'active' : null); ?>">
                   <a href="<?php echo e(route('categories-post.index')); ?>"><i class="fa fa-circle-o"></i> Danh mục bài viết</a>
+              </li>
+
+              <li class="<?php echo e(Request::segment(2) == 'comments' ? 'active' : null); ?>">
+                  <a href="<?php echo e(route('comments.index', ['cate' => 'blog'])); ?>">
+                      <i class="fa fa-comments" aria-hidden="true"></i> <span>Bình luận bài viết</span>
+                  </a>
               </li>
           </ul>
       </li>

@@ -22,6 +22,11 @@ class Comments extends Model
     	return $this->hasOne('App\Models\Products', 'id', 'id_product');
     }
 
+    public function Post()
+    {
+    	return $this->hasOne('App\Models\Posts', 'id', 'id_post');
+    }
+
 
     public function getChild()
     {

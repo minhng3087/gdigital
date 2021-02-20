@@ -1,7 +1,7 @@
 <header>
     <div class="heder-top">
         <div class="container">
-            <div class="content">
+            <div class="content" style="position: relative;">
                 <div class="row">
                     <div class="col-md-7 col-sm-8">
                         <div class="left">
@@ -34,15 +34,20 @@
                         <div class="logo"><a title="{{ @$site_info->site_title }}" href="{{ url('/') }}"><img src="{{ @$site_info->logo }}" class="img-fluid" alt="{{ @$site_info->site_title }}"></a></div>
                     </div>
                     <div class="col-md-6">
-                        <div class="search">
-                            <select name="" id="">
-                                <option value="">Danh mục</option>
-                                <option value="">Danh mục 1</option>
-                                <option value="">Danh mục 2</option>
-                                <option value="">Danh mục 3</option>
-                            </select>
-                            <input type="text" placeholder="Nhập từ khóa">
-                            <button><i class="fa fa-search"></i></button>
+                        <form action="{{ route('home.search') }}" method="GET">
+                            <div class="search">
+                                <select name="m" id="query-cate">
+                                    <option value="0">Danh mục</option>
+                                    @foreach ($categories as $item)
+                                        <option value="{{ $item->slug }}" {{  !empty($_GET['m']) &&  $item->slug == $_GET['m'] ? 'selected' : ''}}>{{ $item->name }}</option>
+                                    @endforeach
+                                </select>
+                                <input type="text" placeholder="Nhập từ khóa" name="q" id="query-search">
+                                <button type="submit" id="icon-search"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                        <div class="list-search" style="display: none;">
+                                
                         </div>
                     </div>
                     <div class="col-md-3">

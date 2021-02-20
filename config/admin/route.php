@@ -21,4 +21,10 @@
             'except' => $except,
             'multi_del' => true,
         ],
+
+        'comments' => [
+            'name' => 'comments',
+            'except' => $except,
+            'multi_del' => true,
+        ],
 	];

@@ -20,7 +20,7 @@
 		                    <li class="">
 		                    	<a href="#setting" data-toggle="tab" aria-expanded="true">Cấu hình seo</a>
 		                    </li>
-		                    <li class="">
+		                    <li class="" style="display: none;">
 		                    	<a href="#tags" data-toggle="tab" aria-expanded="true">Tags</a>
 		                    </li>
 		                </ul>
@@ -78,19 +78,7 @@
 		                            <div class="google__description">{!! old('meta_description', isset($data->meta_description) ? $data->meta_description : '') !!}</div>
 		                        </div>
 		                    </div>
-		                     <div class="tab-pane" id="tags">
-		                    	<div class="row">
-		                    		<?php if(!empty($data->tagNames())){
-		                    			$tags = implode(',', $data->tagNames());
-		                    		} ?>
-		                    		<div class="col-sm-12">
-		                    			<div class="form-group">
-		                    				<label for="">Tags</label>
-		                    				<input type="text" class="demo-default" id="tags-input" name="tags" data-role="tagsinput" value="{{ @$tags }}">
-		                    			</div>
-		                    		</div>
-		                    	</div>
-		                    </div>
+		                    
 		                </div>
 		            </div>
 				</div>

@@ -111,6 +111,11 @@ Route::group(['namespace' => 'Admin'], function () {
 			Route::post('/create', 'PagesController@postCreatePages')->name('pages.create');
         });
 
+		// Comments
+
+		Route::get('comments/show/{id}/{cate}', 'CommentsController@show')->name('comments.show');
+        Route::get('comments-active/', ['as' => 'comments.active', 'uses' => 'CommentsController@getQuickActive']);
+		Route::get('comments/anyData', 'CommentsController@anyData')->name('comments.anyData');
 
         Route::resource('category', 'CategoryController', ['except' => ['show']]);
         Route::get('/get-layout', 'IndexController@getLayOut')->name('get.layout');
@@ -122,10 +127,24 @@ Route::group(['namespace' => 'Admin'], function () {
 
 Route::get('/', 'IndexController@getHome')->name('home.index');
 
+Route::get('tin-tuc', 'IndexController@getArchiveNews')->name('home.archive-news');
+
 
 Route::get('tin-tuc/{slug}', 'IndexController@getSingleNews')->name('home.post.single');
 
-Route::get('load-products', 'IndexController@getProductsByAjax')->name('home.load.products.ajax');
+Route::get('san-pham/{slug}', 'IndexController@getSingleProduct')->name('home.single.product');
+
+Route::get('danh-muc/{slug}', 'IndexController@getArchiveProduct')->name('home.archive.product');
+
+Route::post('post-comment/{idproduct}', 'IndexController@postComment')->name('home.post.comment');
+
+Route::get('get-ajax-product','IndexController@getAjaxProduct')->name('get.ajax.product');
+
+Route::get('tim-kiem', 'IndexController@getSearch')->name('home.search');
+
+
+
+
 
 
 

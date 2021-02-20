@@ -39,6 +39,15 @@
         ),
         'multi_del' => true,
       ),
+      'comments' => 
+      array (
+        'name' => 'comments',
+        'except' => 
+        array (
+          0 => 'show',
+        ),
+        'multi_del' => true,
+      ),
     ),
   ),
   'app' => 
