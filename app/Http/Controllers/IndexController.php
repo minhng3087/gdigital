@@ -14,6 +14,9 @@ use App\Models\Posts;
 use App\Models\PostCategory;
 use App\Models\Customers;
 use App\Models\Comments;
+use App\Models\Filter;
+use App\Models\Contact;
+use App\Http\Requests\ContactRequest;
 
 use Carbon\Carbon;
 
@@ -77,6 +80,13 @@ class IndexController extends Controller
 
     }
 
+    public function getNewProduct() {
+        $data    = Products::active()->filter()->sort()->where('is_price_shock', 1)->paginate(12);
+        $product_hot = Products::active()->filter()->sort()->where('is_hot', 1)->inRandomOrder()->take(4)->get();
+        $filters = Filter::where('category_id', 0)->orderBy('position', 'ASC')->get();
+        return view('frontend.pages.product', compact('data', 'filters','product_hot'));
+    }
+
     public function postComment(Request $request, $idProduct)
     {
         $customers        = new Customers;
@@ -120,6 +130,28 @@ class IndexController extends Controller
             })->order()->paginate(24);
             return view('frontend.pages.search', compact('data'));
         }
+    }
+
+    public function getContact() {
+        $dataContent = Pages::where('type', 'contact')->first();
+        return view('frontend.pages.contact', compact('dataContent'));
+    }
+
+    public function postContact(ContactRequest $request) {
+        $contact = new Contact;
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->phone = $request->phone;
+        $contact->content = $request->content;
+        $contact->save();
+        
+        toastr()->success('Gửi liên hệ thành công');
+        return back();
+    }
+
+    public function getFilterProductsAjax(Request $request)
+    {
+        return 123;
     }
 
 

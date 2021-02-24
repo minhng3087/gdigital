@@ -55,21 +55,22 @@
 				});
 
                 $('.modal-product').click(function() {
-                event.preventDefault();
-                var id = $(this).attr('data-id');
-                console.log(id);
-                $.ajax({
-                    url: '{{ route('get.ajax.product') }}',
-                    method: 'GET',
-                    data: {
-                        id: id
-                    },
-                    success: function (data) {
-                        $('.modal-content').html(data);
-                    },
-                    
-                });
+                    event.preventDefault();
+                    var id = $(this).attr('data-id');
+                    console.log(id);
+                    $.ajax({
+                        url: '{{ route('get.ajax.product') }}',
+                        method: 'GET',
+                        data: {
+                            id: id
+                        },
+                        success: function (data) {
+                            $('.modal-content').html(data);
+                        },
+                        
+                    });
 			    });
+
 			});
 
 			

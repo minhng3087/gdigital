@@ -23,6 +23,27 @@
                         <div class="desc">
                             <?php echo e(@$product->sort_desc); ?>
 
+                            <?php if(count($product->ProductGift)): ?>
+                                <?php $__currentLoopData = $product->ProductGift; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $gift): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php $indexParent = $loop->index; ?>
+                                    <?php if($gift->type == 'options'): ?>
+                                        <li><?php echo $gift->desc; ?></li>
+                                        <ul>
+                                            <?php $options_gift = json_decode( $gift->value );?>
+                                            <?php if(!empty($options_gift->list)): ?>
+                                                <?php $__currentLoopData = $options_gift->list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <li>
+                                                        <input type="radio" id="sale-<?php echo e($loop->index + 1); ?>-<?php echo e($indexParent); ?>" name="radiosale[<?php echo e($indexParent); ?>]" class="apply-gift" value="<?php echo e($value->value); ?> " data-value="<?php echo e($value->value); ?>">
+                                                        <label for="sale-<?php echo e($loop->index + 1); ?>-<?php echo e($indexParent); ?>"><?php echo e($value->title); ?></label>
+                                                    </li>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                        </ul>
+                                    <?php else: ?>
+                                        <li><?php echo $gift->desc; ?></li>
+                                    <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
                         </div>
                         <div class="quantity-add">
                             <ul class="list-inline">

@@ -27,4 +27,10 @@
             'except' => $except,
             'multi_del' => true,
         ],
+
+        'contact' => [
+            'name' => 'contact',
+            'except' => $except,
+            'multi_del' => true,
+        ],
 	];

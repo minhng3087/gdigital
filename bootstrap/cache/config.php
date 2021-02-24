@@ -48,6 +48,15 @@
         ),
         'multi_del' => true,
       ),
+      'contact' => 
+      array (
+        'name' => 'contact',
+        'except' => 
+        array (
+          0 => 'show',
+        ),
+        'multi_del' => true,
+      ),
     ),
   ),
   'app' => 

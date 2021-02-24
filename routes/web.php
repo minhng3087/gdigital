@@ -117,6 +117,11 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::get('comments-active/', ['as' => 'comments.active', 'uses' => 'CommentsController@getQuickActive']);
 		Route::get('comments/anyData', 'CommentsController@anyData')->name('comments.anyData');
 
+		// Contact
+        Route::get('contact-active/', ['as' => 'contact.active', 'uses' => 'ContactController@getQuickActive']);
+		Route::get('contact/anyData', 'ContactController@anyData')->name('contact.anyData');
+
+
         Route::resource('category', 'CategoryController', ['except' => ['show']]);
         Route::get('/get-layout', 'IndexController@getLayOut')->name('get.layout');
 		
@@ -134,6 +139,8 @@ Route::get('tin-tuc/{slug}', 'IndexController@getSingleNews')->name('home.post.s
 
 Route::get('san-pham/{slug}', 'IndexController@getSingleProduct')->name('home.single.product');
 
+Route::get('san-pham-moi', 'IndexController@getNewProduct')->name('home.new.product');
+
 Route::get('danh-muc/{slug}', 'IndexController@getArchiveProduct')->name('home.archive.product');
 
 Route::post('post-comment/{idproduct}', 'IndexController@postComment')->name('home.post.comment');
@@ -141,6 +148,15 @@ Route::post('post-comment/{idproduct}', 'IndexController@postComment')->name('ho
 Route::get('get-ajax-product','IndexController@getAjaxProduct')->name('get.ajax.product');
 
 Route::get('tim-kiem', 'IndexController@getSearch')->name('home.search');
+
+Route::get('lien-he', 'IndexController@getContact')->name('home.contact');
+
+Route::post('lien-he', 'IndexController@postContact')->name('home.contact.post');
+
+Route::post('filter-products', 'IndexController@getFilterProductsAjax')->name('home.filterProducts');
+
+
+
 
 
 

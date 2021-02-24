@@ -76,6 +76,12 @@
           </ul>
       </li>
 
+      <li class="{{ Request::segment(2) == 'contact' ? 'active' : null  }}">
+          <a href="{{ route('contact.index') }}">
+              <i class="fa fa-phone" aria-hidden="true"></i> <span>Khách hàng liên hệ</span>
+          </a>
+      </li>
+
       <li class="{{ Request::segment(2) == 'pages' ? 'active' : null  }}">
         <a href="{{ route('pages.list') }}">
             <i class="fa fa-paper-plane" aria-hidden="true"></i> <span>Cài đặt trang</span>

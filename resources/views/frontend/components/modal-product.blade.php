@@ -22,6 +22,27 @@
                         <div class="price">{{ number_format($product->regular_price,0, '.', '.') }}đ</div>
                         <div class="desc">
                             {{ @$product->sort_desc }}
+                            @if (count($product->ProductGift))
+                                @foreach ($product->ProductGift as $gift)
+                                    <?php $indexParent = $loop->index; ?>
+                                    @if ($gift->type == 'options')
+                                        <li>{!! $gift->desc !!}</li>
+                                        <ul>
+                                            <?php $options_gift = json_decode( $gift->value );?>
+                                            @if (!empty($options_gift->list))
+                                                @foreach ($options_gift->list as $key => $value)
+                                                    <li>
+                                                        <input type="radio" id="sale-{{ $loop->index + 1 }}-{{ $indexParent }}" name="radiosale[{{ $indexParent }}]" class="apply-gift" value="{{ $value->value }} " data-value="{{ $value->value }}">
+                                                        <label for="sale-{{ $loop->index + 1 }}-{{ $indexParent }}">{{ $value->title }}</label>
+                                                    </li>
+                                                @endforeach
+                                            @endif
+                                        </ul>
+                                    @else
+                                        <li>{!! $gift->desc !!}</li>
+                                    @endif
+                                @endforeach
+                            @endif
                         </div>
                         <div class="quantity-add">
                             <ul class="list-inline">

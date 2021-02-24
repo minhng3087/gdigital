@@ -36,6 +36,10 @@
 				            <li class="active">
 				            	<a href="#seo" data-toggle="tab" aria-expanded="true">Cấu hình trang</a>
 				            </li>
+
+                            <li class="">
+				            	<a href="#setting" data-toggle="tab" aria-expanded="true">Thiết lập trang</a>
+				            </li>
 				        </ul>
 				    </div>
 				    <div class="tab-content">
@@ -80,6 +84,27 @@
 								</div>
 							</div>
 			            </div>
+
+						<?php if(!empty($data->content)){
+							$content = json_decode($data->content);
+
+						} ?>
+
+                        <div class="tab-pane" id="setting">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">Link map</label>
+                                        <input type="text" name="content[contact][map]" class="form-control" value="<?php echo e(@$content->contact->map); ?>">
+                                    </div>
+                                    <div class="form-group">
+										<label for="">Text</label>
+										<textarea name="content[contact][desc]" class="content"><?php echo @$content->contact->desc; ?></textarea>
+									</div>
+                                </div>
+                            </div>
+
+                        </div>
 			           <button type="submit" class="btn btn-primary">Lưu lại</button>
 			        </div>
 				</form>
