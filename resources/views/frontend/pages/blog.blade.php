@@ -21,7 +21,7 @@
 							<div class="item">
 								<div class="avarta"><a href="{{ route('home.post.single', $item->slug) }}">	<img src="{{ $item->image }}" class="img-fluid" width="100%" alt=""></a></div>
 								<div class="info">
-									<div class="date robo-light"><i class="fa fa-clock-o"></i> {{ $date->diffForHumans($item->published_at) }}</div>
+									<div class="date robo-light"><i class="fa fa-clock-o"></i> {{ $item->published_at->diffForHumans() }}</div>
 									<h3><a href="{{ route('home.post.single', $item->slug) }}" class="robo-bold">{{ $item->name }}</a></h3>
 									<div class="desc">
 										{{ $item->desc }}

@@ -20,7 +20,7 @@
 							<div class="item">
 								<div class="avarta"><a href="<?php echo e(route('home.post.single', $item->slug)); ?>">	<img src="<?php echo e($item->image); ?>" class="img-fluid" width="100%" alt=""></a></div>
 								<div class="info">
-									<div class="date robo-light"><i class="fa fa-clock-o"></i> <?php echo e($date->diffForHumans($item->published_at)); ?></div>
+									<div class="date robo-light"><i class="fa fa-clock-o"></i> <?php echo e($item->published_at->diffForHumans()); ?></div>
 									<h3><a href="<?php echo e(route('home.post.single', $item->slug)); ?>" class="robo-bold"><?php echo e($item->name); ?></a></h3>
 									<div class="desc">
 										<?php echo e($item->desc); ?>

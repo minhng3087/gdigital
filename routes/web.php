@@ -143,8 +143,6 @@ Route::get('san-pham-moi', 'IndexController@getNewProduct')->name('home.new.prod
 
 Route::get('danh-muc/{slug}', 'IndexController@getArchiveProduct')->name('home.archive.product');
 
-Route::post('post-comment/{idproduct}', 'IndexController@postComment')->name('home.post.comment');
-
 Route::get('get-ajax-product','IndexController@getAjaxProduct')->name('get.ajax.product');
 
 Route::get('tim-kiem', 'IndexController@getSearch')->name('home.search');
@@ -156,6 +154,12 @@ Route::post('lien-he', 'IndexController@postContact')->name('home.contact.post')
 Route::get('filter-products', 'IndexController@getFilterProductsAjax')->name('home.filterProducts');
 
 Route::get('version-product', 'IndexController@getVersionProduct')->name('home.version.product');
+
+Route::post('post-comment/{idproduct}', 'IndexController@postComment')->name('home.post.comment');
+
+Route::post('post-reply-comment/{idproduct}', 'IndexController@postReplyComment')->name('home.post.reply.comment');
+
+Route::get('vote-star', 'IndexController@getVoteStar')->name('home.get.votestar');
 
 
 

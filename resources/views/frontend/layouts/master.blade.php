@@ -35,7 +35,6 @@
 			jQuery(document).ready(function($) {
 				$('body').on('keyup', '#query-search', function(event) {
 					var query = $(this).val();
-                    console.log(query);
 					if(query.length == 0){
 						$('.list-search').hide().html('');
 					}else{

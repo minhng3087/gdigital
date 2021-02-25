@@ -325,18 +325,6 @@ function getStarProduct($item)
     return $average;
 }
 
-function getPercentVoteYesQuestions($item)
-{
-   $total = $item->vote_yes + $item->vote_no;
-   return $total != 0 ? round($item->vote_yes / $total, 1) * 100 : 0;
-}
-
-function getPercentVoteNoQuestions($item)
-{
-   $total = $item->vote_yes + $item->vote_no;
-   return $total != 0 ? round($item->vote_no / $total, 1) * 100 : 0;
-}
-
 
 function dequyComments($datas)
 {
@@ -378,7 +366,7 @@ function renderCommentsFrontend($data, $item1, $productId)
             if ($value->parent_id == $item1->id) {
                 $item = $value;
                 $idProduct = $productId;
-                echo view('frontend.components.row-comment',compact('item', 'idProduct'))->render();
+                echo view('frontend.comments.row-comment',compact('item', 'idProduct'))->render();
                 renderCommentsFrontend($data, $value, $productId);
             }
         }

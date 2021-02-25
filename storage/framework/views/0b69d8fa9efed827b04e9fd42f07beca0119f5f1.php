@@ -25,6 +25,9 @@
 										</div>
 									</div>
 									<?php echo $__env->make('frontend.comments.reviews', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+
+									<?php echo $__env->make('frontend.comments.list-comments', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 								</div>
 							</div>
 							<div class="col-md-3">
@@ -34,8 +37,8 @@
 										<div class="list-item-other">
 											<?php $__currentLoopData = $post_related; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 											<div class="item">
-												<div class="date"><i class="fa fa-clock-o"></i><?php echo e($date->diffForHumans($item->published_at)); ?></div>
-												<h4><a href=""><?php echo e(@$item->desc); ?></a></h4>
+												<div class="date"><i class="fa fa-clock-o"></i><?php echo e($item->published_at->diffForHumans()); ?></div>
+												<h4><a href="<?php echo e(route('home.post.single', $item->slug)); ?>"><?php echo e(@$item->desc); ?></a></h4>
 											</div>
 											<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 										</div>
@@ -45,10 +48,10 @@
 												<?php if(!empty($posts_hot)): ?>
 													<?php $__currentLoopData = $posts_hot; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 													<div class="item">
-														<div class="avarta"><a href=""><img src="<?php echo e($item->image); ?>" class="img-fluid" alt=""></a></div>
+														<div class="avarta"><a href="<?php echo e(route('home.post.single', $item->slug)); ?>"><img src="<?php echo e($item->image); ?>" class="img-fluid" alt=""></a></div>
 														<div class="info">
-															<div class="date"><i class="fa fa-clock-o"></i><?php echo e($date->diffForHumans($item->published_at)); ?></div>
-															<h4><a href=""><?php echo e($item->title); ?></a></h4>
+															<div class="date"><i class="fa fa-clock-o"></i><?php echo e($item->published_at->diffForHumans()); ?></div>
+															<h4><a href="<?php echo e(route('home.post.single', $item->slug)); ?>"><?php echo e($item->title); ?></a></h4>
 															<div class="desc"><?php echo e($item->desc); ?></div>
 															<div class="read-more"><a href="<?php echo e(route('home.post.single', $item->slug)); ?>">Đọc thêm</a></div>
 														</div>

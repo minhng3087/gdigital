@@ -25,6 +25,9 @@
 										</div>
 									</div>
 									@include ('frontend.comments.reviews')
+
+
+									@include ('frontend.comments.list-comments')
 								</div>
 							</div>
 							<div class="col-md-3">
@@ -34,8 +37,8 @@
 										<div class="list-item-other">
 											@foreach($post_related as $item)
 											<div class="item">
-												<div class="date"><i class="fa fa-clock-o"></i>{{ $date->diffForHumans($item->published_at) }}</div>
-												<h4><a href="">{{ @$item->desc }}</a></h4>
+												<div class="date"><i class="fa fa-clock-o"></i>{{ $item->published_at->diffForHumans() }}</div>
+												<h4><a href="{{ route('home.post.single', $item->slug) }}">{{ @$item->desc }}</a></h4>
 											</div>
 											@endforeach
 										</div>
@@ -45,10 +48,10 @@
 												@if(!empty($posts_hot))
 													@foreach($posts_hot as $item)
 													<div class="item">
-														<div class="avarta"><a href=""><img src="{{ $item->image }}" class="img-fluid" alt=""></a></div>
+														<div class="avarta"><a href="{{ route('home.post.single', $item->slug) }}"><img src="{{ $item->image }}" class="img-fluid" alt=""></a></div>
 														<div class="info">
-															<div class="date"><i class="fa fa-clock-o"></i>{{ $date->diffForHumans($item->published_at) }}</div>
-															<h4><a href="">{{ $item->title }}</a></h4>
+															<div class="date"><i class="fa fa-clock-o"></i>{{ $item->published_at->diffForHumans() }}</div>
+															<h4><a href="{{ route('home.post.single', $item->slug) }}">{{ $item->title }}</a></h4>
 															<div class="desc">{{ $item->desc}}</div>
 															<div class="read-more"><a href="{{ route('home.post.single', $item->slug) }}">Đọc thêm</a></div>
 														</div>

@@ -1,5 +1,9 @@
 @extends('frontend.layouts.master')
 @section('content')
+<?php 
+	$vote_info = getListStarProduct($data);
+ 	$averageVote = getStarProduct($data);
+ ?>
 	<section id="bread">
 		<div class="container">
 			<div class="content">
@@ -50,12 +54,14 @@
 								<div class="cate">
 									<h1>{{ $data->name }}</h1>
 									<div class="vote">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
+										@for ($i = 1; $i <= round($averageVote); $i++)
+											<i class="fa fa-star"></i>
+										@endfor
+										@for ($i = 0; $i < 5- round($averageVote); $i++)
+											<i class="fa fa-star-o"></i>
+										@endfor
 									</div>	
+									<div id="product-version">
 										@if (!is_null($data->sale_price))
 											<?php $price = $data->sale_price; ?>
 											<span class="price">{{ number_format($data->sale_price,0, '.', '.') }}đ</span> 
@@ -69,6 +75,7 @@
 											@endif
 											
 										@endif
+									</div>
 									@if(count($data->ProductVersion()->get()))
 									<div class="phienban">
 										<ul class="list-inline">
@@ -148,42 +155,14 @@
 								{!! @$data->evaluate !!}
 							</div>
 						</div>
-						<div class="comment pt-50">
-							<div class="title-cmt">Để lại bình luận của bạn </div>
-							<div class="form-cmt">
-								<div class="row">
-									<div class="col-md-12">
-										<div class="item">
-											<textarea name="" id="" cols="30" rows="10" placeholder="Viết bình luận"></textarea>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="item"><input type="text" placeholder="Họ &amp; tên *" class="inp-cmt"></div>
-									</div>
-									<div class="col-md-4">
-										<div class="item"><input type="text" placeholder="Email *" class="inp-cmt"></div>
-									</div>
-									<div class="col-md-4">
-										<div class="item"><input type="text" placeholder="Website" class="inp-cmt"></div>
-									</div>
-									<div class="col-md-12">
-										<div class="item item-check">
-											<input type="checkbox" id="1"><label for="1">Lưu Tên và Mail của bạn cho lần đăng nhập tiếp theo</label>
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="item">
-											<div class="btn-cmt">
-												<button>Đăng bình luận</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+						@include ('frontend.comments.reviews')
+
+
+						@include ('frontend.comments.list-comments')
 					</div>
 				</div>
 			</div>
+			@include ('frontend.components.products.vote-star')
 		</div>
 	</section>
 	<section class="box-product pb-50" >
@@ -279,10 +258,24 @@
 						key: key,
 					},
 					success: function(data) {
-						console.log(data);
+						$("#product-version").html(data);
 					}
 				})
-			})
+			});
+			$('.nb').click(function(){
+				$.ajax({
+					type: "GET",
+					url: "{{ route("home.get.votestar") }}",
+					data: {
+						id_product : '{{ $data->id }}',
+						star: $(this).data('star'),
+					},
+					success: function (data) {
+						window.location.reload();
+					}
+				});
+			});
+			
 		});
 
 	</script>

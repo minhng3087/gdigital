@@ -9,8 +9,6 @@
             <div class="info">
                 <h3><a title="<?php echo e($item->name); ?>" href="<?php echo e(route('home.single.product', $item->slug)); ?>"><?php echo e($item->name); ?></a></h3>
                 <div class="price">
-                	
-
                     
                     <?php if($item->CheckPricePriority()): ?>
                         <span><?php echo e(number_format($item->price_priority,0, '.', '.')); ?>đ</span>

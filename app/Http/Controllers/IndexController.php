@@ -60,10 +60,11 @@ class IndexController extends Controller
     public function getSingleNews($slug) {
         $data = Posts::active()->published()->where('type', 'blog')->where('slug', $slug)->firstOrFail();
         $data->increment('view_count');
-        $id_category = PostCategory::where('id_post', $data->id)->firstOrFail();
-        $list_id_product    = PostCategory::whereIn('id_category', $id_category)->where('id_post', '!=', $data->id)->get()->pluck('id_post')->toArray();
-        $post_related       = Posts::active()->published()->whereIn('id', $list_id_product)->take(6)->get();
         $posts_hot = Posts::active()->published()->where('type', 'blog')->order()->where('hot', 1)->take(3)->get();
+        $list_category         = $data->category->pluck('id')->toArray();
+        $list_post_related     = PostCategory::whereIn('id_category', $list_category)->get()->pluck('id_post')->toArray();
+        $post_related = Posts::where('id', '!=', $data->id)->where('status', 1)->whereIn('id', $list_post_related)->orderBy('created_at', 'DESC')->take(6)->get();
+        
         
         return view('frontend.pages.blog-detail', compact('data', 'post_related','posts_hot'));
     }
@@ -117,6 +118,54 @@ class IndexController extends Controller
         $comment->save();
         toastr()->success('Gửi thông tin thành công.');
         return back();
+    }
+
+    public function postReplyComment(Request $request, $idProduct)
+    {
+
+        $this->validate($request, [
+            'name'    => 'required|min:5|max:50',
+            'email'   => 'required|email',
+            'content' => 'required|max:300',
+        ], [
+            'name.required'    => 'Bạn chưa nhập họ tên.',
+            'name.min'         => 'Họ tên không thể nhỏ hơn 5 ký tự.',
+            'name.max'         => 'Họ tên không thể lớn hơn 50 ký tự.',
+            'email.required'   => 'Bạn chưa nhập email.',
+            'email.email'      => 'Email phải là một địa chỉ email hợp lệ.',
+            'content.required' => 'Bạn chưa nhập nội dung bình luận.',
+            'content.max'      => 'Nội dung không thể lớn hơn 300 ký tự.',
+        ]);
+        $customers         = new Customers;
+        $customers->name   = $request->name;
+        $customers->email  = $request->email;
+        $customers->gender = $request->gioitinh;
+        $customers->save();
+        $comment               = new Comments;
+        $comment->id_product   = $idProduct;
+        $comment->id_customers = $customers->id;
+        $comment->parent_id    = $request->parent_id;
+        $comment->content      = $request->content;
+        $comment->status       = 0;
+     
+        $comment->save();
+        return back()->with(['toastr' => 'Gửi thông tin bình luận thành công.']);
+
+    }
+
+    public function getVoteStar(Request $request)
+    {
+        $idproduct             = $request->id_product;
+        $star                  = $request->star;
+        $comment               = new Comments;
+        $comment->id_product   = $idproduct;
+        $comment->id_customers = 77;
+        $comment->status       = 1;
+        $comment->vote         = $star;
+        $comment->save();
+        return response()->json([
+            'message' => 'success',
+        ]);
     }
 
     public function getAjaxProduct(Request $request) {
@@ -204,7 +253,8 @@ class IndexController extends Controller
     }
 
     public function getVersionProduct(Request $request) {
-        return $request->all();
+        $data = ProductVersion::where('key', $request->key)->first();
+        return view('frontend.components.products.product-version', compact('data'));
     }
 
 
