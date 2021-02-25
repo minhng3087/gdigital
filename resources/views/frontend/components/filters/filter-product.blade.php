@@ -12,21 +12,21 @@
                     @foreach ($content->filter as $key => $value)
                         @if ($filter->type == 'price')
                             <li>
-                                <input type="radio" class="common_selector filter-product" id="filter-{{ $key }}" name="filter-{{ $indexLoop }}" value="{{ $value->min_value.'-'.$value->max_value }}" data-type="{{ $filter->type }}"
-                                data-id="input-{{ $filter->type }}" >
+                                <input type="radio" id="filter-{{ $key }}" name="filter-{{ $indexLoop }}" value="{{ $value->min_value.'-'.$value->max_value }}" data-type="{{ $filter->type }}"
+						 		class="filter-check-box check-box-filter {{ $filter->type }}" data-id="input-{{ $filter->type }}" data-name="{{ $value->name }}" >
                                 <label for="filter-{{ $key }}">{{ $value->name }} </label>
                             </li>
                         @elseif($filter->type == 'brand')
                             <?php $brand = \App\Models\Categories::find($value->brand_id); ?>
                             <li>
-                                <input type="checkbox" class="common_selector brand" id="filter-{{ $key }}" name="filter-{{ $indexLoop }}" value="{{ $value->brand_id }}" data-type="{{ $filter->type }}"
-                                    data-id="input-{{ $filter->type }}" >
+                                <input type="checkbox" id="filter-{{ $key }}" name="filter-{{ $indexLoop }}" value="{{ $value->brand_id }}" data-type="{{ $filter->type }}"
+							 	class="filter-check-box check-box-filter {{ $filter->type }}" data-id="input-{{ $filter->type }}" data-name="{{ $value->name }}" >
                                 <label for="filter-{{ $key }}">{{ $value->name }}</label>
                             </li>
                         @else
                             <li>
-                                <input type="checkbox" class="common_selector filter-product" id="filter-{{ $key }}" name="filter-{{ $indexLoop }}" value="{{ @$value->value }}" data-type="{{ $filter->type }}"
-                                data-id="input-{{ $filter->type }}">
+                                <input type="checkbox" id="filter-{{ $key }}" name="filter-{{ $indexLoop }}" value="{{ @$value->value }}" data-type="{{ $filter->type }}"
+							 	class="filter-check-box check-box-filter {{ $filter->type }}" data-id="input-{{ $filter->type }}" data-name="{{ @$value->name }}">
                                 <label for="filter-{{ $key }}">{{ $value->name }} </label>
                             </li>
                         @endif

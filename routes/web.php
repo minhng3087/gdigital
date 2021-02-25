@@ -153,7 +153,9 @@ Route::get('lien-he', 'IndexController@getContact')->name('home.contact');
 
 Route::post('lien-he', 'IndexController@postContact')->name('home.contact.post');
 
-Route::post('filter-products', 'IndexController@getFilterProductsAjax')->name('home.filterProducts');
+Route::get('filter-products', 'IndexController@getFilterProductsAjax')->name('home.filterProducts');
+
+Route::get('version-product', 'IndexController@getVersionProduct')->name('home.version.product');
 
 
 

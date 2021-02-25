@@ -16,6 +16,9 @@ use App\Models\Customers;
 use App\Models\Comments;
 use App\Models\Filter;
 use App\Models\Contact;
+use App\Models\ProductAttributes;
+use App\Models\ProductAttributeTypes;
+use App\Models\ProductVersion;
 use App\Http\Requests\ContactRequest;
 
 use Carbon\Carbon;
@@ -72,7 +75,16 @@ class IndexController extends Controller
 
     public function getSingleProduct($slug)
     {
-        
+        $data = Products::active()->where('slug', $slug)->firstOrFail();
+
+        $productAttributeTypes = ProductAttributeTypes::all();
+
+        $list_category         = $data->category->pluck('id')->toArray();
+        $list_post_related     = ProductCategory::whereIn('id_category', $list_category)->get()->pluck('id_product')->toArray();
+        $product_same_category = Products::where('id', '!=', $data->id)->where('status', 1)->whereIn('id', $list_post_related)->orderBy('created_at', 'DESC')->take(12)->get();
+
+
+        return view('frontend.pages.product-detail', compact('data', 'productAttributeTypes', 'product_same_category'));
     }
 
     public function getArchiveProduct($slug)
@@ -81,8 +93,8 @@ class IndexController extends Controller
     }
 
     public function getNewProduct() {
-        $data    = Products::active()->filter()->sort()->where('is_price_shock', 1)->paginate(12);
-        $product_hot = Products::active()->filter()->sort()->where('is_hot', 1)->inRandomOrder()->take(4)->get();
+        $data    = Products::where('is_price_shock', 1)->paginate(12);
+        $product_hot = Products::where('is_hot', 1)->inRandomOrder()->take(4)->get();
         $filters = Filter::where('category_id', 0)->orderBy('position', 'ASC')->get();
         return view('frontend.pages.product', compact('data', 'filters','product_hot'));
     }
@@ -151,7 +163,48 @@ class IndexController extends Controller
 
     public function getFilterProductsAjax(Request $request)
     {
-        return 123;
+       $sort_fields = $request->sort_fields;
+       $sort_type = $request->sort_type;
+       $filterString = $request->filterString;
+       $dataProduct  = Products::active();
+       if(!empty($filterString)) {
+           $filterArray = explode('&', $filterString);
+           if(!empty($filterArray)) {
+                $array = [];
+                foreach($filterArray as $item) {
+                    $filter = explode(':', $item);
+                    $param = $filter[0];
+                    $value = $filter[1];
+                    if ($param == 'brand') {
+                        $whereBrand = explode(',', $value);
+                        $dataProduct = $dataProduct->whereIn('brand_id', $whereBrand);
+                    } elseif ($param == 'price') {
+                        $wherePrice  = explode('-', $value);
+                        $dataProduct = $dataProduct->whereBetween('regular_price', [$wherePrice[0], $wherePrice[1]]);
+                    }else {
+                        $attribute_types_id        = explode('-', $param);
+                        $array[]                   = $attribute_types_id[1];
+                        $list_key                  = explode(',', $value);
+                        $list_id_product_attribute = ProductAttributes::where('id_product_attribute_types', $attribute_types_id[1])->whereIn('key', $list_key)->get()->pluck('id_product')->toArray();
+                        $dataProduct               = $dataProduct->whereIn('id', $list_id_product_attribute);
+                    }
+                }
+           }
+          
+          
+       }
+        if(!empty($request->display_count)) {
+            $dataProduct = $dataProduct->take($request->display_count);
+        }
+
+       $data = $dataProduct->get();
+       return view('frontend.components.products.loop-products', compact('data'))->render();
+
+
+    }
+
+    public function getVersionProduct(Request $request) {
+        return $request->all();
     }
 
 

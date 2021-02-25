@@ -63,33 +63,6 @@ class Products extends Model
         return $this->hasMany('App\Models\Comments', 'id_product', 'id')->where('status', 1);
     }
 
-    public function scopeFilter($query)
-    {
-        if (request('gia')) {
-            $price = request('gia');
-            $price = explode('-', $price);
-            $query->whereBetween('regular_price', array(@$price[0], @$price[1]));
-        }if(request('brand')){
-            $query->where('brand_id', request('brand'));
-        }
-        return $query;
-    }
-
-    public function scopeSort($query)
-    {
-        if (request('order')) {
-            $order = request('order');
-            $order = explode('-', $order);
-            if($order[0] == 'price'){
-                $query->orderBy('regular_price', $order[1]);
-            }else{
-                $query->where('is_selling', 1)->orderBy('is_selling', 'desc');
-            }
-        }else{
-            $query->orderBy('created_at', 'desc');
-        }
-        return $query;
-    }
 
 
     public function Brand()

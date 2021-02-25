@@ -5,4 +5,10 @@
 			@endcomponent
 		</div>
 	@endforeach
+@else
+<div class="col-sm-12">
+	<div class="alert alert-primary" role="alert">
+		Không tìm thấy sản phẩm phù hợp.
+	</div>
+</div>
 @endif
