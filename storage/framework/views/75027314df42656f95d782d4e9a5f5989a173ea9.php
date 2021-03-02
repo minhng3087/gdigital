@@ -36,22 +36,12 @@
 								<div class="desc">
 									<?php echo $item->content; ?>
 
-									<?php if(!empty($item->image)): ?>
-										<?php $list_images = json_decode( $item->image ); ?>
-										<div class="row-upload">
-											<?php $__currentLoopData = $list_images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-												<div class="col-upload">
-													<a href="<?php echo e(url('uploads/comments/'.$value )); ?>"  data-fancybox="group-2" class="lightbox"><img src="<?php echo e(url('uploads/comments/'.$value )); ?>" class="image_comment" alt="comments"></a>
-												</div>
-											<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-										</div>
-									<?php endif; ?>
 									
 								</div>
 								<div class="date-btn">
 									<ul class="list-inline">
 										<li class="list-inline-item">
-											<a title="" href="javascript:0" data-idform="<?php echo e($item->id); ?>">Trả lời</a>
+											<a title="" class="btn btn-primary reply-cmt" data-id="<?php echo e($item->id); ?>">Trả lời</a>
 										</li>
 										<li class="list-inline-item"><?php echo e($item->created_at->diffForHumans()); ?></li>
 									</ul>
@@ -59,20 +49,17 @@
 							</div>
 						</div>
 						
-						<?php renderCommentsFrontend($list_comments, $item, $data->id) ?>
-
-						<div class="action-cmt <?php echo e($item->id); ?>" data-parent="<?php echo e($item->id); ?>">
-							<form action="<?php echo e(route('home.post.reply.comment', $data->id)); ?>" method="POST" class="form_reply <?php echo e($data->id); ?>">
+						<?php renderCommentsFrontend($list_comments, $item, $data->id, $data) ?>
+						<div class="action-cmt <?php echo e($item->id); ?>">
+							<form action="<?php echo e(route('home.post.reply.comment', $data->id)); ?>" method="POST" enctype="multipart/form-data" class="form_reply <?php echo e($data->id); ?>">
 								<?php echo csrf_field(); ?>
+								
+								<input type="hidden" name="cate"  value= <?php echo e($data->category()->first()->type == 'post_category' ? 'blog' : 'product'); ?>>
 								<input type="hidden" name="parent_id" value="<?php echo e($item->id); ?>">
-								<div class="box-cmt">
 									<div class="item-box">
 										<div class="form-group">
 											<textarea name="content" required="" maxlength="300" cols="30" rows="10"><?php echo e($item->type == 0 ? '@'.$item->Customers->name : '@Quản trị viên'); ?>:</textarea>
 										</div>
-									</div>
-									<div class="item-box">
-										<button type="button">Gửi</button>
 									</div>
 									<div class="item-box item-box-per">
 										<div class="info-percen">
@@ -101,18 +88,23 @@
 														<input type="email" placeholder="Email" class="inp-text email_rp" name="email" required="">
 													</div>
 												</li>
+												<li class="list-inline-item">
+													<div class="form-group">
+														<input type="phone" placeholder="phone" class="inp-text email_rp" name="phone">
+													</div>
+												</li>
 											</ul>
 										</div>
 									</div>
-									<div class="item-box item-box-per text-center">
-										<input type="submit" value="Hoàn tất & gửi" class="btn-sent" data-form="<?php echo e($item->id); ?>">
-									</div>
-								</div>
+									<input type="submit" value="Hoàn tất & gửi" class="btn-sent" >
 							</form>
 						</div>
+						
 					</div>
 				<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
-</div><?php /**PATH C:\xampp\htdocs\m\resources\views/frontend/comments/list-comments.blade.php ENDPATH**/ ?>
+</div>
+
+<?php /**PATH C:\xampp\htdocs\m\resources\views/frontend/comments/list-comments.blade.php ENDPATH**/ ?>

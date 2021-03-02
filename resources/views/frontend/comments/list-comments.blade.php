@@ -34,22 +34,12 @@
 								@endif
 								<div class="desc">
 									{!! $item->content !!}
-									@if (!empty($item->image))
-										<?php $list_images = json_decode( $item->image ); ?>
-										<div class="row-upload">
-											@foreach ($list_images as $value)
-												<div class="col-upload">
-													<a href="{{ url('uploads/comments/'.$value ) }}"  data-fancybox="group-2" class="lightbox"><img src="{{ url('uploads/comments/'.$value ) }}" class="image_comment" alt="comments"></a>
-												</div>
-											@endforeach
-										</div>
-									@endif
 									
 								</div>
 								<div class="date-btn">
 									<ul class="list-inline">
 										<li class="list-inline-item">
-											<a title="" href="javascript:0" data-idform="{{ $item->id }}">Trả lời</a>
+											<a title="" class="btn btn-primary reply-cmt" data-id="{{ $item->id }}">Trả lời</a>
 										</li>
 										<li class="list-inline-item">{{ $item->created_at->diffForHumans() }}</li>
 									</ul>
@@ -57,20 +47,17 @@
 							</div>
 						</div>
 						
-						<?php renderCommentsFrontend($list_comments, $item, $data->id) ?>
-
-						<div class="action-cmt {{ $item->id }}" data-parent="{{ $item->id }}">
-							<form action="{{ route('home.post.reply.comment', $data->id) }}" method="POST" class="form_reply {{ $data->id }}">
+						<?php renderCommentsFrontend($list_comments, $item, $data->id, $data) ?>
+						<div class="action-cmt {{ $item->id }}">
+							<form action="{{ route('home.post.reply.comment', $data->id) }}" method="POST" enctype="multipart/form-data" class="form_reply {{ $data->id }}">
 								@csrf
+								
+								<input type="hidden" name="cate"  value= {{ $data->category()->first()->type == 'post_category' ? 'blog' : 'product' }}>
 								<input type="hidden" name="parent_id" value="{{ $item->id }}">
-								<div class="box-cmt">
 									<div class="item-box">
 										<div class="form-group">
 											<textarea name="content" required="" maxlength="300" cols="30" rows="10">{{ $item->type == 0 ? '@'.$item->Customers->name : '@Quản trị viên' }}:</textarea>
 										</div>
-									</div>
-									<div class="item-box">
-										<button type="button">Gửi</button>
 									</div>
 									<div class="item-box item-box-per">
 										<div class="info-percen">
@@ -99,18 +86,22 @@
 														<input type="email" placeholder="Email" class="inp-text email_rp" name="email" required="">
 													</div>
 												</li>
+												<li class="list-inline-item">
+													<div class="form-group">
+														<input type="phone" placeholder="phone" class="inp-text email_rp" name="phone">
+													</div>
+												</li>
 											</ul>
 										</div>
 									</div>
-									<div class="item-box item-box-per text-center">
-										<input type="submit" value="Hoàn tất & gửi" class="btn-sent" data-form="{{ $item->id }}">
-									</div>
-								</div>
+									<input type="submit" value="Hoàn tất & gửi" class="btn-sent" >
 							</form>
 						</div>
+						
 					</div>
 				@endforeach
 			@endif
 		</div>
 	@endif
 </div>
+

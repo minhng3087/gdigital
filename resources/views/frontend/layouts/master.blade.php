@@ -69,7 +69,40 @@
                         
                     });
 			    });
-
+                $('.add-cart').click(function() {
+                    var id = $(this).attr('data-id');
+                    var count = $('#count-cart').html();
+                    console.log(count);
+                    $.ajax({
+                        url: '{{ route('home.get-add-cart') }}',
+                        method : 'get',
+                        data: {
+                            id: id
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            count++;
+                            $('.hver-cart').html(data);
+                            $('#count-cart').html(count);
+                        }
+                    })
+                });
+                $('.remove-cart').click(function() {
+                    var id = $(this).attr('data-id');
+                    var count = $('#count-cart').html();
+                    $.ajax({
+                        url: '{{ route('home.get-add-cart') }}',
+                        method : 'get',
+                        data: {
+                            id: id
+                        },
+                        success: function (data) {
+                            count--;
+                            $('.hver-cart').html(data);
+                            $('#count-cart').html(count);
+                        }
+                    })
+                });
 			});
 
 			

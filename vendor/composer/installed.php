@@ -6,11 +6,20 @@
     'aliases' => 
     array (
     ),
-    'reference' => '5656b7d1c31f643895d176311a544095d4d23f8b',
+    'reference' => '575e3971bb63490ad0a3eb5a6bcced974d010c57',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
   array (
+    'bumbummen99/shoppingcart' => 
+    array (
+      'pretty_version' => '4.0.0',
+      'version' => '4.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f2c763e311b0fc58b2dfdfa2c41c6318a7c884e1',
+    ),
     'composer/semver' => 
     array (
       'pretty_version' => '1.7.2',
@@ -397,7 +406,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '5656b7d1c31f643895d176311a544095d4d23f8b',
+      'reference' => '575e3971bb63490ad0a3eb5a6bcced974d010c57',
     ),
     'laravel/socialite' => 
     array (
@@ -681,6 +690,15 @@
       array (
       ),
       'reference' => 'a23b761686d50a560cc56233b9ecf49597cc9118',
+    ),
+    'proengsoft/laravel-jsvalidation' => 
+    array (
+      'pretty_version' => 'v4.4.2',
+      'version' => '4.4.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a0c00cc469bb7a788d24441a6f851a1399d1172e',
     ),
     'psr/container' => 
     array (

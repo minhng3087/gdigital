@@ -239,7 +239,6 @@ jQuery(document).ready(function($) {
 
         filterString = getParam();
 
-        // addChoosedFilter();
 
         param = { 
             filterString : filterString,
@@ -312,12 +311,6 @@ function getParam() {
     return string.substring(0, string.length - 1);
 }
 
-// function addChoosedFilter(){
-//     $html = '<li class="list-inline-item"><span>Lọc:</span></li>';
-//     $('.check-box-filter').each(function() {
-//         if ($(this).is(":checked")) {
-//            $html = $html + '<li class="list-inline-item"><label>'+$(this).data('name')+'</label><a href="javascript:0" class="remove_choosed_filter" data-id="'+$(this).attr('id')+'">x</a></li>';
-//         }
-//     });
-//     $('#filter-properties').html($html);
-// }
+
+
+

@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\ProductCategory;
 use App\Trails\MailTrait;
+use App\Mail\SendMailOrders;
 use App\Models\Options;
 use App\Models\Menu;
 use App\Models\CategoryMenu;
@@ -19,7 +20,16 @@ use App\Models\Contact;
 use App\Models\ProductAttributes;
 use App\Models\ProductAttributeTypes;
 use App\Models\ProductVersion;
+use App\Models\Orders;
+use App\Models\OrderDetail;
 use App\Http\Requests\ContactRequest;
+use Cart;
+use JsValidator;
+use DB;
+use Illuminate\Support\Facades\Mail;
+
+
+
 
 use Carbon\Carbon;
 
@@ -140,16 +150,21 @@ class IndexController extends Controller
         $customers->name   = $request->name;
         $customers->email  = $request->email;
         $customers->gender = $request->gioitinh;
+        $customers->phone = $request->phone;
         $customers->save();
-        $comment               = new Comments;
-        $comment->id_product   = $idProduct;
+        $comment            = new Comments;
+        if($request->cate == 'blog') //posts
+        $comment->id_post   = $idProduct;
+        else $comment->id_product = $idProduct;
         $comment->id_customers = $customers->id;
         $comment->parent_id    = $request->parent_id;
         $comment->content      = $request->content;
+        $comment->cate = $request->cate;
         $comment->status       = 0;
      
         $comment->save();
-        return back()->with(['toastr' => 'Gửi thông tin bình luận thành công.']);
+        toastr()->success('Gửi bình luận thành công.');
+        return back();
 
     }
 
@@ -257,6 +272,152 @@ class IndexController extends Controller
         return view('frontend.components.products.product-version', compact('data'));
     }
 
+    public function getCart()
+    {
+        return view('frontend.pages.cart');
+    }
+
+    public function getAddCart(Request $request)
+    {
+        $idProduct   = $request->id;
+        $dataProduct = Products::findOrFail($idProduct);
+        $dataCart    = [
+            'id'      => $dataProduct->id,
+            'name'    => $dataProduct->name,
+            'qty'     => 1,
+            'price'   => !empty($dataProduct->sale_price) ? $dataProduct->sale_price : $dataProduct->regular_price,
+            'weight'  => 0,
+            'options' => [
+                'image'       => $dataProduct->image,
+                'slug'        => $dataProduct->slug,
+              
+            ],
+        ];
+        Cart::add($dataCart);
+        return view('frontend.pages.part-header.products-cart');
+       
+    }
+
+    public function getUpdateCart(Request $request)
+    {
+        Cart::update($request->id, $request->qty);
+        return response()->json(Cart::get($request->id));
+    }
+
+    
+    public function getRemoveCart($row)
+    {
+        Cart::remove($row);
+        toastr()->success('Xóa thành công.');
+        return back();
+    }
+
+
+    public function getCheckOut()
+    {
+        if (Cart::count()) {
+            $jsValidator = JsValidator::make([
+                'name'        => 'required|min:5|max:50',
+                'phone'       => 'required',
+                'address'     => 'required|max:250',
+                'email'       => 'required|email',
+                'note'        => 'max:300',
+                'id_province' => 'required',
+                'id_district' => 'required',
+                'id_ward'     => 'required',
+            ],
+                [
+                    'name.required'        => 'Bạn chưa nhập họ tên.',
+                    'name.min'             => 'Họ tên không thể nhỏ hơn 5 ký tự.',
+                    'name.max'             => 'Họ tên không thể lớn hơn 50 ký tự.',
+                    'email.required'       => 'Bạn chưa nhập email.',
+                    'phone.required'       => 'Bạn chưa nhập số điện thoại.',
+                    'email.email'          => 'Email phải là một địa chỉ email hợp lệ.',
+                    'note.max'             => 'Nội dung không thể lớn hơn 300 ký tự.',
+                    'address.required'     => 'Bạn chưa nhập địa chỉ',
+                    'address.max'          => 'Địa chỉ không thể lớn hơn 250 ký tự.',
+                    'id_province.required' => 'Bạn chưa chọn Tỉnh Thành.',
+                    'id_district.required' => 'Bạn chưa chọn Quận Huyện.',
+                    'id_ward.required'     => 'Bạn chưa chọn Phường Xã.',
+                ]);
+            $province = DB::table('vn_province')->get();
+            return view('frontend.pages.check-out', compact('province', 'jsValidator'));
+        }
+        toastr()->error('Chưa có sản phẩm trong giỏ hàng');
+        return redirect('/');
+    }
+
+    public function getProvince(Request $request)
+    {
+        if ($request->type == 'district') {
+            $district = DB::table('vn_district')->where('_province_id', $request->id)->get();
+            echo "<option value=''>Chọn Quận / Huyện</option>";
+            foreach ($district as $value) {
+                echo "<option value='{$value->id}'>{$value->_name}</option>";
+            }
+        } else {
+            $ward = DB::table('vn_ward')->where('_district_id', $request->id)->get();
+            echo "<option value=''>Chọn Phường / Xã</option>";
+            foreach ($ward as $value) {
+                echo "<option value='{$value->id}'>{$value->_name}</option>";
+            }
+        }
+
+    }
+
+    public function postCheckOut(Request $request)
+    {
+        $customer              = new Customers;
+        $customer->name        = $request->name;
+        $customer->email       = $request->email;
+        $customer->phone       = $request->phone;
+        $customer->id_province = $request->id_province;
+        $customer->id_district = $request->id_district;
+        $customer->id_ward     = $request->id_ward;
+        $customer->address     = $request->address;
+        $customer->save();
+        $order                 = new Orders;
+        $order->id_customers   = $customer->id;
+        $order->subtotal_total = filter_var(Cart::totalFloat(), FILTER_SANITIZE_NUMBER_INT);
+
+        $order->tax_shipping    = 0;
+        $order->note            = $request->note;
+        $order->type_pay        = 'COD';
+        $order->status          = 1;
+
+        $order->save();
+
+        foreach (Cart::content() as $item) {
+            $orderDetail                   = new OrderDetail;
+            $orderDetail->order_id         = $order->id;
+            $orderDetail->product_id       = $item->id;
+            $orderDetail->product_quantity = $item->qty;
+            $orderDetail->price            = $item->price;
+            $orderDetail->price_total      = $item->price * $item->qty;
+            $orderDetail->options          = @$item->options['attributes'];
+           
+            $orderDetail->save();
+        }
+        $this->initMailConfig();
+
+        $dataMail = [
+            'name'        => $request->name,
+            'email'       => $request->email,
+            'phone'       => $request->phone,
+            'id_province' => $request->id_province,
+            'id_district' => $request->id_district,
+            'id_ward'     => $request->id_ward,
+            'address'     => $request->address,
+            'cart'        => Cart::content(),
+            'total'       =>  filter_var(Cart::totalFloat(), FILTER_SANITIZE_NUMBER_INT)
+        ];
+
+        Mail::to(getOptions('general','email_admin'))->send(new SendMailOrders($dataMail));
+
+        Cart::destroy();
+        toastr()->success('Đơn hàng của bạn đã được đặt thành công. Chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.');
+        return redirect('/');
+    }
 
 
 

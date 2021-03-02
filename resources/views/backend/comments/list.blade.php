@@ -19,7 +19,6 @@
                     @include('backend.components.table')
                 </form>
 
-                <p style="color: red">Nhấn vào trạng thái để duyệt nhanh bình luận.</p>
             </div>
         </div>
     </div>

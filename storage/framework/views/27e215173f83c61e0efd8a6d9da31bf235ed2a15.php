@@ -51,7 +51,17 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="cart text-right"><a href=""><img src="<?php echo e(__BASE_URL__); ?>/images/cart.png" class="img-fluid" alt=""><span>0 SẢN PHẨM</span></a></div>
+                        <div class="cart text-right">
+                            <a href="<?php echo e(route('home.cart')); ?>"><img src="<?php echo e(__BASE_URL__); ?>/images/cart.png" class="img-fluid" alt="">
+                                <span id="count-cart"><?php echo e(Cart::count()); ?></span> sản phẩm
+                            </a>
+                        </div>
+
+                        <?php if(Cart::count()): ?>
+                            <div class="hver-cart">
+                                <?php echo $__env->make('frontend.pages.part-header.products-cart', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

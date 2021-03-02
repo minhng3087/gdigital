@@ -158,7 +158,9 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         Conner\Tagging\Providers\TaggingServiceProvider::class,
         Yajra\DataTables\HtmlServiceProvider::class,
-        Yoeunes\Toastr\ToastrServiceProvider::class
+        Yoeunes\Toastr\ToastrServiceProvider::class,
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+        Proengsoft\JsValidation\JsValidationServiceProvider::class
 
     ],
     /*
@@ -211,5 +213,8 @@ return [
         'Html'      => Illuminate\Html\HtmlFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        'JsValidator' => Proengsoft\JsValidation\Facades\JsValidatorFacade::class,
+
     ],
 ];

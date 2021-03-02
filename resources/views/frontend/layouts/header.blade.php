@@ -51,7 +51,17 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="cart text-right"><a href=""><img src="{{__BASE_URL__}}/images/cart.png" class="img-fluid" alt=""><span>0 SẢN PHẨM</span></a></div>
+                        <div class="cart text-right">
+                            <a href="{{ route('home.cart') }}"><img src="{{__BASE_URL__}}/images/cart.png" class="img-fluid" alt="">
+                                <span id="count-cart">{{ Cart::count() }}</span> sản phẩm
+                            </a>
+                        </div>
+
+                        @if (Cart::count())
+                            <div class="hver-cart">
+                                @include('frontend.pages.part-header.products-cart')
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -17,7 +17,6 @@
                     <?php echo $__env->make('backend.components.table', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </form>
 
-                <p style="color: red">Nhấn vào trạng thái để duyệt nhanh bình luận.</p>
             </div>
         </div>
     </div>

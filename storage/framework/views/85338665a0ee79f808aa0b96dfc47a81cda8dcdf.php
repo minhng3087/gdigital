@@ -50,7 +50,6 @@
 								<?php endif; ?>
 							</div>
 						    <div class="box-footer">
-						    	<p style="font-weight: bolder; font-style: italic; color: red">TIP: Xóa bình luận sẽ xóa hết tất cả các câu trả lời của bình luận đó. Bạn nên cân nhắc khi xóa bình luận.</p>
 						        <form action="<?php echo e(route($module['module'].'.store')); ?>" method="POST">
 						        	<?php echo csrf_field(); ?>
 						        	<input type="hidden" name="parent_id" value="0">

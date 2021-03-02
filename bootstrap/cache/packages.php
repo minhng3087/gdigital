@@ -1,4 +1,15 @@
 <?php return array (
+  'bumbummen99/shoppingcart' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Cart' => 'Gloudemans\\Shoppingcart\\Facades\\Cart',
+    ),
+  ),
   'laravel/socialite' => 
   array (
     'providers' => 
@@ -45,6 +56,17 @@
     'providers' => 
     array (
       0 => 'Carbon\\Laravel\\ServiceProvider',
+    ),
+  ),
+  'proengsoft/laravel-jsvalidation' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Proengsoft\\JsValidation\\JsValidationServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'JsValidator' => 'Proengsoft\\JsValidation\\Facades\\JsValidatorFacade',
     ),
   ),
   'rtconner/laravel-tagging' => 

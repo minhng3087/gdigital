@@ -109,6 +109,7 @@
       31 => 'Conner\\Tagging\\Providers\\TaggingServiceProvider',
       32 => 'Yajra\\DataTables\\HtmlServiceProvider',
       33 => 'Yoeunes\\Toastr\\ToastrServiceProvider',
+      34 => 'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider',
     ),
     'aliases' => 
     array (
@@ -149,6 +150,7 @@
       'Html' => 'Illuminate\\Html\\HtmlFacade',
       'Socialite' => 'Laravel\\Socialite\\Facades\\Socialite',
       'DataTables' => 'Yajra\\DataTables\\Facades\\DataTables',
+      'Cart' => 'Gloudemans\\Shoppingcart\\Facades\\Cart',
     ),
   ),
   'auth' => 
@@ -304,6 +306,23 @@
       ),
     ),
     'prefix' => 'laravel',
+  ),
+  'cart' => 
+  array (
+    'calculator' => 'Gloudemans\\Shoppingcart\\Calculation\\DefaultCalculator',
+    'tax' => 21,
+    'database' => 
+    array (
+      'connection' => NULL,
+      'table' => 'shoppingcart',
+    ),
+    'destroy_on_logout' => false,
+    'format' => 
+    array (
+      'decimals' => 2,
+      'decimal_point' => '.',
+      'thousand_separator' => ',',
+    ),
   ),
   'database' => 
   array (
@@ -805,6 +824,17 @@
       'remote_prefix' => NULL,
       'force_resync_remote' => NULL,
     ),
+  ),
+  'jsvalidation' => 
+  array (
+    'view' => 'jsvalidation::bootstrap',
+    'form_selector' => 'form',
+    'focus_on_error' => false,
+    'duration_animate' => 1000,
+    'disable_remote_validation' => false,
+    'remote_validation_field' => '_jsvalidation',
+    'escape' => true,
+    'ignore' => ':hidden, [contenteditable=\'true\']',
   ),
   'tinker' => 
   array (

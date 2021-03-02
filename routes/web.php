@@ -161,6 +161,20 @@ Route::post('post-reply-comment/{idproduct}', 'IndexController@postReplyComment'
 
 Route::get('vote-star', 'IndexController@getVoteStar')->name('home.get.votestar');
 
+Route::post('add-cart', 'IndexController@postAddCart')->name('home.post-add-cart');
+
+Route::get('get-add-cart', 'IndexController@getAddCart')->name('home.get-add-cart');
+
+Route::get('gio-hang', 'IndexController@getCart')->name('home.cart');
+
+Route::get('remove/{rowID}', 'IndexController@getRemoveCart')->name('home.remove.cart');
+Route::get('update-cart', 'IndexController@getUpdateCart')->name('home.update.cart');
+
+Route::get('thanh-toan', 'IndexController@getCheckOut')->name('home.check-out');
+Route::get('load-province', 'IndexController@getProvince')->name('home.load.province');
+Route::post('thanh-toan', 'IndexController@postCheckOut')->name('home.check-out.post');
+
+
 
 
 

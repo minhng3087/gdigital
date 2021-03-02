@@ -326,6 +326,7 @@ function getStarProduct($item)
 }
 
 
+
 function dequyComments($datas)
 {
     $list_ids = [];
@@ -359,15 +360,16 @@ function renderComments($data, $item1)
 }
 
 
-function renderCommentsFrontend($data, $item1, $productId)
+function renderCommentsFrontend($data, $item1, $productId, $arr)
 {
     if(count($item1->getChild()) > 0){
+            
         foreach ($item1->getChild() as $value) {
             if ($value->parent_id == $item1->id) {
                 $item = $value;
                 $idProduct = $productId;
-                echo view('frontend.comments.row-comment',compact('item', 'idProduct'))->render();
-                renderCommentsFrontend($data, $value, $productId);
+                echo view('frontend.comments.row-comment',compact('item', 'idProduct', 'arr'))->render();
+                renderCommentsFrontend($data, $value, $productId, $arr);
             }
         }
     }
@@ -379,62 +381,6 @@ function getFullAddress($id_province, $id_district, $id_ward)
     return DB::table('vn_ward')->where('id', $id_ward)->first()->_name.' - '.DB::table('vn_district')->where('id', $id_district)->first()->_name.' - '.DB::table('vn_province')->where('id', $id_province)->first()->_name;
 }
 
-function url_query_render($key_filter = null, $value = null)
-{
-    $prefix = '?';
-    $url_current = url()->full();
 
-    $url_query = explode('?', $url_current);
-    if (isset($url_query[1])) {
-
-        $url_query_list = explode('&', $url_query[1]);
-
-        $key_filter_list = [];
-        $value_filter_list = [];
-        foreach ($url_query_list as $key => $item) {
-            $item_array = explode('=', $item);
-            $key_filter_list[$key] = $item_array[0];
-            $value_filter_list[$key] = $item_array[1];
-        }
-
-        if (in_array($key_filter, $key_filter_list)) {
-            $key_filter_index = array_search($key_filter, $key_filter_list);
-            unset($url_query_list[$key_filter_index]);
-
-
-            if (in_array($value, $value_filter_list)) {
-                $value_filter_index = array_search($value, $value_filter_list);
-                if ($value_filter_index === $key_filter_index) {
-
-                    if (count($url_query_list) === 0) {
-                        return [
-                            'url' => URL::current(),
-                            'active' => true
-                        ];
-                    }
-
-                    return [
-                        'url' => URL::current() . $prefix . implode('&', $url_query_list),
-                        'active' => true
-                    ];
-                }
-            }
-
-        }
-
-        array_push($url_query_list, $key_filter . '=' . $value);
-        return [
-            'url' => URL::current() . $prefix . implode('&', $url_query_list),
-            'active' => false
-        ];
-
-    }
-
-    return [
-        'url' => URL::current() . $prefix . $key_filter . '=' . $value,
-        'active' => false
-    ];
-
-}
 
 

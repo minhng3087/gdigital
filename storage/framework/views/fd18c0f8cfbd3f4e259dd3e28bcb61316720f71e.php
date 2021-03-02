@@ -19,7 +19,9 @@
 				<i class="fa fa-star-o"></i>
 			</div>
 			<div class="price"><span><?php echo e(number_format($item->regular_price,0, '.', '.')); ?>đ</span></div>
-			<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
+			<div class="btn-add">
+				<a title="Thêm vào giỏ hàng" class="add-cart" data-id="<?php echo e($item->id); ?>">Thêm vào giỏ hàng</a>
+			</div>
 		</div>
 	</div>
 </div><?php /**PATH C:\xampp\htdocs\m\resources\views/frontend/components/product.blade.php ENDPATH**/ ?>

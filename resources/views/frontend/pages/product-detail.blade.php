@@ -120,12 +120,20 @@
 												<div class="quantity">
 				                                    <span class="mont">Số lượng:</span>
 				                                    <div class="number-spinner">
-				                                      <input type="text" class="pl-ns-value" value="10" maxlength="5">
-				                                    </div>
+														<span class="ns-btn">
+															<a data-dir="dwn"><span class="icon-minus">-</span></a>
+														</span>
+														<input type="text" class="pl-ns-value" value="1" maxlength="5" readonly name="qty">
+														<span class="ns-btn">
+															<a data-dir="up"><span class="icon-plus">+</span></a>
+														</span>
+													</div>
 				                                </div>
 											</li>
 											<li class="list-inline-item">
-												<div class="add-cart"><a href="">Thêm vào giỏ hàng</a></div>
+												<div class="add-cart">
+													<a title="Thêm vào giỏ hàng" href="{{ route('home.get-add-cart', [ 'id' => $item->id, 'qty' => 1, 'redirect' => 1 ]) }}">Thêm vào giỏ hàng</a>
+												</div>
 											</li>
 										</ul>
 									</div>
@@ -161,8 +169,8 @@
 						@include ('frontend.comments.list-comments')
 					</div>
 				</div>
+				@include ('frontend.components.products.vote-star')
 			</div>
-			@include ('frontend.components.products.vote-star')
 		</div>
 	</section>
 	<section class="box-product pb-50" >
@@ -223,14 +231,20 @@
 												<li class="list-inline-item">
 													<div class="quantity">
 					                                    <span class="mont">Số lượng:</span>
-					                                    <div class="number-spinner">
-					                                      <input type="text" class="pl-ns-value" value="10" maxlength="5">
-					                                    </div>
+														<div class="number-spinner">
+															<span class="ns-btn">
+																<a data-dir="dwn"><span class="icon-minus">-</span></a>
+															</span>
+															<input type="text" class="pl-ns-value" value="1" maxlength="5" readonly name="qty">
+															<span class="ns-btn">
+																<a data-dir="up"><span class="icon-plus">+</span></a>
+															</span>
+														</div>
 					                                </div>
 												</li>
-												<li class="list-inline-item">
-													<div class="add-cart"><a href="">Thêm vào giỏ hàng</a></div>
-												</li>
+												<div class="add-cart">
+													<a title="Thêm vào giỏ hàng" href="{{ route('home.get-add-cart', [ 'id' => $item->id, 'qty' => 1, 'redirect' => 1 ]) }}">Thêm vào giỏ hàng</a>
+												</div>
 											</ul>
 										</div>
 									</div>
