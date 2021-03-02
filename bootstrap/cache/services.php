@@ -48,6 +48,7 @@
     44 => 'Yajra\\DataTables\\HtmlServiceProvider',
     45 => 'Yoeunes\\Toastr\\ToastrServiceProvider',
     46 => 'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider',
+    47 => 'Proengsoft\\JsValidation\\JsValidationServiceProvider',
   ),
   'eager' => 
   array (
@@ -79,6 +80,7 @@
     25 => 'Yajra\\DataTables\\HtmlServiceProvider',
     26 => 'Yoeunes\\Toastr\\ToastrServiceProvider',
     27 => 'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider',
+    28 => 'Proengsoft\\JsValidation\\JsValidationServiceProvider',
   ),
   'deferred' => 
   array (

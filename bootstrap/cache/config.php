@@ -110,6 +110,7 @@
       32 => 'Yajra\\DataTables\\HtmlServiceProvider',
       33 => 'Yoeunes\\Toastr\\ToastrServiceProvider',
       34 => 'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider',
+      35 => 'Proengsoft\\JsValidation\\JsValidationServiceProvider',
     ),
     'aliases' => 
     array (
@@ -151,6 +152,7 @@
       'Socialite' => 'Laravel\\Socialite\\Facades\\Socialite',
       'DataTables' => 'Yajra\\DataTables\\Facades\\DataTables',
       'Cart' => 'Gloudemans\\Shoppingcart\\Facades\\Cart',
+      'JsValidator' => 'Proengsoft\\JsValidation\\Facades\\JsValidatorFacade',
     ),
   ),
   'auth' => 
@@ -332,7 +334,7 @@
       'sqlite' => 
       array (
         'driver' => 'sqlite',
-        'database' => 'web',
+        'database' => 'minhnguyen_gdigital',
         'prefix' => '',
       ),
       'mysql' => 
@@ -340,9 +342,9 @@
         'driver' => 'mysql',
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'web',
-        'username' => 'root',
-        'password' => '',
+        'database' => 'minhnguyen_gdigital',
+        'username' => 'minhn_minh123',
+        'password' => 'sp&11O7i',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -355,9 +357,9 @@
         'driver' => 'pgsql',
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'web',
-        'username' => 'root',
-        'password' => '',
+        'database' => 'minhnguyen_gdigital',
+        'username' => 'minhn_minh123',
+        'password' => 'sp&11O7i',
         'charset' => 'utf8',
         'prefix' => '',
         'schema' => 'public',
@@ -368,9 +370,9 @@
         'driver' => 'sqlsrv',
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'web',
-        'username' => 'root',
-        'password' => '',
+        'database' => 'minhnguyen_gdigital',
+        'username' => 'minhn_minh123',
+        'password' => 'sp&11O7i',
         'charset' => 'utf8',
         'prefix' => '',
       ),
@@ -529,6 +531,17 @@
         'bucket' => NULL,
       ),
     ),
+  ),
+  'jsvalidation' => 
+  array (
+    'view' => 'jsvalidation::bootstrap',
+    'form_selector' => 'form',
+    'focus_on_error' => false,
+    'duration_animate' => 1000,
+    'disable_remote_validation' => false,
+    'remote_validation_field' => '_jsvalidation',
+    'escape' => true,
+    'ignore' => ':hidden, [contenteditable=\'true\']',
   ),
   'mail' => 
   array (
@@ -824,17 +837,6 @@
       'remote_prefix' => NULL,
       'force_resync_remote' => NULL,
     ),
-  ),
-  'jsvalidation' => 
-  array (
-    'view' => 'jsvalidation::bootstrap',
-    'form_selector' => 'form',
-    'focus_on_error' => false,
-    'duration_animate' => 1000,
-    'disable_remote_validation' => false,
-    'remote_validation_field' => '_jsvalidation',
-    'escape' => true,
-    'ignore' => ':hidden, [contenteditable=\'true\']',
   ),
   'tinker' => 
   array (
