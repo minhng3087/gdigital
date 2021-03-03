@@ -213,7 +213,6 @@ class PostController extends Controller
     public function destroy($id)
     {
         $item = Posts::findOrFail($id);
-        File::delete('upload/posts/'.$item->image);
         Posts::destroy($id);
         toastr()->success('Xóa thành công.');
         return redirect()->back();
@@ -224,7 +223,6 @@ class PostController extends Controller
         if ($request->has('chkItem')) {
             foreach ($request->chkItem as $id) {
                 $item = Posts::findOrFail($id);
-                File::delete('upload/posts/'.$item->image);
                 Posts::destroy($id);
             }
             toastr()->success('Xóa thành công.');

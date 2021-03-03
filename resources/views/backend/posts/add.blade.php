@@ -16,8 +16,8 @@
 		                    <li class="active">
 		                        <a href="#activity" data-toggle="tab" aria-expanded="true">Bài viết</a>
 		                    </li>
-		                    <li class="">
-		                    	<a href="#setting" data-toggle="tab" aria-expanded="true">Cấu hình seo</a>
+		                    <li class="" style="display: none;">
+		                    	<a href="#setting" data-toggle="tab" aria-expanded="true" >Cấu hình seo</a>
 		                    </li>
 		                    <li class="">
 		                    	<a href="#tags" data-toggle="tab" aria-expanded="true">Tags</a>
@@ -48,7 +48,7 @@
 		                            </div>
 		                        </div>
 		                    </div>
-		                    <div class="tab-pane" id="setting">
+		                    <div class="tab-pane" id="setting" >
 		                        <div class="form-group">
 		                            <label>Title SEO</label>
 		                            <input type="text" class="form-control" name="meta_title" value="{!! old('meta_title') !!}">

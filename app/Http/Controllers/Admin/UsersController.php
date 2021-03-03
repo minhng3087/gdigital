@@ -35,7 +35,7 @@ class UsersController extends Controller
      public function listuse()
     {
         $data = DB::table('users')->select()->whereIn('level',[1,3])->paginate(20);
-       return view('backend.users.listuse', compact('data','nhan'));  
+       return view('backend.users.listuse', compact('data'));  
     } 
      public function edituse(Request $request)
     {
