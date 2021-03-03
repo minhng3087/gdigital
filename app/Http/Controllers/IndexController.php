@@ -64,7 +64,7 @@ class IndexController extends Controller
 
         $posts_hot = Posts::active()->published()->where('type', 'blog')->order()->where('hot', 1)->take(3)->get();
 
-        return view('frontend.pages.home', compact('dataContent', 'posts_hot', 'products_sale_hot', 'products_hot'));
+        return view('frontend.pages.home', compact('dataContent', 'posts_hot', 'products_hot'));
     }
 
     public function getSingleNews($slug) {
