@@ -398,7 +398,7 @@ class IndexController extends Controller
            
             $orderDetail->save();
         }
-        $this->initMailConfig();
+        // $this->initMailConfig();
 
         $dataMail = [
             'name'        => $request->name,
@@ -411,8 +411,7 @@ class IndexController extends Controller
             'cart'        => Cart::content(),
             'total'       =>  filter_var(Cart::totalFloat(), FILTER_SANITIZE_NUMBER_INT)
         ];
-
-        Mail::to(getOptions('general','email_admin'))->send(new SendMailOrders($dataMail));
+        Mail::to($request->email)->send(new SendMailOrders($dataMail));
 
         Cart::destroy();
         toastr()->success('Đơn hàng của bạn đã được đặt thành công. Chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.');
