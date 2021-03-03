@@ -398,7 +398,6 @@ class IndexController extends Controller
            
             $orderDetail->save();
         }
-        $this->initMailConfig();
 
         $dataMail = [
             'name'        => $request->name,
