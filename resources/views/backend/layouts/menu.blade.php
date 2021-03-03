@@ -113,7 +113,7 @@
                   <a href="{{ route('setting.menu-category') }}"><i class="fa fa-circle-o"></i> Menu Danh mục</a>
               </li>
 
-              <li class="{{ Request::segment(3) === 'smtp' ? 'active' : null }}" style="display: none">
+              <li class="{{ Request::segment(3) === 'smtp' ? 'active' : null }}">
                   <a href="{{ route('backend.options.smtp-config') }}"><i class="fa fa-circle-o"></i>  Cấu hình Email</a>
               </li>
               
