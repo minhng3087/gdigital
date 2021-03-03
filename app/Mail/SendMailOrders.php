@@ -31,6 +31,6 @@ class SendMailOrders extends Mailable
     public function build()
     {
         $data = $this->data;
-        return $this->to(getOptions('general','email_admin'))->from('nguyengiaminh2k@gmail.com', 'Minh')->subject('Thông báo đơn hàng mới')->view('mail.orders', $data);
+        return $this->from('lethilieu2707@gmail.com', 'Minh')->subject('Thông báo đơn hàng mới')->view('mail.orders', $data);
     }
 }
