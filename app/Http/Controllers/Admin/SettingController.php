@@ -65,25 +65,11 @@ class SettingController extends Controller
 
     public function postSendTestEmail(Request $request)
     {
+        $this->initMailConfig();
         $contact['email'] = $request->smtp_email;
         $contact['title'] = $request->smtp_title;
         $contact['smtp_message'] = $request->smtp_message;
-        // Mail::to($contact['email'])->send(new SendTestEmail($contact));
-
-        // $content_email = [
-        //     'name' => $request->name,
-        //     'phone' => $request->phone,
-        //     'male' => $request->male,
-        //     'nam_sinh' => $request->nam_sinh,
-        //     'thongtin_congtrinh' => $request->thongtin_congtrinh,
-        //     'goi_dich_vu' => $request->goi_dich_vu,
-        //     'hang_muc' => $request->hang_muc,
-        //     'phong_cach' => $request->phong_cach,
-        //     'url' => route('contact.edit', $data->id),
-        // ]; 
-        // getOptions('smtp-config', 'name');
-        // getOptions('general','email_admin');
-
+       
         Mail::send('mail.test-email', $contact, function ($msg)  {
 
             $msg->from(getOptions('smtp-config', 'name'), 'Gdigital');
