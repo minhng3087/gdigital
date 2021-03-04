@@ -69,14 +69,7 @@ class SettingController extends Controller
         $contact['email'] = $request->smtp_email;
         $contact['title'] = $request->smtp_title;
         $contact['smtp_message'] = $request->smtp_message;
-       
-        Mail::send('mail.test-email', $contact, function ($msg)  {
-
-            $msg->from(getOptions('smtp-config', 'name'), 'Gdigital');
-
-            $msg->to($contact['email'], 'Gdigital')->subject('ok');
-
-        });
+        Mail::to($contact['email'])->send(new SendTestEmail($contact));
         toastr()->success('Gửi thành công.');
         return back();
     }

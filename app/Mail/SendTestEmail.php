@@ -32,6 +32,6 @@ class SendTestEmail extends Mailable
     public function build()
     {
         $data = $this->data;
-        return $this->subject($data['title'])->view('mail.test-email', $data);
+        return $this->to($data['email'])->from($data['email'], getOptions('smtp-config', 'name'))->subject($data['title'])->view('mail.test-email', $data);
     }
 }
