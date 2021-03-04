@@ -217,8 +217,8 @@
 									<div class="item">
 										<div class="total">
 											<p>Tổng thanh toán</p>
-											<div class="price" id="price">{{ Cart::total() }}đ</div>
-											<input type="hidden" id="base_price" value="{{ Cart::total() }}">
+											<div class="price" id="price">{{ Cart::priceTotal() }}đ</div>
+											<input type="hidden" id="base_price" value="{{ Cart::priceTotal() }}">
 										</div>
 									</div>
 								</div>

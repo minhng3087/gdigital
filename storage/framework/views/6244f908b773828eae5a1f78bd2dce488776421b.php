@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" title="" href="<?php echo e(__BASE_URL__); ?>/css/slick-theme.min.css">
     <link rel="stylesheet" href="<?php echo e(url('public/admin_assets/dist/css/jquery.toast.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(__BASE_URL__); ?>/css/jquery.mmenu.all.css">
-    <link rel="stylesheet" href="http://localhost/anhquyen/css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" title="" href="<?php echo e(__BASE_URL__); ?>/css/style.css">
     <link rel="stylesheet" type="text/css" title="" href="<?php echo e(__BASE_URL__); ?>/css/responsive.css">
     <?php echo toastr_css(); ?>
@@ -27,7 +26,7 @@
     <?php echo $__env->make('frontend.layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <script type="text/javascript" src="<?php echo e(__BASE_URL__); ?>/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo e(__BASE_URL__); ?>/js/slick.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<?php echo e(__BASE_URL__); ?>/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="<?php echo e(__BASE_URL__); ?>/js/jquery.mmenu.all.js"></script>
     <script type="text/javascript" src="<?php echo e(__BASE_URL__); ?>/js/private.js"></script>
 
