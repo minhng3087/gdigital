@@ -4,7 +4,6 @@ define("__BASE_URL__", url('public/frontend'));
 
 use App\Models\Options;
 use App\Models\Comments;
-use App\Models\ProductQuestions;
 
 
 function renderImage($link)

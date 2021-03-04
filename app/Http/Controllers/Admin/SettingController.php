@@ -81,13 +81,14 @@ class SettingController extends Controller
         //     'phong_cach' => $request->phong_cach,
         //     'url' => route('contact.edit', $data->id),
         // ]; 
-
+        // getOptions('smtp-config', 'name');
+        // getOptions('general','email_admin');
 
         Mail::send('mail.test-email', $contact, function ($msg)  {
 
-            $msg->from('lethilieu2707@gmail.com', 'Website - Thọ Quang Phát');
+            $msg->from(getOptions('smtp-config', 'name'), 'Gdigital');
 
-            $msg->to('nguyengiaminh2k@gmail.com', 'Website - Thọ Quang Phát')->subject('aava');
+            $msg->to($contact['email'], 'Gdigital')->subject('ok');
 
         });
         toastr()->success('Gửi thành công.');
