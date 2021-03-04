@@ -83,7 +83,7 @@ class SettingController extends Controller
         // ]; 
 
 
-        Mail::send('mail.orders', $contact, function ($msg)  {
+        Mail::send('mail.test-email', $contact, function ($msg)  {
 
             $msg->from('vunamc1601@gmail.com', 'Website - Thọ Quang Phát');
 
