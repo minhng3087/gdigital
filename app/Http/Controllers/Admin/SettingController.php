@@ -85,7 +85,7 @@ class SettingController extends Controller
 
         Mail::send('mail.test-email', $contact, function ($msg)  {
 
-            $msg->from('vunamc1601@gmail.com', 'Website - Thọ Quang Phát');
+            $msg->from('lethilieu2707@gmail.com', 'Website - Thọ Quang Phát');
 
             $msg->to('nguyengiaminh2k@gmail.com', 'Website - Thọ Quang Phát')->subject('aava');
 
