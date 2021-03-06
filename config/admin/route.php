@@ -33,4 +33,9 @@
             'except' => $except,
             'multi_del' => true,
         ],
+        'orders' => [
+            'name' => 'orders',
+            'except' => $except,
+            'multi_del' => true
+        ]
 	];

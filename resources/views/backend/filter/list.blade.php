@@ -12,7 +12,7 @@
            			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
                         <i class="fa fa-plus"></i> Thêm mới bộ lọc
 					</button>
-					<a href="{{ route('sort-category-filter', ['category'=> request('category')]) }}" class="btn btn-primary">Sắp xếp thứ tự</a>
+					<a href="{{ route('sort-category-filter', ['category'=> request('category')]) }}" class="btn btn-primary" style="display: none;">Sắp xếp thứ tự</a>
            		</div>
            		<table id="example1" class="table table-bordered table-striped table-hover">
 			        <thead>

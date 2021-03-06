@@ -59,7 +59,6 @@
 					</tbody>
 				</table>	
 			</div>
-			<a href="{{ @$url }}">Chi tiết</a>
 				
 		</div>		
 	</div>

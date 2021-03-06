@@ -104,7 +104,7 @@
 									</ul>
 								</div>
 								<div class="col-md-5 col-sm-5">
-									<div class="total text-center">Tổng: <?php echo e(Cart::priceTotal()); ?>VNĐ</div>
+									<div class="total text-center">Tổng: <?php echo e(number_format(Cart::priceTotal(), 0, '.', '.')); ?>VNĐ</div>
 								</div>
 							</div>
 						</div>

@@ -50,95 +50,101 @@
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6">
-							<div class="info-prev">
-								<div class="cate">
-									<h1>{{ $data->name }}</h1>
-									<div class="vote">
-										@for ($i = 1; $i <= round($averageVote); $i++)
-											<i class="fa fa-star"></i>
-										@endfor
-										@for ($i = 0; $i < 5- round($averageVote); $i++)
-											<i class="fa fa-star-o"></i>
-										@endfor
-									</div>	
-									<div id="product-version">
-										@if (!is_null($data->sale_price))
-											<?php $price = $data->sale_price; ?>
-											<span class="price">{{ number_format($data->sale_price,0, '.', '.') }}đ</span> 
-											<del class="price" >
-												{{ number_format($data->regular_price,0, '.', '.') }}đ
-											</del>
-										@else
-											<?php $price = $data->regular_price; ?>
-											@if ($data->regular_price != 0)
-												<span class="price">{{ number_format($data->regular_price,0, '.', '.') }}đ</span>
-											@endif
-											
-										@endif
-									</div>
-									@if(count($data->ProductVersion()->get()))
-									<div class="phienban">
-										<ul class="list-inline">
-											<li class="list-inline-item"><span class="tit">CHỌN PHIÊN BẢN</span></li>
-											@foreach ($data->ProductVersion()->get() as $item)
-											<li class="list-inline-item"><span>
-												<input type="radio" class="version-check-box" name="fruit-1" value="{{ $item->key }}">
-												<label for="version-{{ $item->key}}">{{ $item->key }}</label>
-											</span>
-											</li>
-											@endforeach
-											
-										</ul>
-									</div>
-									@endif
-									<div class="desc">
-									{{ @$data->sort_desc }}
-									@if (count($data->ProductGift))
-										<ul>
-											@foreach ($data->ProductGift as $gift)
-												<?php $indexParent = $loop->index; ?>
-												@if ($gift->type == 'options')
-													<li>{!! $gift->desc !!}</li>
-														<?php $options_gift = json_decode( $gift->value );?>
-														@if (!empty($options_gift->list))
-															@foreach ($options_gift->list as $key => $value)
-																<li>
-																	{{ $value->title }}
-																</li>
-															@endforeach
-														@endif
-													@else
-													<li>{!! $gift->desc !!}</li>
+							<form action="{{ route('home.post-add-cart') }}" method="POST">
+							@csrf
+								<div class="info-prev">
+									<div class="cate">
+										<h1>{{ $data->name }}</h1>
+										<div class="vote">
+											@for ($i = 1; $i <= round($averageVote); $i++)
+												<i class="fa fa-star"></i>
+											@endfor
+											@for ($i = 0; $i < 5- round($averageVote); $i++)
+												<i class="fa fa-star-o"></i>
+											@endfor
+										</div>	
+										<div id="product-version">
+											@if (!is_null($data->sale_price))
+												<?php $price = $data->sale_price; ?>
+												<span class="price">{{ number_format($data->sale_price,0, '.', '.') }}đ</span> 
+												<del class="price" >
+													{{ number_format($data->regular_price,0, '.', '.') }}đ
+												</del>
+											@else
+												<?php $price = $data->regular_price; ?>
+												@if ($data->regular_price != 0)
+													<span class="price">{{ number_format($data->regular_price,0, '.', '.') }}đ</span>
 												@endif
-											@endforeach
-										</ul>
-									@endif
-									</div>
-									<div class="quantity-add">
-										<ul class="list-inline">
-											<li class="list-inline-item">
-												<div class="quantity">
-				                                    <span class="mont">Số lượng:</span>
-				                                    <div class="number-spinner">
-														<span class="ns-btn">
-															<a data-dir="dwn"><span class="icon-minus">-</span></a>
-														</span>
-														<input type="text" class="pl-ns-value" value="1" maxlength="5" readonly name="qty">
-														<span class="ns-btn">
-															<a data-dir="up"><span class="icon-plus">+</span></a>
-														</span>
+												
+											@endif
+										</div>
+										@if(count($data->ProductVersion()->get()))
+										<div class="phienban">
+											<ul class="list-inline">
+												<li class="list-inline-item"><span class="tit">CHỌN PHIÊN BẢN</span></li>
+												@foreach ($data->ProductVersion()->get() as $item)
+												<li class="list-inline-item"><span>
+													<input type="radio" class="version-check-box" name="fruit-1" value="{{ $item->key }}">
+													<label for="version-{{ $item->key}}">{{ $item->key }}</label>
+												</span>
+												</li>
+												@endforeach
+												
+											</ul>
+										</div>
+										@endif
+										<div class="desc">
+										{{ @$data->sort_desc }}
+										@if (count($data->ProductGift))
+											<ul>
+												@foreach ($data->ProductGift as $gift)
+													<?php $indexParent = $loop->index; ?>
+													@if ($gift->type == 'options')
+														<li>{!! $gift->desc !!}</li>
+															<?php $options_gift = json_decode( $gift->value );?>
+															@if (!empty($options_gift->list))
+																@foreach ($options_gift->list as $key => $value)
+																	<li>
+																		{{ $value->title }}
+																	</li>
+																@endforeach
+															@endif
+														@else
+														<li>{!! $gift->desc !!}</li>
+													@endif
+												@endforeach
+											</ul>
+										@endif
+										</div>
+										<div class="quantity-add">
+											<ul class="list-inline">
+												<li class="list-inline-item">
+													<div class="quantity">
+														<span class="mont">Số lượng:</span>
+														<div class="number-spinner">
+															<span class="ns-btn">
+																<a data-dir="dwn"><span class="icon-minus">-</span></a>
+															</span>
+															<input type="text" class="pl-ns-value" value="1" maxlength="5" readonly name="qty">
+															<span class="ns-btn">
+																<a data-dir="up"><span class="icon-plus">+</span></a>
+															</span>
+														</div>
 													</div>
-				                                </div>
-											</li>
-											<li class="list-inline-item">
-												<div class="add-cart">
-													<a title="Thêm vào giỏ hàng" href="{{ route('home.get-add-cart', [ 'id' => $item->id, 'qty' => 1, 'redirect' => 1 ]) }}">Thêm vào giỏ hàng</a>
-												</div>
-											</li>
-										</ul>
+												</li>
+												<li class="list-inline-item">
+													<div class="add-cart">
+														<button type="submit" class="btn btn-primary" title="Thêm vào giỏ hàng">Thêm vào giỏ hàng</button>
+													</div>
+												</li>
+											</ul>
+										</div>
 									</div>
 								</div>
-							</div>
+
+								<input type="hidden" id="id_price" name="price" value="{{ @$price }}">
+								<input type="hidden" name="id_product" value="{{ $data->id }}">
+							</form>
 						</div>
 					</div>
 				</div>
@@ -242,9 +248,12 @@
 														</div>
 					                                </div>
 												</li>
-												<div class="add-cart">
-													<a title="Thêm vào giỏ hàng" href="{{ route('home.get-add-cart', [ 'id' => $item->id, 'qty' => 1, 'redirect' => 1 ]) }}">Thêm vào giỏ hàng</a>
-												</div>
+												<form action="{{ route('home.post-add-cart') }}" method="POST">
+													@csrf
+													<div class="add-cart">
+														<button type="submit" title="Thêm vào giỏ hàng">Thêm vào giỏ hàng</button>
+													</div>
+												</form>
 											</ul>
 										</div>
 									</div>
@@ -289,6 +298,36 @@
 					}
 				});
 			});
+
+			var numberSpinner = (function() {
+			$('.number-spinner>.ns-btn>a').unbind().click(function() {
+				var btn = $(this),
+				oldValue = btn.closest('.number-spinner').find('input').val().trim(),
+				newVal = 0;
+
+				if (btn.attr('data-dir') === 'up') {
+				newVal = parseInt(oldValue) + 1;
+				} else {
+				if (oldValue > 1) {
+					newVal = parseInt(oldValue) - 1;
+				} else {
+					newVal = 1;
+				}
+				}
+				
+				btn.closest('.number-spinner').find('input').val(newVal);
+			});
+			$('.number-spinner>input').keypress(function(evt) {
+				evt = (evt) ? evt : window.event;
+				var charCode = (evt.which) ? evt.which : evt.keyCode;
+				if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+				return false;
+				}
+				return true;
+			});
+			})();
+
+	
 			
 		});
 

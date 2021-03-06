@@ -277,7 +277,7 @@ class IndexController extends Controller
         return view('frontend.pages.cart');
     }
 
-    public function getAddCart(Request $request)
+    public function getAddCart(Request $request) //Ajax
     {
         $idProduct   = $request->id;
         $dataProduct = Products::findOrFail($idProduct);
@@ -296,6 +296,26 @@ class IndexController extends Controller
         Cart::add($dataCart);
         return view('frontend.pages.part-header.products-cart');
        
+    }
+
+    public function postAddCart(Request $request)
+    {
+        $idProduct   = $request->id_product;
+        $dataProduct = Products::findOrFail($idProduct);
+        $dataCart    = [
+            'id'      => $dataProduct->id,
+            'name'    => $dataProduct->name,
+            'qty'     => $request->qty,
+            'price'   => $request->price,
+            'weight'  => 0,
+            'options' => [
+                'image'       => $dataProduct->image,
+                'slug'        => $dataProduct->slug,
+            ],
+        ];
+        Cart::add($dataCart);
+        toastr()->success('Thêm vào giỏ hàng thành công. ');
+        return back();
     }
 
     public function getUpdateCart(Request $request)
@@ -378,7 +398,7 @@ class IndexController extends Controller
         $customer->save();
         $order                 = new Orders;
         $order->id_customers   = $customer->id;
-        $order->subtotal_total = filter_var(Cart::totalFloat(), FILTER_SANITIZE_NUMBER_INT);
+        $order->subtotal_total = Cart::priceTotal();
 
         $order->tax_shipping    = 0;
         $order->note            = $request->note;
@@ -408,12 +428,12 @@ class IndexController extends Controller
             'id_ward'     => $request->id_ward,
             'address'     => $request->address,
             'cart'        => Cart::content(),
-            'total'       =>  filter_var(Cart::totalFloat(), FILTER_SANITIZE_NUMBER_INT)
+            'total'       =>  Cart::priceTotal(),
         ];
-        Mail::to($request->email)->send(new SendMailOrders($dataMail));
+        Mail::send(new SendMailOrders($dataMail));
 
         Cart::destroy();
-        toastr()->success('Đơn hàng của bạn đã được đặt thành công. Chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.');
+        toastr()->success('Đơn hàng của bạn đã được đặt thành công.');
         return redirect('/');
     }
 

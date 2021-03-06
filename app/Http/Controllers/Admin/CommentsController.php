@@ -109,7 +109,7 @@ class CommentsController extends Controller
                 }
                 return $data->Customers->email;
             })->addColumn('created_at', function ($data) {
-                    return $data->created_at->format('d/m/yy H:i:s');
+                    return $data->created_at->format('d/m/Y H:i:s');
             })->addColumn('content', function ($data) {
                     return html_entity_decode(text_limit(strip_tags($data->content), 10).'...');
             })->addColumn('view', function ($data) {

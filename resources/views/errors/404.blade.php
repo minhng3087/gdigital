@@ -1,65 +1,50 @@
-@extends ('index')
-@section ('content')
-<body class="body-site body-page body-404">
-	<?php //include 'templates/header.php'; ?>
-	<!-- //////////////////////////////////////////////////////////// -->
-	<div class="art-breadcrumbs d-none">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-					<div class="breadcrumbs-content">
-						<div class="image-box breadcrumb-image">
-							<img src="assets/images/banner-03.jpg" alt="Breadcrumb">
-						</div>
-					</div>				
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-					<div class="breadcrumbs-content">
-						<!-- <div class="title-box breadcrumb-title">
-							<h1 class="title">Trang chủ</h1>
-						</div> -->
-						<div class="content-box breadcrumb-content">
-							<ul class="breadcrumb-box">
-								<li>
-									<a href="index.php" title="Trang chủ">Trang chủ</a>
-								</li>
-								<li>
-									<span>Liên hệ</span>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> <!--breadcrumbs-->
-	<!-- //////////////////////////////////////////////////////////// -->
-	<main class="main-page">
-		<div class="main-container">
-			<div class="main-content">
-				<article class="art-banners art-404">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-								<div class="banners-box">
-									<div class="contents banners-content">
-										<h1>404</h1>
-										<h2>Không tìm thấy trang!</h2>
-										<h3>Trang đã bị xóa hoặc địa chỉ URL không đúng</h3>
-										<a href="{{ url('/')}}" title="Quay về trang chủ" class="btn">Quay về trang chủ</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</article>
-			</div>
-		</div>
-	</main> <!-- main-site -->
-	<!-- //////////////////////////////////////////////////////////// -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SPORT SHOP</title>
+    <!--link css-->
+    <link rel="stylesheet" type="text/css" title="" href="{{__BASE_URL__}}/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" title="" href="{{__BASE_URL__}}/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" title="" href="{{__BASE_URL__}}/css/slick.min.css">
+    <link rel="stylesheet" type="text/css" title="" href="{{__BASE_URL__}}/css/slick-theme.min.css">
+    <link rel="stylesheet" href="{{ url('public/admin_assets/dist/css/jquery.toast.min.css') }}">
+    <link rel="stylesheet" href="{{__BASE_URL__}}/css/jquery.mmenu.all.css">
+    <link rel="stylesheet" type="text/css" title="" href="{{__BASE_URL__}}/css/style.css">
+    <link rel="stylesheet" type="text/css" title="" href="{{__BASE_URL__}}/css/responsive.css">
+    @toastr_css
+    @yield('css')
+    <script type="text/javascript" src="{{__BASE_URL__}}/js/jquery.min.js"></script>
+</head>
+<body> 
+    <main>
+        <section id="error">
+            <div class="container">
+                <div class="content">
+                    <div class="info-err text-center">
+                        <img src="{{ __BASE_URL__}}/images/404.png" class="img-fluid" alt="">
+                        <h1>Trang bạn tìm kiếm không tồn tại</h1>
+                        <div class="gohome">
+                            <a href="{{ url('/') }}" class="robo-bold">Trở về trang chủ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script type="text/javascript" src="{{__BASE_URL__}}/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{__BASE_URL__}}/js/slick.min.js"></script>
+    <script type="text/javascript" src="{{__BASE_URL__}}/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{{__BASE_URL__}}/js/jquery.mmenu.all.js"></script>
+    <script type="text/javascript" src="{{__BASE_URL__}}/js/private.js"></script>
+
+    @toastr_js
+    @toastr_render
+    @yield('scripts')
+
 </body>
-@endsection
+</html>

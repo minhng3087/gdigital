@@ -21,22 +21,6 @@
 		        		<div class="row">
 		        			<div class="col-lg-6">
 	                			<div class="form-group">
-	                				<label for="">Mail driver</label>
-	                				<input type="text" name="content[driver]" class="form-control" value="<?php echo e(@$content->driver); ?>" placeholder="smtp">
-	                			</div>
-	                			<div class="form-group">
-	                				<label for="">Mail host</label>
-	                				<input type="text" name="content[host]" class="form-control" value="<?php echo e(@$content->host); ?>" placeholder="smtp.gmail.com">
-	                			</div>
-	                			<div class="form-group">
-	                				<label for="">Mail port</label>
-	                				<input type="text" name="content[port]" class="form-control" value="<?php echo e(@$content->port); ?>" placeholder="587">
-	                			</div>
-	                			<div class="form-group">
-	                				<label for="">Mail encryption</label>
-	                				<input type="text" name="content[encryption]" class="form-control" value="<?php echo e(@$content->encryption); ?>" placeholder="tls">
-	                			</div>
-	                			<div class="form-group">
 	                				<label for="">Mail username</label>
 	                				<input type="text" name="content[username]" class="form-control" value="<?php echo e(@$content->username); ?>">
 	                			</div>
@@ -51,7 +35,6 @@
 	                			<div class="form-group">
 	                				<button type="submit" class="btn btn-primary">Lưu lại</button>
 	                			</div>
-	                			<p style="color: red; font-style: italic; font-weight: bolder;">Trang này chỉ dành cho dev, Nếu không phải dev vui lòng rời khỏi trang này.</p>
 	                		</div>
 		        		</div>
 		        	</form>

@@ -83,6 +83,7 @@
                             count++;
                             $('.hver-cart').html(data);
                             $('#count-cart').html(count);
+                            toastr.success('Thêm thành công.');
                         }
                     })
                 });
@@ -109,5 +110,6 @@
     @toastr_js
     @toastr_render
     @yield('scripts')
+
 </body>
 </html>

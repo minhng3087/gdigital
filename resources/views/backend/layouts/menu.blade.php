@@ -88,6 +88,12 @@
         </a>
       </li>
 
+      <li class="{{ Request::segment(2) == 'orders' ? 'active' : null  }}">
+          <a href="{{ route('orders.index') }}">
+              <i class="fa fa-line-chart" aria-hidden="true"></i> <span>Đơn hàng</span>
+          </a>
+      </li>
+
 
       <!-- Setting -->
 

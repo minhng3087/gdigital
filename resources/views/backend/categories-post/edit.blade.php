@@ -17,7 +17,7 @@
 		                    <li class="active">
 		                        <a href="#activity" data-toggle="tab" aria-expanded="true">Danh mục</a>
 		                    </li>
-		                    <li class="">
+		                    <li class="" style="display: none;">
 		                    	<a href="#setting" data-toggle="tab" aria-expanded="true">Cấu hình seo</a>
 		                    </li>
 		                </ul>

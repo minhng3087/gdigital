@@ -83,6 +83,7 @@
                             count++;
                             $('.hver-cart').html(data);
                             $('#count-cart').html(count);
+                            toastr.success('Thêm thành công.');
                         }
                     })
                 });
@@ -109,5 +110,6 @@
     <?php echo toastr_js(); ?>
     <?php echo app('toastr')->render(); ?>
     <?php echo $__env->yieldContent('scripts'); ?>
+
 </body>
 </html><?php /**PATH C:\xampp\htdocs\m\resources\views/frontend/layouts/master.blade.php ENDPATH**/ ?>

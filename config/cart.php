@@ -24,7 +24,7 @@ return [
     |
     */
 
-    'tax' => 10,
+    'tax' => 0,
 
     /*
     |--------------------------------------------------------------------------
@@ -70,9 +70,9 @@ return [
 
         'decimals' => 0,
 
-        'decimal_point' => '.',
+        'decimal_point' => '',
 
-        'thousand_separator' => '.',
+        'thousand_separator' => '',
 
     ],
 
