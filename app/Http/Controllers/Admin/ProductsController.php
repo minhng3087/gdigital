@@ -86,9 +86,9 @@ class ProductsController extends Controller
                 })->addColumn('image', function ($data) {
                     return '<img src="' . $data->image . '" class="img-thumbnail" width="50px" height="50px">';
                 })->addColumn('name', function ($data) {
-                        return $data->name.'<br><a href="#" target="_black">
+                        return $data->name.'<br><a href="' . route('home.single.product', $data->slug) . '" target="_black">
                         <i class="fa fa-hand-o-right" aria-hidden="true"></i> Link: 
-                        #
+                        ' . route('home.single.product', $data->slug) . '
                       </a>';
                 })->addColumn('price', function ($data) {
                     $price = 'Giá bán: '.number_format($data->regular_price).'đ';
