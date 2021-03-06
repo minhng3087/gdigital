@@ -98,67 +98,6 @@
 										<div class="item">
 											<input type="radio" id="method-2" name="radio-group">
 											<label for="method-2" class="show-bank">Thanh toán online</label>
-											<div class="info-pay">
-												<div class="list-bank">
-													<div class="row">
-														<div class="col-md-3 col-4 col-sm-3">
-															<div class="item-bank">
-																<a title="" href="javascript:0" class="active"><img src="<?php echo e(__BASE_URL__); ?>/images/b1.png" class="img-fluid" alt=""></a>
-															</div>
-														</div>
-														<div class="col-md-3 col-4 col-sm-3">
-															<div class="item-bank">
-																<a title="" href="javascript:0"><img src="<?php echo e(__BASE_URL__); ?>/images/b2.png" class="img-fluid" alt=""></a>
-															</div>
-														</div>
-														<div class="col-md-3 col-4 col-sm-3">
-															<div class="item-bank">
-																<a title="" href="javascript:0"><img src="<?php echo e(__BASE_URL__); ?>/images/b3.png" class="img-fluid" alt=""></a>
-															</div>
-														</div>
-														<div class="col-md-3 col-4 col-sm-3">
-															<div class="item-bank">
-																<a title="" href="javascript:0"><img src="<?php echo e(__BASE_URL__); ?>/images/b4.png" class="img-fluid" alt=""></a>
-															</div>
-														</div>
-														<div class="col-md-3 col-4 col-sm-3">
-															<div class="item-bank">
-																<a title="" href="javascript:0"><img src="<?php echo e(__BASE_URL__); ?>/images/b5.png" class="img-fluid" alt=""></a>
-															</div>
-														</div>
-														<div class="col-md-3 col-4 col-sm-3">
-															<div class="item-bank">
-																<a title="" href="javascript:0"><img src="<?php echo e(__BASE_URL__); ?>/images/b6.png" class="img-fluid" alt=""></a>
-															</div>
-														</div>
-														<div class="col-md-3 col-4 col-sm-3">
-															<div class="item-bank">
-																<a title="" href="javascript:0"><img src="<?php echo e(__BASE_URL__); ?>/images/b7.png" class="img-fluid" alt=""></a>
-															</div>
-														</div>
-														<div class="col-md-3 col-4 col-sm-3">
-															<div class="item-bank">
-																<a title="" href="javascript:0"><img src="<?php echo e(__BASE_URL__); ?>/images/b8.png" class="img-fluid" alt=""></a>
-															</div>
-														</div>
-														<div class="col-md-3 col-4 col-sm-3">
-															<div class="item-bank">
-																<a title="" href="javascript:0"><img src="<?php echo e(__BASE_URL__); ?>/images/b9.png" class="img-fluid" alt=""></a>
-															</div>
-														</div>
-														<div class="col-md-3 col-4 col-sm-3">
-															<div class="item-bank">
-																<a title="" href="javascript:0"><img src="<?php echo e(__BASE_URL__); ?>/images/b10.png" class="img-fluid" alt=""></a>
-															</div>
-														</div>
-														<div class="col-md-3 col-4 col-sm-3">
-															<div class="item-bank">
-																<a title="" href="javascript:0"><img src="<?php echo e(__BASE_URL__); ?>/images/b11.png" class="img-fluid" alt=""></a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
 										</div>
 									</div>
 									<div class="btn-pay text-center pt-20">

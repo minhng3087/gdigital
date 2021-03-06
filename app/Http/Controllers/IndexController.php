@@ -430,7 +430,7 @@ class IndexController extends Controller
             'cart'        => Cart::content(),
             'total'       =>  Cart::priceTotal(),
         ];
-        Mail::send(new SendMailOrders($dataMail));
+        Mail::to($request->email)->send(new SendMailOrders($dataMail));
 
         Cart::destroy();
         toastr()->success('Đơn hàng của bạn đã được đặt thành công.');
