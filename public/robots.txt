@@ -1,4 +1,3 @@
 User-agent: *
 Allow : /
-Disallow: /thuanandmc.vn/backend/
-sitemap: http://thuanandmc.vn/sitemap.xml
+

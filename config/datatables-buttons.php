@@ -1,5 +1,4 @@
 <?php
-
 return [
     /*
      * Namespaces used by the generator.
@@ -14,7 +13,6 @@ return [
          * Export filename: users_timestamp
          */
         'base'  => 'DataTables',
-
         /*
          * Base namespace/directory where your model's are located.
          * This is appended on default Laravel namespace.
@@ -25,12 +23,10 @@ return [
          */
         'model' => '',
     ],
-
     /*
      * Set Custom stub folder
      */
     //'stub' => '/resources/custom_stub',
-
     /*
      * PDF generator to be used when converting the table to pdf.
      * Available generators: excel, snappy
@@ -38,7 +34,6 @@ return [
      * Excel package: maatwebsite/excel
      */
     'pdf_generator' => 'snappy',
-
     /*
      * Snappy PDF options.
      */
@@ -52,7 +47,6 @@ return [
         ],
         'orientation' => 'landscape',
     ],
-
     /*
      * Default html builder parameters.
      */
@@ -67,7 +61,6 @@ return [
             'reload',
         ],
     ],
-
     /*
      * Generator command default options value.
      */
@@ -76,12 +69,10 @@ return [
          * Default columns to generate when not set.
          */
         'columns' => 'id,add your columns,created_at,updated_at',
-
         /*
          * Default buttons to generate when not set.
          */
         'buttons' => 'create,export,print,reset,reload',
-
         /*
          * Default DOM to generate when not set.
          */

@@ -161,7 +161,6 @@ return [
         Yoeunes\Toastr\ToastrServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Proengsoft\JsValidation\JsValidationServiceProvider::class
-
     ],
     /*
     |--------------------------------------------------------------------------
@@ -215,6 +214,5 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'JsValidator' => Proengsoft\JsValidation\Facades\JsValidatorFacade::class,
-
     ],
 ];

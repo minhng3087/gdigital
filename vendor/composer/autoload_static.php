@@ -92,7 +92,6 @@ class ComposerStaticInit0c21ac9ddda6261b95b0db78a74262f5
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '101b35f72e0ccb1b5ef72aa86bba3ef9' => __DIR__ . '/..' . '/yoeunes/toastr/src/helpers.php',
-        'e4e49749301e7fa5315bc371f9cc7903' => __DIR__ . '/../..' . '/app/lib/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -603,6 +602,7 @@ class ComposerStaticInit0c21ac9ddda6261b95b0db78a74262f5
         'App\\Http\\Controllers\\Admin\\FilterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FilterController.php',
         'App\\Http\\Controllers\\Admin\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/IndexController.php',
         'App\\Http\\Controllers\\Admin\\MenuController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/MenuController.php',
+        'App\\Http\\Controllers\\Admin\\OrdersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/OrdersController.php',
         'App\\Http\\Controllers\\Admin\\PagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PagesController.php',
         'App\\Http\\Controllers\\Admin\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PostController.php',
         'App\\Http\\Controllers\\Admin\\ProductAttributeTypesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ProductAttributeTypesController.php',

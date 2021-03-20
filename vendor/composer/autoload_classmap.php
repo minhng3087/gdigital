@@ -18,6 +18,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\FilterController' => $baseDir . '/app/Http/Controllers/Admin/FilterController.php',
     'App\\Http\\Controllers\\Admin\\IndexController' => $baseDir . '/app/Http/Controllers/Admin/IndexController.php',
     'App\\Http\\Controllers\\Admin\\MenuController' => $baseDir . '/app/Http/Controllers/Admin/MenuController.php',
+    'App\\Http\\Controllers\\Admin\\OrdersController' => $baseDir . '/app/Http/Controllers/Admin/OrdersController.php',
     'App\\Http\\Controllers\\Admin\\PagesController' => $baseDir . '/app/Http/Controllers/Admin/PagesController.php',
     'App\\Http\\Controllers\\Admin\\PostController' => $baseDir . '/app/Http/Controllers/Admin/PostController.php',
     'App\\Http\\Controllers\\Admin\\ProductAttributeTypesController' => $baseDir . '/app/Http/Controllers/Admin/ProductAttributeTypesController.php',

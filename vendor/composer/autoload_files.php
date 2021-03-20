@@ -91,5 +91,4 @@ return array(
     'f0906e6318348a765ffb6eb24e0d0938' => $vendorDir . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
     '58571171fd5812e6e447dce228f52f4d' => $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     '101b35f72e0ccb1b5ef72aa86bba3ef9' => $vendorDir . '/yoeunes/toastr/src/helpers.php',
-    'e4e49749301e7fa5315bc371f9cc7903' => $baseDir . '/app/lib/functions.php',
 );
