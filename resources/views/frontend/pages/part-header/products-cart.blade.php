@@ -1,23 +1,33 @@
-@foreach (Cart::content() as $item)
-    <div class="item">
-        <div class="avarta">
-            <a title="{{ $item->name }}" href="{{ route('home.single.product', $item->options->slug) }}">
-                <img src="{{ $item->options->image }}" class="img-fluid" alt="{{ $item->name }}">
-            </a>
-        </div>
-        <div class="info">
-            <h3>
-                <a title="{{ $item->name }}" href="{{ route('home.single.product', $item->options->slug) }}" class="text-left">
-                    {{ $item->name }}
-                </a>
-            </h3>
-            <div class="quantt">{{ $item->qty }} x {{ number_format($item->price, 0, '.', '.') }}đ</div>
-        </div>
-        <div class="btn-remove"><a class="remove-cart" data-id="{{ $item->id }}"><i class="fa fa-times"></i></a></div>
-   </div>
-@endforeach
-<div class="total-cart">
-    <span>TỔNG GIÁ</span>
-    <div class="price">{{ Cart::total() }}đ</div>
-</div>
-<div class="view-cart text-center pt-20"><a href="{{ route('home.cart') }}">XEM GIỎ HÀNG</a></div>
+
+@if(Cart::content())
+    <div class="select-items">
+        <table>
+            <tbody>
+                @foreach (Cart::content() as $item)
+                    <tr>
+                        <td class="si-pic"><img src="{{ $item->options->image }}" alt="{{ $item->name }}"></td>
+                        <td class="si-text">
+                            <div class="product-selected">
+                                <p>{{ number_format($item->price, 0, '.', '.') }}đ x {{ $item->qty }}</p>
+                                <h6>{{ $item->name }}</h6>
+                            </div>
+                        </td>
+                        <td class="si-close">
+                            <i class="ti-close" data-id="{{ $item->rowId }}" value="{{ $item->qty }}"></i>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+    <div class="select-total">
+        <span>TỔNG GIÁ</span>
+        <h5>{{ number_format(Cart::total(), 0, '.', '.') }}đ</h5>
+    </div>
+    <div class="select-button">
+        <a href="{{ route('home.cart') }}" class="primary-btn view-card">XEM GIỎ HÀNG</a>
+        <a href="{{ route('home.check-out') }}" class="primary-btn checkout-btn">THANH TOÁN</a>
+    </div>
+@else
+    <h6>Giỏ hàng trống</h6>
+@endif

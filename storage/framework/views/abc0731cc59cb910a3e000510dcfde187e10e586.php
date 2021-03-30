@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="<?php echo e(__BASE_URL__); ?>/css/jquery.mmenu.all.css">
     <link rel="stylesheet" type="text/css" title="" href="<?php echo e(__BASE_URL__); ?>/css/style.css">
     <link rel="stylesheet" type="text/css" title="" href="<?php echo e(__BASE_URL__); ?>/css/responsive.css">
+    <link rel="stylesheet" type="text/css" title="" href="<?php echo e(__BASE_URL__); ?>/css/elegant-icons.css">
+    <link rel="stylesheet" type="text/css" title="" href="<?php echo e(__BASE_URL__); ?>/css/themify-icons.css">
+
     <?php echo toastr_css(); ?>
     <?php echo $__env->yieldContent('css'); ?>
     <script type="text/javascript" src="<?php echo e(__BASE_URL__); ?>/js/jquery.min.js"></script>
@@ -29,6 +32,9 @@
     <script type="text/javascript" src="<?php echo e(__BASE_URL__); ?>/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="<?php echo e(__BASE_URL__); ?>/js/jquery.mmenu.all.js"></script>
     <script type="text/javascript" src="<?php echo e(__BASE_URL__); ?>/js/private.js"></script>
+    
+    <script type="text/javascript" src="<?php echo e(__BASE_URL__); ?>/js/lte-ie7.js"></script>
+
 
     <script>
 			jQuery(document).ready(function($) {
@@ -81,27 +87,31 @@
                         success: function (data) {
                             console.log(data);
                             count++;
-                            $('.hver-cart').html(data);
+                            $('.cart-hover').html(data);
                             $('#count-cart').html(count);
                             toastr.success('Thêm thành công.');
                         }
                     })
                 });
-                $('.remove-cart').click(function() {
+                $('.ti-close').click(function() {
                     var id = $(this).attr('data-id');
-                    var count = $('#count-cart').html();
+                    console.log(id);
+                    var qty = $(this).attr('value');
+                    var count = $('#count-cart').html(); 
                     $.ajax({
-                        url: '<?php echo e(route('home.get-add-cart')); ?>',
+                        url: '<?php echo e(route('home.get-remove-cart')); ?>',
                         method : 'get',
                         data: {
                             id: id
                         },
                         success: function (data) {
-                            count--;
-                            $('.hver-cart').html(data);
+                            count -= qty;
+                            $('.cart-hover').html(data);
                             $('#count-cart').html(count);
+                            toastr.success('Xóa thành công.');
                         }
                     })
+                  
                 });
 			});
 

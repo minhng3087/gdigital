@@ -298,6 +298,13 @@ class IndexController extends Controller
        
     }
 
+    public function getDeleteCart(Request $request) //Ajax
+    {
+        Cart::remove($request->id);
+        return view('frontend.pages.part-header.products-cart');
+       
+    }
+
     public function postAddCart(Request $request)
     {
         $idProduct   = $request->id_product;

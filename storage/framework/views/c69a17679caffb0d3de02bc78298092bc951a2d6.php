@@ -26,47 +26,45 @@
             </div>
         </div>
     </div>
-    <div class="header-logo">
         <div class="container">
-            <div class="content">
+            <div class="inner-header">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="logo"><a title="<?php echo e(@$site_info->site_title); ?>" href="<?php echo e(url('/')); ?>"><img src="<?php echo e(@$site_info->logo); ?>" class="img-fluid" alt="<?php echo e(@$site_info->site_title); ?>"></a></div>
-                    </div>
-                    <div class="col-md-6">
-                        <form action="<?php echo e(route('home.search')); ?>" method="GET">
-                            <div class="search">
-                                <select name="m" id="query-cate">
-                                    <option value="0">Danh mục</option>
-                                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($item->slug); ?>" <?php echo e(!empty($_GET['m']) &&  $item->slug == $_GET['m'] ? 'selected' : ''); ?>><?php echo e($item->name); ?></option>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </select>
-                                <input type="text" placeholder="Nhập từ khóa" name="q" id="query-search">
-                                <button type="submit" id="icon-search"><i class="fa fa-search"></i></button>
-                            </div>
-                        </form>
-                        <div class="list-search" style="display: none;">
-                                
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="cart text-right">
-                            <a href="<?php echo e(route('home.cart')); ?>"><img src="<?php echo e(__BASE_URL__); ?>/images/cart.png" class="img-fluid" alt="">
-                                <span id="count-cart"><?php echo e(Cart::count()); ?></span> sản phẩm
+                    <div class="col-lg-3 col-md-3">
+                        <div class="logo">
+                            <a title="<?php echo e(@$site_info->site_title); ?>" href="<?php echo e(url('/')); ?>">
+                                <img src="<?php echo e(@$site_info->logo); ?>" alt="<?php echo e(@$site_info->site_title); ?>">
                             </a>
                         </div>
-
-                        <?php if(Cart::count()): ?>
-                            <div class="hver-cart">
-                                <?php echo $__env->make('frontend.pages.part-header.products-cart', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                            </div>
-                        <?php endif; ?>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="advanced-search">
+                            <button type="button" class="category-btn">Danh mục</button>
+                            <form action="<?php echo e(route('home.search')); ?>" method="GET" class="input-group">
+                                <input type="text" placeholder="Tìm kiếm" name="q" id="query-search">
+                                <button type="submit"><i class="ti-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-right col-md-3">
+                        <ul class="nav-right">
+                            <li class="heart-icon"><a href="#">
+                                    <i class="icon_heart_alt"></i>
+                                    <span>1</span>
+                                </a>
+                            </li>
+                            <li class="cart-icon"><a href="<?php echo e(route('home.cart')); ?>">
+                                    <i class="icon_bag_alt"></i>
+                                    <span id="count-cart"><?php echo e(Cart::count()); ?></span>
+                                </a>
+                                <div class="cart-hover">
+                                    <?php echo $__env->make('frontend.pages.part-header.products-cart', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     <div class="header-menu">
         <div class="container">
             <div class="content">

@@ -165,6 +165,9 @@ Route::post('add-cart', 'IndexController@postAddCart')->name('home.post-add-cart
 
 Route::get('get-add-cart', 'IndexController@getAddCart')->name('home.get-add-cart');
 
+Route::get('get-remove-cart', 'IndexController@getDeleteCart')->name('home.get-remove-cart');
+
+
 Route::get('gio-hang', 'IndexController@getCart')->name('home.cart');
 
 Route::get('remove/{rowID}', 'IndexController@getRemoveCart')->name('home.remove.cart');

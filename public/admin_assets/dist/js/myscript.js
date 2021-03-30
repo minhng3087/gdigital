@@ -86,7 +86,9 @@ $(document).ready(function(){
             $('input[name="chkItem[]"]').prop('checked', false);
         }
     });
+    
 });
+
 
 jQuery(document).ready(function($) {
     $('#change_slug').click(function(event) {
@@ -128,30 +130,6 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-    $('a#del_img').on('click', function(){
-        var url =  homeUrl() + "/backend/product/delimg/";
-        var _token = $("form[name='frmEditProduct']").find("input[name='_token']").val();
-        var idImg = $(this).parent().find("img").attr("idImg");
-        var img = $(this).parent().find("img").attr("src");
-        var rid = $(this).parent().find("img").attr("id");
-        
-        $.ajax({
-            url: url + idImg,
-            type: 'GET',
-            cache: false,
-            data: {"_token":_token,"idImg":idImg,"urlImg":img},
-            success: function(data){
-                if (data == 'OK') {
-                    $('#'+rid).remove();
-                }else{
-                    alert('Error ! Please contact admin !');
-                }
-            }
-        });
-    });
-});
-
-$(document).ready(function(){
     $('a#del_gallery').on('click', function(){
         var url =  homeUrl() + "/backend/inf/delimg/";
         var _token = $("form[name='frmEditImg']").find("input[name='_token']").val();
@@ -175,17 +153,6 @@ $(document).ready(function(){
     });
 });
 
-$(document).ready(function(){
-    $('#chkAll').change(function(event){
-        var checkAll = $('#chkAll:checked').length > 0;
-
-        if (checkAll) {
-            $('input[name="chkItem[]"]').prop('checked', true);
-        }else{
-            $('input[name="chkItem[]"]').prop('checked', false);
-        }
-    });
-});
 
 
 $(document).ready(function(){

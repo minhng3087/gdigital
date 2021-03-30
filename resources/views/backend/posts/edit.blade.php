@@ -17,12 +17,6 @@
 		                    <li class="active">
 		                        <a href="#activity" data-toggle="tab" aria-expanded="true">Bài viết</a>
 		                    </li>
-		                    <li class="" style="display: none;">
-		                    	<a href="#setting" data-toggle="tab" aria-expanded="true">Cấu hình seo</a>
-		                    </li>
-		                    <li class="" style="display: none;">
-		                    	<a href="#tags" data-toggle="tab" aria-expanded="true">Tags</a>
-		                    </li>
 		                </ul>
 		                <div class="tab-content">
 		                    <div class="tab-pane active" id="activity">
@@ -47,37 +41,7 @@
 		                            </div>
 		                        </div>
 		                    </div>
-		                    <div class="tab-pane" id="setting">
-		                        <div class="form-group">
-		                            <label>Title SEO</label>
-		                            <label style="float: right;">Số ký tự đã dùng: <span id="countTitle">{{ $data->meta_title != null ? mb_strlen( $data->meta_title, 'UTF-8') : 0 }}/70</span></label>
-		                            <input type="text" class="form-control" name="meta_title"
-		                                   value="{!! old('desc', isset($data->meta_title) ? $data->meta_title : null ) !!}"
-		                                   id="meta_title">
-		                        </div>
-
-		                        <div class="form-group">
-		                            <label>Meta Description</label>
-		                            <label style="float: right;">Số ký tự đã dùng: <span id="countMeta">{{ $data->meta_description != null ? mb_strlen( $data->meta_description, 'UTF-8') : 0 }}/360</span></label>
-		                            <textarea name="meta_description" class="form-control" id="meta_description"
-		                                      rows="5">{!! old('meta_description', isset($data->meta_description) ? $data->meta_description : null ) !!}</textarea>
-		                        </div>
-
-		                        <div class="form-group">
-		                            <label>Meta Keyword</label>
-		                            <input type="text" class="form-control" name="meta_keyword"
-		                                   value="{!! old('meta_keyword', isset($data->meta_keyword) ? $data->meta_keyword : null ) !!}">
-		                        </div>
-
-		                        <h4 class="ui-heading">Xem trước kết quả tìm kiếm</h4>
-		                        <div class="google-preview">
-		                            <span class="google__title"><span>{!! !empty($data->meta_title) ? $data->meta_title : $data->name !!}</span> </span>
-		                            <div class="google__url">
-		                                {{ asset( 'tin-tuc/'.$data->slug ) }}
-		                            </div>
-		                            <div class="google__description">{!! old('meta_description', isset($data->meta_description) ? $data->meta_description : '') !!}</div>
-		                        </div>
-		                    </div>
+		                   
 		                    
 		                </div>
 		            </div>
@@ -178,8 +142,7 @@
 		                    <div class="form-group" style="text-align: center;">
 		                        <div class="image">
 									<div class="image__thumbnail">
-										<img src="{{ __IMAGE_DEFAULT__ }}"
-												data-init="{{ __IMAGE_DEFAULT__ }}">
+										<img src="{{ !empty(@$data->image) ? @$data->image : __IMAGE_DEFAULT__ }}">
 										<a href="javascript:void(0)" class="image__delete" onclick="urlFileDelete(this)">
 											<i class="fa fa-times"></i></a>
 										<input type="hidden" value="{{ old('image') }}" name="image"/>
@@ -249,9 +212,7 @@
 			   		$('.time_published_value').hide('slow/400/fast');
 			   	}
 			});
-			$('#tags-input').tagsinput({
-			  	
-			});
+		
 		});
 	</script>
 @endsection
