@@ -12,8 +12,8 @@ class CategoryController extends Controller
     protected function fields()
     {
         return [
-            'name' => "required",
-            'slug' => "required",
+            'name' => 'required',
+            'slug' => 'required'
         ];
     }
 
@@ -21,7 +21,7 @@ class CategoryController extends Controller
     {
         return [
             'name.required'  => 'Tiêu đề không được bỏ trống.',
-            'slug.required' => 'Đường dẫn tĩnh không được bỏ trống'
+            'slug.required' => 'Đường dẫn tĩnh không được bỏ trống.'
         ];
     }
 
@@ -33,13 +33,13 @@ class CategoryController extends Controller
             'table' => [
                 'name' => [
                     'title' => 'Tiêu đề',
-                    'with' => '',
+                    'with' => ''
                 ],
                 'slug' => [
                     'title' => 'Liên kết',
                     'with' => '',
                 ]
-            ],
+            ]
         ];
     }
 
@@ -50,9 +50,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-      $data['module'] = $this->module();
-      $data['data'] = Categories::where('type', 'product_category')->get();
-      return view("backend.{$this->module()['module']}.list", $data);
+        $data['module'] = $this->module();
+        $data['data'] = Categories::where('type', 'product_category')->get();
+        return view("backend.{$this->module()['module']}.list", $data);
     }
 
     /**
@@ -78,7 +78,7 @@ class CategoryController extends Controller
         $this->validate($request, $this->fields(), $this->messages());
         $post_check_slug = Categories::where('slug', $request->slug)->where('type', 'product_category')->first();
         if(!empty($post_check_slug)) {
-            return redirect()->back()->withInput()->withErrors(['Đường dẫn tĩnh này đã tồn tại.']);
+            return redirect()->back()->withInput()->withErrors(['Đường đẫn tĩnh này đã tồn tại.']);
         }
         $input = $request->all();
         $input['type'] = 'product_category';
@@ -92,6 +92,7 @@ class CategoryController extends Controller
         toastr()->success('Thêm mới thành công.');
         return redirect()->route("{$this->module()['module']}.index");
 
+
     }
 
 
@@ -103,8 +104,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $data['module'] = array_merge($this->module(),[
-            'action' => 'update',
+        $data['module'] = array_merge($this->module(), [
+            'action' => 'update'
         ]);
         $data['categories'] = Categories::where('id', '!=', $id)->where('type', 'product_category')->get();
         $data['data'] = Categories::findOrFail($id);
@@ -146,14 +147,13 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Categories::find($id)->get_child_cate();
-        if(count($category)){
-            Categories::destroy($id);
-            toastr()->error('Xóa thành công.');
-            return redirect()->route("{$this->module()['module']}.index");
-        }else {
-            Categories::destroy($id);
-            toastr()->success('Xóa thành công.');
-            return redirect()->route("{$this->module()['module']}.index");
+        if(count($category)) {
+            foreach ($category as $item) {
+                Categories::destroy($item->id);
+            }
         }
+        Categories::destroy($id);
+        toastr()->error('Xóa thành công.');
+        return redirect()->route("{$this->module()['module']}.index");
     }
 }

@@ -24,10 +24,6 @@
 										 	{!! $data->content !!}
 										</div>
 									</div>
-									@include ('frontend.comments.reviews')
-
-
-									@include ('frontend.comments.list-comments')
 								</div>
 							</div>
 							<div class="col-md-3">

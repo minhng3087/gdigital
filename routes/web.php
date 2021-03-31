@@ -50,10 +50,6 @@ Route::group(['namespace' => 'Admin'], function () {
 		Route::group(['prefix' => 'options'], function() {
             Route::get('/general', 'SettingController@getGeneralConfig')->name('backend.options.general');
             Route::post('/general', 'SettingController@postGeneralConfig')->name('backend.options.general.post');
-
-            Route::get('/dev', 'SettingController@getDeveloperConfig')->name('backend.options.developer-config');
-            Route::post('/developer-config', 'SettingController@postDeveloperConfig')->name('backend.options.developer-config.post');
-
             Route::get('/smtp', 'SettingController@getSmtpConfig')->name('backend.options.smtp-config');
             Route::post('/smtp-config', 'SettingController@postSmtpConfig')->name('backend.options.smtp-config.post');
             Route::post('/send-mail-test', 'SettingController@postSendTestEmail')->name('backend.options.send-mail.post');
@@ -113,10 +109,6 @@ Route::group(['namespace' => 'Admin'], function () {
 
 		// Comments
 
-		Route::get('comments/show/{id}/{cate}', 'CommentsController@show')->name('comments.show');
-        Route::get('comments-active/', ['as' => 'comments.active', 'uses' => 'CommentsController@getQuickActive']);
-		Route::get('comments/anyData', 'CommentsController@anyData')->name('comments.anyData');
-
 		// Contact
         Route::get('contact-active/', ['as' => 'contact.active', 'uses' => 'ContactController@getQuickActive']);
 		Route::get('contact/anyData', 'ContactController@anyData')->name('contact.anyData');
@@ -154,12 +146,6 @@ Route::post('lien-he', 'IndexController@postContact')->name('home.contact.post')
 Route::get('filter-products', 'IndexController@getFilterProductsAjax')->name('home.filterProducts');
 
 Route::get('version-product', 'IndexController@getVersionProduct')->name('home.version.product');
-
-Route::post('post-comment/{idproduct}', 'IndexController@postComment')->name('home.post.comment');
-
-Route::post('post-reply-comment/{idproduct}', 'IndexController@postReplyComment')->name('home.post.reply.comment');
-
-Route::get('vote-star', 'IndexController@getVoteStar')->name('home.get.votestar');
 
 Route::post('add-cart', 'IndexController@postAddCart')->name('home.post-add-cart');
 

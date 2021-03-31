@@ -234,6 +234,7 @@ function repeater(event, el, url, indexClass, type, table = null) {
     }else{
         var indexs = $(indexClass).closest('table').find(indexClass);
     }
+
     var index = indexs.length;
     $.get(url, {index: index + 1, type: type}, function (data) {
         target.append(data)

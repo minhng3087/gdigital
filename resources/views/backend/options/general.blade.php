@@ -13,10 +13,6 @@
 					<li class="active">
 						<a href="#activity" data-toggle="tab" aria-expanded="true">Thông tin chung</a>
 					</li>
-					
-					<li class="" style="display: none;">
-						<a href="#activity2" data-toggle="tab" aria-expanded="true">Cấu hình seo</a>
-					</li>
 					<li class="">
 						<a href="#activity3" data-toggle="tab" aria-expanded="true">Footer - Mạng xã hội</a>
 					</li>
@@ -34,7 +30,7 @@
 									<label>Favicon</label>
 									<div class="image">
 										<div class="image__thumbnail">
-											<img src="{{ !empty($content->favicon) ? $content->favicon :  __IMAGE_DEFAULT__ }}"  data-init="{{ __IMAGE_DEFAULT__ }}">
+											<img src="{{ !empty(@$content->favicon) ? @$content->favicon :  __IMAGE_DEFAULT__ }}"  data-init="{{ __IMAGE_DEFAULT__ }}">
 											<a href="javascript:void(0)" class="image__delete" 
 											onclick="urlFileDelete(this)">
 											<i class="fa fa-times"></i></a>
@@ -49,7 +45,7 @@
 									<label>Logo</label>
 									<div class="image">
 										<div class="image__thumbnail">
-											<img src="{{ !empty($content->logo) ? $content->logo :  __IMAGE_DEFAULT__ }}"  data-init="{{ __IMAGE_DEFAULT__ }}">
+											<img src="{{ !empty(@$content->logo) ? @$content->logo :  __IMAGE_DEFAULT__ }}"  data-init="{{ __IMAGE_DEFAULT__ }}">
 											<a href="javascript:void(0)" class="image__delete" 
 											onclick="urlFileDelete(this)">
 											<i class="fa fa-times"></i></a>
@@ -95,7 +91,7 @@
 									<input type="email" class="form-control" name="content[email_admin]" value="{{ @$content->email_admin }}">
 								</div>
 
-								<div class="form-group" style="display: none;">
+								<div class="form-group">
 									<label class="custom-checkbox">
 										<input type="checkbox" name="content[index_google]" value="1" {{ @$content->index_google == 1 ? 'checked' : null }}> 
 										Cho phép google tìm kiếm
@@ -147,8 +143,8 @@
 											</tr>
 										</thead>
 										<tbody id="sortable">
-											@if (!empty($content->social))
-												@foreach ($content->social as $id => $val)
+											@if (!empty(@$content->social))
+												@foreach (@$content->social as $id => $val)
 													<?php $index = $loop->index + 1;?>
 													@include('backend.repeater.row-socials')
 												@endforeach

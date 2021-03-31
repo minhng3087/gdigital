@@ -1,8 +1,4 @@
 <?php $__env->startSection('content'); ?>
-<?php 
-	$vote_info = getListStarProduct($data);
- 	$averageVote = getStarProduct($data);
- ?>
 	<section id="bread">
 		<div class="container">
 			<div class="content">
@@ -54,14 +50,6 @@
 								<div class="info-prev">
 									<div class="cate">
 										<h1><?php echo e($data->name); ?></h1>
-										<div class="vote">
-											<?php for($i = 1; $i <= round($averageVote); $i++): ?>
-												<i class="fa fa-star"></i>
-											<?php endfor; ?>
-											<?php for($i = 0; $i < 5- round($averageVote); $i++): ?>
-												<i class="fa fa-star-o"></i>
-											<?php endfor; ?>
-										</div>	
 										<div id="product-version">
 											<?php if(!is_null($data->sale_price)): ?>
 												<?php $price = $data->sale_price; ?>
@@ -173,13 +161,8 @@
 
 							</div>
 						</div>
-						<?php echo $__env->make('frontend.comments.reviews', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
-
-						<?php echo $__env->make('frontend.comments.list-comments', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 					</div>
 				</div>
-				<?php echo $__env->make('frontend.components.products.vote-star', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 			</div>
 		</div>
 	</section>
@@ -288,19 +271,6 @@
 						$("#product-version").html(data);
 					}
 				})
-			});
-			$('.nb').click(function(){
-				$.ajax({
-					type: "GET",
-					url: "<?php echo e(route("home.get.votestar")); ?>",
-					data: {
-						id_product : '<?php echo e($data->id); ?>',
-						star: $(this).data('star'),
-					},
-					success: function (data) {
-						window.location.reload();
-					}
-				});
 			});
 
 			var numberSpinner = (function() {

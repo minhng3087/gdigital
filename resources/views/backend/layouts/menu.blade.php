@@ -39,11 +39,6 @@
                 <a href="{{ route('product-attributes.index') }}"><i class="fa fa-circle-o"></i> Thuộc tính sản phẩm</a>
             </li>
 
-            <li class="{{ Request::segment(2) == 'comments' ? 'active' : null  }}">
-                  <a href="{{ route('comments.index', ['cate' => 'product']) }}">
-                      <i class="fa fa-comments" aria-hidden="true"></i> <span>Bình luận sản phẩm</span>
-                  </a>
-              </li>
 
             <li class="{{ Request::segment(2) === 'category-filter' ? 'active' : null }}">
                 <a href="{{ route('list-category-filter') }}"><i class="fa fa-circle-o"></i> Bộ lọc</a>
@@ -68,11 +63,6 @@
                   <a href="{{ route('categories-post.index') }}"><i class="fa fa-circle-o"></i> Danh mục bài viết</a>
               </li>
 
-              <li class="{{ Request::segment(2) == 'comments' ? 'active' : null  }}">
-                  <a href="{{ route('comments.index', ['cate' => 'blog']) }}">
-                      <i class="fa fa-comments" aria-hidden="true"></i> <span>Bình luận bài viết</span>
-                  </a>
-              </li>
           </ul>
       </li>
 
@@ -125,22 +115,6 @@
               
           </ul>
       </li>
-      <div style="display: none;">
-        <li class="header">Cấu hình hệ thống</li>
-        <li class="treeview {{ Request::segment(2) == 'options' ? 'active' : null  }}">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Setting (Developer)</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="{{ Request::segment(3) == 'developer-config' ? 'active' : null  }}">
-              <a href="{{ route('backend.options.developer-config') }}"><i class="fa fa-circle-o"></i> Developer - Config</a>
-            </li>
-          </ul>
-        </li>
-      </div>
     </ul>
 
   

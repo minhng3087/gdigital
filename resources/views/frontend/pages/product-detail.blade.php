@@ -1,9 +1,5 @@
 @extends('frontend.layouts.master')
 @section('content')
-<?php 
-	$vote_info = getListStarProduct($data);
- 	$averageVote = getStarProduct($data);
- ?>
 	<section id="bread">
 		<div class="container">
 			<div class="content">
@@ -55,14 +51,6 @@
 								<div class="info-prev">
 									<div class="cate">
 										<h1>{{ $data->name }}</h1>
-										<div class="vote">
-											@for ($i = 1; $i <= round($averageVote); $i++)
-												<i class="fa fa-star"></i>
-											@endfor
-											@for ($i = 0; $i < 5- round($averageVote); $i++)
-												<i class="fa fa-star-o"></i>
-											@endfor
-										</div>	
 										<div id="product-version">
 											@if (!is_null($data->sale_price))
 												<?php $price = $data->sale_price; ?>
@@ -169,13 +157,8 @@
 								{!! @$data->evaluate !!}
 							</div>
 						</div>
-						@include ('frontend.comments.reviews')
-
-
-						@include ('frontend.comments.list-comments')
 					</div>
 				</div>
-				@include ('frontend.components.products.vote-star')
 			</div>
 		</div>
 	</section>
@@ -285,19 +268,6 @@
 					}
 				})
 			});
-			$('.nb').click(function(){
-				$.ajax({
-					type: "GET",
-					url: "{{ route("home.get.votestar") }}",
-					data: {
-						id_product : '{{ $data->id }}',
-						star: $(this).data('star'),
-					},
-					success: function (data) {
-						window.location.reload();
-					}
-				});
-			});
 
 			var numberSpinner = (function() {
 			$('.number-spinner>.ns-btn>a').unbind().click(function() {
@@ -326,8 +296,6 @@
 				return true;
 			});
 			})();
-
-	
 			
 		});
 

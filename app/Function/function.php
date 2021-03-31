@@ -68,7 +68,7 @@ function renderLinkAddPostType()
 }
 
 function listCate($data, $parent_id = 0, $str = '')
-{
+{ 
     foreach ($data as $value) {
         $id   = $value->id;
         $name = $value->name;
@@ -76,7 +76,7 @@ function listCate($data, $parent_id = 0, $str = '')
             if ($str == '') {
                 $strName = '<b>' . $str . $name . '</b>';
             } else {
-
+    
                 $strName = $str . $name;
             }
             echo '<tr class="odd">';
@@ -93,7 +93,7 @@ function listCate($data, $parent_id = 0, $str = '')
                                 </a>
                             </td>';
             echo '</tr>';
-
+    
             listCate($data, $id, $str . '---| ');
         }
     }
@@ -231,147 +231,16 @@ function getOptions($key = null, $field = null, $array = false)
     return 'error';
 }
 
-function renderAction($method)
-{
-    return isUpdate($method) ? 'Cập nhật' : 'Thêm mới';
-}
-
-function isUpdate($method)
-{
+function isUpdate($method) {
     return (bool) $method == 'update';
 }
 
-function updateOrStoreRouteRender($method, $model, $data)
-{
-    return isUpdate($method) ? route($model . '.update', $data) : route($model . '.store');
+function updateOrStoreRouteRender($method, $model, $data) {
+    return isUpdate($method) ? route($model . '.update', $data) : route($model. '.store');
 }
 
-function generateRandomCode()
-{
-    return substr(str_shuffle(str_repeat($x = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(10 / strlen($x)))), 1, 10);
-}
-
-
-function getListStarProduct($item)
-{
-    $star_all   =   Comments::where('status', 1)->where('type', 0)->whereNotNull('vote')->where('id_product', $item->id)->count();
-    if($star_all == 0){
-        return [
-            '1' => [
-                'percent' => 0, 
-                'total_vote' => 0
-            ], 
-            '2' => [
-                'percent' => 0, 
-                'total_vote' => 0
-            ],
-            '3' => [
-                'percent' => 0, 
-                'total_vote' => 0
-            ],
-            '4' => [
-                'percent' => 0, 
-                'total_vote' => 0
-            ],
-            '5' => [
-                'percent' => 0, 
-                'total_vote' => 0
-            ]
-        ];
-    }
-    $star_1     =   Comments::where('status', 1)->where('id_product', $item->id)->where('vote', 1)->where('type', 0)->count();
-    $star_2     =   Comments::where('status', 1)->where('id_product', $item->id)->where('vote', 2)->where('type', 0)->count();
-    $star_3     =   Comments::where('status', 1)->where('id_product', $item->id)->where('vote', 3)->where('type', 0)->count();
-    $star_4     =   Comments::where('status', 1)->where('id_product', $item->id)->where('vote', 4)->where('type', 0)->count();
-    $star_5     =   Comments::where('status', 1)->where('id_product', $item->id)->where('vote', 5)->where('type', 0)->count();
-    return [
-        '1' => [
-            'percent' => round(($star_1 / $star_all) * 100), 
-            'total_vote' => $star_1
-        ], 
-        '2' => [
-            'percent' => round(($star_2 / $star_all) * 100), 
-            'total_vote' => $star_2
-        ],
-        '3' => [
-            'percent' => round(($star_3 / $star_all) * 100), 
-            'total_vote' => $star_3
-        ],
-        '4' => [
-            'percent' => round(($star_4 / $star_all) * 100), 
-            'total_vote' => $star_4
-        ],
-        '5' => [
-            'percent' => round(($star_5 / $star_all) * 100), 
-            'total_vote' => $star_5
-        ],
-        'all' => [
-            'total_vote' => $star_1 + $star_2 + $star_3 + $star_4 + $star_5,
-        ]
-    ];
-}
-
-
-function getStarProduct($item)
-{
-    $dataStar = Comments::where('status', 1)->where('type', 0)->whereNotNull('vote')->where('id_product', $item->id);
-    $sumStar = $dataStar->sum('vote');
-    $countComment = $dataStar->count();
-    $average = 0;
-    if($sumStar != 0){
-        $average =  round($sumStar / $countComment, 1);
-    }
-    return $average;
-}
-
-
-
-function dequyComments($datas)
-{
-    $list_ids = [];
-    foreach ($datas as $data) {
-        $list_ids[] = $data->id;
-        if ($data->getChild()->count() > 0) {
-            $list_ids = array_merge($list_ids, dequyComments($data->getChild()));
-        }
-    }
-    return $list_ids;
-}
-
-function get_list_ids_comments($datas)
-{
-    return $datas ? dequyComments($datas->getChild()) : null;
-}
-
-function renderComments($data, $item1)
-{
-    if(count($item1->getChild()) > 0){
-        echo '<div style="padding-left:25px;" class="box-comment-custom">';
-        foreach ($item1->getChild() as $value) {
-            if ($value->parent_id == $item1->id) {
-                $item = $value;
-                echo view('backend.comments.row-comment',compact('item'))->render();
-                renderComments($data, $value);
-            }
-        }
-        echo '</div>';
-    }
-}
-
-
-function renderCommentsFrontend($data, $item1, $productId, $arr)
-{
-    if(count($item1->getChild()) > 0){
-            
-        foreach ($item1->getChild() as $value) {
-            if ($value->parent_id == $item1->id) {
-                $item = $value;
-                $idProduct = $productId;
-                echo view('frontend.comments.row-comment',compact('item', 'idProduct', 'arr'))->render();
-                renderCommentsFrontend($data, $value, $productId, $arr);
-            }
-        }
-    }
+function renderAction($method) { 
+    return isUpdate($method) ? 'Cập nhật' : 'Thêm mới';
 }
 
 

@@ -28,9 +28,6 @@ use JsValidator;
 use DB;
 use Illuminate\Support\Facades\Mail;
 
-
-
-
 use Carbon\Carbon;
 
 class IndexController extends Controller
@@ -110,78 +107,6 @@ class IndexController extends Controller
         return view('frontend.pages.product', compact('data', 'filters','product_hot'));
     }
 
-    public function postComment(Request $request, $idProduct)
-    {
-        $customers        = new Customers;
-        $customers->name  = $request->name;
-        $customers->email = $request->email;
-        $customers->phone = $request->phone;
-        $customers->save();
-        $comment               = new Comments;
-        if($request->cate == 'blog') //posts
-        $comment->id_post   = $idProduct;
-        else $comment->id_product = $idProduct;
-        $comment->id_customers = $customers->id;
-        $comment->content      = $request->content;
-        $comment->cate = $request->cate;
-        $comment->status       = 0;
-        $comment->save();
-        toastr()->success('Gửi thông tin thành công.');
-        return back();
-    }
-
-    public function postReplyComment(Request $request, $idProduct)
-    {
-
-        $this->validate($request, [
-            'name'    => 'required|min:5|max:50',
-            'email'   => 'required|email',
-            'content' => 'required|max:300',
-        ], [
-            'name.required'    => 'Bạn chưa nhập họ tên.',
-            'name.min'         => 'Họ tên không thể nhỏ hơn 5 ký tự.',
-            'name.max'         => 'Họ tên không thể lớn hơn 50 ký tự.',
-            'email.required'   => 'Bạn chưa nhập email.',
-            'email.email'      => 'Email phải là một địa chỉ email hợp lệ.',
-            'content.required' => 'Bạn chưa nhập nội dung bình luận.',
-            'content.max'      => 'Nội dung không thể lớn hơn 300 ký tự.',
-        ]);
-        $customers         = new Customers;
-        $customers->name   = $request->name;
-        $customers->email  = $request->email;
-        $customers->gender = $request->gioitinh;
-        $customers->phone = $request->phone;
-        $customers->save();
-        $comment            = new Comments;
-        if($request->cate == 'blog') //posts
-        $comment->id_post   = $idProduct;
-        else $comment->id_product = $idProduct;
-        $comment->id_customers = $customers->id;
-        $comment->parent_id    = $request->parent_id;
-        $comment->content      = $request->content;
-        $comment->cate = $request->cate;
-        $comment->status       = 0;
-     
-        $comment->save();
-        toastr()->success('Gửi bình luận thành công.');
-        return back();
-
-    }
-
-    public function getVoteStar(Request $request)
-    {
-        $idproduct             = $request->id_product;
-        $star                  = $request->star;
-        $comment               = new Comments;
-        $comment->id_product   = $idproduct;
-        $comment->id_customers = 77;
-        $comment->status       = 1;
-        $comment->vote         = $star;
-        $comment->save();
-        return response()->json([
-            'message' => 'success',
-        ]);
-    }
 
     public function getAjaxProduct(Request $request) {
         $product = Products::where('id', $request->id)->where('status',1)->first();
