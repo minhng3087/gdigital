@@ -5,7 +5,7 @@
 	<div class="content">
 		<?php echo $__env->make('backend.components.messages-error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 		<div class="clearfix"></div>
-		<form action="<?php echo e(route('posts.update', $data->id)); ?>" method="POST" enctype="multipart/form-data">
+		<form action="<?php echo e(route('posts.update', $data->id)); ?>" method="POST">
 			<?php echo csrf_field(); ?>
 			<?php echo method_field('PUT'); ?>
 			<input type="hidden" value="blog" name="type">
@@ -162,7 +162,6 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('css'); ?>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="<?php echo e(url('public/admin_assets/plugins/taginput/bootstrap-tagsinput.css')); ?>">
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('scripts'); ?>
 	<script>
@@ -202,7 +201,6 @@
 	</script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-	<script src="<?php echo e(url('public/backend/plugins/taginput/bootstrap-tagsinput.min.js')); ?>"></script>
 	<script>
 		jQuery(document).ready(function($) {
 			$('input[name="time_published"]').click(function(){

@@ -19,9 +19,6 @@
                     <li class="">
                     	<a href="#banner" data-toggle="tab" aria-expanded="true">Banner đầu trang</a>
                     </li>
-                    <li class="">
-                    	<a href="#banner-min" data-toggle="tab" aria-expanded="true">Banner nhỏ</a>
-                    </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="activity">
@@ -111,73 +108,6 @@
 					                </table>
 					            </div>
 					        </div>
-					    </div>
-                    </div>
-                    <div class="tab-pane" id="banner-min">
-                    	<div class="row">
-			                <div class="col-sm-8">
-								<div class="repeater" id="repeater">
-					                <table class="table table-bordered table-hover image-banner-min">
-					                    <thead>
-						                    <tr>
-						                    	<th style="width: 30px;">STT</th>
-						                    	<th style="width: 200px">Hình ảnh</th>
-						                    	<th>Nội dung</th>
-						                    	<th style="width: 40px"></th>
-						                    </tr>
-					                	</thead>
-					                    <tbody>
-					                    	@php if(!empty($data->meta_banner)){
-					                    		$meta_banner = json_decode( $data->meta_banner );
-					                    	} 
-											@endphp
-					                    	@if (!empty($meta_banner->min))
-					                    		@foreach ($meta_banner->min as $id => $value)
-					                    			@php 
-														$index = $loop->index + 1 
-													@endphp
-					                    			@include('backend.repeater.row-image-banner-min')
-					                    		@endforeach
-					                    	@endif
-					                    </tbody>
-					                </table>
-					                <div class="text-right">
-					                    <button class="btn btn-primary" 
-							            	onclick="repeater(event,this,'{{ route('get.layout') }}','.index', 'image-banner-min', '.image-banner-min')">Thêm
-							            </button>
-					                </div>
-					            </div>
-					        </div>
-					        @php
-					        	if(!empty($data->content_banner_big)){
-					        		$content_banner_big = json_decode( $data->content_banner_big );
-					        	}
-					        @endphp
-					        <div class="col-sm-4">
-					        	<div class="form-group">
-					        		<label class="custom-checkbox">
-										<input type="checkbox" name="is_using_banner_big" value="1" {{ @$data->is_using_banner_big == 1 ? 'checked' : null }}> Sử dụng banner dài
-			                        </label>
-					        	</div>
-					        	<div class="form-group">
-					        		<label for="">Banner dài</label>
-					        		<div class="image">
-		                               	<div class="image__thumbnail">
-		                                   <img src="{{ !empty(@$content_banner_big->image) ? @$content_banner_big->image : __IMAGE_DEFAULT__ }}"  data-init="{{ __IMAGE_DEFAULT__ }}">
-		                                   <a href="javascript:void(0)" class="image__delete" 
-		                                   onclick="urlFileDelete(this)">
-		                                    <i class="fa fa-times"></i></a>
-		                                   <input type="hidden" value="{{ @$content_banner_big->image }}" name="content_banner_big[image]"  />
-		                                   <div class="image__button" onclick="fileSelect(this)"><i class="fa fa-upload"></i> Upload</div>
-		                               	</div>
-		                           	</div>
-					        	</div>
-					        	<div class="form-group">
-					        		<label for="">Liên kết banner dài</label>
-					        		<input type="text" name="content_banner_big[link]" class="form-control" value="{{ @$content_banner_big->link }}">
-					        	</div>
-					        </div>
-					        
 					    </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Lưu lại</button>

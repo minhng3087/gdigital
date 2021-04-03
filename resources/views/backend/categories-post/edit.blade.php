@@ -17,9 +17,6 @@
 		                    <li class="active">
 		                        <a href="#activity" data-toggle="tab" aria-expanded="true">Danh mục</a>
 		                    </li>
-		                    <li class="" style="display: none;">
-		                    	<a href="#setting" data-toggle="tab" aria-expanded="true">Cấu hình seo</a>
-		                    </li>
 		                </ul>
 		                <div class="tab-content">
 		                    <div class="tab-pane active" id="activity">
@@ -51,22 +48,6 @@
 												</div>
 											</div>
 										</div>
-		                    		</div>
-		                    		<div class="col-sm-12">
-		                    			 <div class="form-group">
-				                            <label>Title SEO</label>
-				                            <input type="text" class="form-control" name="meta_title" value="{!! old('meta_title',  @$data->meta_title) !!}">
-				                        </div>
-
-				                        <div class="form-group">
-				                            <label>Meta Description</label>
-				                            <textarea name="meta_description" id="" class="form-control" rows="5">{!! old('meta_description', @$data->meta_description) !!}</textarea>
-				                        </div>
-
-				                        <div class="form-group">
-				                            <label>Meta Keyword</label>
-				                            <input type="text" class="form-control" name="meta_keyword" value="{!! old('meta_keyword',@$data->meta_keyword) !!}">
-				                        </div>
 		                    		</div>
 		                    	</div>
 		                    </div>

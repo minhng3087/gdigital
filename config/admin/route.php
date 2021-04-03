@@ -22,12 +22,11 @@
             'multi_del' => true,
         ],
 
-        'comments' => [
-            'name' => 'comments',
+        'post' => [
+            'name' => 'posts',
             'except' => $except,
             'multi_del' => true,
         ],
-
         'contact' => [
             'name' => 'contact',
             'except' => $except,

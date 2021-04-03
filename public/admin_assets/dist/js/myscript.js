@@ -73,11 +73,6 @@ $(document).ready(function(){
 });
 // send email
 $(document).ready(function(){
-    $('#addFile').click(function(){
-        $('#insertBtnFile').append('<div class="form-group"><input type="file" name="inpFile[]"></div>');
-    });
-});
-$(document).ready(function(){
     $('#chkAll').change(function(event){
         var checkAll = $('#chkAll:checked').length > 0;
         if (checkAll) {
@@ -105,54 +100,6 @@ jQuery(document).ready(function($) {
         cancelInput();
     });
 });
-$(document).ready(function(){
-    $('a#del_img').on('click', function(){
-        var url =  homeUrl() + "/backend/product/delimg/";
-        var _token = $("form[name='frmEditProduct']").find("input[name='_token']").val();
-        var idImg = $(this).parent().find("img").attr("idImg");
-        var img = $(this).parent().find("img").attr("src");
-        var rid = $(this).parent().find("img").attr("id");
-        $.ajax({
-            url: url + idImg,
-            type: 'GET',
-            cache: false,
-            data: {"_token":_token,"idImg":idImg,"urlImg":img},
-            success: function(data){
-                if (data == 'OK') {
-                    $('#'+rid).remove();
-                }else{
-                    alert('Error ! Please contact admin !');
-                }
-            }
-        });
-    });
-});
-
-
-$(document).ready(function(){
-    $('a#del_gallery').on('click', function(){
-        var url =  homeUrl() + "/backend/inf/delimg/";
-        var _token = $("form[name='frmEditImg']").find("input[name='_token']").val();
-        var idImg = $(this).parent().find("img").attr("idImg");
-        var img = $(this).parent().find("img").attr("src");
-        var rid = $(this).parent().find("img").attr("id");
-        
-        $.ajax({
-            url: url + idImg,
-            type: 'GET',
-            cache: false,
-            data: {"_token":_token,"idImg":idImg,"urlImg":img},
-            success: function(data){
-                if (data == 'OK') {
-                    $('#'+rid).remove();
-                }else{
-                    alert('Error ! Please contact admin !');
-                }
-            }
-        });
-    });
-});
-
 
 
 $(document).ready(function(){
@@ -174,42 +121,6 @@ $(function() {
         var action = $(this).attr('data-href');
         $('#form-destroy').attr('action', action);
     });
-    $('body').on('click', '.kv-error-close', function(event) {
-        event.preventDefault();
-    });
-    $('#frm_product').on('submit', function() {
-        price = parseInt($("input[name='price']").val());
-        price_promotion = parseInt($("input[name='price_promotion']").val());
-        if(price <= price_promotion ){
-            alert('Giá khuyến mại phải nhỏ hơn giá bán !');
-            return false;
-        }
-    });
-    $('#form_post').on('submit', function() {
-        img = $("input[name='image']").val();
-        if(img == ''){
-            alert('Bạn chưa chọn hình ảnh cho bài viết.');
-            $(".image__thumbnail img").css({"border": "2px", "border-style": "solid", "border-color": "red"});
-            return false;
-        }
-        var listArr = [];
-        $("input[name='category[]']:checked").each(function() {
-           listArr.push($(this).val());
-        });
-        if (listArr.length == 0) {
-            $('.category-box').css({
-                'border': '2px',
-                'border-style': 'solid',
-                'border-color' : 'red'
-            });
-            alert('Bạn chưa chọn danh mục bài viết.');
-            var $container = $("html,body");
-            var $scrollTo = $('.category-box');
-            $container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 200, scrollLeft: 0},300);
-            return false;
-        }
-    });
-    
 });
 
 function urlFileDelete(el) {
@@ -240,19 +151,6 @@ function repeater(event, el, url, indexClass, type, table = null) {
         target.append(data)
     });
 }
-
-jQuery(document).ready(function($) {
-    $("#meta_title").keyup(function(){
-        var countTitle =  this.value.length;
-        $('#countTitle').text(countTitle+'/70');
-        $(".google__title span").text(this.value);
-    });
-    $("#meta_description").keyup(function(){
-        var countMeta = this.value.length;
-        $('#countMeta').text(countMeta+'/320');
-        $(".google__description").text(this.value);
-    });
-});
 
 var regExp = /[0-9\.\,]/;
 $('.number').on('keydown keyup', function(e) {

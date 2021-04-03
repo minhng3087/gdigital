@@ -23,7 +23,7 @@
 		</div>
 		<div class="form-group">
 			<label for="">Mô tả</label>
-			<textarea class="form-control" rows="5" name="content[banner][<?php echo e($id); ?>][desc]" required=""><?php echo e(@$value->desc); ?></textarea>
+			<textarea class="form-control content" rows="5" name="content[banner][<?php echo e($id); ?>][desc]" required=""><?php echo e(@$value->desc); ?></textarea>
 		</div>
 	</td>
     <td style="text-align: center;">

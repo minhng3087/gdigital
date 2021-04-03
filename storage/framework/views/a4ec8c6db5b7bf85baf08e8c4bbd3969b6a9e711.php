@@ -20,8 +20,6 @@
 	            <tbody>
 	                <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	                	<?php if($item->id != 3): ?>
-	                		
-	                	
 	                    <tr>
 	                        <td><?php echo e($loop->index +1); ?></td>
 	                        <td><?php echo e($item->title); ?></td>

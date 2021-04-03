@@ -8,7 +8,6 @@ use App\Models\Products;
 use App\Models\Categories;
 use App\Models\ProductCategory;
 use App\Models\ProductImage;
-use App\Models\ProductQuestions;
 use DataTables;
 use Carbon\Carbon;
 use App\Models\ProductAttributes;
@@ -86,7 +85,7 @@ class ProductsController extends Controller
                 })->addColumn('image', function ($data) {
                     return '<img src="' . $data->image . '" class="img-thumbnail" width="50px" height="50px">';
                 })->addColumn('name', function ($data) {
-                        return $data->name.'<br><a href="' . route('home.single.product', $data->slug) . '" target="_black">
+                        return $data->name.'<br><a href="' . route('home.single.product', $data->slug) . '" target="_blank">
                         <i class="fa fa-hand-o-right" aria-hidden="true"></i> Link: 
                         ' . route('home.single.product', $data->slug) . '
                       </a>';
@@ -105,14 +104,13 @@ class ProductsController extends Controller
                         $status = ' <span class="label label-danger">Không hiển thị</span>';
                     }
                     if ($data->is_hot) {
-                        $status = $status . ' <span class="label label-primary">Nổi bật</span>';
+                        $status = $status . ' <span class="label label-success">Nổi bật</span>';
                     }
-                    if($data->is_flash_sale == 1){
-                        $status = $status . ' <span class="label label-primary">Flash Sale</span>';
+                    if ($data->is_flash_sale) {
+                        $status = $status . ' <span class="label label-success">Flash sale</span>';
                     }
-                    if($data->is_price_shock == 1){
-                        $status = $status . ' <span class="label label-primary">Sản phẩm mới</span>';
-                    }
+                    
+                 
 
                     if($data->CheckApplyGift()){
                         $status = $status . ' <span class="label label-primary">Quà tặng</span>';
@@ -165,16 +163,13 @@ class ProductsController extends Controller
         }
 
         $input = $request->all();
-        $input['status'] = $request->status == 1 ? 1 : null;
-        $input['is_hot'] = $request->hot == 1 ? 1 : null;
-        $input['is_flash_sale'] = $request->is_flash_sale == 1 ? 1 : null;
+        $input['status'] = $request->status == 1 ??  null;
+        $input['is_hot'] = $request->hot == 1 ??  null;
+        $input['is_flash_sale'] = $request->is_flash_sale == 1 ?? null;
         $sale = !is_null($request->sale_price) && intval($request->sale_price) >= 0 && intval($request->regular_price) >= 0 ? (1 -intval($request->sale_price) / intval($request->regular_price)) * 100 : 0;
         $input['sale'] = $sale;
         $input['slug'] = $this->createSlug(str_slug($request->name));
-        $input['is_apply_gift'] = $request->is_apply_gift == 1 ? 1 : null;
-        $input['is_price_shock'] = $request->is_price_shock == 1 ? 1 : null;
-        $input['is_selling'] = $request->is_selling == 1 ? 1 : null;
-        $input['product_version'] = !empty($request->input('product_version')) ? json_encode( $request->input('product_version') ) : null;
+        $input['is_apply_gift'] = $request->is_apply_gift == 1 ?? null;
         $input['content_gift'] = !empty($request->content_gift) ? json_encode( $request->content_gift ) : null;
         $input['content_services_warranty'] = !empty($request->content_services_warranty) ? json_encode( $request->content_services_warranty ) : null;
         $input['end_date_apply_gift'] = !empty($request->end_date_apply_gift) ? Carbon::createFromFormat('!d/m/Y', $request->end_date_apply_gift) : null;
@@ -272,18 +267,9 @@ class ProductsController extends Controller
         
         $input['sale'] = $sale;
         
-        $input['is_apply_gift'] = $request->is_apply_gift == 1 ? 1 : null;
-
-        $input['is_price_shock'] = $request->is_price_shock == 1 ? 1 : null;
-
-        $input['is_selling'] = $request->is_selling == 1 ? 1 : null;
-
-        $input['is_online'] = $request->is_online == 1 ? 1 : null;
-
+        $input['is_apply_gift'] = $request->is_apply_gift == 1 ?? null;
 
         $input['content_services_warranty'] = !empty($request->content_services_warranty) ? json_encode( $request->content_services_warranty ) : null;
-
-        $input['products_version'] = !empty($request->input('products_version')) ? json_encode( $request->input('products_version') ) : null;
 
         $input['content_gift'] = !empty($request->content_gift) ? json_encode( $request->content_gift ) : null;
         $input['end_date_apply_gift'] = !empty($request->end_date_apply_gift) ? Carbon::createFromFormat('!d/m/Y', $request->end_date_apply_gift) : null;

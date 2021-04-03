@@ -8,7 +8,7 @@
             <div class="box-body">
                 <?php echo $__env->make('backend.components.messages-error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 <form action="<?php echo route($module['module'].'.postMultiDel'); ?>" method="POST">
-                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                    <?php echo csrf_field(); ?>
                     <div class="btnAdd">
                         <a href="<?php echo e(route($module['module'].'.create')); ?>">
                             <fa class="btn btn-primary"><i class="fa fa-plus"></i> Thêm</fa>

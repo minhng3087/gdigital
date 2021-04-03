@@ -52,7 +52,7 @@
 			    </div>
 			    <div class="modal fade" id="modal-default">
 			        <form action="{{ route('pages.create') }}" method="POST">
-			            {{ csrf_field() }}
+			            @csrf
 			            <div class="modal-dialog">
 			                <div class="modal-content">
 			                    <div class="modal-header">
@@ -66,7 +66,7 @@
 			                            <input type="text" name="name_page" class="form-control">
 			                        </div>
 			                        <div class="form-group">
-			                            <label for="">Key</label>
+			                            <label for="">Type</label>
 			                            <input type="text" name="type" class="form-control">
 			                        </div>
 			                        <div class="form-group">

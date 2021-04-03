@@ -5,7 +5,7 @@
 	<div class="content">
 		<div class="clearfix"></div>
 		<?php echo $__env->make('backend.components.messages-error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-       	<form action="<?php echo updateOrStoreRouteRender(@$module['action'], @$module['module'], @$data); ?>" method="POST">
+       	<form action="<?php echo e(updateOrStoreRouteRender(@$module['action'], @$module['module'], @$data)); ?>" method="POST">
 			<?php echo csrf_field(); ?>
 			<?php if(isUpdate(@$module['action'])): ?>
 				<?php echo e(method_field('put')); ?>
@@ -18,9 +18,6 @@
                     </li>
                     <li class="">
                     	<a href="#category" data-toggle="tab" aria-expanded="true">Danh mục</a>
-                    </li>
-                    <li class="" style="display: none;">
-                    	<a href="#setting" data-toggle="tab" aria-expanded="true">Cấu hình seo</a>
                     </li>
                 </ul>
                 <div class="tab-content">
@@ -105,7 +102,7 @@
 			                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 			                            <?php if($item->parent_id == 0): ?>
 			                                <label class="custom-checkbox">
-			                                    <input type="checkbox" class="category" name="meta_orthers[list_category][]" value="<?php echo e($item->id); ?>" <?php echo e(in_array( $item->id, $category_list ) ? 'checked' : null); ?>> <?php echo e($item->name); ?>
+			                                    <input type="checkbox" class="category" name="meta_orthers[list_category][]" value="<?php echo e($item->id); ?>" <?php echo e(in_array( $item->id, $category_list ) ? 'checked' : NULL); ?>> <?php echo e($item->name); ?>
 
 			                                 </label>
 			                                 <?php checkBoxCategoryName( $categories, $item->id, $item, $category_list, 'meta_orthers[list_category][]' ) ?>
@@ -116,26 +113,6 @@
 		            	</div>
 					</div>
 
-                    <div class="tab-pane" id="setting">
-                    	<div class="row">
-                    		<div class="col-sm-12">
-                    			 <div class="form-group">
-		                            <label>Title SEO</label>
-		                            <input type="text" class="form-control" name="meta_title" value="<?php echo old('meta_title', @$data['meta_title']); ?>">
-		                        </div>
-
-		                        <div class="form-group">
-		                            <label>Meta Description</label>
-		                            <textarea name="meta_description" id="" class="form-control" rows="5"><?php echo old('meta_description', @$data['meta_description']); ?></textarea>
-		                        </div>
-
-		                        <div class="form-group">
-		                            <label>Meta Keyword</label>
-		                            <input type="text" class="form-control" name="meta_keyword" value="<?php echo old('meta_keyword', @$data['meta_keyword']); ?>">
-		                        </div>
-                    		</div>
-                    	</div>
-                    </div>
                     <button type="submit" class="btn btn-primary">Lưu lại</button>
                 </div>
             </div>

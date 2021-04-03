@@ -8,7 +8,7 @@ class Categories extends Model
 {
     protected $table = 'categories';
 
-    protected $fillable = [ 'name','slug','parent_id', 'type', 'meta_orthers', 'link_footer', 'meta_banner', 'is_using_banner_big', 'content_banner_big'];
+    protected $fillable = [ 'name','slug','parent_id', 'type', 'meta_orthers', 'meta_banner', 'image', 'banner'];
 
 
     public function get_child_cate()

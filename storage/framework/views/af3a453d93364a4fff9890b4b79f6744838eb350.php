@@ -33,7 +33,7 @@
 			                                    </a> &nbsp; &nbsp; &nbsp;
 			                                    <a class="text-danger" href="<?php echo route('setting.menu.delete',$item['id']); ?>" onclick="return confirm('Bạn có chắc chắn xóa không ?')" title="Xóa"> <i class="fa fa-trash-o fa-fw"></i> Xóa</a>
 			                                </div>
-			                                <?php menuChildren($data, $item->id, $item ) ?>
+			                              
 			                            </li>
 			                         <?php endif; ?>
 			                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

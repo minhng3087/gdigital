@@ -16,7 +16,7 @@
 							<div class="container">
 								<div class="content">
 									<div class="info">
-										{{ $value->desc }}
+										{!! $value->desc !!}
 									</div>
 								</div>
 							</div>

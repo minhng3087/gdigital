@@ -16,11 +16,8 @@ class PagesController extends Controller
 
 	public function postCreatePages(Request $request)
 	{
-		$page = new Pages;
-		$page->name_page = $request->name_page;
-		$page->type = $request->type;
-		$page->route = $request->route;
-		$page->save();
+		$input = $request->all();
+		Pages::create($input);		
         toastr()->success('Thêm mới thành công.');
 		return redirect()->back();
 	}
@@ -39,17 +36,13 @@ class PagesController extends Controller
 
     public function postBuildPages(Request $request)
     {
-       	$type = $request->type;
+		$type = $request->page;
     	$data = Pages::where('type', $type)->firstOrFail();
     	$data->content = !empty($request->content) ? json_encode($request->content) : null;
-    	$data->meta_title = $request->meta_title;
-    	$data->meta_description = $request->meta_description;
-    	$data->meta_keyword = $request->meta_keyword;
     	$data->image = $request->image;
-        $data->title_h1 = $request->title_h1;
         $data->banner = $request->banner;
     	$data->save();
 		toastr()->success('Thêm mới thành công.');
-    	return redirect()->back();
+    	return back();
     }
 }

@@ -37,7 +37,6 @@
 				            	<a href="#activity1" data-toggle="tab" aria-expanded="true">Banner</a>
 				            </li>
 
-
 							<li class="">
 				            	<a href="#activity2" data-toggle="tab" aria-expanded="true">Danh mục sản phẩm</a>
 				            </li>
@@ -56,11 +55,6 @@
 
 				            <li class="">
 				            	<a href="#activity4" data-toggle="tab" aria-expanded="true">Đối tác</a>
-				            </li>
-
-
-				            <li class="">
-				            	<a href="#seo" data-toggle="tab" aria-expanded="true">Cấu hình trang</a>
 				            </li>
 
 				        </ul>
@@ -294,22 +288,6 @@
 				                </div>
 				            </div>
 				    	</div>
-				    	<div class="tab-pane" id="seo">
-							<div class="row">
-								
-								
-								<div class="col-sm-10">
-									
-									
-									<div class="form-group">
-										<label for="">Tiêu đề thẻ H1 ẩn</label>
-										<input type="text" name="title_h1" class="form-control" value="{!! @$data->title_h1 !!}">
-									</div>
-
-								</div>
-							</div>
-						</div>
-				    	
 
 
 			           	<button type="submit" class="btn btn-primary">Lưu lại</button>

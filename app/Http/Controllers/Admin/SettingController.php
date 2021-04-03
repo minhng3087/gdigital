@@ -25,7 +25,7 @@ class SettingController extends Controller
     public function postGeneralConfig(Request $request)
     {
         $options = Options::where('type', 'general')->first();
-        $options->content = !empty($request->content) ? json_encode($request->content) : null;
+        $options->content = !empty($request->content) ? json_encode($request->content) : NULL;
         $options->save();
         toastr()->success('Cập nhật thành công.');
         return back();
@@ -41,7 +41,7 @@ class SettingController extends Controller
     public function postSmtpConfig(Request $request)
     {
         $content = Options::where('type', 'smtp-config')->first();
-        $content->content = !empty($request->content) ? json_encode($request->content) : null;
+        $content->content = !empty($request->content) ? json_encode($request->content) : NULL;
         $content->save();
         toastr()->success('Cập nhật thành công.');
         return back();

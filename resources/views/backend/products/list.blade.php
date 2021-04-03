@@ -9,7 +9,7 @@
             <div class="box-body">
                 @include('backend.components.messages-error')
                 <form action="{!! route($module['module'].'.postMultiDel') !!}" method="POST">
-                    <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                    @csrf
                     <div class="btnAdd">
                         <a href="{{ route($module['module'].'.create') }}">
                             <fa class="btn btn-primary"><i class="fa fa-plus"></i> Thêm</fa>

@@ -10,7 +10,7 @@
        		<input type="hidden" name="id_product" value="{{ request('id') }}">
 			@csrf
 			@if(isUpdate(@$module['action']))
-		        {{ method_field('put') }}
+		        @method('PUT')
 		    @endif
 		    <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
@@ -34,34 +34,6 @@
                     			<option value="default" {{ @$data->type == 'default' ? 'selected' : null }}>Mặc định</option>
                     			<option value="options" {{ @$data->type == 'options' ? 'selected' : null }}>Lựa chọn</option>
                     		</select>
-                    	</div>
-                    	<div class="form-group" id="options-layout">
-                    		<label for="">Lựa chọn</label>
-                    		<div class="repeater" id="repeater">
-				                <table class="table table-bordered table-hover product-gift">
-				                    <thead>
-					                    <tr>
-					                    	<th style="width: 30px;">STT</th>
-					                    	<th>Tiêu đề</th>
-					                    	<th>Giá giảm ( Nếu có )</th>
-					                    	<th style="width: 30px;"></th>
-					                    </tr>
-				                	</thead>
-				                	<?php if(!empty($data->value)){
-				                		$list_value = json_decode($data->value);
-				                	} ?>
-				                    <tbody id="sortable">
-				                    	@if (!empty($list_value->list))
-				                    		@foreach ($list_value->list as $id => $value)
-				                    			@include('backend.repeater.row-product-gift', ['index' => $loop->index + 1])
-				                    		@endforeach
-				                    	@endif
-									</tbody>
-				                </table>
-				               	<div class="text-right">
-				                    <button class="btn btn-primary" onclick="repeater(event,this,'{{ route('get.layout') }}','.index', 'product-gift', '.product-gift')">Thêm</button>
-			                	</div>
-				            </div>
                     	</div>
                     </div>
                     <button type="submit" class="btn btn-primary">Lưu lại</button>

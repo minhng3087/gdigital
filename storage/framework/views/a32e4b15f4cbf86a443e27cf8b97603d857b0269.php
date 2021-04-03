@@ -52,8 +52,7 @@
 			    </div>
 			    <div class="modal fade" id="modal-default">
 			        <form action="<?php echo e(route('pages.create')); ?>" method="POST">
-			            <?php echo e(csrf_field()); ?>
-
+			            <?php echo csrf_field(); ?>
 			            <div class="modal-dialog">
 			                <div class="modal-content">
 			                    <div class="modal-header">
@@ -67,7 +66,7 @@
 			                            <input type="text" name="name_page" class="form-control">
 			                        </div>
 			                        <div class="form-group">
-			                            <label for="">Key</label>
+			                            <label for="">Type</label>
 			                            <input type="text" name="type" class="form-control">
 			                        </div>
 			                        <div class="form-group">

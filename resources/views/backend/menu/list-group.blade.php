@@ -20,8 +20,6 @@
 	            <tbody>
 	                @foreach ($data as $item)
 	                	@if ($item->id != 3)
-	                		{{-- expr --}}
-	                	
 	                    <tr>
 	                        <td>{{ $loop->index +1 }}</td>
 	                        <td>{{ $item->title }}</td>

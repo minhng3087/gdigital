@@ -14,7 +14,6 @@ use App\Models\Products;
 use App\Models\Posts;
 use App\Models\PostCategory;
 use App\Models\Customers;
-use App\Models\Comments;
 use App\Models\Filter;
 use App\Models\Contact;
 use App\Models\ProductAttributes;

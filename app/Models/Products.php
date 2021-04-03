@@ -4,27 +4,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Trails\ModelScopes;
-use Conner\Tagging\Taggable;
 
 class Products extends Model
 {
-    use SoftDeletes, ModelScopes, Taggable;
+    use SoftDeletes, ModelScopes;
     protected $table = 'products';
 
     protected $dates = ['deleted_at'];
 
-    protected $fillable = ['name', 'slug', 'image', 'sort_desc', 'content', 'evaluate', 'specifications', 'title_attributes' , 'products_version', 'title_desc_gift', 'end_date_apply_gift', 'content_gift','regular_price','sale_price','sale', 'is_hot','is_online','is_flash_sale', 'is_apply_gift', 'status', 'brand_id', 'meta_title', 'is_price_shock', 'is_selling',
-    	'meta_description', 'meta_keyword', 'order_sale_page', 'time_priority','price_priority', 'content_services_warranty', 'warranty_parameter'
+    protected $fillable = ['name', 'slug', 'image', 'sort_desc', 'content', 'evaluate', 'specifications', 'title_attributes' , 'products_version', 'title_desc_gift', 'end_date_apply_gift', 'content_gift','regular_price','sale_price','sale', 'is_hot','is_flash_sale', 'is_apply_gift', 'status', 'brand_id',
+    	 'order_sale_page', 'time_priority','price_priority', 'content_services_warranty', 'warranty_parameter'
     ];
 
     public function ProductImage()
     {
         return $this->hasMany('App\Models\ProductImage', 'id_product', 'id'); 
-    }
-
-    public function ProductQuestions()
-    {
-        return $this->hasMany('App\Models\ProductQuestions', 'id_product', 'id'); 
     }
 
     public function category()
@@ -55,12 +49,6 @@ class Products extends Model
             $time_priority[1] = \Carbon\Carbon::createFromFormat('d-m-Y H:i:s', $time_priority[1].'23:59:59');
             return $now->isBetween($time_priority[0], $time_priority[1], false);
         }
-    }
-
-
-    public function Comments()
-    {
-        return $this->hasMany('App\Models\Comments', 'id_product', 'id')->where('status', 1);
     }
 
 

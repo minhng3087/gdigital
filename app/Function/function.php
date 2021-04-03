@@ -3,8 +3,6 @@ define("__IMAGE_DEFAULT__", asset('public/admin_assets/images/no-image.jpg'));
 define("__BASE_URL__", url('public/frontend'));
 
 use App\Models\Options;
-use App\Models\Comments;
-
 
 function renderImage($link)
 {
@@ -112,8 +110,8 @@ function checkBoxCategory($data, $id, $item, $list_id = null)
             }
             if ($value->parent_id == $id) {
                 echo '<label class="custom-checkbox">
-                                <input type="checkbox" class="category" name="category[]" value="' . $value->id . '" ' . $checked . ' > ' . $value->name . '
-                            </label>';
+                        <input type="checkbox" class="category" name="category[]" value="' . $value->id . '" ' . $checked . ' > ' . $value->name . '
+                    </label>';
                 checkBoxCategory($data, $value->id, $value, $list_id );
             }
         }
@@ -134,9 +132,9 @@ function checkBoxCategoryName($data, $id, $item, $list_id = null, $name = null)
             }
             if ($value->parent_id == $id) {
                 echo '<label class="custom-checkbox">
-                                <input type="checkbox" class="category" name="' . $name . '" value="' . $value->id . '" ' . $checked . ' > ' . $value->name . '
-                            </label>';
-                checkBoxCategory($data, $value->id, $value);
+                        <input type="checkbox" class="category" name="' . $name . '" value="' . $value->id . '" ' . $checked . ' > ' . $value->name . '
+                    </label>';
+                checkBoxCategoryName($data, $value->id, $value);
             }
         }
         echo '</div>';

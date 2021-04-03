@@ -6,8 +6,8 @@
 		<div class="clearfix"></div>
 		<div class="box box-primary">
             <div class="box-body">
-				<form action="{!! route('posts.postMultiDel') !!}" method="POST">
-			        <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+				<form action="{{ route('post.postMultiDel') }}" method="POST">
+			        @csrf
 			        <div class="box-header">
 			            <a href="{{ renderLinkAddPostType()['linkAdd'] }}">
 			                <fa class="btn btn-primary"><i class="fa fa-plus"></i> Thêm</fa>
@@ -29,7 +29,7 @@
 			            </thead>
                         <tbody>
 
-                         </tbody>
+                        </tbody>
 			        </table>
 			    </form>
 			</div>

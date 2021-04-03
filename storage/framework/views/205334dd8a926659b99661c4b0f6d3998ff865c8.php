@@ -8,7 +8,7 @@
             <div class="box-body">
                 <div class="btnAdd">
                     <a href="<?php echo e(route($module['module'].'.create')); ?>">
-                        <fa class="btn btn-primary"><i class="fa fa-plus"></i> Thêm</fa>
+                        <button class="btn btn-primary"><i class="fa fa-plus"></i> Thêm</button>
                     </a>
                 </div>
                 <table id="example1" class="table table-bordered table-striped table-hover">

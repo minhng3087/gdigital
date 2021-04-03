@@ -20,6 +20,13 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    protected function module(){
+        return [
+            'name' => 'Bài viết',
+            'module' => 'posts',
+        ];
+    }
     public function index(Request $request)
     {
         return view('backend.posts.list');
@@ -73,8 +80,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Categories::where('type', 'post_category')->get();
-        return view('backend.posts.add', compact('categories'));
+        $data['module'] = $this->module();
+        $data['categories'] = Categories::where('type', 'post_category')->get();
+        return view("backend.{$this->module()['module']}.create-edit", $data);
     }
 
     /**
@@ -105,26 +113,12 @@ class PostController extends Controller
         }else {
             $date = Carbon::now()->format('Y-m-d');
         }
-
-        $data = [
-            'name'             => $request->name,
-            'slug'             => $this->createSlug(str_slug($request->name)),
-            'desc'             => $request->desc,
-            'image'            => $request->image,
-            'type'             => $request->type,
-            'content'          => $request->content,
-            'status'           => $request->status,
-            'hot'              => $request->hot == 1 ? 1 : null,
-            'meta_title'       => $request->meta_title,
-            'meta_description' => $request->meta_description,
-            'meta_keyword'     => $request->meta_keyword,
-            'published_at'     => $date,
-            'view_count'       => 0,
-        ];
-        $post = Posts::create($data);
-        if(!empty($request->tags)){
-            $post->tag(explode(',', $request->tags));
-        }
+        $input = $request->all();
+        $input['hot'] = $request->hot == 1 ?? null;
+        $input['published_at'] = $date;
+        $input['view_count'] = 0;
+        $input['slug'] = $this->createSlug(str_slug($request->name));
+        $post = Posts::create($input);
         if(!empty($request->category)){
             foreach ($request->category as $item) {
                 PostCategory::create(['id_category'=> $item, 'id_post'=> $post->id]);
@@ -142,9 +136,13 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $data = Posts::findOrFail($id);
-        $categories = Categories::where('type', 'post_category')->get();
-        return view('backend.posts.edit', compact('data', 'categories'));
+        $data['module'] = array_merge($this->module(), [
+            'action' => 'update'
+        ]);
+        $data['data'] = Posts::findOrFail($id);
+        $data['categories'] = Categories::where('type', 'post_category')->get();
+
+        return view("backend.{$this->module()['module']}.create-edit", $data);
     }
 
     /**
@@ -160,7 +158,6 @@ class PostController extends Controller
             [
                 'name'  => 'required',
                 'type'  => 'required',
-
             ],
             [
                 'name.required'  => 'Bạn chưa nhập tên bài viết',
@@ -174,28 +171,12 @@ class PostController extends Controller
         }else {
             $date = $post->published_at;
         }
-
-        $data = [
-            'name'             => $request->name,
-            'desc'             => $request->desc,
-            'image'            => $request->image,
-            'content'          => $request->content,
-            'status'           => $request->status,
-            'hot'              => $request->hot == 1 ? 1 : null,
-            'meta_title'       => $request->meta_title,
-            'meta_description' => $request->meta_description,
-            'published_at'  => $date,
-            'meta_keyword'     => $request->meta_keyword,
-        ];
-        if(!empty($request->tags)){
-            $post->retag(explode(',', $request->tags));
-        }
-        $post = $post->update($data);
-
+        $input = $request->all();
+        $input['hot'] = $request->hot == 1 ?? null;
+        $input['published_at'] = $date;
+        $post = $post->update($input);
         if(!empty($request->category)){
-
             PostCategory::where('id_post', $id)->delete();
-            
             foreach ($request->category as $item) {
                 PostCategory::create(['id_category'=> $item, 'id_post'=> $id ]);
             }

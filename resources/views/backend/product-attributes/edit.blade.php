@@ -10,7 +10,7 @@
                 @include('backend.components.messages-error')
                 <form action="{{ route('product-attributes.update',@$data) }}" method="POST">
                 	@csrf
-					{{ method_field('put') }}
+					@method('PUT')
                 	<div class="row">
                 		<div class="col-sm-12">
                 			<div class="form-group">
@@ -22,12 +22,6 @@
 								<select name="type" class="form-control">
 									<option value="color" {{ @$data->type == 'color' ? 'selected' : null }} >Color</option>
 									<option value="input" {{ @$data->type == 'input' ? 'selected' : null }}>Options</option>
-								</select>
-			               	</div>
-			               	<div class="form-group" style="display: none;">
-			               		<label for="">Template (DEV)</label>
-			               		<select name="template" class="form-control">
-									<option value="color">input.color</option>
 								</select>
 			               	</div>
 							<button  type="submit" class="btn-primary btn">Lưu lại</button>

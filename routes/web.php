@@ -50,14 +50,13 @@ Route::group(['namespace' => 'Admin'], function () {
 		Route::group(['prefix' => 'options'], function() {
             Route::get('/general', 'SettingController@getGeneralConfig')->name('backend.options.general');
             Route::post('/general', 'SettingController@postGeneralConfig')->name('backend.options.general.post');
+
             Route::get('/smtp', 'SettingController@getSmtpConfig')->name('backend.options.smtp-config');
             Route::post('/smtp-config', 'SettingController@postSmtpConfig')->name('backend.options.smtp-config.post');
             Route::post('/send-mail-test', 'SettingController@postSendTestEmail')->name('backend.options.send-mail.post');
 
         });
 		// Bài viết
-		Route::resource('posts', 'PostController', ['except' => ['show']]);
-		Route::post('posts/postMultiDel', ['as' => 'posts.postMultiDel', 'uses' => 'PostController@deleteMuti']);
 		Route::get('posts/get-slug', 'PostController@getAjaxSlug')->name('posts.get-slug');
 		Route::get('posts/anyData', 'PostController@anyData')->name('posts.anyData');
 		Route::resource('categories-post', 'CategoriesPostController', ['except' => [
@@ -107,12 +106,9 @@ Route::group(['namespace' => 'Admin'], function () {
 			Route::post('/create', 'PagesController@postCreatePages')->name('pages.create');
         });
 
-		// Comments
-
 		// Contact
         Route::get('contact-active/', ['as' => 'contact.active', 'uses' => 'ContactController@getQuickActive']);
 		Route::get('contact/anyData', 'ContactController@anyData')->name('contact.anyData');
-
 
         Route::resource('category', 'CategoryController', ['except' => ['show']]);
         Route::get('/get-layout', 'IndexController@getLayOut')->name('get.layout');

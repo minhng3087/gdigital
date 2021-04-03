@@ -5,8 +5,8 @@
 		<div class="clearfix"></div>
 		<div class="box box-primary">
             <div class="box-body">
-				<form action="<?php echo route('posts.postMultiDel'); ?>" method="POST">
-			        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+				<form action="<?php echo e(route('post.postMultiDel')); ?>" method="POST">
+			        <?php echo csrf_field(); ?>
 			        <div class="box-header">
 			            <a href="<?php echo e(renderLinkAddPostType()['linkAdd']); ?>">
 			                <fa class="btn btn-primary"><i class="fa fa-plus"></i> Thêm</fa>
@@ -28,7 +28,7 @@
 			            </thead>
                         <tbody>
 
-                         </tbody>
+                        </tbody>
 			        </table>
 			    </form>
 			</div>

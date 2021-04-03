@@ -81,14 +81,6 @@
 								<option value="input">Options</option>
 							</select>
 		               	</div>
-		               	<div class="form-group" style="display: none;">
-		               		<label for="">Template</label>
-		               		<select name="template" class="form-control">
-								<option value="color">input.color</option>
-							</select>
-		               	</div>
-
-
 		            </div>
 		            <div class="modal-footer">
 		                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

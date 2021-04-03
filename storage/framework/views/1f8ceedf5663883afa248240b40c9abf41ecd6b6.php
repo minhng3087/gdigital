@@ -8,8 +8,7 @@
        	<form action="<?php echo updateOrStoreRouteRender( @$module['action'], $module['module'], @$data); ?>" method="POST">
 			<?php echo csrf_field(); ?>
 			<?php if(isUpdate(@$module['action'])): ?>
-		        <?php echo e(method_field('put')); ?>
-
+		        <?php echo method_field('PUT'); ?>
 		    <?php endif; ?>
 			<div class="row">
 				<div class="col-sm-9">
@@ -46,7 +45,13 @@
 			                                <div class="form-group" id="edit-slug-box">
 			                                    <?php echo $__env->make('backend.products.permalink', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 			                                </div>
-		                                <?php endif; ?>
+		                                <?php else: ?>
+											<div class="form-group">
+												<label>Đường dẫn tĩnh</label>
+												<input type="text" class="form-control" name="slug" id="slug" value="<?php echo old('slug', @$data->slug); ?>">
+											</div>
+										<?php endif; ?>
+
 		                    		</div>
 		                    		<div class="col-sm-6">
 		                    			<div class="form-group">
@@ -185,8 +190,8 @@
 								                    <tr>
 								                    	<th style="width: 30px;">STT</th>
 								                    	<th>Loại thuộc tính</th>
+								                    	<th>Tên</th>
 								                    	<th>Giá trị</th>
-								                    	<th>Giá trên lệch</th>
 								                    	<th style="width: 30px;"></th>
 								                    </tr>
 							                	</thead>
@@ -320,7 +325,7 @@
 							                            <tr>
 							                                <td><input type="checkbox" name="chkItem[]" value="<?php echo $item['id']; ?>"></td>
 							                                <td><?php echo e($loop->index + 1); ?></td>
-							                                <td><?php echo strip_tags($item->desc); ?></td>
+							                                <td><?php echo $item->desc; ?></td>
 							                                <td>
 							                                    <div>
 							                                        <a href="<?php echo e(route('product-gift.edit', ['id'=> $item->id])); ?>?id=<?php echo e($data->id); ?>" title="Sửa">
@@ -372,27 +377,6 @@
 										<input type="checkbox" name="is_flash_sale" value="1" <?php echo e(@$data->is_flash_sale == 1 ? 'checked' : null); ?>> Flash sale
 									<?php else: ?>
 		                            	<input type="checkbox" name="is_flash_sale" value="1" checked> Flash sale
-		                            <?php endif; ?>
-		                        </label>
-		                        <label class="custom-checkbox">
-									<?php if(isUpdate(@$module['action'])): ?>
-										<input type="checkbox" name="is_price_shock" value="1" <?php echo e(@$data->is_price_shock == 1 ? 'checked' : null); ?>> Sản phẩm mới
-									<?php else: ?>
-		                            	<input type="checkbox" name="is_price_shock" value="1" checked> Sản phẩm mới
-		                            <?php endif; ?>
-		                        </label>
-								<label class="custom-checkbox">
-									<?php if(isUpdate(@$module['action'])): ?>
-										<input type="checkbox" name="is_selling" value="1" <?php echo e(@$data->is_selling == 1 ? 'checked' : null); ?>> Sản phẩm trả góp 0%
-									<?php else: ?>
-		                            	<input type="checkbox" name="is_selling" value="1" checked> Sản phẩm trả góp 0%
-		                            <?php endif; ?>
-		                        </label>
-								<label class="custom-checkbox">
-									<?php if(isUpdate(@$module['action'])): ?>
-										<input type="checkbox" name="is_online" value="1" <?php echo e(@$data->is_online == 1 ? 'checked' : null); ?>> Sản phẩm chỉ bán online
-									<?php else: ?>
-		                            	<input type="checkbox" name="is_online" value="1" checked> Sản phẩm chỉ bán online
 		                            <?php endif; ?>
 		                        </label>
 		                        <label class="custom-checkbox">
@@ -502,7 +486,6 @@
 		});	
 	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-	<script src="<?php echo e(url('public/admin_assets/plugins/taginput/bootstrap-tagsinput.min.js')); ?>"></script>
 	<script>
 		jQuery(document).ready(function($) {
 			$('input[name="time_published"]').click(function(){
@@ -511,8 +494,6 @@
 			   	}else{
 			   		$('.time_published_value').hide('slow/400/fast');
 			   	}
-			});
-			$('#tags-input').tagsinput({
 			});
 			$('#reservation').daterangepicker({
 		         autoUpdateInput: false,
@@ -574,6 +555,5 @@
 <?php $__env->startSection('css'); ?>
 	<link rel="stylesheet" href="<?php echo e(url('public/admin_assets/plugins/datetimepicker/bootstrap-timepicker.css')); ?>">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="<?php echo e(url('public/admin_assets/plugins/taginput/bootstrap-tagsinput.css')); ?>">
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\gdigital\resources\views/backend/products/create-edit.blade.php ENDPATH**/ ?>

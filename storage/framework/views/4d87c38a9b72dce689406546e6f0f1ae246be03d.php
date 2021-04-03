@@ -15,7 +15,7 @@
 							<div class="container">
 								<div class="content">
 									<div class="info">
-										<?php echo e($value->desc); ?>
+										<?php echo $value->desc; ?>
 
 									</div>
 								</div>
