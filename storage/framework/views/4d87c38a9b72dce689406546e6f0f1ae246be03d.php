@@ -55,7 +55,7 @@
 				<div class="box-cate">
 					<div class="row">
 						<div class="col-md-3">
-							<div class="left"><img src="<?php echo e(__BASE_URL__); ?>/images/icon1.png" class="img-fluid" alt="">Điện thoại<i></i></div>
+							<div class="left"><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/icon1.png" class="img-fluid" alt="">Điện thoại<i></i></div>
 						</div>
 						<div class="col-md-9">
 							<div class="right text-right">
@@ -103,7 +103,7 @@
 				<div class="box-cate">
 					<div class="row">
 						<div class="col-md-3">
-							<div class="left"><img src="<?php echo e(__BASE_URL__); ?>/images/icon2.png" class="img-fluid" alt="">Laptop<i></i></div>
+							<div class="left"><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/icon2.png" class="img-fluid" alt="">Laptop<i></i></div>
 						</div>
 						<div class="col-md-9">
 							<div class="right text-right">
@@ -221,11 +221,11 @@
 						<div class="col-md-2">
 							<div class="item">
 								<div class="avarta">
-									<a href="product-detail.php"><img src="<?php echo e(__BASE_URL__); ?>/images/pr1.png" class="img-fluid" alt=""></a>
+									<a href="product-detail.php"><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/pr1.png" class="img-fluid" alt=""></a>
 									<div class="abs">
 										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="<?php echo e(__BASE_URL__); ?>/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="<?php echo e(__BASE_URL__); ?>/images/vote.png" class="img-fluid" alt=""></a></li>
+											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/zoom.png" class="img-fluid" alt=""></a></li>
+											<li class="list-inline-item"><a href=""><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/vote.png" class="img-fluid" alt=""></a></li>
 										</ul>
 									</div>
 								</div>
@@ -246,11 +246,11 @@
 						<div class="col-md-2">
 							<div class="item">
 								<div class="avarta">
-									<a href="product-detail.php"><img src="<?php echo e(__BASE_URL__); ?>/images/pr2.png" class="img-fluid" alt=""></a>
+									<a href="product-detail.php"><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/pr2.png" class="img-fluid" alt=""></a>
 									<div class="abs">
 										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="<?php echo e(__BASE_URL__); ?>/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="<?php echo e(__BASE_URL__); ?>/images/vote.png" class="img-fluid" alt=""></a></li>
+											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/zoom.png" class="img-fluid" alt=""></a></li>
+											<li class="list-inline-item"><a href=""><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/vote.png" class="img-fluid" alt=""></a></li>
 										</ul>
 									</div>
 								</div>
@@ -271,11 +271,11 @@
 						<div class="col-md-2">
 							<div class="item">
 								<div class="avarta">
-									<a href="product-detail.php"><img src="<?php echo e(__BASE_URL__); ?>/images/pr1.png" class="img-fluid" alt=""></a>
+									<a href="product-detail.php"><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/pr1.png" class="img-fluid" alt=""></a>
 									<div class="abs">
 										<ul class="list-inline text-center">
-											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="<?php echo e(__BASE_URL__); ?>/images/zoom.png" class="img-fluid" alt=""></a></li>
-											<li class="list-inline-item"><a href=""><img src="<?php echo e(__BASE_URL__); ?>/images/vote.png" class="img-fluid" alt=""></a></li>
+											<li class="list-inline-item"><a href="" data-toggle="modal" data-target="#myModal"><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/zoom.png" class="img-fluid" alt=""></a></li>
+											<li class="list-inline-item"><a href=""><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/vote.png" class="img-fluid" alt=""></a></li>
 										</ul>
 									</div>
 								</div>
@@ -304,16 +304,16 @@
 				<div class="row">
 					<div class="col-md-6 col-sm-6">
 						<div class="left">
-							<div class="item"><a href=""><img src="<?php echo e(__BASE_URL__); ?>/images/hot1.png" class="img-fluid" width="100%" alt=""></a></div>
+							<div class="item"><a href=""><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/hot1.png" class="img-fluid" width="100%" alt=""></a></div>
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6">
 						<div class="right">
-							<div class="item"><a href=""><img src="<?php echo e(__BASE_URL__); ?>/images/hot2.png" class="img-fluid" width="100%" alt=""></a></div>
+							<div class="item"><a href=""><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/hot2.png" class="img-fluid" width="100%" alt=""></a></div>
 							<div class="small-hot">
 								<ul>
-									<li><a href=""><img src="<?php echo e(__BASE_URL__); ?>/images/hot3.png" class="img-fluid" width="100%^" alt=""></a></li>
-									<li><a href=""><img src="<?php echo e(__BASE_URL__); ?>/images/hot4.png" class="img-fluid" width="100%^" alt=""></a></li>
+									<li><a href=""><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/hot3.png" class="img-fluid" width="100%^" alt=""></a></li>
+									<li><a href=""><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/hot4.png" class="img-fluid" width="100%^" alt=""></a></li>
 								</ul>
 							</div>
 						</div>
@@ -336,7 +336,7 @@
 								<div class="item">
 									<div class="avarta"><a href="<?php echo e(route('home.post.single', $item->slug)); ?>">	<img src="<?php echo e($item->image); ?>" class="img-fluid" width="100%" alt="<?php echo e($item->name); ?>"></a></div>
 									<div class="info">
-										<div class="date robo-light"><i class="fa fa-clock-o"></i> <?php echo e($date->diffForHumans($item->published_at)); ?></div>
+										<div class="date robo-light"><i class="fa fa-clock-o"></i> <?php echo e($item->published_at->diffForHumans()); ?></div>
 										<h3><a href="<?php echo e(route('home.post.single', $item->slug)); ?>" class="robo-bold"><?php echo e($item->name); ?></a></h3>
 										<div class="desc">
 											<?php echo e($item->desc); ?>

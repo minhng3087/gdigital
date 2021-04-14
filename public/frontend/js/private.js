@@ -270,7 +270,7 @@ jQuery(document).ready(function($) {
 
 function getAjaxProducts(param) {
     $.ajax({
-        url: window.location.origin + '/filter-products',
+        url: window.location.origin + '/gdigital/filter-products',
         type: 'get',
         data: param,
     })

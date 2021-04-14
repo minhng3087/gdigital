@@ -8,8 +8,8 @@
         <div class="box box-primary">
             <div class="box-body">
                	@include('backend.components.messages-error')
-               	<form action="{{ route('pages.build.post') }}" method="POST">
-					{{ csrf_field() }}
+               	<form action="{{ route('pages.build.post',['page' => $data->type]) }}" method="POST">
+					@csrf
 					<input name="type" value="{{ $data->type }}" type="hidden">
 
 					<div class="row">

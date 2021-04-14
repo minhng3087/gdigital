@@ -3,8 +3,8 @@
 			<a href="<?php echo e(route('home.single.product', $item->slug)); ?>"><img src="<?php echo e(@$item->image); ?>" class="img-fluid" alt="<?php echo e(@$item->name); ?>"></a>
 			<div class="abs">
 				<ul class="list-inline text-center">
-					<li class="list-inline-item"><a href="" class="modal-product" data-id="<?php echo e($item->id); ?>" data-toggle="modal" data-target="#myModal"><img src="<?php echo e(__BASE_URL__); ?>/images/zoom.png" class="img-fluid" alt=""></a></li>
-					<li class="list-inline-item"><a href=""><img src="<?php echo e(__BASE_URL__); ?>/images/vote.png" class="img-fluid" alt=""></a></li>
+					<li class="list-inline-item"><a href="" class="modal-product" data-id="<?php echo e($item->id); ?>" data-toggle="modal" data-target="#myModal"><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/zoom.png" class="img-fluid" alt=""></a></li>
+					<li class="list-inline-item"><a href=""><img src="<?php echo e(__BASE_URL_FRONTEND__); ?>/images/vote.png" class="img-fluid" alt=""></a></li>
 				</ul>
 			</div>
 		</div>

@@ -10,6 +10,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        \Carbon\Carbon::setLocale(config('app.locale'));
         require_once app_path(). '/Function/function.php';
     }
     /**

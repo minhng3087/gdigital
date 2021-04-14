@@ -54,13 +54,13 @@ class IndexController extends Controller
     {
         $dataContent = Pages::where('type', 'home')->first();
 
-        $products_new = Products::active()->where('is_price_shock', 1)->order()->take(150)->get();
+        $products_new = Products::active()->where('is_new', 1)->order()->take(150)->get();
 
         $products_hot = Products::active()->where('is_hot', 1)->order()->take(24)->get();
 
         $posts_hot = Posts::active()->published()->where('type', 'blog')->order()->where('hot', 1)->take(3)->get();
 
-        return view('frontend.pages.home', compact('dataContent', 'posts_hot', 'products_hot'));
+        return view('frontend.pages.home', compact('dataContent', 'posts_hot', 'products_hot', 'products_new'));
     }
 
     public function getSingleNews($slug) {
@@ -100,7 +100,7 @@ class IndexController extends Controller
     }
 
     public function getNewProduct() {
-        $data    = Products::where('is_price_shock', 1)->paginate(12);
+        $data    = Products::where('is_new', 1)->paginate(12);
         $product_hot = Products::where('is_hot', 1)->inRandomOrder()->take(4)->get();
         $filters = Filter::where('category_id', 0)->orderBy('position', 'ASC')->get();
         return view('frontend.pages.product', compact('data', 'filters','product_hot'));
@@ -186,7 +186,7 @@ class IndexController extends Controller
         }
 
        $data = $dataProduct->get();
-       return view('frontend.components.products.loop-products', compact('data'))->render();
+       return view('frontend.components.products.loop-products', compact('data'));
 
 
     }
@@ -318,6 +318,8 @@ class IndexController extends Controller
 
     public function postCheckOut(Request $request)
     {
+        $this->initMailConfig();
+
         $customer              = new Customers;
         $customer->name        = $request->name;
         $customer->email       = $request->email;

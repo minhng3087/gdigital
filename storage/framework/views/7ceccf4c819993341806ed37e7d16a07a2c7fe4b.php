@@ -9,8 +9,7 @@
        		<input type="hidden" name="id_product" value="<?php echo e(request('id')); ?>">
 			<?php echo csrf_field(); ?>
 			<?php if(isUpdate(@$module['action'])): ?>
-		        <?php echo e(method_field('put')); ?>
-
+		        <?php echo method_field('PUT'); ?>
 		    <?php endif; ?>
 		    <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">

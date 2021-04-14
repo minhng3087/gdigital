@@ -7,9 +7,8 @@
         <div class="box box-primary">
             <div class="box-body">
                	<?php echo $__env->make('backend.components.messages-error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-               	<form action="<?php echo e(route('pages.build.post')); ?>" method="POST">
-					<?php echo e(csrf_field()); ?>
-
+               	<form action="<?php echo e(route('pages.build.post',['page' => $data->type])); ?>" method="POST">
+					<?php echo csrf_field(); ?>
 					<input name="type" value="<?php echo e($data->type); ?>" type="hidden">
 
 					<div class="row">

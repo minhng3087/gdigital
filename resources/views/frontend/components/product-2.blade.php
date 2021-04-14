@@ -3,8 +3,8 @@
 			<a href="{{ route('home.single.product', $item->slug) }}"><img src="{{ @$item->image }}" class="img-fluid" alt="{{ @$item->name }}"></a>
 			<div class="abs">
 				<ul class="list-inline text-center">
-					<li class="list-inline-item"><a href="" class="modal-product" data-id="{{ $item->id }}" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
-					<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/vote.png" class="img-fluid" alt=""></a></li>
+					<li class="list-inline-item"><a href="" class="modal-product" data-id="{{ $item->id }}" data-toggle="modal" data-target="#myModal"><img src="{{__BASE_URL_FRONTEND__}}/images/zoom.png" class="img-fluid" alt=""></a></li>
+					<li class="list-inline-item"><a href=""><img src="{{__BASE_URL_FRONTEND__}}/images/vote.png" class="img-fluid" alt=""></a></li>
 				</ul>
 			</div>
 		</div>

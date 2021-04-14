@@ -109,6 +109,10 @@ class ProductsController extends Controller
                     if ($data->is_flash_sale) {
                         $status = $status . ' <span class="label label-success">Flash sale</span>';
                     }
+
+                    if ($data->is_new) {
+                        $status = $status . ' <span class="label label-success">Mới</span>';
+                    }
                     
                  
 
@@ -168,6 +172,8 @@ class ProductsController extends Controller
         $input['is_flash_sale'] = $request->is_flash_sale == 1 ?? null;
         $sale = !is_null($request->sale_price) && intval($request->sale_price) >= 0 && intval($request->regular_price) >= 0 ? (1 -intval($request->sale_price) / intval($request->regular_price)) * 100 : 0;
         $input['sale'] = $sale;
+        $input['is_new'] = $request->is_new == 1 ?? null;
+
         $input['slug'] = $this->createSlug(str_slug($request->name));
         $input['is_apply_gift'] = $request->is_apply_gift == 1 ?? null;
         $input['content_gift'] = !empty($request->content_gift) ? json_encode( $request->content_gift ) : null;
@@ -228,9 +234,7 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        $data['module'] = array_merge($this->module(),[
-            'action' => 'update'
-        ]);
+        $data['module'] = array_merge($this->module(),['action' => 'update']);
         $data['categories'] = Categories::where('type','product_category')->get();
         $data['brands'] = Categories::where('type','brand_category')->get();
         $data['data'] = Products::findOrFail($id);
@@ -262,6 +266,9 @@ class ProductsController extends Controller
         $input['is_hot'] = $request->hot == 1 ? 1 : null;
 
         $input['is_flash_sale'] = $request->is_flash_sale == 1 ? 1 : null;
+
+        $input['is_new'] = $request->is_new == 1 ? 1 : null;
+
 
         $sale = !is_null($request->sale_price) && intval($request->sale_price) >= 0 && intval($request->regular_price) >= 0 ? (1 -intval($request->sale_price) / intval($request->regular_price)) * 100 : 0;
         

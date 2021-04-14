@@ -3,6 +3,7 @@
         <?php $indexLoop = $loop->index + 2; ?>
         <?php if(!empty($filter->content)) { 
             $content = json_decode($filter->content);
+            dd($content);
         } ?>
         <div class="box-bar">
             <div class="title-bar"><?php echo e($filter->name); ?></div>

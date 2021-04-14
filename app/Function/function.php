@@ -1,6 +1,8 @@
 <?php
 define("__IMAGE_DEFAULT__", asset('public/admin_assets/images/no-image.jpg'));
-define("__BASE_URL__", url('public/frontend'));
+define("__BASE_URL_FRONTEND__", asset('public/frontend'));
+define("__BASE_URL_BACKEND__", asset('public/admin_assets'));
+
 
 use App\Models\Options;
 

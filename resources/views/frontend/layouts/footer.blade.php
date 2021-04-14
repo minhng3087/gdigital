@@ -45,11 +45,11 @@
 								</div>
 								<div class="social">
 									<ul class="list-inline">
-										<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/sc1.png" class="img-fluid" alt=""></a></li>
-										<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/sc2.png" class="img-fluid" alt=""></a></li>
-										<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/sc3.png" class="img-fluid" alt=""></a></li>
-										<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/sc4.png" class="img-fluid" alt=""></a></li>
-										<li class="list-inline-item"><a href=""><img src="{{__BASE_URL__}}/images/sc5.png" class="img-fluid" alt=""></a></li>
+										<li class="list-inline-item"><a href=""><img src="{{__BASE_URL_FRONTEND__}}/images/sc1.png" class="img-fluid" alt=""></a></li>
+										<li class="list-inline-item"><a href=""><img src="{{__BASE_URL_FRONTEND__}}/images/sc2.png" class="img-fluid" alt=""></a></li>
+										<li class="list-inline-item"><a href=""><img src="{{__BASE_URL_FRONTEND__}}/images/sc3.png" class="img-fluid" alt=""></a></li>
+										<li class="list-inline-item"><a href=""><img src="{{__BASE_URL_FRONTEND__}}/images/sc4.png" class="img-fluid" alt=""></a></li>
+										<li class="list-inline-item"><a href=""><img src="{{__BASE_URL_FRONTEND__}}/images/sc5.png" class="img-fluid" alt=""></a></li>
 									</ul>
 								</div>
 							</div>

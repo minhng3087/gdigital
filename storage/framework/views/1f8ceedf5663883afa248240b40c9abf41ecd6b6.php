@@ -379,6 +379,13 @@
 		                            	<input type="checkbox" name="is_flash_sale" value="1" checked> Flash sale
 		                            <?php endif; ?>
 		                        </label>
+								<label class="custom-checkbox">
+									<?php if(isUpdate(@$module['action'])): ?>
+										<input type="checkbox" name="is_new" value="1" <?php echo e(@$data->is_new == 1 ? 'checked' : null); ?>> Mới
+									<?php else: ?>
+		                            	<input type="checkbox" name="is_new" value="1" checked> Mới
+		                            <?php endif; ?>
+		                        </label>
 		                        <label class="custom-checkbox">
 									<?php if(isUpdate(@$module['action'])): ?>
 										<input type="checkbox" name="is_apply_gift" value="1" <?php echo e(@$data->is_apply_gift == 1 ? 'checked' : null); ?>> Kích hoạt quà tặng
@@ -545,7 +552,6 @@
 				jQuery( "#reservation" ).data('daterangepicker').updateCalendars();
 		    <?php endif; ?>
 			$('.nav-tabs-custom li').on('click',function(){
-				console.log(22);
 				var tab_name = $(this).data('tab');
 				$('#active_tab').val(tab_name);
 			})
