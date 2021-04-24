@@ -230,31 +230,22 @@ jQuery(document).ready(function( $ ) {
 var sort_fields = 'date';
 var sort_type = 'desc';
 
-
-
 jQuery(document).ready(function($) {
     $('.filter-check-box').click(function(event) {
-
         setParam($(this));
-
         filterString = getParam();
-
-
         param = { 
             filterString : filterString,
             sort_fields : sort_fields,
             sort_type: sort_type,
         }
         getAjaxProducts(param);
-                
     });
 
     $('#display_fields').change(function(event) {
         display_fields = $(this).find(':selected').data('fields')
         display_count = $(this).val();
-
         filterString = getParam();
-
         param = { 
             filterString : filterString,
             display_count : display_count,
@@ -263,11 +254,7 @@ jQuery(document).ready(function($) {
         }
         getAjaxProducts(param);
     });
-
-   
-
 });
-
 function getAjaxProducts(param) {
     $.ajax({
         url: window.location.origin + '/gdigital/filter-products',
@@ -275,15 +262,12 @@ function getAjaxProducts(param) {
         data: param,
     })
     .done(function(data) {
-        console.log(data);
         if(data != ''){
             $('#list-products').html(data);
         }
     })
 }
-
 function setParam(el) {
-
     idInput = el.data('id');
     type = el.data('type');
     var selected = [];
@@ -295,8 +279,6 @@ function setParam(el) {
     });
     valueInput.val(selected.toString());
 }
-
-
 function getParam() {
     string = '';
     $('.input-param').each(function() {
@@ -305,9 +287,7 @@ function getParam() {
             var type = $(this).data('type');
             string = string+type+':'+param+'&';
         }
-        
     });
-    console.log(string.substring(0, string.length - 1));
     return string.substring(0, string.length - 1);
 }
 

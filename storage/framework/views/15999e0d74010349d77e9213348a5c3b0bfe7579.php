@@ -36,10 +36,9 @@
 										<?php $__currentLoopData = $data->ProductImage()->where('image', '!=', null)->where('type', 'more_image_product')->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 											<div class="clc">
 												<img class="" src="<?php echo e($item->image); ?>" width="100%" alt="<?php echo e($data->name); ?>">
-												</div>
+											</div>
 										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 									<?php endif; ?>
-
 								
                                 </div>
 							</div>

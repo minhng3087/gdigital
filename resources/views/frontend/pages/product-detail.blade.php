@@ -37,10 +37,9 @@
 										@foreach ($data->ProductImage()->where('image', '!=', null)->where('type', 'more_image_product')->get() as $item)
 											<div class="clc">
 												<img class="" src="{{ $item->image }}" width="100%" alt="{{ $data->name }}">
-												</div>
+											</div>
 										@endforeach
 									@endif
-
 								
                                 </div>
 							</div>

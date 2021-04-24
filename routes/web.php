@@ -43,7 +43,7 @@ Route::group(['namespace' => 'Admin'], function () {
 				'except' => ['show'], 
 			]);
             if($route['multi_del'] == true){
-                Route::post( $key.'/postMultiDel', ['as' => $key.'.postMultiDel', 'uses' => ucfirst($key).'Controller@deleteMuti']);
+                Route::post( $key.'/postMultiDel',ucfirst($key).'Controller@deleteMuti')->name($key.'.postMultiDel');
             }
         }
 		// Setting

@@ -17,7 +17,14 @@
 				<i class="fa fa-star"></i>
 				<i class="fa fa-star-o"></i>
 			</div>
-			<div class="price"><span><?php echo e(number_format($item->regular_price,0, '.', '.')); ?>đ</span></div>
+			<?php if($item->sale_price): ?>
+				<div class="price"><span><?php echo e(number_format($item->sale_price,0, '.', '.')); ?>đ</span></div>
+				<div class="price"><del><span><?php echo e(number_format($item->regular_price,0, '.', '.')); ?>đ</span></del></div>
+			<?php else: ?>
+				<div class="price"><span><?php echo e(number_format($item->regular_price,0, '.', '.')); ?>đ</span></div>
+				<div class="price"><span></span></div>
+
+			<?php endif; ?>
 			<div class="btn-add"><a href="">Thêm vào giỏ hàng</a></div>
 		</div>
 </div><?php /**PATH C:\xampp\htdocs\gdigital\resources\views/frontend/components/product-2.blade.php ENDPATH**/ ?>

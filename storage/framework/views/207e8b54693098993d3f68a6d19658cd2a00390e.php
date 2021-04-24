@@ -29,7 +29,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?php echo e(__BASE_URL_BACKEND__); ?>/dist/css/skins/_all-skins.min.css">
-    <link href="<?php echo e(__BASE_URL_BACKEND__); ?>/dist/js/fileinput.min.css'" media="all" rel="stylesheet" type="text/css" />
+    <link href="<?php echo e(__BASE_URL_BACKEND__); ?>/dist/js/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
     
   </head>
   <body class="hold-transition skin-blue sidebar-mini">

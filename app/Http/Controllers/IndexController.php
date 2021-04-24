@@ -154,7 +154,7 @@ class IndexController extends Controller
        $sort_fields = $request->sort_fields;
        $sort_type = $request->sort_type;
        $filterString = $request->filterString;
-       $dataProduct  = Products::active();
+       $dataProduct  = Products::query();
        if(!empty($filterString)) {
            $filterArray = explode('&', $filterString);
            if(!empty($filterArray)) {
@@ -277,20 +277,20 @@ class IndexController extends Controller
                 'id_district' => 'required',
                 'id_ward'     => 'required',
             ],
-                [
-                    'name.required'        => 'Bạn chưa nhập họ tên.',
-                    'name.min'             => 'Họ tên không thể nhỏ hơn 5 ký tự.',
-                    'name.max'             => 'Họ tên không thể lớn hơn 50 ký tự.',
-                    'email.required'       => 'Bạn chưa nhập email.',
-                    'phone.required'       => 'Bạn chưa nhập số điện thoại.',
-                    'email.email'          => 'Email phải là một địa chỉ email hợp lệ.',
-                    'note.max'             => 'Nội dung không thể lớn hơn 300 ký tự.',
-                    'address.required'     => 'Bạn chưa nhập địa chỉ',
-                    'address.max'          => 'Địa chỉ không thể lớn hơn 250 ký tự.',
-                    'id_province.required' => 'Bạn chưa chọn Tỉnh Thành.',
-                    'id_district.required' => 'Bạn chưa chọn Quận Huyện.',
-                    'id_ward.required'     => 'Bạn chưa chọn Phường Xã.',
-                ]);
+            [
+                'name.required'        => 'Bạn chưa nhập họ tên.',
+                'name.min'             => 'Họ tên không thể nhỏ hơn 5 ký tự.',
+                'name.max'             => 'Họ tên không thể lớn hơn 50 ký tự.',
+                'email.required'       => 'Bạn chưa nhập email.',
+                'phone.required'       => 'Bạn chưa nhập số điện thoại.',
+                'email.email'          => 'Email phải là một địa chỉ email hợp lệ.',
+                'note.max'             => 'Nội dung không thể lớn hơn 300 ký tự.',
+                'address.required'     => 'Bạn chưa nhập địa chỉ',
+                'address.max'          => 'Địa chỉ không thể lớn hơn 250 ký tự.',
+                'id_province.required' => 'Bạn chưa chọn Tỉnh Thành.',
+                'id_district.required' => 'Bạn chưa chọn Quận Huyện.',
+                'id_ward.required'     => 'Bạn chưa chọn Phường Xã.',
+            ]);
             $province = DB::table('vn_province')->get();
             return view('frontend.pages.check-out', compact('province', 'jsValidator'));
         }
