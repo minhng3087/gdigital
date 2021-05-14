@@ -40,12 +40,13 @@ Route::group(['namespace' => 'Admin'], function () {
 		
         foreach ($routes as $key => $route) {
             Route::resource($route['name'], ucfirst($key).'Controller', [
-				'except' => ['show'], 
+				'except' => 'show', 
 			]);
             if($route['multi_del'] == true){
                 Route::post( $key.'/postMultiDel',ucfirst($key).'Controller@deleteMuti')->name($key.'.postMultiDel');
             }
         }
+
 		// Setting
 		Route::group(['prefix' => 'options'], function() {
             Route::get('/general', 'SettingController@getGeneralConfig')->name('backend.options.general');

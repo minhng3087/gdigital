@@ -18,7 +18,6 @@
                             <th width="30px">STT</th>
                             <th>Tên thương hiệu</th>
                             <th>Liên kết</th>
-                            <th>Số thứ tự</th>
                             <th>Thao tác</th>
                         </tr>
                     </thead>
@@ -29,7 +28,6 @@
                                 <td><?php echo e($loop->index + 1); ?></td>
                                 <td><?php echo $item->name; ?></td>
                                 <td><a href="<?php echo e(url('thuong-hieu/'.$item->slug)); ?>" target="_blank"><?php echo e(url('thuong-hieu/'.$item->slug)); ?></a></td>
-                                <td><?php echo e($item->order); ?></td>
                                 <td>
                                     <div>
                                         <a href="<?php echo e(route('brand.edit', ['id'=> $item->id ])); ?>" title="Sửa">

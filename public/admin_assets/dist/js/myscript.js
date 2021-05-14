@@ -136,15 +136,12 @@ function urlFileDelete(el) {
 function urlFileMultiDelete(el) {
     $(el).closest('.image__thumbnail').remove();
 }
-function repeater(event, el, url, indexClass, type, table = null) {
+function repeater(event, el, url, indexClass, type) {
     
     event.preventDefault();
     var target = $(el).closest('.repeater').find('table tbody');
-    if (table != null) {
-        var indexs = $(table).find(indexClass);
-    }else{
-        var indexs = $(indexClass).closest('table').find(indexClass);
-    }
+  
+    var indexs = $(indexClass).closest('table').find(indexClass);
 
     var index = indexs.length;
     $.get(url, {index: index + 1, type: type}, function (data) {

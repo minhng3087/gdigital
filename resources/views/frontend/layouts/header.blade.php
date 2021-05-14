@@ -68,14 +68,27 @@
     <div class="header-menu">
         <div class="container">
             <div class="content">
+               
                 <div class="row">
                     <div class="col-md-3">
                         <div class="all-cate">
                             <div class="title-all"><a href="javascript:0"><i class="fa fa-list-ul"></i><span>TẤT CẢ DANH MỤC</span></a></div>
                             <div class="submenu">
                                 <ul>
+
+                                    
                                     @foreach ($menuCategory as $item)
                                     <li><a href="{{ url($item->url) }}"><span><img src="{{ @$item->icon }}" class="img-fluid" alt=""></span>{{ @$item->title }}</a></li>
+                                    {{-- @if(count($item->get_child_cate()))
+                                        @foreach ($item->get_child_cate() as $value) 
+                                            @if($value->type == 'category')
+                                                {{ $value->title }}
+                                            @elseif($value->type == 'brand')
+                                                {{ $value->title }}
+                                            @endif
+                                        @endforeach
+
+                                    @endif --}}
                                     @endforeach
                                 </ul>
                             </div>

@@ -68,14 +68,18 @@
     <div class="header-menu">
         <div class="container">
             <div class="content">
+               
                 <div class="row">
                     <div class="col-md-3">
                         <div class="all-cate">
                             <div class="title-all"><a href="javascript:0"><i class="fa fa-list-ul"></i><span>TẤT CẢ DANH MỤC</span></a></div>
                             <div class="submenu">
                                 <ul>
+
+                                    
                                     <?php $__currentLoopData = $menuCategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <li><a href="<?php echo e(url($item->url)); ?>"><span><img src="<?php echo e(@$item->icon); ?>" class="img-fluid" alt=""></span><?php echo e(@$item->title); ?></a></li>
+                                    
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </ul>
                             </div>

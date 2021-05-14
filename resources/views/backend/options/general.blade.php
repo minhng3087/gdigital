@@ -91,12 +91,6 @@
 									<input type="email" class="form-control" name="content[email_admin]" value="{{ @$content->email_admin }}">
 								</div>
 
-								<div class="form-group">
-									<label class="custom-checkbox">
-										<input type="checkbox" name="content[index_google]" value="1" {{ @$content->index_google == 1 ? 'checked' : null }}> 
-										Cho phép google tìm kiếm
-									</label>
-								</div>
 
 							</div>
 							
@@ -171,17 +165,8 @@
 											<textarea class="content" name="content[col_footer_1][value]">{!! @$content->col_footer_1->value !!}</textarea>
 										</div>
 									</div>
-									<div class="col-sm-4">
-										<label for="" style="text-align: center;display: block;">Cột 2 Footer</label>
-										<div class="form-group">
-											<label for="">Tiêu đề cột</label>
-											<input type="text" class="form-control" value="{{ @$content->col_footer_2->title }}" name="content[col_footer_2][title]">
-										</div>
-										<div class="form-group">
-											<label for="">Nội dung</label>
-											<textarea class="content" name="content[col_footer_2][value]">{!! @$content->col_footer_2->value !!}</textarea>
-										</div>
-									</div>
+								
+									
 									<div class="col-sm-4">
 										<label for="" style="text-align: center;display: block;">Cột 3 Footer</label>
 										<div class="form-group">
@@ -193,6 +178,7 @@
 											<textarea class="content" name="content[col_footer_3][value]">{!! @$content->col_footer_3->value !!}</textarea>
 										</div>
 									</div>
+									
 								</div>
 							</div>
 						</div>

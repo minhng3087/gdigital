@@ -5,7 +5,9 @@
 	<div class="content">
 		<div class="clearfix"></div>
 		<?php echo $__env->make('backend.components.messages-error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-       	<form action="<?php echo e(updateOrStoreRouteRender(@$module['action'], @$module['module'], @$data)); ?>" method="POST">
+       		<form 
+		   	action="<?php echo e(updateOrStoreRouteRender(@$module['action'], @$module['module'], @$data)); ?>" 
+			method="POST">
 			<?php echo csrf_field(); ?>
 			<?php if(isUpdate(@$module['action'])): ?>
 				<?php echo e(method_field('put')); ?>
@@ -76,7 +78,7 @@
 									<?php if(isUpdate(@$module['action'])){
 										$order = old('order', @$data->order);
 									}else{
-										$order = old('order', \App\Models\Categories::where('type', 'brand_category')->count());
+										$order = old('order', \App\Models\Categories::where('type', 'brand_category')->count() + 1);
 									} ?>
 									<label for="">Số thứ tự</label>
 									<input type="number" class="form-control" name="order" value="<?php echo e(@$order); ?>">

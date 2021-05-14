@@ -143,22 +143,22 @@ function checkBoxCategoryName($data, $id, $item, $list_id = null, $name = null)
     }
 }
 
-function dequy($datas)
-{
-    $list_ids = [];
-    foreach ($datas as $data) {
-        $list_ids[] = $data->id;
-        if ($data->get_child_cate()->count() > 0) {
-            $list_ids = array_merge($list_ids, dequy($data->get_child_cate()));
-        }
-    }
-    return $list_ids;
-}
+// function dequy($datas)
+// {
+//     $list_ids = [];
+//     foreach ($datas as $data) {
+//         $list_ids[] = $data->id;
+//         if ($data->get_child_cate()->count() > 0) {
+//             $list_ids = array_merge($list_ids, dequy($data->get_child_cate()));
+//         }
+//     }
+//     return $list_ids;
+// }
 
-function get_list_ids($datas)
-{
-    return $datas ? dequy($datas->get_child_cate()) : null;
-}
+// function get_list_ids($datas)
+// {
+//     return $datas ? dequy($datas->get_child_cate()) : null;
+// }
 
 function getlistcate($data, $id)
 {
@@ -234,7 +234,6 @@ function getOptions($key = null, $field = null, $array = false)
 function isUpdate($method) {
     return (bool) $method == 'update';
 }
-
 function updateOrStoreRouteRender($method, $model, $data) {
     return isUpdate($method) ? route($model . '.update', $data) : route($model. '.store');
 }

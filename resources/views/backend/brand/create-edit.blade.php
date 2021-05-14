@@ -6,7 +6,9 @@
 	<div class="content">
 		<div class="clearfix"></div>
 		@include('backend.components.messages-error')
-       	<form action="{{ updateOrStoreRouteRender(@$module['action'], @$module['module'], @$data) }}" method="POST">
+       		<form 
+		   	action="{{ updateOrStoreRouteRender(@$module['action'], @$module['module'], @$data) }}" 
+			method="POST">
 			@csrf
 			@if(isUpdate(@$module['action']))
 				{{ method_field('put') }}
@@ -76,7 +78,7 @@
 									<?php if(isUpdate(@$module['action'])){
 										$order = old('order', @$data->order);
 									}else{
-										$order = old('order', \App\Models\Categories::where('type', 'brand_category')->count());
+										$order = old('order', \App\Models\Categories::where('type', 'brand_category')->count() + 1);
 									} ?>
 									<label for="">Số thứ tự</label>
 									<input type="number" class="form-control" name="order" value="{{ @$order }}">

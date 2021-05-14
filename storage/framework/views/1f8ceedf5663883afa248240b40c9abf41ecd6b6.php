@@ -39,7 +39,7 @@
 		                    		<div class="col-sm-12">
 		                    			<div class="form-group">
 				                    		<label for="">Tên sản phẩm</label>
-				                    		<input type="text" name="name" id="name" class="form-control" value="<?php echo e(old('name', @$data->name)); ?>">
+				                    		<input type="text" name="name" id="name" class="form-control m" value="<?php echo e(old('name', @$data->name)); ?>">
 				                    	</div>
 										<?php if(isUpdate(@$module['action'])): ?>
 			                                <div class="form-group" id="edit-slug-box">
@@ -99,10 +99,6 @@
 				                    	</div>
 		                    		</div>
 		                    		<div class="col-sm-12">
-										<div class="form-group">
-											<label for="">Bảo hành</label>
-											<input type="text" class="form-control" name="warranty_parameter" value="<?php echo e(@$data->warranty_parameter); ?>">
-										</div>
 		                    			<div class="form-group">
 		                    				<label for="">Mô tả ngắn</label>
 		                    				<textarea class="form-control" rows="5" name="sort_desc"><?php echo e(old('sort_desc', @$data->sort_desc)); ?></textarea>
@@ -123,7 +119,7 @@
 		                    		<div class="col-sm-12">
 		                    			<label for="">Dịch vụ bảo hành thêm</label>	
 										<div class="repeater" id="repeater">
-							                 <table class="table table-bordered table-hover content_services_warranty">
+							                 <table class="table table-bordered table-hover">
 							                    <thead>
 								                    <tr>
 								                    	<th style="width: 30px;">STT</th>
@@ -145,8 +141,7 @@
 												</tbody>
 							                </table>
 							               	<div class="text-right">
-							                    <button class="btn btn-primary" onclick="repeater(event,this,'<?php echo e(route('get.layout')); ?>','.index', 'products-services-warranty',
-							                     '.content_services_warranty')">Thêm</button>
+							                    <button class="btn btn-primary" onclick="repeater(event,this,'<?php echo e(route('get.layout')); ?>','.index', 'products-services-warranty')">Thêm</button>
 						                	</div>
 							            </div>
 						            </div>

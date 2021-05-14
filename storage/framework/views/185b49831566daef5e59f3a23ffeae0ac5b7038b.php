@@ -36,9 +36,7 @@
             </li>
             <!-- Menu Footer-->
             <li class="user-footer">
-              <div class="pull-left">
-                <a href="backend/users/info" class="btn btn-default btn-flat">Thông tin</a>
-              </div>
+              
               <div class="pull-right">
                 <a href="<?php echo e(url('backend/logout')); ?>" class="btn btn-default btn-flat">Thoát</a>
               </div>

@@ -21,7 +21,6 @@
             'except' => $except,
             'multi_del' => true,
         ],
-
         'post' => [
             'name' => 'posts',
             'except' => $except,

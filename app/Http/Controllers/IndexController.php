@@ -28,6 +28,7 @@ use DB;
 use Illuminate\Support\Facades\Mail;
 
 use Carbon\Carbon;
+use \Debugbar;
 
 class IndexController extends Controller
 {
@@ -67,8 +68,9 @@ class IndexController extends Controller
         $data = Posts::active()->published()->where('type', 'blog')->where('slug', $slug)->firstOrFail();
         $data->increment('view_count');
         $posts_hot = Posts::active()->published()->where('type', 'blog')->order()->where('hot', 1)->take(3)->get();
-        $list_category         = $data->category->pluck('id')->toArray();
-        $list_post_related     = PostCategory::whereIn('id_category', $list_category)->get()->pluck('id_post')->toArray();
+        $list_category = $data->category->toArray();
+        Debugbar::info($list_category);
+        $list_post_related = PostCategory::whereIn('id_category', $list_category)->get()->pluck('id_post')->toArray();
         $post_related = Posts::where('id', '!=', $data->id)->where('status', 1)->whereIn('id', $list_post_related)->orderBy('created_at', 'DESC')->take(6)->get();
         
         
@@ -155,6 +157,8 @@ class IndexController extends Controller
        $sort_type = $request->sort_type;
        $filterString = $request->filterString;
        $dataProduct  = Products::query();
+    //    Debugbar::info($dataProduct);
+    //    dd($filterString);
        if(!empty($filterString)) {
            $filterArray = explode('&', $filterString);
            if(!empty($filterArray)) {
@@ -173,7 +177,7 @@ class IndexController extends Controller
                         $attribute_types_id        = explode('-', $param);
                         $array[]                   = $attribute_types_id[1];
                         $list_key                  = explode(',', $value);
-                        $list_id_product_attribute = ProductAttributes::where('id_product_attribute_types', $attribute_types_id[1])->whereIn('key', $list_key)->get()->pluck('id_product')->toArray();
+                        $list_id_product_attribute = ProductAttributes::where('id_product_attribute_types', $attribute_types_id[1])->whereIn('key', $list_key)->pluck('id_product')->toArray();
                         $dataProduct               = $dataProduct->whereIn('id', $list_id_product_attribute);
                     }
                 }

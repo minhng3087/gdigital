@@ -23,7 +23,6 @@
 			                <input type="hidden" name="_token" value="{!! csrf_token() !!}" id="token">
 			                <button class="btn btn-success" type="submit" style="">Cập nhật menu</button>
 			                <button class="btn btn-info" data-toggle="modal" data-target="#addMenu" type="button">Thêm mới</button>
-			                <button class="btn btn-primary" data-toggle="modal" data-target="#createSlugBrand" type="button">Tạo liên kết thương hiệu</button>
 			            </form>
 			        </div>
 			        <div class="col-sm-8">
@@ -173,44 +172,7 @@
 				        </div>
 				    </div>
 			    </div>
-			    <div class="modal" id="createSlugBrand">
-			    	<div class="modal-dialog">
-			            <div class="modal-content">
-			                <div class="modal-header">
-			                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-			                    <h4 class="modal-title">Tạo liên kết danh mục / thương hiệu</h4>
-			                </div>
-			                <div class="modal-body">
-		                        <div class="form-group">
-		                        	<label for="">Danh mục</label>
-		                        	<select class="form-control select2-app" id="categories">
-		                        		<option value="">Danh mục</option>
-		                        		<?php $categories = \App\Models\Categories::where('type', 'product_category')->get(); ?>
-		                        		<?php menuMultiSlug( $categories , 0 , '' ,   null); ?>
-		                        	</select>
-		                        </div>
-		                        <div class="form-group">
-		                        	<label for="">Thương hiệu</label>
-		                        	<?php $brands = \App\Models\Categories::where('type', 'brand_category')->get(); ?>
-		                        	<select class="form-control select2-app" id="brand">
-		                        		<option value="">Thương hiệu</option>
-		                        		@foreach ($brands as $item)
-		                        			<option value="{{ $item->slug }}">{{ $item->name }}</option>
-		                        		@endforeach
-		                        	</select>
-		                        </div>
-		                        <div class="form-group">
-		                        	<label for="">Đường đẫn</label>
-		                        	<input type="text" id="inputCreate" class="form-control">
-		                        </div>
-		                    </div>
-		                    <div class="modal-footer">
-		                        <button type="button" class="btn btn-success" id="createSlug" >Tạo</button>
-		                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-		                    </div>
-			            </div>
-			        </div>
-               	</div>
+			  
            </div>
        	</div>
 	</div>
@@ -264,15 +226,5 @@
             }
         });
     </script>
-    <script>
-    	jQuery(document).ready(function($) {
-    		$('#createSlug').click(function(event) {
-    			var category =	$('#categories').val();
-    			var brand = $('#brand').val();
-    			if(category && brand){
-    				$('#inputCreate').val( '/th/'+category+'/'+brand+'.html' );
-    			}
-    		});
-    	});
-    </script>
+   
 @endsection

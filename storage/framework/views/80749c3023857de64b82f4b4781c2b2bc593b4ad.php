@@ -13,20 +13,20 @@
                         <?php if($filter->type == 'price'): ?>
                             <li>
                                 <input type="radio" id="filter-<?php echo e($key); ?>" name="filter-<?php echo e($indexLoop); ?>" value="<?php echo e($value->min_value.'-'.$value->max_value); ?>" data-type="<?php echo e($filter->type); ?>"
-						 		class="filter-check-box check-box-filter <?php echo e($filter->type); ?>" data-id="input-<?php echo e($filter->type); ?>" data-name="<?php echo e($value->name); ?>" >
+						 		class="filter-check-box <?php echo e($filter->type); ?>" data-id="input-<?php echo e($filter->type); ?>" data-name="<?php echo e($value->name); ?>" >
                                 <label for="filter-<?php echo e($key); ?>"><?php echo e($value->name); ?> </label>
                             </li>
                         <?php elseif($filter->type == 'brand'): ?>
                             <?php $brand = \App\Models\Categories::find($value->brand_id); ?>
                             <li>
                                 <input type="checkbox" id="filter-<?php echo e($key); ?>" name="filter-<?php echo e($indexLoop); ?>" value="<?php echo e($value->brand_id); ?>" data-type="<?php echo e($filter->type); ?>"
-							 	class="filter-check-box check-box-filter <?php echo e($filter->type); ?>" data-id="input-<?php echo e($filter->type); ?>" data-name="<?php echo e($value->name); ?>" >
+							 	class="filter-check-box <?php echo e($filter->type); ?>" data-id="input-<?php echo e($filter->type); ?>" data-name="<?php echo e($value->name); ?>" >
                                 <label for="filter-<?php echo e($key); ?>"><?php echo e($value->name); ?></label>
                             </li>
                         <?php else: ?>
                             <li>
                                 <input type="checkbox" id="filter-<?php echo e($key); ?>" name="filter-<?php echo e($indexLoop); ?>" value="<?php echo e(@$value->value); ?>" data-type="<?php echo e($filter->type); ?>"
-							 	class="filter-check-box check-box-filter <?php echo e($filter->type); ?>" data-id="input-<?php echo e($filter->type); ?>" data-name="<?php echo e(@$value->name); ?>">
+							 	class="filter-check-box <?php echo e($filter->type); ?>" data-id="input-<?php echo e($filter->type); ?>" data-name="<?php echo e(@$value->name); ?>">
                                 <label for="filter-<?php echo e($key); ?>"><?php echo e($value->name); ?> </label>
                             </li>
                         <?php endif; ?>

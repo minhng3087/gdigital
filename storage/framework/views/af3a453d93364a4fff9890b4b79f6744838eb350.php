@@ -15,7 +15,6 @@
 			                <?php echo csrf_field(); ?>
 			                <button class="btn btn-success" type="submit" style="">Cập nhật menu</button>
 			                <button class="btn btn-info" data-toggle="modal" data-target="#addMenu" type="button">Thêm mới</button>
-			                <button class="btn btn-primary" data-toggle="modal" data-target="#createSlugBrand" type="button">Tạo liên kết thương hiệu</button>
 			            </form>
 			        </div>
 			        <div class="col-sm-12">
@@ -33,7 +32,7 @@
 			                                    </a> &nbsp; &nbsp; &nbsp;
 			                                    <a class="text-danger" href="<?php echo route('setting.menu.delete',$item['id']); ?>" onclick="return confirm('Bạn có chắc chắn xóa không ?')" title="Xóa"> <i class="fa fa-trash-o fa-fw"></i> Xóa</a>
 			                                </div>
-			                              
+			                                <?php menuChildren($data, $item->id, $item ) ?>
 			                            </li>
 			                         <?php endif; ?>
 			                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -141,45 +140,7 @@
 			            </div>
 			        </div>
 			    </div>
-			    <div class="modal" id="createSlugBrand">
-			    	 <div class="modal-dialog">
-			            <div class="modal-content">
-			                <div class="modal-header">
-			                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-			                    <h4 class="modal-title">Tạo liên kết danh mục / thương hiệu</h4>
-			                </div>
-			                <div class="modal-body">
-		                        <div class="form-group">
-		                        	<label for="">Danh mục</label>
-		                        	<select class="form-control" id="categories">
-		                        		<option value="">Danh mục</option>
-		                        		<?php $categories = \App\Models\Categories::where('type', 'product_category')->get(); ?>
-		                        		<?php menuMultiSlug( $categories , 0 , '' ,   null); ?>
-		                        	</select>
-		                        </div>
-		                        <div class="form-group">
-		                        	<label for="">Thương hiệu</label>
-		                        	<?php $brands = \App\Models\Categories::where('type', 'brand_category')->get(); ?>
-		                        	<select class="form-control" id="brand">
-		                        		<option value="">Thương hiệu</option>
-		                        		<?php $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-		                        			<option value="<?php echo e($item->slug); ?>"><?php echo e($item->name); ?></option>
-		                        		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-		                        	</select>
-		                        </div>
-		                        <div class="form-group">
-		                        	<label for="">Đường đẫn</label>
-		                        	<input type="text" id="inputCreate" class="form-control">
-		                        </div>
-		                    </div>
-		                    <div class="modal-footer">
-		                        <button type="button" class="btn btn-success" id="createSlug" >Tạo</button>
-		                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-		                    </div>
-			               
-			            </div>
-			        </div>
-			    </div>
+			    
             </div>
         </div>
     </div>
@@ -233,17 +194,7 @@
             }
         });
     </script>
-    <script>
-    	jQuery(document).ready(function($) {
-    		$('#createSlug').click(function(event) {
-    			var category =	$('#categories').val();
-    			var brand = $('#brand').val();
-    			if(category && brand){
-    				$('#inputCreate').val( '/th/'+category+'/'+brand+'.html' );
-    			}
-    		});
-    	});
-    </script>
+   
 <?php $__env->stopSection(); ?>
 
 
